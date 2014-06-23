@@ -11,6 +11,6 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-<p> 현정이 발자국! </p>
+<p> 현정이 발자국!ㅋㅋㅋ </p>
 </body>
 </html>
