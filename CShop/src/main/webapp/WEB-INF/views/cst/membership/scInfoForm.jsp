@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+회원정보 찾기폼
 </body>
 </html>

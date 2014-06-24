@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+비회원, 회원 로그인 성공화면
 </body>
 </html>

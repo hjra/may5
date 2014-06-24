@@ -8,6 +8,7 @@
 </head>
 <body>
 고객 페이지 첫 화면
-<a href="/controller/cst/menu/menuList.do">MENU</a>
+<a href="/controller/cst/menu/menuList.do">MENU</a> <br>
+<a href="../membership/termsForm.do">JOIN</a>
 </body>
 </html>

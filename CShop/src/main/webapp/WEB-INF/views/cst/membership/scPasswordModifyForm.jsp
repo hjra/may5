@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+비번찾기 변경폼
 </body>
 </html>
