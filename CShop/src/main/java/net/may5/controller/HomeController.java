@@ -34,6 +34,13 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
+		
+		
+	}
+	@RequestMapping(value="/cst/home/homeImage.do")
+	public String homeImage(Model model){
+		return "cst/home/homeImage";
+		
 	}
 	
 }
