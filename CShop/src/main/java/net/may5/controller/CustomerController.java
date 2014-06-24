@@ -4,14 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CustomerController {
 
 	/** 고객페이지↓ */
-	/* 고객페이지 첫화면으로 이동 */
-	@RequestMapping("cst/home/homeImage.do")
+	@RequestMapping(value = "cst/home/homeImage.do")
 	public String homeImage(Model model) {
 		return "cst/home/homeImage";
 
