@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ManagerController {
 
 	
-	/* 고객페이지 첫화면으로 이동 */
+	/* 관리자페이지 첫화면으로 이동 */
 	@RequestMapping(value ="mng/loginMng/loginForm.do")
 	public String loginForm(Model model) {
 		return "mng/loginMng/loginForm";
