@@ -12,6 +12,8 @@ public class ManagerController {
 	@RequestMapping(value ="mng/loginMng/loginForm.do")
 	public String loginForm(Model model) {
 		return "mng/loginMng/loginForm";
+		
+		// test
 
 	}
 }
