@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CustomerController {
 
 	/** 고객페이지↓ */
-	@RequestMapping(value = "cst/home/homeImage.do")
+	@RequestMapping(value = "/cst/home/homeImage.do")
 	public String homeImage(Model model) {
 		return "cst/home/homeImage";
 
