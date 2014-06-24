@@ -8,9 +8,34 @@
 </head>
 <body>
 메뉴리스트입니다.
-<form action="menuInfo.do?">
 
+<form action="menuInfo.do?itemId=" name="menuListtoInfo">
+<table border="1px" bordercolor="grey">
+<tr>
+<td>1호케익</td>
+<td><input type="button" value="생크림 딸기 딸기 딸기" onclick="location.href='/controller/cst/menu/menuInfo.do'"></td>
+<td>초코크림 딸기 딸기 딸기</td>
+<td>생크림 딸기 딸기 바나나</td>
+</tr>
+<tr>
+<td>초코크림 딸기 딸기 바나나</td>
+<td>생크림 딸기 딸기 포도</td>
+<td>초코크림 딸기 딸기 포도</td>
+<td>생크림 딸기 바나나 바나나</td>
+</tr>
 
+<tr>
+<td>초코크림 딸기 바나나 바나나</td>
+<td>생크림 딸기 바나나 포도</td>
+<td>초코크림 딸기 바나나 포도</td>
+<td>생크림 딸기 포도 포도</td>
+</tr>
+
+<tr>
+<td>초코크림 딸기 포도 포도</td>
+</table>
 </form>
+
+
 </body>
 </html>
