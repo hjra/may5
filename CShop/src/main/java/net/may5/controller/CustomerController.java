@@ -16,22 +16,41 @@ public class CustomerController {
 	}
 	
 	/* 회원가입 동의폼으로 이동 */
-	@RequestMapping(value="cst/membership/termsForm.do"
-			,method=RequestMethod.GET)
-	public String termsForm(/*@RequestParam String receiveMail,*/ Model model){
-		
+	@RequestMapping("cst/membership/termsForm.do")
+	public String termsForm(Model model){
 		return "cst/membership/termsForm";
 	}
 	
 	/* 회원가입 입력폼으로 이동 */
+	@RequestMapping(value="cst/membership/joinForm.do"
+			, method=RequestMethod.POST)
+	public String joinForm(/*@RequestParam String receiveMail,*/ Model model){
+	//	이벤트메일수신 동의여부 가져가기
+		return "cst/membership/joinForm";
+	}
 	
 	/* 회원가입 성공화면으로 이동 */
+	@RequestMapping(value="cst/membership/joinOk.do"
+			, method=RequestMethod.POST)
+	public String joinSuccess(Model model){
+	//	고객정보 DB에 insert
+		return "cst/membership/joinOk";
+	}
 	
 	/* 로그인 입력폼으로 이동 */
+	@RequestMapping("cst/membership/loginForm.do")
+	public String loginForm(Model model){
+		return "cst/membership/loginForm";
+	}
 	
 	/* 회원 로그인 성공화면으로 이동 */
-	
 	/* 비회원 로그인 성공화면으로 이동 */
+	@RequestMapping(value="cst/membership/loginProcess.do"
+			, method=RequestMethod.POST)
+	public String loginProcess(Model model){
+		return "cst/membership/loginOk";
+	}
+	
 	
 	/* 회원정보 찾기폼으로 이동 */
 	
