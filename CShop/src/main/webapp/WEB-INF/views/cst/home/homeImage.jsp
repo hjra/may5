@@ -8,5 +8,6 @@
 </head>
 <body>
 고객 페이지 첫 화면
+<a href="/controller/cst/menu/menuList.do">MENU</a>
 </body>
 </html>

@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+메뉴리스트입니다.
+<form action="menuInfo.do?">
 
+
+</form>
 </body>
 </html>
