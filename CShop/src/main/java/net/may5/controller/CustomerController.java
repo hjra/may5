@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CustomerController {
 
 	
-	/* 고객페이지 첫화면으로 이동 33333 */
+	/* 고객페이지 첫화면으로 이동 */
 	@RequestMapping(value = "cst/home/homeImage.do")
 	public String homeImage(Model model) {
 		return "cst/home/homeImage";
