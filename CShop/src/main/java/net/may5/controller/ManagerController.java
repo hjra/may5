@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ManagerController {
 
 	
-	/* °ü¸®ÀÚÆäÀÌÁö Ã¹ È­¸éÀ¸·Î ÀÌµ¿ */
+	/* ê´€ë¦¬ìí˜ì´ì§€ ì²« í™”ë©´ìœ¼ë¡œ ì´ë™ */
 	@RequestMapping(value ="mng/loginMng/loginForm.do")
 	public String loginForm(Model model) {
 		return "mng/loginMng/loginForm";
