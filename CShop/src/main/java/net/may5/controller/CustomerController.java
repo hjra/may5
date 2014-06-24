@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class CustomerController {
 
 	
-	/* 고객페이지 첫화면으로 이동 */
+	/* 고객페이지 첫화면으로 이동 test222 */
 	@RequestMapping(value = "cst/home/homeImage.do")
 	public String homeImage(Model model) {
 		return "cst/home/homeImage";
