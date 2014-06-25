@@ -10,6 +10,7 @@
 <body>
 	주문정보조회
 	<br>
+	<hr />
 	<f:form action="../orderInfoMng/orderListMng.do">
 		<input type="submit" value="Test">
 	</f:form>

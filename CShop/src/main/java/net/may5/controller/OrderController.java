@@ -8,12 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class OrderController {
 	/** 고객페이지 ↓ */
-	/* 주문내역 */
-	@RequestMapping(value = "cst/order/orderList.do")
-	public String oderList(Model model) {
-		return "cst/order/orderList";
+	/* 예약주문 */
+	@RequestMapping(value = "cst/order/advanceOrder.do")
+	public String advanceOrder(Model model) {
+		return "cst/order/advanceOrder";
 	}
 	
+	/* 주문상세 */
+	@RequestMapping(value = "cst/order/orderDetail.do")
+	public String orderDetail(Model model){
+		return "cst/order/orderDetail";
+	}
 	
 	
 	/** 관리자페이지↓ */

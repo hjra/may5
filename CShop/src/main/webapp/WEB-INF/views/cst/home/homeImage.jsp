@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>고객페이지첫화면</title>
 </head>
 <body>
 	고객 페이지 첫 화면
 	<br>
 	<a href="/controller/cst/menu/menuList.do">MENU</a>
 	<br>
-	<a href="../order/orderList.do">ORDER</a>
+	<a href="../order/advanceOrder.do">ORDER</a>
 	<br>
 	<a href="../membership/termsForm.do">JOIN</a>
 	<br>
