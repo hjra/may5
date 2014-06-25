@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CustomerController {
 
 	/** 고객페이지↓ */
+	/* 고객페이지로 이동 */
 	@RequestMapping(value = "/cst/home/homeImage.do")
 	public String homeImage(Model model) {
 		return "cst/home/homeImage";
@@ -138,4 +139,14 @@ public class CustomerController {
 	
 	
 	/** 관리자페이지↓ */
+	/* 전체고객정보 화면으로 이동 */
+	@RequestMapping("mng/cstInfo/allMemberInfoForm.do")
+	public String allMemberInfoForm(Model model){
+		return "mng/cstInfo/allMemberInfoForm";
+	}
+	
+	/* */
+	
+	/* */
+	
 }
