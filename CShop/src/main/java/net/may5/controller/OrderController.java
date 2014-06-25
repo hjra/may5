@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 @Controller
 public class OrderController {
-	
 	/** 고객페이지 ↓ */
 	/* 주문내역 */
 	@RequestMapping(value = "cst/order/orderList.do")
@@ -14,10 +14,7 @@ public class OrderController {
 		return "cst/order/orderList";
 	}
 	
-	/*  */
-	/*  */
-	/*  */
-	/*  */
+	
 	
 	/** 관리자페이지↓ */
 	/* 주문정보화면으로 이동 */

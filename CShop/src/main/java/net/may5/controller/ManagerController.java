@@ -29,7 +29,7 @@ public class ManagerController {
 		return "mng/manager/managerInfo"; // 실제 JSP 경로		
 	}
 	
-	/* 직원정보 생성/수정페이지으로 이동 */
+	/* 직원정보  생성/수정페이지으로 이동 */
 	@RequestMapping(value="mng/manager/managerEdit.do"
 			,method=RequestMethod.POST)	
 	public String managerEdit(Model model){
