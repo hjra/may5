@@ -18,9 +18,12 @@
 <br>
 <a href="../deliveryMng/dlvNotice.do">알리미</a>
 <br>
-<a href="../menuMng/menuInfoMng.do">상품관리</a>
+<a href="../menuMng/menuListMng.do">상품관리</a>
 <br>
+<!-- 배송정보 넣는 자리 -->
 <a href="../manager/managerInfo.do">직원정보</a>
+<br>
+<a href="../statistics/dailyReport.do">통계</a>
 <br>
 </body>
 </html>
