@@ -8,5 +8,6 @@
 </head>
 <body>
 
+게시판.jsp로 이동완료
 </body>
 </html>

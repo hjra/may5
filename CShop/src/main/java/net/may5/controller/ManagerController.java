@@ -20,7 +20,21 @@ public class ManagerController {
 			, method=RequestMethod.POST)
 	public String loginProcess(Model model){
 		
-		return "mng/loginMng/loginOk"; // 실제 JSP 경로
+		return "mng/loginMng/loginOk"; // 실제 JSP 경로			
+	}
+	
+	/* 직원정보페이지으로 이동 */
+	@RequestMapping("mng/manager/managerInfo.do")	
+	public String managerInfo(Model model){
+		return "mng/manager/managerInfo"; // 실제 JSP 경로		
+	}
+	
+	/* 직원정보 생성/수정페이지으로 이동 */
+	@RequestMapping(value="mng/manager/managerEdit.do"
+			,method=RequestMethod.POST)	
+	public String managerEdit(Model model){
+		//데이터를 넘길 것들
+		return "mng/manager/managerEdit"; // 실제 JSP 경로		
 	}
 	
 }

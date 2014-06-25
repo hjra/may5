@@ -11,6 +11,8 @@
 	<br>
 	<a href="/controller/cst/menu/menuList.do">MENU</a>
 	<br>
+	<a href="../order/orderList.do">ORDER</a>
+	<br>
 	<a href="../membership/termsForm.do">JOIN</a>
 	<br>
 	<a href="../membership/myPage.do">MY C#</a>
