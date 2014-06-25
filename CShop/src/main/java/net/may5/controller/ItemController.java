@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ItemController {
+	
+	/** 고객페이지↓ */
 	/* 메뉴상세정보로 이동 */
 	@RequestMapping(value = "cst/menu/menuInfo.do")
 	public String menuInfo(Model model, String itemId, String itemName) {
@@ -14,5 +16,14 @@ public class ItemController {
 		model.addAttribute("itemId", itemId);
 		model.addAttribute("itemName", itemName);
 		return "cst/menu/menuInfo";
+	}
+	
+	
+	
+	/** 관리자페이지↓ */
+	/* 상품관리로 이동 */
+	@RequestMapping(value="mng/menuMng/menuListMng.do")
+	public String menuListMng(Model model){
+		return "mng/menuMng/menuListMng";
 	}
 }
