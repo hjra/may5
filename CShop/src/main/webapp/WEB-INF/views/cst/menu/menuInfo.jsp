@@ -7,6 +7,14 @@
 <title>메뉴 상세 정보</title>
 </head>
 <body>
+	<label>
+		아이템 아이디 <input value="${itemId }">
+	</label>
+	<label>
+		아이템 이름 <input value="${itemName }">
+	</label>
+	
+	
 무슨 메뉴 일까요
 이미지, 이름, 가격, 칼로리, 상세정보, 썸네일이미지, 평점 및 댓글
 </body>

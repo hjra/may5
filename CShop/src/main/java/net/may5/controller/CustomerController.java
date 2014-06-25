@@ -75,6 +75,15 @@ public class CustomerController {
 	public String menuList(Model model){
 		return "cst/menu/menuList";
 	}
+	@RequestMapping(value="cst/menu/menuInfo.do")
+	public String menuInfo(Model model, String itemId){
+		// 2. 디비에서 쿼리 날려 데이터 알아오기
+		
+		// 3. 뷰에 내용 전달하기
+		model.addAttribute("itemId", itemId);
+		model.addAttribute("itemName", "Cake!");
+		return "cst/menu/menuInfo";
+	}
 	/*  */
 	
 	
