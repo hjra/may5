@@ -9,7 +9,10 @@
 <body>
 로그인 성공화면
 <br>
-<a href="../cstInfo/allMemberInfoForm.do">고객정보</a>
+<a href="../cstInfo/allMemberInfoForm.do">고객정보</a> | 
+<a href="../cstInfo/vipListForm.do">VIP LIST</a> | 
+<a href="../cstInfo/blackListForm.do">관심고객리스트</a> | 
+<a href="../cstInfo/managerQnA.do">QnA관리</a>
 <br>
 <a href="../orderInfoMng/orderListMng.do">주문관리</a>
 <br>

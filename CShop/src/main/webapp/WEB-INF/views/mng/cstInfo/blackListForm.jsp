@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+관심고객리스트 화면
 </body>
 </html>

@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+VIP LIST 화면
 </body>
 </html>
