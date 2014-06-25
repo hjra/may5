@@ -11,6 +11,8 @@
 <br>
 <a href="../cstInfo/allMemberInfoForm.do">고객정보</a>
 <br>
+<a href="../orderInfoMng/orderListMng.do">주문관리</a>
+<br>
 <a href="../menuMng/menuInfoMng.do">상품관리</a>
 </body>
 </html>
