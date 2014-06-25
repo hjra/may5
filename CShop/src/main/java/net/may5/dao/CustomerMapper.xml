@@ -4,6 +4,8 @@
 
 <mapper namespace="net.may5.dao.CustomerMapper">
    
-
+	<select id="getAllCustomerCount" resultType="int">
+		select count(*) from customer
+	</select>
 	
 </mapper>

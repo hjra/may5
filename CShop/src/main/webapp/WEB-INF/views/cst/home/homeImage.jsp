@@ -44,7 +44,7 @@
 	<div class="chome content">
 		<div class="home">
 			<h1>HOME</h1>
-			<a href="../membership/termsForm.do">JOIN</a> <a
+			<a href="../membership/termsForm.do">JOIN ${count}</a> <a
 				href="../membership/myPage.do">MY C#</a> <a
 				href="../membership/calendar.do">CALENDAR</a>
 

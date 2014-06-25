@@ -1,5 +1,8 @@
 package net.may5.controller;
 
+import net.may5.service.CustomerService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,11 +11,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class CustomerController {
-
+	
+	@Autowired
+	private CustomerService customerService;
+	
 	/** 고객페이지↓ */
 	/* 고객페이지로 이동 */
 	@RequestMapping(value = "/cst/home/homeImage.do")
 	public String homeImage(Model model) {
+		model.addAttribute("count", customerService.getAllCustomerCount());
 		return "cst/home/homeImage";
 	}
 	
