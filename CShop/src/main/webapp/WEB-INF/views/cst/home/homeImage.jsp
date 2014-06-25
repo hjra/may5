@@ -3,13 +3,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>고객페이지첫화면</title>
+
 <title>HTML5, CSS3 and JavaScript demo</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=2">
 <link href="/controller/resources/css/web.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="/controller/resources/js/web.js"></script>
+
 </head>
+
 <body>
 	<header class="cshopmain">
 		<div class="chome">
@@ -83,13 +89,14 @@
 		</div>
 		<div class="order">
 			<h1>ORDER</h1>
-			<a href="../membership/termsForm.do">JOIN</a>
+			<a href="../order/advanceOrder.do">ORDER</a>
 		</div>
 		<div class="about">
 			<h1>ABOUT</h1>
 
 		</div>
 	</div>
+
 
 </body>
 </html>

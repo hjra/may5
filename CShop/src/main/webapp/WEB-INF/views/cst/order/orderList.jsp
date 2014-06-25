@@ -8,10 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-주문상세페이지<br>
-	<f:form action="../order/oderDetail.do" method="post">
-	<input type="submit" value="Test">
-	</f:form>
-	<a href="../home/homeImage.do">취소</a>
+주문내역페이지<br>
+	
+	
 </body>
 </html>
