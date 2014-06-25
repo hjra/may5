@@ -1,22 +1,24 @@
 package net.may5.dto;
 
+import java.sql.Date;
+
 public class Customer {
 
 	private String cstId;					// 회원아이디
 	private String cstName;					// 이름
 	private String cstPassword;				// 비밀번호
-	private String zipcode;					// 우편정보.우편코드
+	private String zipCode;					// 우편정보.우편코드
 	private String cstDetailAddress;		// 상세주소
 	private String cstCP;					// 휴대폰번호
 	private String cstEmail;				// E-mail
 	private String cstGender;				// 성별
-	private String cstBirthday;				// 생일
+	private Date cstBirthday;				// 생일
 	private String cstEmailAgreement;		// E-mail 수신 동의
 	private String cstQnAPermission;		// Q&A 쓰기
 	private String cstEvaluationPermission;	// 평가 쓰기
-	private String cstJoinDate;				// 가입일
-	private String cstLastVisitDate;		// 최종방문일
-	private String cstPostCount;			// 게시글 수
+	private Date cstJoinDate;				// 가입일
+	private Date cstLastVisitDate;			// 최종방문일
+	private int cstPostCount;				// 게시글 수
 	private String levelCode;				// 고객등급.등급코드
 	
 	public String getCstId() {
@@ -38,10 +40,10 @@ public class Customer {
 		this.cstPassword = cstPassword;
 	}
 	public String getZipcode() {
-		return zipcode;
+		return zipCode;
 	}
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
+	public void setZipcode(String zipCode) {
+		this.zipCode = zipCode;
 	}
 	public String getCstDetailAddress() {
 		return cstDetailAddress;
@@ -67,10 +69,10 @@ public class Customer {
 	public void setCstGender(String cstGender) {
 		this.cstGender = cstGender;
 	}
-	public String getCstBirthday() {
+	public Date getCstBirthday() {
 		return cstBirthday;
 	}
-	public void setCstBirthday(String cstBirthday) {
+	public void setCstBirthday(Date cstBirthday) {
 		this.cstBirthday = cstBirthday;
 	}
 	public String getCstEmailAgreement() {
@@ -91,22 +93,22 @@ public class Customer {
 	public void setCstEvaluationPermission(String cstEvaluationPermission) {
 		this.cstEvaluationPermission = cstEvaluationPermission;
 	}
-	public String getCstJoinDate() {
+	public Date getCstJoinDate() {
 		return cstJoinDate;
 	}
-	public void setCstJoinDate(String cstJoinDate) {
+	public void setCstJoinDate(Date cstJoinDate) {
 		this.cstJoinDate = cstJoinDate;
 	}
-	public String getCstLastVisitDate() {
+	public Date getCstLastVisitDate() {
 		return cstLastVisitDate;
 	}
-	public void setCstLastVisitDate(String cstLastVisitDate) {
+	public void setCstLastVisitDate(Date cstLastVisitDate) {
 		this.cstLastVisitDate = cstLastVisitDate;
 	}
-	public String getCstPostCount() {
+	public int getCstPostCount() {
 		return cstPostCount;
 	}
-	public void setCstPostCount(String cstPostCount) {
+	public void setCstPostCount(int cstPostCount) {
 		this.cstPostCount = cstPostCount;
 	}
 	public String getLevelCode() {
@@ -118,7 +120,7 @@ public class Customer {
 	@Override
 	public String toString() {
 		return "Customer [cstId=" + cstId + ", cstName=" + cstName
-				+ ", cstPassword=" + cstPassword + ", zipcode=" + zipcode
+				+ ", cstPassword=" + cstPassword + ", zipCode=" + zipCode
 				+ ", cstDetailAddress=" + cstDetailAddress + ", cstCP=" + cstCP
 				+ ", cstEmail=" + cstEmail + ", cstGender=" + cstGender
 				+ ", cstBirthday=" + cstBirthday + ", cstEmailAgreement="
@@ -159,14 +161,13 @@ public class Customer {
 		result = prime * result + ((cstName == null) ? 0 : cstName.hashCode());
 		result = prime * result
 				+ ((cstPassword == null) ? 0 : cstPassword.hashCode());
-		result = prime * result
-				+ ((cstPostCount == null) ? 0 : cstPostCount.hashCode());
+		result = prime * result + cstPostCount;
 		result = prime
 				* result
 				+ ((cstQnAPermission == null) ? 0 : cstQnAPermission.hashCode());
 		result = prime * result
 				+ ((levelCode == null) ? 0 : levelCode.hashCode());
-		result = prime * result + ((zipcode == null) ? 0 : zipcode.hashCode());
+		result = prime * result + ((zipCode == null) ? 0 : zipCode.hashCode());
 		return result;
 	}
 	@Override
@@ -239,10 +240,7 @@ public class Customer {
 				return false;
 		} else if (!cstPassword.equals(other.cstPassword))
 			return false;
-		if (cstPostCount == null) {
-			if (other.cstPostCount != null)
-				return false;
-		} else if (!cstPostCount.equals(other.cstPostCount))
+		if (cstPostCount != other.cstPostCount)
 			return false;
 		if (cstQnAPermission == null) {
 			if (other.cstQnAPermission != null)
@@ -254,11 +252,12 @@ public class Customer {
 				return false;
 		} else if (!levelCode.equals(other.levelCode))
 			return false;
-		if (zipcode == null) {
-			if (other.zipcode != null)
+		if (zipCode == null) {
+			if (other.zipCode != null)
 				return false;
-		} else if (!zipcode.equals(other.zipcode))
+		} else if (!zipCode.equals(other.zipCode))
 			return false;
 		return true;
 	}
+	
 }
