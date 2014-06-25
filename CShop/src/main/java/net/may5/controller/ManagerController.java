@@ -23,5 +23,4 @@ public class ManagerController {
 		return "mng/loginMng/loginOk"; // 실제 JSP 경로
 	}
 	
-	
 }

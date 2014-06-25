@@ -7,12 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-로그인 성공화면
-<br>
-<a href="../cstInfo/allMemberInfoForm.do">고객정보</a>
-<br>
-<a href="../orderInfoMng/orderListMng.do">주문관리</a>
-<br>
-<a href="../menuMng/menuInfoMng.do">상품관리</a>
+CALENADR 화면
 </body>
 </html>
