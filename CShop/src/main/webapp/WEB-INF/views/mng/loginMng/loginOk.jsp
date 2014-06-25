@@ -13,6 +13,11 @@
 <br>
 <a href="../orderInfoMng/orderListMng.do">주문관리</a>
 <br>
+<a href="../deliveryMng/dlvNotice.do">알리미</a>
+<br>
 <a href="../menuMng/menuInfoMng.do">상품관리</a>
+<br>
+<a href="../manager/managerInfo.do">직원정보</a>
+<br>
 </body>
 </html>
