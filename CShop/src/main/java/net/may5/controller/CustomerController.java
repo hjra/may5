@@ -145,8 +145,16 @@ public class CustomerController {
 		return "mng/cstInfo/allMemberInfoForm";
 	}
 	
-	/* */
+	/* VIP LIST 화면으로 이동 */
+	@RequestMapping("mng/cstInfo/vipListForm.do")
+	public String vipListForm(Model model){
+		return "mng/cstInfo/vipListForm";
+	}
 	
-	/* */
+	/* 관심고객리스트 화면으로 이동 */
+	@RequestMapping("mng/cstInfo/blackListForm.do")
+	public String blackListForm(Model model){
+		return "mng/cstInfo/blackListForm";
+	}
 	
 }
