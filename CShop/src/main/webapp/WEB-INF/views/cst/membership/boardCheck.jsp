@@ -8,11 +8,13 @@
 </head>
 <body>
 게시글의 암호체크페이지 입니다.
-<p>비밀번호: <td><input type="password" name="passwd" size="20"></td>
+<p>비밀번호: <input type="password" name="passwd" size="20">
 
-<p><f:form action="../membership/boardCheck.do" method="Post">
-		<input type="submit" value="입력완료">
+<p><f:form action="../membership/boardEdit.do" method="Post">
+	<input type="submit" value="입력완료">
 	</f:form>
- 
+	
+	
+<!--  <P><a href="../membership/boardEdit.do">게시글 수정페이지</a> -->
 </body>
 </html>

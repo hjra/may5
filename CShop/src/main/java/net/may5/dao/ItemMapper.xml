@@ -9,9 +9,16 @@
 		select * from item where itemId=#{itemId}
 	</select>
 
+	<select id="getSizeInfo" resultType="SizeInfo">
+		select * from sizeInfo where sizeCode=#{sizeCode}
+	</select>
 
 	<select id="getItemCount" resultType="int">
 		select count(*) from item
 	</select>
-
-</mapper>
+	
+	<select id="getItemList" resultType="Item">
+		select itemId, itemName from item
+	</select>
+	
+	</mapper>

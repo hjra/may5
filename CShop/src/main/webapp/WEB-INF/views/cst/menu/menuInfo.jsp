@@ -16,8 +16,7 @@
 	</label>
 	<br>
 	<label>
-	아이템  :
-	<br>${item}
+		아이템  가격 <input value="${sizeCode.price}">
 	</label>
 	<br>
 	<label>
@@ -30,4 +29,5 @@
 무슨 메뉴 일까요
 이미지, 이름, 가격, 칼로리, 상세정보, 썸네일이미지, 평점 및 댓글
 </body>
+
 </html>

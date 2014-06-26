@@ -15,10 +15,21 @@ public class ItemController {
 	
 	
 	/** 고객페이지↓ */
+	
+	
+	
+	/* 메뉴리스트로 이동*/
+	@RequestMapping(value="cst/menu/menuList.do")
+	public String menuList(Model model){
+		model.addAttribute("itemList", itemService.getItemList());
+		return "cst/menu/menuList";
+	}
+	
 	/* 메뉴상세정보로 이동 */
 	@RequestMapping(value = "cst/menu/menuInfo.do")
-	public String menuInfo(Model model, String itemId) {
+	public String menuInfo(Model model, String itemId, String sizeCode) {
 		model.addAttribute("item", itemService.getItems(itemId));
+		model.addAttribute("sizeCode", itemService.getSizeInfo(sizeCode));
 		// 2. 디비에서 쿼리 날려 데이터 알아오기
 		// 3. 뷰에 내용 전달하기
 		
