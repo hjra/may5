@@ -1,9 +1,9 @@
 package net.may5.dao;
 
-import net.may5.dto.Order;
+import net.may5.dto.Orders;
 
 public interface OrderMapper {
 	
-	Order orderAlimi(String cstId);
+	Orders orderAlimi(String cstId);
 
 }
