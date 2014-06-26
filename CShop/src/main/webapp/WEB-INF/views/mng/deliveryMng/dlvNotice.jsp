@@ -24,8 +24,7 @@
 		<input type="submit" value="조회" />
 	
 
-	<table class="board" border="1" cellspacing="0"
-		summary="게시판의 글제목 리스트">
+	<table class="board" border="1" cellspacing="0"  >
 
 		<caption></caption>
 		<colgroup>
@@ -52,7 +51,7 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td class="dnumber">번호 </td>
+				<td class="dnumber" >번호 </td>
 				<td class="dlevelCode">고객등급 ${order.levelCode}</td>
 				<td class="dcstId">아이디  ${order.cstId}</td>
 				<td class="dorderCode">주문번호  ${order.orderCode}</td>
