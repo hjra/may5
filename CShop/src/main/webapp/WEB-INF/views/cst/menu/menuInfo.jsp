@@ -20,7 +20,8 @@
 	</label>
 	<br>
 	<label>
-		아이템 인포 <input value="${item.itemInfo}">
+	아이템 인포 :
+	<br>${item.itemInfo}
 	</label>
 	<br>
 	<br>

@@ -38,7 +38,7 @@ a.cake {
 	</ul>
 	<ul>
 	<c:forEach var="item" items="${itemList }">
-	${item }
+	${item}
 	</c:forEach>
 	</ul>
 	
