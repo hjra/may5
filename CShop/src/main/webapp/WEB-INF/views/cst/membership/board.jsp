@@ -9,5 +9,9 @@
 <body>
 
 게시판.jsp로 이동완료
+<P><a href="../membership/boardCheck.do">(게시판 글 제목3)</a>
+<P><a href="../membership/boardCheck.do">(게시판 글 제목2)</a>
+<P><a href="../membership/boardCheck.do">(게시판 글 제목1)</a>
+
 </body>
 </html>
