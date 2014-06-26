@@ -3,15 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>고객페이지첫화면</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=2">
 <link href="/controller/resources/css/web.css" rel="stylesheet">
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="/controller/resources/js/web.js"></script>
-
 </head>
 
 <body>
