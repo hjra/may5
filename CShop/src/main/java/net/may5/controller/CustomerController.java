@@ -140,12 +140,7 @@ public class CustomerController {
 	public String calendar(Model model){
 		return "cst/membership/calendar";
 	}
-	
-	/* 메뉴리스트로 이동*/
-	@RequestMapping(value="cst/menu/menuList.do")
-	public String menuList(Model model){
-		return "cst/menu/menuList";
-	}
+
 	
 	
 	

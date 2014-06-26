@@ -16,11 +16,11 @@
 	</label>
 	<br>
 	<label>
-	아이템  가격 <input value="${sizeCode.price}">
+		아이템  가격 <input value="${sizeCode.price}">
 	</label>
 	<br>
 	<label>
-	아이템 인포 <input value="${item.itemInfo}">
+		아이템 인포 <input value="${item.itemInfo}">
 	</label>
 	<br>
 	<br>
