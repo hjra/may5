@@ -3,7 +3,7 @@ package net.may5.dto;
 import java.sql.Date;
 
 public class Order {
-
+	
 	private String orderCode;			// 주문코드
 	private Date orderDate;				// 주문날짜(sysdate)
 	private String itemId;				// 상품정보.상품ID
