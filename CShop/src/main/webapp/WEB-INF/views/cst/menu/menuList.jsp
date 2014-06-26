@@ -31,9 +31,9 @@ a.cake {
 		<li><a href="menuInfo.do?itemId=${itemId}">${itemName}</a></li>
 		 for each end-->
 		 <li><label>1호 케익입니다.</label>
-		<li><a class=cake href="menuInfo.do?itemId=s1sss&itemName=생크림딸기딸기딸기케익">생크림 딸기딸기딸기 케익</a></li>
-		<li><a class=cake href="menuInfo.do?itemId=s2sss&itemName=초코크림딸기딸기딸기케익">초코크림 딸기딸기딸기 케익</a></li>
-		<li><a class=cake href="menuInfo.do?itemId=s1ssb&itemName=생크림딸기딸기바나나케익">생크림 딸기딸기 바나나 케익</a></li>
+		<li><a class=cake href="menuInfo.do?itemId=S1SSS&sizeCode=S">생크림 딸기딸기딸기 케익</a></li>
+		<li><a class=cake href="menuInfo.do?itemId=S2SSS&sizeCode=S">초코크림 딸기딸기딸기 케익</a></li>
+		<li><a class=cake href="menuInfo.do?itemId=S1SSB&sizeCode=S">생크림 딸기딸기 바나나 케익</a></li>
 
 
 	</ul>
@@ -64,4 +64,5 @@ a.cake {
 <!-- 		<tr> -->
 <!-- 			<td>초코크림 딸기 포도 포도</td> -->
 <!-- 		</tr> -->
+
 <!-- 	</table> -->

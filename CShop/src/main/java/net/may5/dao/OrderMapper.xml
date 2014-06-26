@@ -6,7 +6,7 @@
    
    <!-- 관리자페이지↓ -->
    <!-- 알리미  -->
-<select id="alimi" parameterType="string" resultType="Order">
+<select id="alimi" parameterType="string" resultType="Orders">
 	select levelCode, cstId, orderCode from order where cstId = #{cstId}
 </select>
 
