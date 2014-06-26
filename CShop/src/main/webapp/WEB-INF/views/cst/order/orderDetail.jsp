@@ -9,14 +9,14 @@
 </head>
 <body>
 <h1>주문상세페이지</h1>
-<f:form action="" method="post">
+<f:form action="../order/advanceOrderPayment.do" method="post">
 	<fieldset>
 		<legend>선물하기 - 옵션</legend>
-			<table border="1" width="100%" summary="옵션정보입력">
+			<table border="1"  summary="옵션정보입력">
 				<caption>옵션 선택</caption>
 				<colgroup>
-					<col width="20%"/>
-					<col width="80%"/>
+					<col width="200px"/>
+					<col width="400px"/>
 				</colgroup>
 				<tbody>
 					<tr>
