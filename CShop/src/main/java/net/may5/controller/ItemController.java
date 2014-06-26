@@ -21,6 +21,7 @@ public class ItemController {
 	/* 메뉴리스트로 이동*/
 	@RequestMapping(value="cst/menu/menuList.do")
 	public String menuList(Model model){
+		model.addAttribute("itemList", itemService.getItemList());
 		return "cst/menu/menuList";
 	}
 	

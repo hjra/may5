@@ -1,5 +1,7 @@
 package net.may5.service;
 
+import java.util.List;
+
 import net.may5.dao.ItemMapper;
 import net.may5.dto.Item;
 import net.may5.dto.SizeInfo;
@@ -23,6 +25,12 @@ public class ItemServiceImpl implements ItemService {
 	public SizeInfo getSizeInfo(String sizeCode) {
 		
 		return itemMapper.getSizeInfo(sizeCode);
+	}
+
+	@Override
+	public List<Item> getItemList() {
+		
+		return itemMapper.getItemList();
 	}
 	
 }
