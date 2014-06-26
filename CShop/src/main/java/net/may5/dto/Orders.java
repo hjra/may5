@@ -2,7 +2,7 @@ package net.may5.dto;
 
 import java.sql.Date;
 
-public class Order {
+public class Orders {
 	
 	private String orderCode;			// 주문코드
 	private Date orderDate;				// 주문날짜(sysdate)
@@ -154,7 +154,7 @@ public class Order {
 	}
 	@Override
 	public String toString() {
-		return "Order [orderCode=" + orderCode + ", orderDate=" + orderDate
+		return "Orders [orderCode=" + orderCode + ", orderDate=" + orderDate
 				+ ", itemId=" + itemId + ", sameTimeCount=" + sameTimeCount
 				+ ", payCode=" + payCode + ", optionCode=" + optionCode
 				+ ", dlvChargeCode=" + dlvChargeCode + ", noticeCode="
@@ -215,7 +215,7 @@ public class Order {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Order other = (Order) obj;
+		Orders other = (Orders) obj;
 		if (cstId == null) {
 			if (other.cstId != null)
 				return false;
