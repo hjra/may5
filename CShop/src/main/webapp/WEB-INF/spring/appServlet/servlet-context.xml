@@ -31,7 +31,16 @@
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+ 	<!-- Tiles 적용시  -->
+	<beans:bean id="viewResolver"
+		class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+		<beans:property name="basename" value="views"/>
+	</beans:bean>
+
+
+
+	<!-- Tiles 미적용시 
+	Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
@@ -67,4 +76,36 @@
 	<beans:bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<beans:property name="basePackage" value="net.may5.dao" />
 	</beans:bean>
+	
+	
+	<!-- Tiles 적용시  -->
+	<beans:bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>/WEB-INF/tiles2-defs/templates.xml</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	<beans:bean id="tilesUrlBasedViewResolver"
+		class="org.springbyexample.web.servlet.view.tiles2.TilesUrlBasedViewResolver">
+		<beans:property name="viewClass"
+			value="org.springbyexample.web.servlet.view.tiles2.DynamicTilesView" />
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="tilesDefinitionName" value="default" />
+		<beans:property name="tilesBodyAttributeName" value="body" />
+		<beans:property name="tilesDefinitionDelimiter" value="." />
+		<beans:property name="order" value="1" />
+	</beans:bean>
+	
+	<!-- 메시지 다국어 처리  -->
+	<beans:bean id="messageSource"
+    class="org.springframework.context.support.ResourceBundleMessageSource">
+    <beans:property name="basename" value="messages" />
+</beans:bean>
+	
+	
+	
 </beans:beans>

@@ -1,10 +1,14 @@
 package net.may5.controller;
 
+import net.may5.dto.Customer;
+import net.may5.dto.Zip;
 import net.may5.service.CustomerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -38,10 +42,11 @@ public class CustomerController {
 	}
 	
 	/* 회원가입 성공화면으로 이동 */
-	@RequestMapping(value="cst/membership/joinOk.do"
-			, method=RequestMethod.POST)
-	public String joinSuccess(Model model){
-	//	고객정보 DB에 insert
+	@RequestMapping(value="cst/membership/joinOk.do", method=RequestMethod.POST)
+	public String joinProcess(@ModelAttribute("customer") Customer customer,
+			Zip zip, BindingResult result){
+		System.out.println("insert Customer");
+		customerService.insertJoinCst(customer);
 		return "cst/membership/joinOk";
 	}
 	
@@ -135,12 +140,7 @@ public class CustomerController {
 	public String calendar(Model model){
 		return "cst/membership/calendar";
 	}
-	
-	/* 메뉴리스트로 이동*/
-	@RequestMapping(value="cst/menu/menuList.do")
-	public String menuList(Model model){
-		return "cst/menu/menuList";
-	}
+
 	
 	
 	

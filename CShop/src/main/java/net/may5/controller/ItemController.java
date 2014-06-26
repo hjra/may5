@@ -1,5 +1,8 @@
 package net.may5.controller;
 
+import net.may5.service.ItemService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,14 +10,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ItemController {
 	
+	@Autowired
+	private ItemService itemService;
+	
+	
 	/** 고객페이지↓ */
+	
+	
+	
+	/* 메뉴리스트로 이동*/
+	@RequestMapping(value="cst/menu/menuList.do")
+	public String menuList(Model model){
+		model.addAttribute("itemList", itemService.getItemList());
+		return "cst/menu/menuList";
+	}
+	
 	/* 메뉴상세정보로 이동 */
 	@RequestMapping(value = "cst/menu/menuInfo.do")
-	public String menuInfo(Model model, String itemId, String itemName) {
+	public String menuInfo(Model model, String itemId, String sizeCode) {
+		model.addAttribute("item", itemService.getItems(itemId));
+		model.addAttribute("sizeCode", itemService.getSizeInfo(sizeCode));
 		// 2. 디비에서 쿼리 날려 데이터 알아오기
 		// 3. 뷰에 내용 전달하기
-		model.addAttribute("itemId", itemId);
-		model.addAttribute("itemName", itemName);
+		
+//		model.addAttribute("itemName", itemName);
+//		model.addAttribute("itemInfo", itemInfo);
 		return "cst/menu/menuInfo";
 	}
 	

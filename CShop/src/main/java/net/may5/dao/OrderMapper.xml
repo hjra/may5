@@ -6,7 +6,7 @@
    
    <!-- 관리자페이지↓ -->
    <!-- 알리미  -->
-<select id="getAlimi" resultType="Order">
+<select id="getAlimi" resultType="Orders">
 	select * from order where orderCode = #{orderCode}
 </select>
    

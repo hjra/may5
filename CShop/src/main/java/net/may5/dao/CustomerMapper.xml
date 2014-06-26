@@ -4,8 +4,26 @@
 
 <mapper namespace="net.may5.dao.CustomerMapper">
    
+   	<!-- 가입자 수 -->
 	<select id="getAllCustomerCount" resultType="int">
 		select count(*) from customer
 	</select>
+	
+	<!-- 회원가입 -->
+<!-- 	<insert id="insertJoinCst" parameterType="Customer">
+		insert into Customer(cstId, cstName, cstPassword, zipCode, cstDeatailAddress, cstCP, cstEmail,
+		cstGender, cstBirthday, cstEmailAgreement, cstQnAPermission, cstEvaluationPermission, cstJoinDate,
+		cstLastVisitDate, cstPostCount, levelCode)
+		 values(#{cstId}, #{cstName}, #{cstPassword}, #{zipCode}, #{cstDetailAddress}, #{cstCP}, #{cstEmail},
+		  #{cstGender}, #{cstBirthday}, #{cstEmailAgreement}, 'T', 'T', sysdate, sysdate, 0, 'N')
+	</insert> -->
+	
+	<insert id="insertJoinCst" parameterType="Customer">
+		 insert into Customer(cstId, cstName, cstPassword, zipCode, cstDetailAddress, cstCP, cstEmail,
+        cstGender, cstBirthday, cstEmailAgreement, cstQnAPermission, cstEvaluationPermission, cstJoinDate,
+        cstLastVisitDate, cstPostCount, levelCode)
+         values('testId01', 'testNm01', '1111', 'GG000001', '', '010-1234-1234', 'test01@naver.com',
+          'M', '20140617', 'F', 'T', 'T', sysdate, sysdate, 0, 'N')
+	</insert>
 	
 </mapper>
