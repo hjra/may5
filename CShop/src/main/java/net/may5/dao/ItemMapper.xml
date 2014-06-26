@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-   
-   <mapper namespace="net.may5.dao.ItemMapper">
-   
-   
-<select id="getItems" parameterType="string" resultType="Item">
-	select * from item where itemId='${itemId}'
-</select>
-	
-	</mapper>
+
+<mapper namespace="net.may5.dao.ItemMapper">
+
+
+	<select id="getItems" resultType="Item">
+		select * from item where itemId=#{itemId}
+	</select>
+
+
+	<select id="getItemCount" resultType="int">
+		select count(*) from item
+	</select>
+
+</mapper>
