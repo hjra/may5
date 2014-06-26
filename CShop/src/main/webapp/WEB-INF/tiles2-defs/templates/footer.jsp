@@ -1,24 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <div>
-	<!-- ÇÏ´Ü ¸Þ´º ½ÃÀÛ  -->
-    <a href="/myapp/home.do">È¨</a> 
-    | <a href="/front/php/com_intro.php"><font style="color:#555555;font-size:12;font-family:±¼¸²;">È¸»ç¼Ò°³</font></a> 
-    | <a href="/front/php/member_agree.php"><font style="color:#555555;font-size:12;font-family:±¼¸²;">ÀÌ¿ë¾à°ü</font></a> 
-    | <a href="/front/php/privacy_agree.php"><font style="color:#555555;font-size:12;font-family:±¼¸²;">°³ÀÎÁ¤º¸Ãë±Þ¹æÄ§</font></a> 
-    | <a href="/front/php/faq.php"><font style="color:#555555;font-size:12;font-family:±¼¸²;">ÀÌ¿ë¾È³»</font></a> 
-    <!-- ÇÏ´Ü ¸Þ´º ³¡  -->
+	<!-- í•˜ë‹¨ ë©”ë‰´ ì‹œìž‘  -->
+    <a href="/controller/cst/home/homeImage.do">ê³ ê°íŽ˜ì´ì§€ í™ˆ</a> 
+    | <a href="/front/php/com_intro.php"><font style="color:#555555;font-size:12;font-family:êµ´ë¦¼;">íšŒì‚¬ì†Œê°œ</font></a> 
+    | <a href="/front/php/member_agree.php"><font style="color:#555555;font-size:12;font-family:êµ´ë¦¼;">ì´ìš©ì•½ê´€</font></a> 
+    | <a href="/front/php/privacy_agree.php"><font style="color:#555555;font-size:12;font-family:êµ´ë¦¼;">ê°œì¸ì •ë³´ì·¨ê¸‰ë°©ì¹¨</font></a> 
+    | <a href="/front/php/faq.php"><font style="color:#555555;font-size:12;font-family:êµ´ë¦¼;">ì´ìš©ì•ˆë‚´</font></a> 
+    <!-- í•˜ë‹¨ ë©”ë‰´ ë  -->
 </div>
 <div>
 	<small>
-	Copyright ¨Ï 2006 <b><font color="#FF8C0A">7.5°úÀÚ³ª¶ó</font></b> 
+	Copyright â“’ 2014 <b><font color="#FF8C0A">C#</font></b> 
           All rights reserved.<br>
-          ÀüÈ­ : 070-8902-1766 <br>
+          ì „í™” : 070-8902-1766 <br>
           Contact <b><a href="mailto:freely0208@nate.com"><font color="#FF8C0A">7575@naver.com</font></a></b> 
           for more information.<br>
-          ¹ýÀÎ¸í(»óÈ£):ÀÌÆÄÆ®³Ê ÁÖ¼Ò:420-864 °æ±âµµ ºÎÃµ½Ã ¿ø¹Ì±¸ »ó2µ¿ 544-5 ±×·£µåÇÁ¶óÀÚ 7Ãþ  705     ¼ÒºÐ¾÷ ºÎÃµ Á¦552È£    °í°´¼¾ÅÍ: ¿ÀÀü 10:00 ~ ¿ÀÈÄ 05:00 
+          ë²•ì¸ëª…(ìƒí˜¸):ì´íŒŒíŠ¸ë„ˆ ì£¼ì†Œ:420-864 ê²½ê¸°ë„ ë¶€ì²œì‹œ ì›ë¯¸êµ¬ ìƒ2ë™ 544-5 ê·¸ëžœë“œí”„ë¼ìž 7ì¸µ  705     ì†Œë¶„ì—… ë¶€ì²œ ì œ552í˜¸    ê³ ê°ì„¼í„°: ì˜¤ì „ 10:00 ~ ì˜¤í›„ 05:00 
           <br>
-          »ç¾÷ÀÚ µî·Ï¹øÈ£ ¾È³» [130-42-29900] / Åë½ÅÆÇ¸Å¾÷ ½Å°í Á¦ 2010-°æ±âºÎÃµ-1257È£ <a target="_blank" href="http://www.ftc.go.kr/info/bizinfo/communicationList.jsp">[»ç¾÷ÀÚÁ¤º¸È®ÀÎ]</a><br>
+          ì‚¬ì—…ìž ë“±ë¡ë²ˆí˜¸ ì•ˆë‚´ [130-42-29900] / í†µì‹ íŒë§¤ì—… ì‹ ê³  ì œ 2010-ê²½ê¸°ë¶€ì²œ-1257í˜¸ <a target="_blank" href="http://www.ftc.go.kr/info/bizinfo/communicationList.jsp">[ì‚¬ì—…ìžì •ë³´í™•ì¸]</a><br>
     </small>
 </div>
