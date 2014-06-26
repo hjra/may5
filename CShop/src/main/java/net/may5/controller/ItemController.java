@@ -10,19 +10,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ItemController {
 	
-//	@Autowired
-//	private ItemService itemService;
-//	
+	@Autowired
+	private ItemService itemService;
+	
 	
 	/** 고객페이지↓ */
 	/* 메뉴상세정보로 이동 */
 	@RequestMapping(value = "cst/menu/menuInfo.do")
-	public String menuInfo(Model model, String itemId, String itemName) {
-		
+	public String menuInfo(Model model, String itemId) {
+		model.addAttribute("item", itemService.getItems(itemId));
 		// 2. 디비에서 쿼리 날려 데이터 알아오기
 		// 3. 뷰에 내용 전달하기
-		model.addAttribute("itemId", itemId);
-		model.addAttribute("itemName", itemName);
+		
+//		model.addAttribute("itemName", itemName);
+//		model.addAttribute("itemInfo", itemInfo);
 		return "cst/menu/menuInfo";
 	}
 	
