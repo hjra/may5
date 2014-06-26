@@ -19,7 +19,7 @@ public class ItemController {
 	@RequestMapping(value = "cst/menu/menuInfo.do")
 	public String menuInfo(Model model, String itemId, String sizeCode) {
 		model.addAttribute("item", itemService.getItems(itemId));
-		model.addAttribute(sizeCode, itemService.getSizeInfo(sizeCode));
+		model.addAttribute("sizeCode", itemService.getSizeInfo(sizeCode));
 		// 2. 디비에서 쿼리 날려 데이터 알아오기
 		// 3. 뷰에 내용 전달하기
 		
