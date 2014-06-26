@@ -9,10 +9,27 @@
 </head>
 <body>
 	회원가입 동의폼
+	<div>
 	<f:form action="../membership/joinForm.do" method="post">
-		동의 상자 추가해야 함.
+		<div>
+			<div>
+				이용약관, 개인정보 수집 및 이용,
+				이벤트 메일 수신약관(선택)에 모두 동의합니다.
+				<input id="allAgreement" type="checkbox">
+			</div>
+			<div>
+				이용약관 동의(필수)<input id="serviceAgreement" type="checkbox">
+			</div>
+			<div>
+				개인정보 수집 및 이용에 대한 안내(필수)<input id="privacyAgreement" type="checkbox">
+			</div>
+			<div>
+				이벤트 E-mail 수신약관 동의(선택)<input id="cstEmailAgreement" type="checkbox">
+			</div>
+		</div>
 		<input type="submit" value="AGREE">
 	</f:form>
 	<a href="../home/homeImage.do">취소</a>
+	</div>
 </body>
 </html>
