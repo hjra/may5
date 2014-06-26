@@ -16,6 +16,4 @@
 	<select id="getItemCount" resultType="int">
 		select count(*) from item
 	</select>
-	
-
-</mapper>
+	</mapper>
