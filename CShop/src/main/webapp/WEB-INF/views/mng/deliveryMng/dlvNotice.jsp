@@ -24,7 +24,7 @@
 		<input type="submit" value="조회" />
 	
 
-	<table class="sub_news" border="1" cellspacing="0"
+	<table class="board" border="1" cellspacing="0"
 		summary="게시판의 글제목 리스트">
 
 		<caption></caption>
