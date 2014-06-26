@@ -1,8 +1,10 @@
 package net.may5.service;
 
+import net.may5.dto.Order;
+
 public interface OrderService {
 
-	Object orderAlimi(String cstId);
+	public Order getAlimi(String orderCode);
 
 	
 }

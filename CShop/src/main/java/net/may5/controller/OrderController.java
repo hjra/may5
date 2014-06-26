@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class OrderController {
+
 	@Autowired
 	private OrderService orderService;
 	
@@ -43,17 +44,17 @@ public class OrderController {
 	}
 	
 	/*주문내역(알리미)관리*/
-	@RequestMapping(value = "mng/deliveryMng/dlvmImage.do", method = RequestMethod.GET)
-	public String dlvmImage(@RequestParam String cstId, Model model) {
-		model.addAttribute("mng", orderService.orderAlimi(cstId));
-		return "mng/deliveryMng/dlvmImage";
-	}
+/*	@RequestMapping(value = "/mng/deliveryMng/dlvNotice.do")
+	public String dNotice(Model model, String orderCode ) {
+		model.addAttribute("order", orderService.getAlimi(orderCode));
+		return "mng/deliveryMng/dlvNotice";
+	}*/
 	
 	
 	/*주문내역이미지관리*/
-	@RequestMapping(value = "mng/deliveryMng/dlvmImage.do")
+/*	@RequestMapping(value = "mng/deliveryMng/dlvmImage.do")
 	public String dlvmImage(Model model) {
 		return "mng/deliveryMng/dlvmImage";
-	}
+	}*/
 
 }

@@ -1,21 +1,23 @@
 package net.may5.service;
 
 import net.may5.dao.OrderMapper;
+import net.may5.dto.Order;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service("orderService")
 public class OrderServiceImpl implements OrderService {
 	@Autowired
-	private OrderMapper ordermapper;
-	
-	
+	private OrderMapper orderMapper;
+
 	@Override
-	public Object orderAlimi(String cstId) {
-		// TODO Auto-generated method stub
-		return ordermapper.orderAlimi(cstId);
+	public Order getAlimi(String orderCode) {
+		return orderMapper.getAlimi(orderCode);
 	}
+	
+
 
 }
