@@ -11,4 +11,11 @@ public class QnAController {
 	public String cstQnABoard(Model model) {
 		return "cst/membership/board";
 	}
+	
+	@RequestMapping("cst/membership/boardCheck.do") 
+	public String boardCheck(Model model) {
+		return "cst/membership/boardCheck";
+	}
+	
+	
 }
