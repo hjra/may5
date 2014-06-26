@@ -53,7 +53,7 @@ p { margin-bottom: 20px; font-size: 17px; line-height: 2; }
   100% { opacity: 0; -webkit-transform: translateY(20px); transform: translateY(20px); } }
 @keyframes scroll { 0% { opacity: 1; -webkit-transform: translateY(0); -ms-transform: translateY(0); transfrom: translateY(0); }
   100% { opacity: 0; -webkit-transform: translateY(20px); -ms-transform: translateY(20px); transfrom: translateY(20px); } }
-.home { background-color: #0099cc; min-height: 500px; padding-left: 20px; padding-right: 20px; padding-bottom: 20px; }
+.home { background-color: #CDECFA; min-height: 500px; padding-left: 20px; padding-right: 20px; padding-bottom: 20px; }
 
 .menu { background-color: #00FF7F; padding-left: 20px; padding-right: 20px; padding-bottom: 20px; }
 
