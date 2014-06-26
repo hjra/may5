@@ -16,8 +16,7 @@
 	</label>
 	<br>
 	<label>
-	아이템  가격:
-	<br>${sizeCode}
+		아이템  가격 <input value="${sizeCode.price}">
 	</label>
 	<br>
 	<label>

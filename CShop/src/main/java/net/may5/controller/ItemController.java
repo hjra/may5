@@ -15,6 +15,15 @@ public class ItemController {
 	
 	
 	/** 고객페이지↓ */
+	
+	
+	
+	/* 메뉴리스트로 이동*/
+	@RequestMapping(value="cst/menu/menuList.do")
+	public String menuList(Model model){
+		return "cst/menu/menuList";
+	}
+	
 	/* 메뉴상세정보로 이동 */
 	@RequestMapping(value = "cst/menu/menuInfo.do")
 	public String menuInfo(Model model, String itemId, String sizeCode) {
