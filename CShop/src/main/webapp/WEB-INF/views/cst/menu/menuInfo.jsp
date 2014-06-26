@@ -16,8 +16,8 @@
 	</label>
 	<br>
 	<label>
-	아이템  :
-	<br>${item}
+	아이템  가격:
+	<br>${sizeCode}
 	</label>
 	<br>
 	<label>

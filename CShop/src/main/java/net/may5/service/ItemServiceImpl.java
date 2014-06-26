@@ -2,6 +2,7 @@ package net.may5.service;
 
 import net.may5.dao.ItemMapper;
 import net.may5.dto.Item;
+import net.may5.dto.SizeInfo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,12 @@ public class ItemServiceImpl implements ItemService {
 	public Item getItems(String itemId) {
 		return itemMapper.getItems(itemId);
 		
+	}
+
+	@Override
+	public SizeInfo getSizeInfo(String sizeCode) {
+		
+		return itemMapper.getSizeInfo(sizeCode);
 	}
 	
 }
