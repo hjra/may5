@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h1>관리자 게시판페이지 이동성공</h1>
 </body>
 </html>
