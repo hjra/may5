@@ -9,9 +9,14 @@
 </head>
 <body>
 주문상세페이지<br>
-	<f:form action="../deliveryMng/dlvmImage.do" method="post">
-	<input type="submit" value="Test">
+	<!--  ../deliveryMng/dlvNotice.do 주소값 고쳐야할 부분  -->
+	<f:form action="../deliveryMng/dlvmImage.do" method="get">
+	입력<input type="text" name="cstId">
+	<input type="submit"  value="조회"/>
 	</f:form>
 	<a href="/controller/mng/loginMng/loginForm.do">loginForm으로~</a>
 </body>
 </html>
+
+
+
