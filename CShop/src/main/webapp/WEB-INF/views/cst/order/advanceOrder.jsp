@@ -23,22 +23,22 @@
 					<tr>
 						<th scope="row"><label for="ca"><strong>*</strong>케이크 수량</label></th>
 						<td>
-							<input type="number" min="1" max="10" step="1" value="1" id="ca" required="required">
+							<input type="number" min="1" max="10" step="1"  id="ca" required="required">
 						</td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="fw"><strong>*</strong>꽃다발 추가</label></th>
 						<td>
-							<input type="radio" value="fy" name="receive2" />꽃다발 추가<br>
-							<input type="radio" value="fn" name="receive2"/>선택안함
+							<input type="radio" value="fy" name="receive2" required="required"/>꽃다발 추가<br>
+							<input type="radio" value="fn" name="receive2" required="required"/>선택안함
 						</td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="cd"><strong>*</strong>카드</label></th>
 						<td>
-							<input type="radio" value="coy" name="receive3"/>카드 추가<br>
-							<input type="radio" value="cqy" name="receive3"/>카드(QR)코드 추가<br>
-							<input type="radio" value="can" name="receive3"/>선택안함
+							<input type="radio" value="coy" name="receive3" required="required"/>카드 추가<br>
+							<input type="radio" value="cqy" name="receive3" required="required"/>카드(QR)코드 추가<br>
+							<input type="radio" value="can" name="receive3" required="required"/>선택안함
 						</td>
 					</tr>
 					<tr>

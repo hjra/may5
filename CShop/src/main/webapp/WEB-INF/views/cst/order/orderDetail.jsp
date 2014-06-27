@@ -23,8 +23,8 @@
 					<tr>
 						<th scope="row"><label for="orinfoyn"><strong>*</strong>기존정보 사용여부</label></th>
 						<td>
-							<input type="radio" value="uy" name="receive"/>기존정보사용<br>
-							<input type="radio" value="un" name="receive"/>새로입력
+							<input type="radio" value="uy" name="receive" required="required"/>기존정보사용<br>
+							<input type="radio" value="un" name="receive" required="required"/>새로입력
 						</td>
 					</tr>
 					<tr>
@@ -54,14 +54,14 @@
 					<tr>
 						<th scope="row"><label for="dlvinfoyn"><strong>*</strong>배송 여부</label></th>
 						<td>
-							<input type="radio" value="dy" name="receive1"/>배송(2500원)<br>
-							<input type="radio" value="dn" name="receive1"/>직접수령
+							<input type="radio" value="dy" name="receive1" required="required"/>배송(2500원)<br>
+							<input type="radio" value="dn" name="receive1" required="required"/>직접수령
 						</td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="address"><strong>*</strong>주소</label></th>
 						<td>
-							<input type="text" id="address"/>
+							<input type="text" id="address" required="required"/>
 						</td>
 					</tr>
 					<tr>
@@ -73,8 +73,8 @@
 					<tr>
 						<th scope="row"><label for="askyn"><strong>*</strong>조르기 여부</label></th>
 						<td>
-							<input type="radio" value="dy" name="receive2"/>조르기<br>
-							<input type="radio" value="dn" name="receive2"/>직접구매
+							<input type="radio" value="dy" name="receive2" required="required"/>조르기<br>
+							<input type="radio" value="dn" name="receive2" required="required"/>직접구매
 						</td>
 					</tr>
 				</tbody>
