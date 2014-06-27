@@ -30,19 +30,19 @@
 					<tr>
 						<th scope="row"><label for="name"><strong>*</strong>이름</label></th>
 						<td>
-							<input type="text" id="name" placeholder="홍명보"/>
+							<input type="text" id="name" placeholder="홍명보" required="required"/>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="pnumber">전화번호</label></th>
 						<td>
-							<input type="tel" id="pnumber" placeholder="0212345678"/>
+							<input type="tel" id="pnumber" placeholder="0212345678" required="required"/>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="cpnumber"><strong>*</strong>휴대전화번호</label></th>
 						<td>
-							<input type="tel" id="cpnumber" placeholder="01098765432"/>
+							<input type="tel" id="cpnumber" placeholder="01098765432" required="required"/>
 						</td>
 					</tr>
 					<tr>
@@ -61,13 +61,13 @@
 					<tr>
 						<th scope="row"><label for="address"><strong>*</strong>주소</label></th>
 						<td>
-							<input type="text" size="100" maxlength="80"/>
+							<input type="text" id="address"/>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="dlvwarn">배송시 주의사항</label></th>
 						<td>
-							<input type="text" size="100" maxlength="80"/>
+							<input type="text" id="dlvwarn"/>
 						</td>
 					</tr>
 					<tr>
