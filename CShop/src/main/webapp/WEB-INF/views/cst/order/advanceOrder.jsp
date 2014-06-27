@@ -44,7 +44,7 @@
 					<tr>
 						<th scope="row"><label for="cm">카드문구</label></th>
 						<td>
-							<input type="text" id="cm" placeholder="생일축하합니다">
+							<input type="text" id="cm" placeholder="ex)생일축하합니다" />
 						</td>
 					</tr>
 					<tr>
