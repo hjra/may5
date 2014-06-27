@@ -43,9 +43,9 @@
 		<div class="home">
 			<h1>HOME</h1>
 	
-			<a href="../membership/termsForm.do">JOIN ${count}</a> <a
-				href="../membership/myPage.do">MY C#</a> <a
-				href="../membership/calendar.do">CALENDAR</a>
+			<a href="/controller/cst/membership/termsForm.do">JOIN ${count}</a>
+			<a href="/controller/cst/membership/myPage.do">MY C#</a>
+			<a href="/controller/cst/membership/calendar.do">CALENDAR</a>
 
 
 		</div>

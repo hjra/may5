@@ -8,7 +8,7 @@ public class Evaluation {
 	private String itemId;				// 상품정보.상품ID
 	private int grade;					// 평점
 	private String evaluationContents;	// 내용
-	private String cstId;				// 고객정보.회원아이디
+	private String cstCode;				// 고객정보.회원코드
 	private Date evaluationDate;		// 평가등록일
 	
 	public int getEvaluationIndex() {
@@ -35,11 +35,11 @@ public class Evaluation {
 	public void setEvaluationContents(String evaluationContents) {
 		this.evaluationContents = evaluationContents;
 	}
-	public String getCstId() {
-		return cstId;
+	public String getCstCode() {
+		return cstCode;
 	}
-	public void setCstId(String cstId) {
-		this.cstId = cstId;
+	public void setCstCode(String cstCode) {
+		this.cstCode = cstCode;
 	}
 	public Date getEvaluationDate() {
 		return evaluationDate;
@@ -51,14 +51,14 @@ public class Evaluation {
 	public String toString() {
 		return "Evaluation [evaluationIndex=" + evaluationIndex + ", itemId="
 				+ itemId + ", grade=" + grade + ", evaluationContents="
-				+ evaluationContents + ", cstId=" + cstId + ", evaluationDate="
-				+ evaluationDate + "]";
+				+ evaluationContents + ", cstCode=" + cstCode
+				+ ", evaluationDate=" + evaluationDate + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((cstId == null) ? 0 : cstId.hashCode());
+		result = prime * result + ((cstCode == null) ? 0 : cstCode.hashCode());
 		result = prime
 				* result
 				+ ((evaluationContents == null) ? 0 : evaluationContents
@@ -79,10 +79,10 @@ public class Evaluation {
 		if (getClass() != obj.getClass())
 			return false;
 		Evaluation other = (Evaluation) obj;
-		if (cstId == null) {
-			if (other.cstId != null)
+		if (cstCode == null) {
+			if (other.cstCode != null)
 				return false;
-		} else if (!cstId.equals(other.cstId))
+		} else if (!cstCode.equals(other.cstCode))
 			return false;
 		if (evaluationContents == null) {
 			if (other.evaluationContents != null)

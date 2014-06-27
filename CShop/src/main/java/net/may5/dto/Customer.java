@@ -20,6 +20,7 @@ public class Customer {
 	private Date cstLastVisitDate;			// 최종방문일
 	private int cstPostCount;				// 게시글 수
 	private String levelCode;				// 고객등급.등급코드
+	private String cstCode;					// 회원코드
 	
 	public String getCstId() {
 		return cstId;
@@ -39,10 +40,10 @@ public class Customer {
 	public void setCstPassword(String cstPassword) {
 		this.cstPassword = cstPassword;
 	}
-	public String getZipcode() {
+	public String getZipCode() {
 		return zipCode;
 	}
-	public void setZipcode(String zipCode) {
+	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
 	public String getCstDetailAddress() {
@@ -117,6 +118,12 @@ public class Customer {
 	public void setLevelCode(String levelCode) {
 		this.levelCode = levelCode;
 	}
+	public String getCstCode() {
+		return cstCode;
+	}
+	public void setCstCode(String cstCode) {
+		this.cstCode = cstCode;
+	}
 	@Override
 	public String toString() {
 		return "Customer [cstId=" + cstId + ", cstName=" + cstName
@@ -128,7 +135,7 @@ public class Customer {
 				+ ", cstEvaluationPermission=" + cstEvaluationPermission
 				+ ", cstJoinDate=" + cstJoinDate + ", cstLastVisitDate="
 				+ cstLastVisitDate + ", cstPostCount=" + cstPostCount
-				+ ", levelCode=" + levelCode + "]";
+				+ ", levelCode=" + levelCode + ", cstCode=" + cstCode + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -137,6 +144,7 @@ public class Customer {
 		result = prime * result
 				+ ((cstBirthday == null) ? 0 : cstBirthday.hashCode());
 		result = prime * result + ((cstCP == null) ? 0 : cstCP.hashCode());
+		result = prime * result + ((cstCode == null) ? 0 : cstCode.hashCode());
 		result = prime
 				* result
 				+ ((cstDetailAddress == null) ? 0 : cstDetailAddress.hashCode());
@@ -188,6 +196,11 @@ public class Customer {
 			if (other.cstCP != null)
 				return false;
 		} else if (!cstCP.equals(other.cstCP))
+			return false;
+		if (cstCode == null) {
+			if (other.cstCode != null)
+				return false;
+		} else if (!cstCode.equals(other.cstCode))
 			return false;
 		if (cstDetailAddress == null) {
 			if (other.cstDetailAddress != null)
@@ -259,5 +272,4 @@ public class Customer {
 			return false;
 		return true;
 	}
-	
 }

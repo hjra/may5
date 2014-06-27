@@ -5,7 +5,7 @@ import java.sql.Date;
 public class QnA {
 
 	private int boardCode;				// 번호
-	private String cstId;				// 고객정보.회원아이디
+	private String cstCode;				// 고객정보.회원코드
 	private String boardTitle;			// 제목
 	private Date boardDate;				// 등록일자
 	private String postPassword;		// 게시글 암호
@@ -18,17 +18,18 @@ public class QnA {
 	private String originalFileName;	// 원래파일명
 	private int groupNumber;			// 그룹번호
 	private String sequenceNumber;		// 시퀀스넘버
+	
 	public int getBoardCode() {
 		return boardCode;
 	}
 	public void setBoardCode(int boardCode) {
 		this.boardCode = boardCode;
 	}
-	public String getCstId() {
-		return cstId;
+	public String getCstCode() {
+		return cstCode;
 	}
-	public void setCstId(String cstId) {
-		this.cstId = cstId;
+	public void setCstCode(String cstCode) {
+		this.cstCode = cstCode;
 	}
 	public String getBoardTitle() {
 		return boardTitle;
@@ -104,7 +105,7 @@ public class QnA {
 	}
 	@Override
 	public String toString() {
-		return "QnA [boardCode=" + boardCode + ", cstId=" + cstId
+		return "QnA [boardCode=" + boardCode + ", cstCode=" + cstCode
 				+ ", boardTitle=" + boardTitle + ", boardDate=" + boardDate
 				+ ", postPassword=" + postPassword + ", postContents="
 				+ postContents + ", fileName=" + fileName + ", fileAddress="
@@ -122,7 +123,7 @@ public class QnA {
 				+ ((boardDate == null) ? 0 : boardDate.hashCode());
 		result = prime * result
 				+ ((boardTitle == null) ? 0 : boardTitle.hashCode());
-		result = prime * result + ((cstId == null) ? 0 : cstId.hashCode());
+		result = prime * result + ((cstCode == null) ? 0 : cstCode.hashCode());
 		result = prime * result
 				+ ((fileAddress == null) ? 0 : fileAddress.hashCode());
 		result = prime * result
@@ -166,10 +167,10 @@ public class QnA {
 				return false;
 		} else if (!boardTitle.equals(other.boardTitle))
 			return false;
-		if (cstId == null) {
-			if (other.cstId != null)
+		if (cstCode == null) {
+			if (other.cstCode != null)
 				return false;
-		} else if (!cstId.equals(other.cstId))
+		} else if (!cstCode.equals(other.cstCode))
 			return false;
 		if (fileAddress == null) {
 			if (other.fileAddress != null)
