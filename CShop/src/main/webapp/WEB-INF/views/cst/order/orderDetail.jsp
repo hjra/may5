@@ -30,25 +30,25 @@
 					<tr>
 						<th scope="row"><label for="name"><strong>*</strong>이름</label></th>
 						<td>
-							<input type="text" id="name" placeholder="홍명보" required="required"/>
+							<input type="text" id="name" placeholder="ex)홍명보" required="required"/>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="pnumber">전화번호</label></th>
 						<td>
-							<input type="tel" id="pnumber" placeholder="0212345678" required="required"/>
+							<input type="tel" id="pnumber" placeholder="ex)0212345678" required="required"/>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="cpnumber"><strong>*</strong>휴대전화번호</label></th>
 						<td>
-							<input type="tel" id="cpnumber" placeholder="01098765432" required="required"/>
+							<input type="tel" id="cpnumber" placeholder="ex)01098765432" required="required"/>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="email">이메일</label></th>
 						<td>
-							<input type="email" id="email" placeholder="id@domain.com"/>
+							<input type="email" id="email" placeholder="ex)id@domain.com"/>
 						</td>
 					</tr>
 					<tr>
