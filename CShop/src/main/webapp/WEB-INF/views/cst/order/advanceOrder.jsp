@@ -1,18 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AdvanceOrder</title>
 </head>
 <body>
-	예약주문페이지
-	<br>
-	<f:form action="../order/orderDetail.do" method="post">
-		<input type="submit" value="주문상세" >
-	</f:form>
-	<a href="../home/homeImage.do">취소</a>
+<h1>예약주문페이지</h1>
+<p><strong>*</strong>는 필수입력 항목입니다</p>
+<f:form action="../order/orderDetail.do" method="post">
+	<fieldset>
+		<legend>선물하기 - 옵션</legend>
+			<table border="1"  summary="옵션정보입력">
+				<caption>옵션 선택</caption>
+				<colgroup>
+					<col style="width: 20%"/>
+					<col style="width: 150%"/>
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row"><label for="ca"><strong>*</strong>케이크 수량</label></th>
+						<td>
+							<input type="number" min="1" max="10" step="1" value="1" id="ca" required="required">
+						</td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="fw"><strong>*</strong>꽃다발 추가</label></th>
+						<td>
+							<input type="radio" value="fy" name="receive2"/>꽃다발 추가
+							<input type="radio" value="fn" name="receive2"/>선택안함
+						</td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="cd"><strong>*</strong>카드</label></th>
+						<td>
+							<input type="radio" value="coy" name="receive3"/>카드 추가
+							<input type="radio" value="cqy" name="receive3"/>카드(QR)코드 추가
+							<input type="radio" value="can" name="receive3"/>선택안함
+						</td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="cm">카드문구</label></th>
+						<td>
+							<input type="text" id="cm" placeholder="생일축하합니다">
+						</td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="fu">동영상 추가</label></th>
+						<td>
+							<input type="file" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>
+				<input type="reset" value="재입력"/>
+				<input type="button" onclick="javascript:history.back(-1)" value="이전"/>
+				<input type="submit" value="다음"/>
+			</p>
+	</fieldset>
+</f:form>
 </body>
 </html>
