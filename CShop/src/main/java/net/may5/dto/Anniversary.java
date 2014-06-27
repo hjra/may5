@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Anniversary {
 
 	private int anvCode;		// 기념일코드
-	private String cstId;		// 고객정보.회원아이디
+	private String cstCode;		// 고객정보.회원코드
 	private Date anvStartDate;	// 시작날짜
 	private Date anvEndDate;	// 끝날짜
 	private String anvTitle;	// 제목
@@ -17,11 +17,11 @@ public class Anniversary {
 	public void setAnvCode(int anvCode) {
 		this.anvCode = anvCode;
 	}
-	public String getCstId() {
-		return cstId;
+	public String getCstCode() {
+		return cstCode;
 	}
-	public void setCstId(String cstId) {
-		this.cstId = cstId;
+	public void setCstCode(String cstCode) {
+		this.cstCode = cstCode;
 	}
 	public Date getAnvStartDate() {
 		return anvStartDate;
@@ -49,7 +49,7 @@ public class Anniversary {
 	}
 	@Override
 	public String toString() {
-		return "Anniversary [anvCode=" + anvCode + ", cstId=" + cstId
+		return "Anniversary [anvCode=" + anvCode + ", cstCode=" + cstCode
 				+ ", anvStartDate=" + anvStartDate + ", anvEndDate="
 				+ anvEndDate + ", anvTitle=" + anvTitle + ", anvMemo="
 				+ anvMemo + "]";
@@ -66,7 +66,7 @@ public class Anniversary {
 				+ ((anvStartDate == null) ? 0 : anvStartDate.hashCode());
 		result = prime * result
 				+ ((anvTitle == null) ? 0 : anvTitle.hashCode());
-		result = prime * result + ((cstId == null) ? 0 : cstId.hashCode());
+		result = prime * result + ((cstCode == null) ? 0 : cstCode.hashCode());
 		return result;
 	}
 	@Override
@@ -100,10 +100,10 @@ public class Anniversary {
 				return false;
 		} else if (!anvTitle.equals(other.anvTitle))
 			return false;
-		if (cstId == null) {
-			if (other.cstId != null)
+		if (cstCode == null) {
+			if (other.cstCode != null)
 				return false;
-		} else if (!cstId.equals(other.cstId))
+		} else if (!cstCode.equals(other.cstCode))
 			return false;
 		return true;
 	}

@@ -10,11 +10,11 @@
 <body>
 	회원정보 찾기폼
 	<br>
-	<f:form action="../membership/scIdProcess.do" method="post">
+	<f:form action="scIdProcess.do" method="post">
 		<input type="submit" value="ID 찾기">
 	</f:form>
 	<br>
-	<f:form action="../membership/scPasswordProcess.do">
+	<f:form action="scPasswordProcess.do">
 		<input type="submit" value="PW 찾기">
 	</f:form>
 </body>

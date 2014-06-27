@@ -9,7 +9,7 @@
 </head>
 <body>
 	회원가입 입력폼
-	<f:form action="../membership/joinOk.do" method="post">
+	<f:form action="joinOk.do" method="post">
 	
 		<input type="submit" value="JOIN">
 	</f:form>

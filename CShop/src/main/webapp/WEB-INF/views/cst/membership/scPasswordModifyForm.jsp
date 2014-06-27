@@ -10,7 +10,7 @@
 <body>
 	비번찾기 변경폼
 	<br>
-	<f:form action="../membership/scPasswordModifyProcess.do" method="Post">
+	<f:form action="scPasswordModifyProcess.do" method="Post">
 		<input type="submit" value="확인">
 	</f:form>
 </body>

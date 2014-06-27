@@ -10,7 +10,7 @@
 <body>
 	회원탈퇴 인증폼
 	<br>
-	<f:form action="../membership/deleteMemberProcess.do" method="Post">
+	<f:form action="deleteMemberProcess.do" method="Post">
 		<input type="submit" value="확인">
 	</f:form>
 </body>

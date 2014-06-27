@@ -22,7 +22,7 @@ public class Orders {
 	private String receiverPhone;		// 수령자 전화번호
 	private Date dlvEndDate;			// 배송완료일
 	private String sizeCode;			// 크기정보.크기ID
-	private String cstId;				// 고객정보.회원아이디
+	private String cstCode;				// 고객정보.회원코드
 	private String noticeComment;		// 코멘트
 	private String noticeImg;			// 촬영이미지
 	
@@ -134,11 +134,11 @@ public class Orders {
 	public void setSizeCode(String sizeCode) {
 		this.sizeCode = sizeCode;
 	}
-	public String getCstId() {
-		return cstId;
+	public String getCstCode() {
+		return cstCode;
 	}
-	public void setCstId(String cstId) {
-		this.cstId = cstId;
+	public void setCstCode(String cstCode) {
+		this.cstCode = cstCode;
 	}
 	public String getNoticeComment() {
 		return noticeComment;
@@ -163,15 +163,15 @@ public class Orders {
 				+ orderDetailAddress + ", receiverName=" + receiverName
 				+ ", receiverCP=" + receiverCP + ", stockAmount=" + stockAmount
 				+ ", receiverPhone=" + receiverPhone + ", dlvEndDate="
-				+ dlvEndDate + ", sizeCode=" + sizeCode + ", cstId=" + cstId
-				+ ", noticeComment=" + noticeComment + ", noticeImg="
+				+ dlvEndDate + ", sizeCode=" + sizeCode + ", cstCode="
+				+ cstCode + ", noticeComment=" + noticeComment + ", noticeImg="
 				+ noticeImg + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((cstId == null) ? 0 : cstId.hashCode());
+		result = prime * result + ((cstCode == null) ? 0 : cstCode.hashCode());
 		result = prime * result + dlvChargeCode;
 		result = prime * result
 				+ ((dlvEndDate == null) ? 0 : dlvEndDate.hashCode());
@@ -216,10 +216,10 @@ public class Orders {
 		if (getClass() != obj.getClass())
 			return false;
 		Orders other = (Orders) obj;
-		if (cstId == null) {
-			if (other.cstId != null)
+		if (cstCode == null) {
+			if (other.cstCode != null)
 				return false;
-		} else if (!cstId.equals(other.cstId))
+		} else if (!cstCode.equals(other.cstCode))
 			return false;
 		if (dlvChargeCode != other.dlvChargeCode)
 			return false;
