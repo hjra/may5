@@ -15,4 +15,3 @@ public interface ItemMapper {
 	public List<Item> getItemList();
 
 }
-

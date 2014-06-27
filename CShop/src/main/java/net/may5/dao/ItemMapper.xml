@@ -20,5 +20,4 @@
 	<select id="getItemList" resultType="Item">
 		select * from item
 	</select>
-	
-	</mapper>
+</mapper>
