@@ -21,13 +21,13 @@
           <li><a href=".home">HOME</a></li>
           <li><a href="#">MENU</a>
             <ul class="cmenu">
-              <li><a href=".menu">MENU LIST</a></li>
-              <li><a href=".menu">MENU INFO</a></li>
+              <li><a href="/controller/cst/menu/menuList.do">MENU LIST</a></li>
+              <li><a href="/controller/cst/menu/menuInfo.do">MENU INFO</a></li>
             </ul>
           </li>
           <li><a href="#">ORDER</a>
             <ul class="corder">
-              <li><a href=".order">ADVANCE ORDER</a></li>
+              <li><a href="/controller/cst/order/advanceOrder.do">ADVANCE ORDER</a></li>
               <li><a href=".order">ORDER LIST</a></li>
             </ul>
           </li>
