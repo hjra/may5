@@ -8,7 +8,7 @@
 <title>AdvanceOrderPayment</title>
 </head>
 <body>
-<h1>수취정보</h1>
+<h1>회원수취정보</h1>
 <p><strong>*</strong>는 필수입력 항목입니다</p>
 <f:form action="../order/advanceOrderPayment.do" method="post">
 	<fieldset>
