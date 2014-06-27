@@ -20,7 +20,11 @@
 			<nav>
 				<ul>
 					<li><a href=".home">HOME</a></li>
-					<li><a href=".menu">MENU</a></li>
+					<li class="menuzz"><a href=".menu">MENU</a>
+					<ul id="menu06_sub" class="localNav">
+						<li><a href="#">메뉴1_1</a>&nbsp;</li>
+						<li><a href="#">메뉴1_2</a>&nbsp;</li>
+					</ul></li>
 					<li><a href=".order">ORDER</a></li>
 					<li><a href=".about">ABOUT</a></li>
 				</ul>
@@ -38,6 +42,7 @@
 	<div class="chome content">
 		<div class="home">
 			<h1>HOME</h1>
+	
 			<a href="../membership/termsForm.do">JOIN ${count}</a> <a
 				href="../membership/myPage.do">MY C#</a> <a
 				href="../membership/calendar.do">CALENDAR</a>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,15 +10,17 @@
 </head>
 <body>
 	<label>
-		아이템 아이디 <input value="${item.itemId }">
+	아이템 아이디<input id="itemId" name="itemId" value="${itemList[ind].itemId}">	
 	</label>
 	<br>
 	<label>
-		아이템 이름 <input value="${item.itemName }">
-	</label>
-	<br>
+		아이템 이름 <br>
+		${itemList[ind].itemName} 	</label>
+		<br>	
 	<label>
-		아이템  가격 <input value="${sizeCode.price}">
+	
+<%-- 		아이템  가격 <input value="${sizeCode.price}"> --%>
+			아이템  가격 <%-- <input value="${sizeCode.price}"> --%>
 	</label>
 	<br>
 	<label>

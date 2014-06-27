@@ -1,5 +1,8 @@
 package net.may5.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import net.may5.service.ItemService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,24 +19,26 @@ public class ItemController {
 	
 	/** 고객페이지↓ */
 	
-	
-	
 	/* 메뉴리스트로 이동*/
 	@RequestMapping(value="cst/menu/menuList.do")
-	public String menuList(Model model){
-		model.addAttribute("itemList", itemService.getItemList());
+	public String menuList(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		session.setAttribute("itemList", itemService.getItemList());
 		return "cst/menu/menuList";
 	}
 	
 	/* 메뉴상세정보로 이동 */
 	@RequestMapping(value = "cst/menu/menuInfo.do")
-	public String menuInfo(Model model, String itemId, String sizeCode) {
-		model.addAttribute("item", itemService.getItems(itemId));
-		model.addAttribute("sizeCode", itemService.getSizeInfo(sizeCode));
+	public String menuInfo(HttpServletRequest request, String itemList, String index, Model model) {
+		HttpSession session = request.getSession();
+		session.getAttribute(itemList);
+		
+//		model.addAttribute("sizeCode", itemService.getSizeInfo(sizeCode));
 		// 2. 디비에서 쿼리 날려 데이터 알아오기
 		// 3. 뷰에 내용 전달하기
-		
-//		model.addAttribute("itemName", itemName);
+		model.addAttribute("index", index);
+		int ind = Integer.parseInt(index);
+		model.addAttribute("ind",ind);
 //		model.addAttribute("itemInfo", itemInfo);
 		return "cst/menu/menuInfo";
 	}
