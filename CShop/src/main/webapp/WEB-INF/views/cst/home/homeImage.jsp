@@ -9,7 +9,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=2">
 <link href="/controller/resources/css/web.css" rel="stylesheet">
 </head>
-
 <body>
 	<header class="cshopmain">
 		<div class="chome">
@@ -18,17 +17,23 @@
 				<span></span> <span></span> <span></span>
 			</div>
 			<nav>
-				<ul>
-					<li><a href=".home">HOME</a></li>
-					<li class="menuzz"><a href=".menu">MENU</a>
-					<ul id="menu06_sub" class="localNav">
-						<li><a href="#">메뉴1_1</a>&nbsp;</li>
-						<li><a href="#">메뉴1_2</a>&nbsp;</li>
-					</ul></li>
-					<li><a href=".order">ORDER</a></li>
-					<li><a href=".about">ABOUT</a></li>
-				</ul>
-			</nav>
+        <ul>
+          <li><a href=".home">HOME</a></li>
+          <li><a href="#">MENU</a>
+            <ul class="cmenu">
+              <li><a href=".menu">MENU LIST</a></li>
+              <li><a href=".menu">MENU INFO</a></li>
+            </ul>
+          </li>
+          <li><a href="#">ORDER</a>
+            <ul class="corder">
+              <li><a href=".order">ADVANCE ORDER</a></li>
+              <li><a href=".order">ORDER LIST</a></li>
+            </ul>
+          </li>
+          <li><a href=".about">ABOUT</a></li>
+        </ul>
+      </nav>
 		</div>
 	</header>
 	<div class="ha">
