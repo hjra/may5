@@ -16,8 +16,8 @@ public class ItemServiceImpl implements ItemService {
 	private ItemMapper itemMapper;
 	
 	@Override
-	public Item getItems(String itemId) {
-		return itemMapper.getItems(itemId);
+	public Item getAnItem(String itemId) {
+		return itemMapper.getAnItem(itemId);
 		
 	}
 
@@ -34,4 +34,3 @@ public class ItemServiceImpl implements ItemService {
 	}
 	
 }
-

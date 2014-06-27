@@ -23,6 +23,11 @@ a.cake {
 	height: 100px;
 	border: 1px solid #ddd;
 }
+ul.cake{
+	display: block;
+	width: 300px;
+	border: 1px;
+}
 </style>
 </head>
 <body>
@@ -36,11 +41,13 @@ a.cake {
 		<li><a class=cake href="menuInfo.do?itemId=S2SSS&sizeCode=S">초코크림 딸기딸기딸기 케익</a></li>
 		<li><a class=cake href="menuInfo.do?itemId=S1SSB&sizeCode=S">생크림 딸기딸기 바나나 케익</a></li>
 	</ul>
-	<ul>
-	<c:forEach var="item" items="${itemList }">
-	${item}
+	<ul class="cake">
+	<c:forEach var="item" items="${itemList }" varStatus="status">
+	<li><a href="menuInfo.do?itemId=${item.itemId}&index=${status.index}">${item.itemName}</a></li>
+	<input type="button" value="${status.index }">
 	</c:forEach>
 	</ul>
 	
 </body>
+
 </html>

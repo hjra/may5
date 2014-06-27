@@ -8,11 +8,10 @@ import net.may5.dto.SizeInfo;
 
 public interface ItemMapper {
 
-	public Item getItems(String itemId);
+	public Item getAnItem(String itemId);
 
 	public SizeInfo getSizeInfo(String sizeCode);
 
 	public List<Item> getItemList();
 
 }
-
