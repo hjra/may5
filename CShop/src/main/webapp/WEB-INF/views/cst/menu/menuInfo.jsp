@@ -14,18 +14,14 @@
 	</label>
 	<br>
 	<label>
-		아이템 이름 <br>
-		${itemList[ind].itemName} 	</label>
+		아이템 이름 <input value="${itemList[ind].itemName}">	</label>
 		<br>	
 	<label>
-	
-<%-- 		아이템  가격 <input value="${sizeCode.price}"> --%>
-			아이템  가격 <%-- <input value="${sizeCode.price}"> --%>
+			아이템  가격 <input value="${itemList[ind].itemCalorie *100}">
 	</label>
 	<br>
 	<label>
-	아이템 인포 :
-	<br>${item.itemInfo}
+	아이템 인포 <input value="${itemList[ind].itemInfo }">
 	</label>
 	<br>
 	<br>
