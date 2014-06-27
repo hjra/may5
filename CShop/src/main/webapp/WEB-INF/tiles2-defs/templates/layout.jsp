@@ -8,7 +8,6 @@
 	<link rel="stylesheet" type="text/css" href="/controller/resources/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="/controller/resources/css/bootstrap-theme.min.css" />
 	<link rel="stylesheet" type="text/css" href="/controller/resources/css/style.css" />
-		<link rel="stylesheet" type="text/css" href="/controller/resources/css/button.css" />
 	<script type="text/javascript" src="/controller/resources/js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="/controller/resources/js/bootstrap.min.js"></script>
 	<title><tiles:getAsString name="title" /></title>
