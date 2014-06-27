@@ -16,8 +16,8 @@
 			<table border="1"  summary="옵션정보입력">
 				<caption>옵션 선택</caption>
 				<colgroup>
-					<col style="width: 20%"/>
-					<col style="width: 150%"/>
+					<col style="width: 200px"/>
+					<col style="width: 500px"/>
 				</colgroup>
 				<tbody>
 					<tr>
@@ -29,15 +29,15 @@
 					<tr>
 						<th scope="row"><label for="fw"><strong>*</strong>꽃다발 추가</label></th>
 						<td>
-							<input type="radio" value="fy" name="receive2"/>꽃다발 추가
+							<input type="radio" value="fy" name="receive2" />꽃다발 추가<br>
 							<input type="radio" value="fn" name="receive2"/>선택안함
 						</td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="cd"><strong>*</strong>카드</label></th>
 						<td>
-							<input type="radio" value="coy" name="receive3"/>카드 추가
-							<input type="radio" value="cqy" name="receive3"/>카드(QR)코드 추가
+							<input type="radio" value="coy" name="receive3"/>카드 추가<br>
+							<input type="radio" value="cqy" name="receive3"/>카드(QR)코드 추가<br>
 							<input type="radio" value="can" name="receive3"/>선택안함
 						</td>
 					</tr>
