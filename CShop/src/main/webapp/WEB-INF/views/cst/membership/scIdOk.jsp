@@ -10,8 +10,8 @@
 <body>
 	아이디찾기 성공화면
 	<br>
-	<a href="../membership/loginForm.do">로그인</a>
-	<f:form action="../membership/scPasswordProcess.do" method="Post">
+	<a href="/controller/cst/membership/loginForm.do">로그인</a>
+	<f:form action="scPasswordProcess.do" method="Post">
 		<input type="submit" value="비밀번호 찾기">
 	</f:form>
 </body>

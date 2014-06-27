@@ -9,7 +9,7 @@
 <body>
 	비로그인 비밀번호 변경 성공화면
 	<br>
-	<a href="../membership/loginForm.do">LOGIN</a>
-	<a href="../home/homeImage.do">HOME</a>
+	<a href="/controller/cst/membership/loginForm.do">LOGIN</a>
+	<a href="/controller/cst/home/homeImage.do">HOME</a>
 </body>
 </html>

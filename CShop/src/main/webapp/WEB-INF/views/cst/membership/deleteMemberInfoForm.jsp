@@ -10,7 +10,7 @@
 <body>
 	회원탈퇴 입력폼
 	<br>
-	<f:form action="../membership/deleteMemberVerifyForm.do" method="Post">
+	<f:form action="deleteMemberVerifyForm.do" method="Post">
 		<input type="submit" value="휴대폰 인증">
 	</f:form>
 </body>

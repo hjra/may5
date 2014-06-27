@@ -10,7 +10,7 @@
 <body>
 	회원탈퇴 성공화면
 	<br>
-	<f:form action="../home/homeImage.do" method="Get">
+	<f:form action="homeImage.do" method="Get">
 		<input type="submit" value="확인">
 	</f:form>
 </body>

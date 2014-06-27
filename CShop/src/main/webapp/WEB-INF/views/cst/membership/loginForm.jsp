@@ -9,13 +9,13 @@
 </head>
 <body>
 	로그인 입력폼
-	<f:form action="../membership/loginProcess.do" method="Post">
+	<f:form action="loginProcess.do" method="Post">
 	
 		<input type="submit" value="SIGN UP">
 	</f:form>
 	<br>
 	<hr>
-	<a href="../membership/scInfoForm.do">SEARCH ID / PASSWORD</a> | 
-	<a href="../membership/termsForm.do">JOIN</a>
+	<a href="/controller/cst/membership/scInfoForm.do">SEARCH ID / PASSWORD</a> | 
+	<a href="/controller/cst/membership/termsForm.do">JOIN</a>
 </body>
 </html>

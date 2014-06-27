@@ -24,7 +24,7 @@ $(document).ready(function(){
 <body>
 	회원가입 동의폼
 	<div>
-	<f:form action="../membership/joinForm.do" method="post">
+	<f:form action="joinForm.do" method="post">
 		<div>
 			<div>
 				이용약관, 개인정보 수집 및 이용,

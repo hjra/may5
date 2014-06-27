@@ -10,7 +10,7 @@
 <body>
 	비번찾기 입력폼
 	<br>
-	<f:form action="../membership/scPasswordModifyForm.do" method="Post">
+	<f:form action="scPasswordModifyForm.do" method="Post">
 		<input type="submit" value="다음">
 	</f:form>
 </body>
