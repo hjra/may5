@@ -29,6 +29,11 @@ public class OrderController {
 		return "cst/order/orderDetail";
 	}
 	
+	/* 수취인정보 */
+	@RequestMapping(value = "cst/order/advanceOrderPayment.do")
+	public String advanceOrderPayment(Model model){
+		return "cst/order/advanceOrderPayment";
+	}
 	
 	/** 관리자페이지↓ */
 	/* 주문정보화면으로 이동 */
