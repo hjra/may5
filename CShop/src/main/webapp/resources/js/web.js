@@ -1,4 +1,13 @@
 $(function(){
+	//mobile menu open toggle
+	$(document).on('click','#mobile-menu-toggle',function(){
+		if( $('#gnb').hasClass('active') ) {
+			$('#gnb').removeClass('active');
+		} else {
+			$('#gnb').addClass('active');
+		}
+	});
+	
 	$(window).scroll(function() {
 		if ($(window).scrollTop() > 100 ) {
 			$('.cshopmain').addClass('sa');
@@ -23,7 +32,7 @@ $(function(){
 	});
 
 	$('nav a').click(function(event) {
-		var id = $(this).attr("href");
+		var id = $(this).attr('href');
 		var offset = 70;
 		var target = $(id).offset().top - offset;
 		$('html, body').animate({
@@ -35,4 +44,4 @@ $(function(){
 
 window.viewChange = function(targetFrame,href){
 	$(targetFrame).load(href);
-	}
+}
