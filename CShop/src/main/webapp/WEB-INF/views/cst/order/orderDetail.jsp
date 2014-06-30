@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="/controller/resources/css/orderDetail.css" rel="stylesheet">
 <title>AdvanceOrderPayment</title>
 </head>
 <body>
@@ -13,11 +14,11 @@
 <f:form action="../order/advanceOrderPayment.do" method="post">
 	<fieldset>
 		<legend>정보입력</legend>
-			<table border="1"  summary="수취에 관련된 정보입력">
+			<table class="b" border="1"  summary="수취에 관련된 정보입력">
 				<caption>수취인 정보 입력</caption>
 				<colgroup>
-					<col width="200px">
-					<col width="500px">
+					<col width="100px">
+					<col width="250px">
 				</colgroup>
 				<tbody>
 					<tr>
