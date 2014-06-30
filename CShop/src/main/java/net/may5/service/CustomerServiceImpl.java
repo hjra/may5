@@ -28,16 +28,14 @@ public class CustomerServiceImpl implements CustomerService {
 	public List<Customer> selectAllCstInfo() {
 		return customerMapper.selectAllCstInfo();
 	}
-	
+
 	@Override
-	public Customer selectBlackCstInfo() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Customer> selectBlackCstInfo() {
+		return customerMapper.selectBlackCstInfo();
 	}
 
 	@Override
-	public Customer selectVIPCstInfo() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Customer> selectVIPCstInfo() {
+		return customerMapper.selectVIPCstInfo();
 	}
 }

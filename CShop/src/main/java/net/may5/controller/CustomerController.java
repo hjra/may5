@@ -148,8 +148,6 @@ public class CustomerController {
 	/* 전체고객정보 화면으로 이동 */
 	@RequestMapping("mng/cstInfo/allMemberInfoForm.do")
 	public String allMemberInfoForm(Model model){
-		System.out.println("전체 고객정보 조회");
-		Customer customer = new Customer();
 		model.addAttribute("customer", customerService.selectAllCstInfo());
 		return "mng/cstInfo/allMemberInfoForm";
 	}
@@ -157,13 +155,16 @@ public class CustomerController {
 	/* VIP LIST 화면으로 이동 */
 	@RequestMapping("mng/cstInfo/vipListForm.do")
 	public String vipListForm(Model model){
+		model.addAttribute("customer", customerService.selectVIPCstInfo());
 		return "mng/cstInfo/vipListForm";
 	}
 	
 	/* 관심고객리스트 화면으로 이동 */
 	@RequestMapping("mng/cstInfo/blackListForm.do")
 	public String blackListForm(Model model){
+		model.addAttribute("customer", customerService.selectBlackCstInfo());
 		return "mng/cstInfo/blackListForm";
 	}
 	
 }
+

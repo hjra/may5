@@ -35,12 +35,12 @@
 	</select>
 	
 	<!-- 관심고객 정보 조회 -->
-	<select id="selectBlackCstInfo">
+	<select id="selectBlackCstInfo" resultType="Customer">
 		select * from Customer where levelCode='B'
 	</select>
 	
 	<!-- VIP고객 정보 조회 -->
-	<select id="selectVIPCstInfo">
+	<select id="selectVIPCstInfo" resultType="Customer">
 		select * from Customer where levelCode='V'
 	</select>
 	

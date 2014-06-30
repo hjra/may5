@@ -5,7 +5,7 @@
 <a href="../cstInfo/allMemberInfoForm.do">고객정보</a> | 
 <a href="../cstInfo/vipListForm.do">VIP LIST</a> | 
 <a href="../cstInfo/blackListForm.do">관심고객리스트</a> | 
-<a href="mng/cstInfo/managerQnA.do">QnA관리</a>
+<a href="../cstInfo/managerQnA.do">QnA관리</a><!-- 현재페이지에서 다른 폴더의 내용을 가지고와서 링크 주소줄이다르다. --> 
 
 <br>
 <a href="../orderInfoMng/orderListMng.do">주문관리</a>

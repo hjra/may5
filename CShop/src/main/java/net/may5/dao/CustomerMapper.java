@@ -9,4 +9,6 @@ public interface CustomerMapper {
 	Integer getAllCustomerCount();
 	void insertJoinCst(Customer customer);
 	List<Customer> selectAllCstInfo();
+	List<Customer> selectBlackCstInfo();
+	List<Customer> selectVIPCstInfo();
 }
