@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -35,19 +36,19 @@ public class CustomerController {
 	
 	/* 회원가입 입력폼으로 이동 */
 	@RequestMapping(value="cst/membership/joinForm.do", method=RequestMethod.POST)
-	public String joinForm(/*@RequestParam String receiveMail,*/ Model model){
-	//	이벤트메일수신 동의여부 가져가기
+	public String joinForm(@RequestParam String cstEmailAgreement, Model model){
 		Customer customer = new Customer();
-	//	Zip zip = new Zip();
+		model.addAttribute("cstEmailAgreement", cstEmailAgreement);
 		model.addAttribute("customer", customer);
-	//	model.addAttribute("zip", customerService);
+		model.addAttribute("zip", customerService.firstSearchZip());
 		return "cst/membership/joinForm";
 	}
 	
 	/* 회원가입 성공화면으로 이동 */
 	@RequestMapping(value="cst/membership/joinOk.do", method=RequestMethod.POST)
-	public String joinProcess(@ModelAttribute("customer") Customer customer,
-			Zip zip, BindingResult result){
+	public String joinProcess(@RequestParam String cstEmailAgreement, @RequestParam String cstName, 
+			@ModelAttribute("customer") Customer customer, Zip zip, BindingResult result){
+		customer.setCstEmailAgreement(cstEmailAgreement);
 		System.out.println("insert Customer");
 		customerService.insertJoinCst(customer);
 		return "cst/membership/joinOk";

@@ -10,23 +10,28 @@
 		select count(*) from customer
 	</select>
 	
-	<!-- 회원가입 -->
-<!-- 	<insert id="insertJoinCst" parameterType="Customer">
-		insert into Customer(cstId, cstName, cstPassword, zipCode, cstDeatailAddress, cstCP, cstEmail,
-		cstGender, cstBirthday, cstEmailAgreement, cstQnAPermission, cstEvaluationPermission, cstJoinDate,
-		cstLastVisitDate, cstPostCount, levelCode)
-		 values(#{cstId}, #{cstName}, #{cstPassword}, #{zipCode}, #{cstDetailAddress}, #{cstCP}, #{cstEmail},
-		  #{cstGender}, #{cstBirthday}, #{cstEmailAgreement}, 'T', 'T', sysdate, sysdate, 0, 'N', CST.nextval)
-	</insert> -->
+	<!-- 주소 검색 -->
+	<select id="firstSearchZip" resultType="Zip">
+		select distinct sido, sigungu from Zip order by sido desc
+	</select>
+	<select id="secondSearchZip">
+		
+	</select>
+		
+	<select id="thirdSearchZip">
+		
+	</select>
 	
+	<!-- 회원가입 -->
 	<insert id="insertJoinCst" parameterType="Customer">
-		 insert into Customer(cstId, cstName, cstPassword, zipCode, cstDetailAddress, cstCP, cstEmail,
+		insert into Customer(cstId, cstName, cstPassword, zipCode, cstDetailAddress, cstCP, cstEmail,
         cstGender, cstBirthday, cstEmailAgreement, cstQnAPermission, cstEvaluationPermission, cstJoinDate,
-        cstLastVisitDate, cstPostCount, levelCode)
-         values('testId01', 'testNm01', '1111', 'GG000001', '', '010-1234-1234', 'test01@naver.com',
-          'M', '20140617', 'F', 'T', 'T', sysdate, sysdate, 0, 'N', CST.nextval)
+        cstLastVisitDate, cstPostCount, levelCode, cstCode)
+         values(#{cstId}, #{cstName}, #{cstPassword}, 'GG000001', #{cstDetailAddress}, #{cstCP}, #{cstEmail},
+          #{cstGender}, #{cstBirthday}, #{cstEmailAgreement}, 'T', 'T', sysdate, sysdate, 0, 'N', CST.nextval)
 	</insert>
 	
+
 	<!-- 회원탈퇴 -->
 	<update id="deleteMemberInfo" parameterType="Customer">
 		update Customer set levelCode='D', cstPassword='', zipCode='NN000000', 
