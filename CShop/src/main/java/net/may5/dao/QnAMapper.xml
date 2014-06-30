@@ -4,6 +4,8 @@
 
 <mapper namespace="net.may5.dao.QnAMapper">
    
+ 
+
 
 	
 </mapper>
