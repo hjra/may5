@@ -34,8 +34,7 @@ public class CustomerController {
 	}
 	
 	/* 회원가입 입력폼으로 이동 */
-	@RequestMapping(value="cst/membership/joinForm.do"
-			, method=RequestMethod.POST)
+	@RequestMapping(value="cst/membership/joinForm.do", method=RequestMethod.POST)
 	public String joinForm(/*@RequestParam String receiveMail,*/ Model model){
 	//	이벤트메일수신 동의여부 가져가기
 		return "cst/membership/joinForm";
@@ -78,24 +77,21 @@ public class CustomerController {
 	}
 	
 	/* 비번찾기 입력폼으로 이동 */
-	@RequestMapping(value="cst/membership/scPasswordProcess.do"
-			, method=RequestMethod.POST)
+	@RequestMapping(value="cst/membership/scPasswordProcess.do", method=RequestMethod.POST)
 	public String scPasswordProcess(Model model){
 		
 		return "cst/membership/scPasswordForm";
 	}
 	
 	/* 비번찾기 변경폼으로 이동 */
-	@RequestMapping(value="cst/membership/scPasswordModifyForm.do"
-			, method=RequestMethod.POST)
+	@RequestMapping(value="cst/membership/scPasswordModifyForm.do", method=RequestMethod.POST)
 	public String scPasswordModifyForm(Model model){
 		
 		return "cst/membership/scPasswordModifyForm";
 	}
 	
 	/* 비로그인 비번변경 성공화면으로 이동 */
-	@RequestMapping(value="cst/membership/scPasswordModifyProcess.do"
-			, method=RequestMethod.POST)
+	@RequestMapping(value="cst/membership/scPasswordModifyProcess.do", method=RequestMethod.POST)
 	public String scPasswordModifyProcess(Model model){
 		
 		return "cst/membership/scPasswordModifyOk";
@@ -147,10 +143,14 @@ public class CustomerController {
 	/*  */
 	
 	
+	
 	/** 관리자페이지↓ */
 	/* 전체고객정보 화면으로 이동 */
 	@RequestMapping("mng/cstInfo/allMemberInfoForm.do")
 	public String allMemberInfoForm(Model model){
+		System.out.println("전체 고객정보 조회");
+		Customer customer = new Customer();
+		model.addAttribute("customer", customerService.selectAllCstInfo());
 		return "mng/cstInfo/allMemberInfoForm";
 	}
 	

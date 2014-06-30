@@ -21,6 +21,7 @@ public class Customer {
 	private int cstPostCount;				// 게시글 수
 	private String levelCode;				// 고객등급.등급코드
 	private String cstCode;					// 회원코드
+	private int cntr;						// 회원수
 	
 	public String getCstId() {
 		return cstId;
@@ -124,6 +125,12 @@ public class Customer {
 	public void setCstCode(String cstCode) {
 		this.cstCode = cstCode;
 	}
+	public int getCntr() {
+		return cntr;
+	}
+	public void setCntr(int cntr) {
+		this.cntr = cntr;
+	}
 	@Override
 	public String toString() {
 		return "Customer [cstId=" + cstId + ", cstName=" + cstName
@@ -135,12 +142,14 @@ public class Customer {
 				+ ", cstEvaluationPermission=" + cstEvaluationPermission
 				+ ", cstJoinDate=" + cstJoinDate + ", cstLastVisitDate="
 				+ cstLastVisitDate + ", cstPostCount=" + cstPostCount
-				+ ", levelCode=" + levelCode + ", cstCode=" + cstCode + "]";
+				+ ", levelCode=" + levelCode + ", cstCode=" + cstCode
+				+ ", cntr=" + cntr + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + cntr;
 		result = prime * result
 				+ ((cstBirthday == null) ? 0 : cstBirthday.hashCode());
 		result = prime * result + ((cstCP == null) ? 0 : cstCP.hashCode());
@@ -187,6 +196,8 @@ public class Customer {
 		if (getClass() != obj.getClass())
 			return false;
 		Customer other = (Customer) obj;
+		if (cntr != other.cntr)
+			return false;
 		if (cstBirthday == null) {
 			if (other.cstBirthday != null)
 				return false;
