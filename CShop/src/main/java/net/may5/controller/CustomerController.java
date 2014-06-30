@@ -37,6 +37,10 @@ public class CustomerController {
 	@RequestMapping(value="cst/membership/joinForm.do", method=RequestMethod.POST)
 	public String joinForm(/*@RequestParam String receiveMail,*/ Model model){
 	//	이벤트메일수신 동의여부 가져가기
+		Customer customer = new Customer();
+	//	Zip zip = new Zip();
+		model.addAttribute("customer", customer);
+	//	model.addAttribute("zip", customerService);
 		return "cst/membership/joinForm";
 	}
 	
