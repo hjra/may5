@@ -4,6 +4,7 @@
 
 <mapper namespace="net.may5.dao.CustomerMapper">
    
+   <!-- 고객페이지 -->
    	<!-- 가입자 수 -->
 	<select id="getAllCustomerCount" resultType="int">
 		select count(*) from customer
@@ -15,7 +16,7 @@
 		cstGender, cstBirthday, cstEmailAgreement, cstQnAPermission, cstEvaluationPermission, cstJoinDate,
 		cstLastVisitDate, cstPostCount, levelCode)
 		 values(#{cstId}, #{cstName}, #{cstPassword}, #{zipCode}, #{cstDetailAddress}, #{cstCP}, #{cstEmail},
-		  #{cstGender}, #{cstBirthday}, #{cstEmailAgreement}, 'T', 'T', sysdate, sysdate, 0, 'N')
+		  #{cstGender}, #{cstBirthday}, #{cstEmailAgreement}, 'T', 'T', sysdate, sysdate, 0, 'N', CST.nextval)
 	</insert> -->
 	
 	<insert id="insertJoinCst" parameterType="Customer">
@@ -23,7 +24,30 @@
         cstGender, cstBirthday, cstEmailAgreement, cstQnAPermission, cstEvaluationPermission, cstJoinDate,
         cstLastVisitDate, cstPostCount, levelCode)
          values('testId01', 'testNm01', '1111', 'GG000001', '', '010-1234-1234', 'test01@naver.com',
-          'M', '20140617', 'F', 'T', 'T', sysdate, sysdate, 0, 'N')
+          'M', '20140617', 'F', 'T', 'T', sysdate, sysdate, 0, 'N', CST.nextval)
 	</insert>
+	
+	<!-- 회원탈퇴 -->
+	<update id="deleteMemberInfo" parameterType="Customer">
+		update Customer set levelCode='D', cstPassword='', zipCode='NN000000', 
+		cstDetailAddress='', cstCP='', cstEmail='', cstBirthday='' where cstCode=#{cstCode}
+	</update>
+	
+	
+  <!-- 관리자페이지 -->
+	<!-- 전체고객 정보 조회 -->
+	<select id="selectAllCstInfo" resultType="Customer">
+		select A.cntr, B.* from Customer B,(select count(*) cntr from Customer where levelCode!='D') A
+	</select>
+	
+	<!-- 관심고객 정보 조회 -->
+	<select id="selectBlackCstInfo" resultType="Customer">
+		select * from Customer where levelCode='B'
+	</select>
+	
+	<!-- VIP고객 정보 조회 -->
+	<select id="selectVIPCstInfo" resultType="Customer">
+		select * from Customer where levelCode='V'
+	</select>
 	
 </mapper>
