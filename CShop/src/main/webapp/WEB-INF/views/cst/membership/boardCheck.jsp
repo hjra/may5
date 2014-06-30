@@ -16,6 +16,6 @@
 	</f:form>
 	
 	
-
+<!--  <P><a href="/controller/cst/membership/boardEdit.do">게시글 수정페이지</a> -->
 </body>
 </html>

@@ -1,27 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" type="text/css" href="/controller/resources/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="/controller/resources/css/bootstrap-theme.min.css" />
-	<link rel="stylesheet" type="text/css" href="/controller/resources/css/style.css" />
-		<link rel="stylesheet" type="text/css" href="/controller/resources/css/button.css" />
-	<script type="text/javascript" src="/controller/resources/js/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="/controller/resources/js/bootstrap.min.js"></script>
-	<title><tiles:getAsString name="title" /></title>
+	<title>Welcome to C#</title>
+	<!-- charset을 정의해줘야 브라우져마다 언어가 깨지는일이 줄어듭니다-->
+	<meta charset="utf-8">
+	<!-- ie는 기본적으로 Compatible을 정의하지 않으면 낮은 버전으로 에뮬레이션 되어 구동됩니다.  -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=2">
+	<link href="/controller/resources/css/web.css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="/controller/resources/js/web.js"></script>
 </head>
-<body>
-	<div id="header">
-		<tiles:insertAttribute name="header" />
-	</div>
-	<div id="body">
+<body>	
+	<tiles:insertAttribute name="header" />
+	<main>
 		<tiles:insertAttribute name="body" />
-	</div>
-	<div id="footer">
-		<tiles:insertAttribute name="footer" />
-	</div>
+	</main>
+	<tiles:insertAttribute name="footer" />
 </body>
 </html>

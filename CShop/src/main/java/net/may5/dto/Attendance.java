@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Attendance {
 
 	private int attendanceCode;		// 출석코드
-	private String cstId;			// 고객정보.회원아이디
+	private String cstCode;			// 고객정보.회원코드
 	private Date attendanceDate;	// 출석날짜
 	
 	public int getAttendanceCode() {
@@ -14,11 +14,11 @@ public class Attendance {
 	public void setAttendanceCode(int attendanceCode) {
 		this.attendanceCode = attendanceCode;
 	}
-	public String getCstId() {
-		return cstId;
+	public String getCstCode() {
+		return cstCode;
 	}
-	public void setCstId(String cstId) {
-		this.cstId = cstId;
+	public void setCstCode(String cstCode) {
+		this.cstCode = cstCode;
 	}
 	public Date getAttendanceDate() {
 		return attendanceDate;
@@ -28,8 +28,8 @@ public class Attendance {
 	}
 	@Override
 	public String toString() {
-		return "Attendance [attendanceCode=" + attendanceCode + ", cstId="
-				+ cstId + ", attendanceDate=" + attendanceDate + "]";
+		return "Attendance [attendanceCode=" + attendanceCode + ", cstCode="
+				+ cstCode + ", attendanceDate=" + attendanceDate + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -38,7 +38,7 @@ public class Attendance {
 		result = prime * result + attendanceCode;
 		result = prime * result
 				+ ((attendanceDate == null) ? 0 : attendanceDate.hashCode());
-		result = prime * result + ((cstId == null) ? 0 : cstId.hashCode());
+		result = prime * result + ((cstCode == null) ? 0 : cstCode.hashCode());
 		return result;
 	}
 	@Override
@@ -57,10 +57,10 @@ public class Attendance {
 				return false;
 		} else if (!attendanceDate.equals(other.attendanceDate))
 			return false;
-		if (cstId == null) {
-			if (other.cstId != null)
+		if (cstCode == null) {
+			if (other.cstCode != null)
 				return false;
-		} else if (!cstId.equals(other.cstId))
+		} else if (!cstCode.equals(other.cstCode))
 			return false;
 		return true;
 	}

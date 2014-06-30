@@ -5,7 +5,7 @@ public class SizeInfo {
 	private String sizeCode;
 	private String sizeType;
 	private String sizeImg;
-	private int price;
+	
 	public String getSizeCode() {
 		return sizeCode;
 	}
@@ -24,22 +24,15 @@ public class SizeInfo {
 	public void setSizeImg(String sizeImg) {
 		this.sizeImg = sizeImg;
 	}
-	public int getPrice() {
-		return price;
-	}
-	public void setPrice(int price) {
-		this.price = price;
-	}
 	@Override
 	public String toString() {
 		return "SizeInfo [sizeCode=" + sizeCode + ", sizeType=" + sizeType
-				+ ", sizeImg=" + sizeImg + ", price=" + price + "]";
+				+ ", sizeImg=" + sizeImg + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + price;
 		result = prime * result
 				+ ((sizeCode == null) ? 0 : sizeCode.hashCode());
 		result = prime * result + ((sizeImg == null) ? 0 : sizeImg.hashCode());
@@ -56,8 +49,6 @@ public class SizeInfo {
 		if (getClass() != obj.getClass())
 			return false;
 		SizeInfo other = (SizeInfo) obj;
-		if (price != other.price)
-			return false;
 		if (sizeCode == null) {
 			if (other.sizeCode != null)
 				return false;
@@ -75,7 +66,4 @@ public class SizeInfo {
 			return false;
 		return true;
 	}
-	
-	
-	
 }

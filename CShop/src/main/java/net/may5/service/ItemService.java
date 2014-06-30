@@ -12,4 +12,5 @@ public interface ItemService {
 	public SizeInfo getSizeInfo(String sizeCode);
 
 	public List<Item> getItemList();
+	
 }

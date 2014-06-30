@@ -4,9 +4,12 @@
 <!DOCTYPE html >
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>AdvanceOrder</title>
-</head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=2">
+	<link href="/controller/resources/css/web.css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="/controller/resources/js/web.js"></script>
+	<title>사전주문</title>
 <body>
 <h1>예약주문페이지</h1>
 <p><strong>*</strong>는 필수입력 항목입니다</p>
@@ -23,28 +26,28 @@
 					<tr>
 						<th scope="row"><label for="ca"><strong>*</strong>케이크 수량</label></th>
 						<td>
-							<input type="number" min="1" max="10" step="1" value="1" id="ca" required="required">
+							<input type="number" min="1" max="10" step="1"  id="ca" required="required">
 						</td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="fw"><strong>*</strong>꽃다발 추가</label></th>
 						<td>
-							<input type="radio" value="fy" name="receive2" />꽃다발 추가<br>
-							<input type="radio" value="fn" name="receive2"/>선택안함
+							<input type="radio" value="fy" name="receive2" required="required"/>꽃다발 추가<br>
+							<input type="radio" value="fn" name="receive2" required="required"/>선택안함
 						</td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="cd"><strong>*</strong>카드</label></th>
 						<td>
-							<input type="radio" value="coy" name="receive3"/>카드 추가<br>
-							<input type="radio" value="cqy" name="receive3"/>카드(QR)코드 추가<br>
-							<input type="radio" value="can" name="receive3"/>선택안함
+							<input type="radio" value="coy" name="receive3" required="required"/>카드 추가<br>
+							<input type="radio" value="cqy" name="receive3" required="required"/>카드(QR)코드 추가<br>
+							<input type="radio" value="can" name="receive3" required="required"/>선택안함
 						</td>
 					</tr>
 					<tr>
 						<th scope="row"><label for="cm">카드문구</label></th>
 						<td>
-							<input type="text" id="cm" placeholder="생일축하합니다">
+							<input type="text" id="cm" placeholder="ex)생일축하합니다" />
 						</td>
 					</tr>
 					<tr>

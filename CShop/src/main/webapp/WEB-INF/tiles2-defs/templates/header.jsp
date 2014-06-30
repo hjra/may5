@@ -1,36 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=2">
-<link href="/controller/resources/css/web.css" rel="stylesheet">
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="/controller/resources/js/web.js"></script>
-<title>헤더예용</title>
-</head>
-<body>
-	<!-- 
-<h1 id="brand"
-	onclick="location.href='/controller/cst/home/homeImage.do'">C#</h1> -->
-	<header class="cshopmain">
-		<div class="chome">
-			<a class="logo" href="#">CShop</a>
-			<div class="mobile-toggle">
-				<span></span> <span></span> <span></span>
-			</div>
-			<nav>
-				<ul>
-					<li><a href="/controller/cst/home/homeImage.do">HOME</a></li>
-					<li><a href="/controller/cst/menu/menuList.do">MENU</a></li>
-					<li><a href="/controller/cst/order/advanceOrder.do">ORDER</a></li>
-					<li><a href="/controller/cst/about/about.do">ABOUT</a></li>
-				</ul>
-			</nav>
-		</div>
+<header id="master-header">
+		<a id="mobile-logo" onclick="location.href='/controller/cst/home/homeImage.do'">C#</a>
+		<a id="mobile-menu-toggle">
+		<img src="/controller/resources/img/mobile-menu-toggle-button.png" alt="메뉴펼치기"></a>
+		<menu id="gnb">
+			<li onclick="location.href='/controller/cst/home/homeImage.do'">HOME</li>
+			<li onclick="location.href='/controller/cst/menu/menuList.do'">
+				MENU
+				<div class="submenu">
+					<menu>
+						<li onclick="location.href='/controller/cst/menu/menuList.do'">MENU LIST</li>
+						<li onclick="location.href='/controller/cst/menu/menuInfo.do'">MENU INFO</li>
+					</menu>
+				</div>
+			</li>
+			<li id="desktop-logo">C#</li>
+			<li onclick="location.href='/controller/cst/order/advanceOrder.do'">
+				ORDER
+				<div class="submenu">
+					<menu>
+						<li onclick="location.href='/controller/cst/order/advanceOrder.do'">ADVANCE ORDER</li>
+						<li onclick="location.href='/controller/cst/order/orderList.do'">ORDER LIST</li>
+					</menu>
+				</div>
+				
+			</li>
+			<li onclick="location.href='/controller/cst/about/about.do'">ABOUT</li>
+		</menu>
 	</header>
-
-</body>
-</html>
+	

@@ -10,7 +10,7 @@
 <body>
 
 <h1>게시판.jsp로 이동완료</h1>
-<P><a href="boardCheck.do">(게시판 글 제목3)</a><!-- 같은 폴더에서 jsp가 이동하므로 이렇게 써도 된다 -->
+<P><a href="/controller/cst/membership/boardCheck.do">(게시판 글 제목3)</a>
 
 <p><f:form action="boardWriteForm.do" >
 	<input type="submit" value="글쓰기">
