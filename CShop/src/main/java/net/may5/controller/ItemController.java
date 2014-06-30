@@ -32,14 +32,12 @@ public class ItemController {
 	public String menuInfo(HttpServletRequest request, String itemList, String index, Model model) {
 		HttpSession session = request.getSession();
 		session.getAttribute(itemList);
-		
 //		model.addAttribute("sizeCode", itemService.getSizeInfo(sizeCode));
 		// 2. 디비에서 쿼리 날려 데이터 알아오기
 		// 3. 뷰에 내용 전달하기
 		model.addAttribute("index", index);
 		int ind = Integer.parseInt(index);
 		model.addAttribute("ind",ind);
-//		model.addAttribute("itemInfo", itemInfo);
 		return "cst/menu/menuInfo";
 	}
 	

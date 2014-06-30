@@ -2,17 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=2">
-	<link href="/controller/resources/css/web.css" rel="stylesheet">
-	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-	<script src="/controller/resources/js/web.js"></script>
-<title>메뉴 상세 정보</title>
-</head>
-<body>
+
 	<label>
 	아이템 아이디<input id="itemId" name="itemId" value="${itemList[ind].itemId}">	
 	</label>
@@ -30,8 +20,13 @@
 	<br>
 	<br>
 	
-무슨 메뉴 일까요
+<label>평점 및 댓글</label>
+<select name="evaluation">
+	<option value="5">5</option>
+	<option value="4">4</option>
+	<option value="3">3</option>
+	<option value="2">2</option>
+	<option value="1">1</option>
+</select>
 이미지, 이름, 가격, 칼로리, 상세정보, 썸네일이미지, 평점 및 댓글
-</body>
 
-</html>
