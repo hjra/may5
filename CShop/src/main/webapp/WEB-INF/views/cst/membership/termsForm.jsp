@@ -1,13 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script type="text/javascript">
 /* checkbox 전체선택, 전체해제 */
 $(document).ready(function(){
@@ -20,9 +13,7 @@ $(document).ready(function(){
 	});
 });
 </script>
-</head>
-<body>
-	회원가입 동의폼
+회원가입 동의폼
 	<div>
 	<f:form action="joinForm.do" method="post">
 		<div>
@@ -45,5 +36,3 @@ $(document).ready(function(){
 	</f:form>
 	<a href="../home/homeImage.do">취소</a>
 	</div>
-</body>
-</html>
