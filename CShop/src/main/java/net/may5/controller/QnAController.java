@@ -33,8 +33,11 @@ public class QnAController {
 	
 	@RequestMapping("mng/cstInfo/managerQnA.do") //여기에서 board.do가 입력되면 이라는 뜻인가?
 	public String managerQnA(Model model) {  
-		return "mng/cstInfo/managerQnA.do";
+		return "mng/cstInfo/managerQnA";
 	}
-	
+	@RequestMapping(value="mng/cstInfo/managerEditQnA.do")
+	public String managerEditQnA(Model model){
+		return "mng/cstInfo/managerEditQnA";
+	}
 	
 }
