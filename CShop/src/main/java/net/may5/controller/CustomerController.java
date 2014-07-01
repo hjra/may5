@@ -131,6 +131,15 @@ public class CustomerController {
 	/* 회원정보수정 입력폼으로 이동 */
 	@RequestMapping("cst/membership/modifyInfoForm.do")
 	public String modifyInfoForm(Model model){
+		Customer customer = new Customer();
+		model.addAttribute("customer", customer);
+		return "cst/membership/modifyInfoForm";
+	}
+	
+	@RequestMapping("cst/membership/modifyInfoProcess.do")
+	public String modifyInfoProcess(Model model){
+		Customer customer = new Customer();
+		model.addAttribute("customer", customer);
 		return "cst/membership/modifyInfoForm";
 	}
 	
