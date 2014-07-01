@@ -1,17 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page session="true" %>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html>
-<html>
-<head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>AdvanceOrderPayment</title>
-</head>
-<body>
 <h1>비회원수취정보</h1>
 <p><strong>*</strong>는 필수입력 항목입니다</p>
-<f:form action="../order/advanceOrderPayment.do" method="post">
+<f:form action="advanceOrderPayment.do" method="post">
 	<fieldset>
 		<legend>정보입력</legend>
 			<table border="1"  summary="수취에 관련된 정보입력">
@@ -86,5 +79,3 @@
 				<input type="submit" value="다음"/></p>
 	</fieldset>
 </f:form>
-</body>
-</html>

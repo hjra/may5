@@ -25,7 +25,7 @@ public class CustomerController {
 	
 	/** 고객페이지↓ */
 	/* 고객페이지로 이동 */
-	@RequestMapping(value = "/cst/home/homeImage.do")
+	@RequestMapping(value = "cst/home/homeImage.do")
 	public String homeImage(Model model) {
 		model.addAttribute("count", customerService.getAllCustomerCount());
 		return "cst/home/homeImage";
@@ -150,16 +150,14 @@ public class CustomerController {
 	}
 	
 	/* 회원탈퇴 인증폼으로 이동 */
-	@RequestMapping(value="cst/membership/deleteMemberVerifyForm.do"
-			, method=RequestMethod.POST)
+	@RequestMapping(value="cst/membership/deleteMemberVerifyForm.do", method=RequestMethod.POST)
 	public String deleteMemberVerifyForm(Model model){
 		
 		return "cst/membership/deleteMemberVerifyForm";
 	}
 	
 	/* 회원탈퇴 성공화면으로 이동 */
-	@RequestMapping(value="cst/membership/deleteMemberProcess.do"
-			, method=RequestMethod.POST)
+	@RequestMapping(value="cst/membership/deleteMemberProcess.do", method=RequestMethod.POST)
 	public String deleteMemberProcess(Model model){
 		
 		return "cst/membership/deleteMemberOk";

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ page session="true" %>
 <div class="ha">
 		<h1><span>Hi ha</span><br>navigation</h1>
 		<div class="mouse">
@@ -21,7 +21,7 @@
 		</div>
 		<div class="order">
 			<h1>ORDER</h1>
-			<a href="../order/advanceOrder.do">ORDER</a>
+			<a href="/controller/cst/order/advanceOrder.do">ORDER</a>
 			<a href="/controller/cst/order/orderSearch.do">ORDERSEARCH</a>
 		
 		</div>
