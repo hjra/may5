@@ -108,7 +108,6 @@
 		<c:when test="${sessionScope.memberId == null }">
 			<td width="100px" colspan="5" align="center">
 			<input type="submit" value="등록">
-			<!-- <a href="javascript:history.go(0)">[새로고침]</a> -->
 		</c:when>
 		<c:otherwise>
 			<tr>
