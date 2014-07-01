@@ -1,5 +1,8 @@
 package net.may5.controller;
 
+import java.util.List;
+
+import net.may5.dto.Orders;
 import net.may5.service.OrderService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
@@ -42,10 +46,14 @@ public class OrderController {
 		return "mng/orderInfoMng/orderListMng";
 	}
 	
-	/*주문내역관리*/
-	@RequestMapping(value = "mng/deliveryMng/dlvNotice.do")
-	public String dlvNotice(Model model) {
-		return "mng/deliveryMng/dlvNotice";
+	/*알리미리스트*/
+	@RequestMapping("mng/deliveryMng/dlvNotice.do")
+	public ModelAndView memberAll() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("mng/deliveryMng/dlvNotice");
+		List<Orders> alimilist = orderService.getAlimiList();
+		model.addObject("alimilist", alimilist);
+		return model;
 	}
 	
 	/*주문내역(알리미)관리*/

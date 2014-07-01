@@ -6,7 +6,7 @@ public class Orders {
 	
 	private String orderCode;			// 주문코드
 	private Date orderDate;				// 주문날짜(sysdate)
-	private String itemId;				// 상품정보.상품ID
+
 	private String sameTimeCount;		// 동시간대카운트
 	private int payCode;				// 결제구분.결제코드
 	private int optionCode;				// 옵션가.옵션코드
@@ -26,6 +26,13 @@ public class Orders {
 	private String noticeComment;		// 코멘트
 	private String noticeImg;			// 촬영이미지
 	
+	/*db가져오기*/
+	private String itemId;				// 상품정보.상품ID
+	private String cstId;				// 회원아이디
+	private String levelCode;			// 고객등급.등급코드
+	
+	
+	
 	public String getOrderCode() {
 		return orderCode;
 	}
@@ -37,12 +44,6 @@ public class Orders {
 	}
 	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;
-	}
-	public String getItemId() {
-		return itemId;
-	}
-	public void setItemId(String itemId) {
-		this.itemId = itemId;
 	}
 	public String getSameTimeCount() {
 		return sameTimeCount;
@@ -152,30 +153,54 @@ public class Orders {
 	public void setNoticeImg(String noticeImg) {
 		this.noticeImg = noticeImg;
 	}
+	public String getItemId() {
+		return itemId;
+	}
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
+	}
+	public String getCstId() {
+		return cstId;
+	}
+	public void setCstId(String cstId) {
+		this.cstId = cstId;
+	}
+	public String getLevelCode() {
+		return levelCode;
+	}
+	public void setLevelCode(String levelCode) {
+		this.levelCode = levelCode;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Orders [orderCode=" + orderCode + ", orderDate=" + orderDate
-				+ ", itemId=" + itemId + ", sameTimeCount=" + sameTimeCount
-				+ ", payCode=" + payCode + ", optionCode=" + optionCode
-				+ ", dlvChargeCode=" + dlvChargeCode + ", noticeCode="
-				+ noticeCode + ", orderAmount=" + orderAmount + ", pointCode="
-				+ pointCode + ", zipCode=" + zipCode + ", orderDetailAddress="
+				+ ", sameTimeCount=" + sameTimeCount + ", payCode=" + payCode
+				+ ", optionCode=" + optionCode + ", dlvChargeCode="
+				+ dlvChargeCode + ", noticeCode=" + noticeCode
+				+ ", orderAmount=" + orderAmount + ", pointCode=" + pointCode
+				+ ", zipCode=" + zipCode + ", orderDetailAddress="
 				+ orderDetailAddress + ", receiverName=" + receiverName
 				+ ", receiverCP=" + receiverCP + ", stockAmount=" + stockAmount
 				+ ", receiverPhone=" + receiverPhone + ", dlvEndDate="
 				+ dlvEndDate + ", sizeCode=" + sizeCode + ", cstCode="
 				+ cstCode + ", noticeComment=" + noticeComment + ", noticeImg="
-				+ noticeImg + "]";
+				+ noticeImg + ", itemId=" + itemId + ", cstId=" + cstId
+				+ ", levelCode=" + levelCode + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((cstCode == null) ? 0 : cstCode.hashCode());
+		result = prime * result + ((cstId == null) ? 0 : cstId.hashCode());
 		result = prime * result + dlvChargeCode;
 		result = prime * result
 				+ ((dlvEndDate == null) ? 0 : dlvEndDate.hashCode());
 		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
+		result = prime * result
+				+ ((levelCode == null) ? 0 : levelCode.hashCode());
 		result = prime * result + noticeCode;
 		result = prime * result
 				+ ((noticeComment == null) ? 0 : noticeComment.hashCode());
@@ -207,6 +232,8 @@ public class Orders {
 		result = prime * result + ((zipCode == null) ? 0 : zipCode.hashCode());
 		return result;
 	}
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -221,6 +248,11 @@ public class Orders {
 				return false;
 		} else if (!cstCode.equals(other.cstCode))
 			return false;
+		if (cstId == null) {
+			if (other.cstId != null)
+				return false;
+		} else if (!cstId.equals(other.cstId))
+			return false;
 		if (dlvChargeCode != other.dlvChargeCode)
 			return false;
 		if (dlvEndDate == null) {
@@ -232,6 +264,11 @@ public class Orders {
 			if (other.itemId != null)
 				return false;
 		} else if (!itemId.equals(other.itemId))
+			return false;
+		if (levelCode == null) {
+			if (other.levelCode != null)
+				return false;
+		} else if (!levelCode.equals(other.levelCode))
 			return false;
 		if (noticeCode != other.noticeCode)
 			return false;
@@ -302,4 +339,9 @@ public class Orders {
 			return false;
 		return true;
 	}
+	
+	
+	
+	
+
 }
