@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-   
-   <mapper namespace="net.may5.dao.OrderMapper">
-   
-   <!-- 관리자페이지↓ -->
-   <!-- 알리미  -->
-<select id="getAlimiList" resultType="Orders">
-	select * from orders, customer
-</select>
-   
+
+<mapper namespace="net.may5.dao.OrderMapper">
+
+	<!-- 관리자페이지↓ -->
+	<!-- 알리미 -->
+	<select id="getAlimiList" resultType="Orders">
+		select * from orders,
+		customer
+	</select>
+
+	<select id="getOrderList" resultType="Orders">
+		select * from orders,
+		customer
+	</select>
+
+	<select id="orderList" parameterType="int" resultType="Orders">
+		select * from orders,
+		customer where orderDate  = #{orderDate}
+	</select>
+
 </mapper>

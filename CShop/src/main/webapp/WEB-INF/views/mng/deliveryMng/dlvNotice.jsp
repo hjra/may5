@@ -14,16 +14,15 @@
 <body>
 	알리미
 	<br>
-	<!--  ../deliveryMng/dlvNotice.do 주소값 고쳐야할 부분  -->
-	<f:form action="/controller/mng/deliveryMng/dlvmImage.do" method="get">
+	<f:form action="/controller/mng/deliveryMng/dlvmImage.do" method="post">
 	<select name="dcategory">
-			<option value="call">모두</option>
-			<option value="corderCode">주문번호</option>
-			<option value="ccstId">고객아이디</option>
+			<option value="all">모두</option>
+			<option value="orderCode">주문번호</option>
+			<option value="cstId">고객아이디</option>
 		</select>
-	<input type="text" name="orderCode">
+	<input type="text" name="ordersearch" value="cstId">
 		<input type="submit" value="조회" />
-	
+		</f:form>
 
 	<table class="board" border="1" cellspacing="0"  >
 
@@ -68,7 +67,7 @@
 		</tbody>
 	</table>
 	<a href="/controller/mng/loginMng/loginForm.do">loginForm으로~</a>
-	</f:form>
+
 </body>
 </html>
 

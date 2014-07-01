@@ -30,7 +30,8 @@ public class Orders {
 	private String itemId;				// 상품정보.상품ID
 	private String cstId;				// 회원아이디
 	private String levelCode;			// 고객등급.등급코드
-	
+	private String itemName;			// 상품명
+	private int price;					// 가격
 	
 	
 	public String getOrderCode() {
@@ -171,6 +172,18 @@ public class Orders {
 	public void setLevelCode(String levelCode) {
 		this.levelCode = levelCode;
 	}
+	public String getItemName() {
+		return itemName;
+	}
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	
 	
 	@Override
@@ -187,7 +200,8 @@ public class Orders {
 				+ dlvEndDate + ", sizeCode=" + sizeCode + ", cstCode="
 				+ cstCode + ", noticeComment=" + noticeComment + ", noticeImg="
 				+ noticeImg + ", itemId=" + itemId + ", cstId=" + cstId
-				+ ", levelCode=" + levelCode + "]";
+				+ ", levelCode=" + levelCode + ", itemName=" + itemName
+				+ ", price=" + price + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -199,6 +213,8 @@ public class Orders {
 		result = prime * result
 				+ ((dlvEndDate == null) ? 0 : dlvEndDate.hashCode());
 		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
+		result = prime * result
+				+ ((itemName == null) ? 0 : itemName.hashCode());
 		result = prime * result
 				+ ((levelCode == null) ? 0 : levelCode.hashCode());
 		result = prime * result + noticeCode;
@@ -218,6 +234,7 @@ public class Orders {
 						.hashCode());
 		result = prime * result + payCode;
 		result = prime * result + pointCode;
+		result = prime * result + price;
 		result = prime * result
 				+ ((receiverCP == null) ? 0 : receiverCP.hashCode());
 		result = prime * result
@@ -232,7 +249,6 @@ public class Orders {
 		result = prime * result + ((zipCode == null) ? 0 : zipCode.hashCode());
 		return result;
 	}
-	
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -264,6 +280,11 @@ public class Orders {
 			if (other.itemId != null)
 				return false;
 		} else if (!itemId.equals(other.itemId))
+			return false;
+		if (itemName == null) {
+			if (other.itemName != null)
+				return false;
+		} else if (!itemName.equals(other.itemName))
 			return false;
 		if (levelCode == null) {
 			if (other.levelCode != null)
@@ -305,6 +326,8 @@ public class Orders {
 			return false;
 		if (pointCode != other.pointCode)
 			return false;
+		if (price != other.price)
+			return false;
 		if (receiverCP == null) {
 			if (other.receiverCP != null)
 				return false;
@@ -339,6 +362,10 @@ public class Orders {
 			return false;
 		return true;
 	}
+	
+	
+	
+	
 	
 	
 	

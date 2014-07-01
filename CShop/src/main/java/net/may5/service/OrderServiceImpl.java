@@ -7,6 +7,7 @@ import net.may5.dto.Orders;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service("orderService")
 public class OrderServiceImpl implements OrderService {
@@ -15,6 +16,16 @@ public class OrderServiceImpl implements OrderService {
 
 	public List<Orders> getAlimiList() {
 		return orderMapper.getAlimiList();
+	}
+	
+	public List<Orders> getOrderList() {
+		return orderMapper.getOrderList();
+	}
+	
+	@Transactional
+	public Orders orderList(int orderDate) {
+		Orders orders = orderMapper.orderList(orderDate);
+		return orders;
 	}
 
 }
