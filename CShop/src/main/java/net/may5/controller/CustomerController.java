@@ -1,5 +1,8 @@
 package net.may5.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import net.may5.dto.Customer;
 import net.may5.dto.Zip;
 import net.may5.service.CustomerService;
@@ -57,15 +60,33 @@ public class CustomerController {
 	/* 로그인 입력폼으로 이동 */
 	@RequestMapping("cst/membership/loginForm.do")
 	public String loginForm(Model model){
+		Customer customer = new Customer();
+		model.addAttribute("customer", customer);
 		return "cst/membership/loginForm";
 	}
 	
 	/* 회원 로그인 성공화면으로 이동 */
 	/* 비회원 로그인 성공화면으로 이동 */
-	@RequestMapping(value="cst/membership/loginProcess.do"
-			, method=RequestMethod.POST)
-	public String loginProcess(Model model){
-		return "cst/membership/loginOk";
+	@RequestMapping(value="cst/membership/loginProcess.do", method=RequestMethod.POST)
+	public String loginProcess(Model model, Customer customer,
+			HttpServletRequest request, HttpSession session){
+		
+		session = request.getSession();
+		
+		Customer login = customerService.loginCst(customer);
+		if(login != null){
+			if(!session.isNew()){
+				session = request.getSession(true);
+			}
+			session.setAttribute("login", login);
+		//	model.addAttribute("login", login);
+			return "cst/membership/loginOk";
+		}else{
+			System.out.println("login (5)");
+			request.setAttribute("errMsg", "아이디 또는 비밀번호를 다시 확인하세요.\n"
+					+ "C#에 등록되지 않은 아이디이거나,\n아이디 또는 비밀번호를 잘못 입력하셨습니다.");
+			return "cst/membership/loginForm";			
+		}
 	}
 		
 	/* 회원정보 찾기폼으로 이동 */

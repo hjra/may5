@@ -11,6 +11,7 @@
 		<div class="home">
 			<h1>HOME</h1>
 			<a href="/controller/cst/membership/termsForm.do">JOIN ${count}</a>
+			<a href="/controller/cst/membership/loginForm.do">LOGIN</a>
 			<a href="/controller/cst/membership/myPage.do">MY C#</a>
 			<a href="/controller/cst/membership/calendar.do">CALENDAR</a>
 		</div>

@@ -17,7 +17,6 @@
 	<select id="secondSearchZip">
 		
 	</select>
-		
 	<select id="thirdSearchZip">
 		
 	</select>
@@ -31,6 +30,11 @@
           #{cstGender}, #{cstBirthday}, #{cstEmailAgreement}, 'T', 'T', sysdate, sysdate, 0, 'N', CST.nextval)
 	</insert>
 	
+	<!-- 로그인 -->
+	<select id="loginCst" resultType="Customer">
+		select * from Customer where cstId=#{cstId} and cstPassword=#{cstPassword} and levelCode!='D'	
+	</select>
+
 
 	<!-- 회원탈퇴 -->
 	<update id="deleteMemberInfo" parameterType="Customer">

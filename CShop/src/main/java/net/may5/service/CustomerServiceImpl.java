@@ -56,4 +56,9 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Customer loginCst(Customer customer) {
+		return customerMapper.loginCst(customer);
+	}
 }
