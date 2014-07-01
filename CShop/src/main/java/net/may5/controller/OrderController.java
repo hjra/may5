@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -55,20 +53,6 @@ public class OrderController {
 		model.addObject("alimilist", alimilist);
 		return model;
 	}
-	
-	/*주문내역(알리미)관리*/
-/*	@RequestMapping(value = "/mng/deliveryMng/dlvNotice.do")
-	public String dNotice(Model model, String orderCode ) {
-		model.addAttribute("order", orderService.getAlimi(orderCode));
-		return "mng/deliveryMng/dlvNotice";
-	}*/
-	
-	
-	/*주문내역이미지관리*/
-/*	@RequestMapping(value = "mng/deliveryMng/dlvmImage.do")
-	public String dlvmImage(Model model) {
-		return "mng/deliveryMng/dlvmImage";
-	}*/
 
 
 }
