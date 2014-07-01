@@ -1,9 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page session="true" %>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
+<script type="text/javascript">
+	function modify() {
+		document.getElementById("form").action = "modifyInfoProcess.do";
+		document.getElementById("form").submit();
+	}
+	function home() {
+		document.getElementById("form").action = "homeImage.do";
+		document.getElementById("form").submit();
+	}
+/* 	function drop() {
+		document.getElementById("form").action = "dropForm.do";
+		document.getElementById("form").submit();
+	} */
+</script>
 개인정보 확인 및 수정 폼
 <div>
-<f:form action="modifyInfoProcess.do" method="post" commandName="customer">
+<f:form id="form" method="post" commandName="customer">
 	<div class="row_group">
 		<div id="idDiv">
 			<div class="row_text">
@@ -116,7 +130,8 @@
 			</div>
 		</div>
 	</div>
-	<input type="submit" value="MODIFY">
+	<input type="submit" onclick="modify()" value="MODIFY">
+	<input type="submit" onclick="home()" value="HOME">
 	<input type="reset" value="RESET">
 </f:form>
 </div>

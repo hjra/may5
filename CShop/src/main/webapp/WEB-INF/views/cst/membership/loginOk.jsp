@@ -13,4 +13,4 @@ ${sessionScope.login.cstName} 고객님의 로그인을 환영합니다.
 	<br>
 	<a href="/controller/cst/about/about.do">ABOUT</a>
 	<br>
-	<a href="/controller/cst/membership/myPage.do">MY C#</a>
+	<a href="myPage.do">MY C#</a>

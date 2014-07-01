@@ -5,7 +5,7 @@
 		<a id="mobile-menu-toggle">
 		<img src="/controller/resources/img/mobile-menu-toggle-button.png" alt="메뉴펼치기"></a>
 		<menu id="gnb">
-			<li onclick="location.href='/controller/cst/home/homeImage.do'">HOME</li>
+			<li onclick="location.href='homeImage.do'">HOME</li>
 			<li onclick="location.href='/controller/cst/menu/menuList.do'">
 				MENU
 				<div class="submenu">

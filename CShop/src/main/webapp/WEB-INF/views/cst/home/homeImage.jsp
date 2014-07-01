@@ -10,10 +10,10 @@
 	<div class="chome content">
 		<div class="home">
 			<h1>HOME</h1>
-			<a href="/controller/cst/membership/termsForm.do">JOIN ${count}</a>
-			<a href="/controller/cst/membership/loginForm.do">LOGIN</a>
-			<a href="/controller/cst/membership/myPage.do">MY C#</a>
-			<a href="/controller/cst/membership/calendar.do">CALENDAR</a>
+			<a href="termsForm.do">JOIN ${count}</a>
+			<a href="loginForm.do">LOGIN</a>
+			<a href="myPage.do">MY C#</a>
+			<a href="calendar.do">CALENDAR</a>
 		</div>
 		<div class="menu">
 			<h1>MENU</h1>
