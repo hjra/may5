@@ -37,7 +37,7 @@
 					<tr>
 						<th scope="row"><label for="pnumber">전화번호</label></th>
 						<td>
-							<input type="tel" id="pnumber" placeholder="ex)0212345678" required="required"/>
+							<input type="tel" id="pnumber" placeholder="ex)0212345678" />
 						</td>
 					</tr>
 					<tr>

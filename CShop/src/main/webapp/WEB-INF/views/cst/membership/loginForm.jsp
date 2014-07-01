@@ -20,8 +20,7 @@
 <br>
 <div>
 <hr>
-<a href="/controller/cst/membership/scInfoForm.do">SEARCH ID /
-	PASSWORD</a>
+<a href="/controller/cst/membership/scInfoForm.do">SEARCH ID / PASSWORD</a>
 |
 <a href="/controller/cst/membership/termsForm.do">JOIN</a>
 </div>

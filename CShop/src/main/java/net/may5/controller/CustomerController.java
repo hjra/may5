@@ -82,9 +82,8 @@ public class CustomerController {
 		//	model.addAttribute("login", login);
 			return "cst/membership/loginOk";
 		}else{
-			System.out.println("login (5)");
-			request.setAttribute("errMsg", "아이디 또는 비밀번호를 다시 확인하세요.\n"
-					+ "C#에 등록되지 않은 아이디이거나,\n아이디 또는 비밀번호를 잘못 입력하셨습니다.");
+			request.setAttribute("errMsg", "아이디 또는 비밀번호를 다시 확인하세요.<br>"
+					+ "C#에 등록되지 않은 아이디이거나,<br>아이디 또는 비밀번호를 잘못 입력하셨습니다.");
 			return "cst/membership/loginForm";			
 		}
 	}
