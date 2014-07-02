@@ -39,11 +39,11 @@
 		</div>
 		<div id="add1Div">
 			<%-- <f:input path="zipCode" placeholder="ADDRESS"/> --%>
-			<f:select path="zipCode">
+<%-- 			<f:select path="zipCode">
 				<c:forEach var="zip" items="${zip}">
 					<option value="${zip.zipCode}">${zip.sido}&nbsp;${zip.sigungu}</option>
 				</c:forEach>
-			</f:select>
+			</f:select> --%>
 		</div>
 		<div id="add2Div">
 			<f:input path="cstDetailAddress" placeholder="ADDRESS DETAIL"/>

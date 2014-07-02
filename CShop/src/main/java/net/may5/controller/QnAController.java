@@ -29,6 +29,9 @@ public class QnAController {
 	}
 
 	
+	
+	
+	
 	/*관리자페이지경로설정*/
 	
 	@RequestMapping("mng/cstInfo/managerQnA.do") //여기에서 board.do가 입력되면 이라는 뜻인가?
