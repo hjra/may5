@@ -10,10 +10,7 @@
 	<div class="chome content">
 		<div class="home">
 			<h1>HOME</h1>
-			<a href="termsForm.do">JOIN ${count}</a>
-			<a href="loginForm.do">LOGIN</a>
-			<a href="myPage.do">MY C#</a>
-			<a href="calendar.do">CALENDAR</a>
+			
 		</div>
 		<div class="menu">
 			<h1>MENU</h1>

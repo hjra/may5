@@ -96,7 +96,7 @@ public class CustomerController {
 		System.out.println("로그아웃");
 		session.removeAttribute("login");
 		session.invalidate();
-		return "foward:homeImage.do";
+		return "cst/home/homeImage";
 	}
 		
 	/* 회원정보 찾기폼으로 이동 */
