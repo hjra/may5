@@ -93,7 +93,7 @@ public class CustomerController {
 	/* 로그아웃 */
 	@RequestMapping("cstLogoutProcess.do")
 	public String logoutProcess(HttpSession session){
-		System.out.println("로그아웃");
+		System.out.println("고객 로그아웃");
 		session.removeAttribute("cstLogin");
 		session.invalidate();
 		return "cst/home/homeImage";

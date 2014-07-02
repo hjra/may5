@@ -54,10 +54,12 @@ public class ManagerController {
 	
 	/* 로그아웃 */
 	@RequestMapping("mngLogoutProcess.do")
-	public String logoutProcess(HttpSession session){
-		System.out.println("로그아웃");
+	public String logoutProcess(Model model, HttpSession session){
+		System.out.println("관리자 로그아웃");
 		session.removeAttribute("mngLogin");
 		session.invalidate();
+		Manager manager = new Manager();
+		model.addAttribute("manager", manager);
 		return "mng/loginMng/loginForm";
 	}
 	
