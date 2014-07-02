@@ -39,7 +39,7 @@
 				<td></td>
 				<td></td>
 				<td colspan="2" align="right"><form action="myBoardList.do">
-						<input type="hidden" name="userId" value="${users.userid }">
+						<input type="hidden" name="userId" value="${users.cstId }">
 						
 						<input type="submit" value="내글 목록">
 					</form> <input type="button"
