@@ -9,7 +9,7 @@
 <body>
 	<center>
 		<a href="homeImage.do">고객 페이지</a><br>
-		<a href="loginForm.do">관리자 페이지</a>
+		<a href="mngLoginForm.do">관리자 페이지</a>
 	</center>
 </body>
 </html>

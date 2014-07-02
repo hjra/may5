@@ -27,8 +27,8 @@ public class CustomerController {
 	/* 고객페이지로 이동 */
 	@RequestMapping("homeImage.do")
 	public String homeImage(Model model, HttpServletRequest request) {
-		Customer login = (Customer) request.getSession().getAttribute("login");
-		model.addAttribute("login", login);
+		Customer cstLogin = (Customer) request.getSession().getAttribute("cstLogin");
+		model.addAttribute("cstLogin", cstLogin);
 		model.addAttribute("count", customerService.getAllCustomerCount());
 		return "cst/home/homeImage";
 	}
@@ -60,7 +60,7 @@ public class CustomerController {
 	}
 	
 	/* 로그인 입력폼으로 이동 */
-	@RequestMapping("loginForm.do")
+	@RequestMapping("cstLoginForm.do")
 	public String loginForm(Model model){
 		Customer customer = new Customer();
 		model.addAttribute("customer", customer);
@@ -69,19 +69,19 @@ public class CustomerController {
 	
 	/* 회원 로그인 성공화면으로 이동 */
 	/* 비회원 로그인 성공화면으로 이동 */
-	@RequestMapping(value="/loginProcess.do", method=RequestMethod.POST)
+	@RequestMapping(value="cstLoginProcess.do", method=RequestMethod.POST)
 	public String loginProcess(Model model, Customer customer,
 			HttpServletRequest request, HttpSession session){
 		
 		session = request.getSession();
 		
-		Customer login = customerService.loginCst(customer);
-		if(login != null){
+		Customer cstLogin = customerService.loginCst(customer);
+		if(cstLogin != null){
 			if(!session.isNew()){
 				session = request.getSession(true);
 			}
-			session.setAttribute("login", login);
-		//	model.addAttribute("login", login);
+			session.setAttribute("cstLogin", cstLogin);
+		//	model.addAttribute("cstLogin", cstLogin);
 			return "cst/membership/loginOk";
 		}else{
 			request.setAttribute("errMsg", "아이디 또는 비밀번호를 다시 확인하세요.<br>"
@@ -91,10 +91,10 @@ public class CustomerController {
 	}
 	
 	/* 로그아웃 */
-	@RequestMapping("logoutProcess.do")
+	@RequestMapping("cstLogoutProcess.do")
 	public String logoutProcess(HttpSession session){
 		System.out.println("로그아웃");
-		session.removeAttribute("login");
+		session.removeAttribute("cstLogin");
 		session.invalidate();
 		return "cst/home/homeImage";
 	}

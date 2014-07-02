@@ -24,7 +24,7 @@
 				USER ID
 			</div>
 			<div class="row_input">
-				${sessionScope.login.cstId}
+				${sessionScope.cstLogin.cstId}
 			</div>
 		</div>
 		<div id="pass1Div">
@@ -58,7 +58,7 @@
 				NAME
 			</div>
 			<div>
-				<f:input path="cstName" value="${sessionScope.login.cstName}"/>
+				<f:input path="cstName" value="${sessionScope.cstLogin.cstName}"/>
 			</div>
 		</div>
 		<div id="genderDiv">
@@ -66,7 +66,7 @@
 				GENDER
 			</div>
 			<div>
-				${sessionScope.login.cstGender == "M" ? "Man" : "Lady"}
+				${sessionScope.cstLogin.cstGender == "M" ? "Man" : "Lady"}
 			</div>
 		</div>
 		<div id="birthDiv">
@@ -74,7 +74,7 @@
 				BIRTH DAY
 			</div>
 			<div>
-				<f:input path="cstBirthday" value="${sessionScope.login.cstBirthday}" />
+				<f:input path="cstBirthday" value="${sessionScope.cstLogin.cstBirthday}" />
 			</div>
 		</div>
 		<div id="mailDiv">
@@ -82,7 +82,7 @@
 				EMAIL
 			</div>
 			<div>
-				<f:input path="cstEmail" value="${sessionScope.login.cstEmail}"/>
+				<f:input path="cstEmail" value="${sessionScope.cstLogin.cstEmail}"/>
 			</div>
 		</div>
 	</div>
@@ -92,7 +92,7 @@
 				MOBILE PHONE
 			</div>
 			<div>
-				<f:input path="cstCP" value="${sessionScope.login.cstCP}"/>
+				<f:input path="cstCP" value="${sessionScope.cstLogin.cstCP}"/>
 			</div>
 		</div>
 		<div id="codeDiv">
@@ -108,7 +108,7 @@
 				ADDRESS
 			</div>
 			<div>
-				<f:input path="zipCode" value="${sessionScope.login.zipCode}"/>
+				<f:input path="zipCode" value="${sessionScope.cstLogin.zipCode}"/>
 			</div>
 		</div>
 		<div id="add2Div">
@@ -116,7 +116,7 @@
 				ADDRESS DETAIL
 			</div>
 			<div>
-				<f:input path="cstDetailAddress" value="${sessionScope.login.cstDetailAddress}"/>
+				<f:input path="cstDetailAddress" value="${sessionScope.cstLogin.cstDetailAddress}"/>
 			</div>
 		</div>
 		<div id="rcvMailDiv">
@@ -125,7 +125,7 @@
 			</div>
 			<div>
 				<%-- <f:checkbox path="cstEmailAgreement" /> --%>
-				<input type="checkbox" name="cstEmailAgreement" value="T" ${sessionScope.login.cstEmailAgreement == "T" ? "CHECKED" : ""}	/>
+				<input type="checkbox" name="cstEmailAgreement" value="T" ${sessionScope.cstLogin.cstEmailAgreement == "T" ? "CHECKED" : ""}	/>
 				
 			</div>
 		</div>

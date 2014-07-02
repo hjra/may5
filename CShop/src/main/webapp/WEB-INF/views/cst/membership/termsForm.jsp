@@ -34,5 +34,5 @@ $(document).ready(function(){
 		</div>
 		<input type="submit" value="AGREE">
 	</f:form>
-	<a href="/controller/home/homeImage.do">취소</a>
+	<a href="homeImage.do">취소</a>
 	</div>

@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page session="true" %>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 로그인 입력폼
 <div>
-	<f:form action="loginProcess.do" method="Post" commandName="customer">
+	<f:form action="cstLoginProcess.do" method="Post" commandName="customer">
 		<div>
 			<f:input path="cstId" placeholder="USER ID OR ORDER NUMBER" />
 		</div>
@@ -20,7 +21,11 @@
 <br>
 <div>
 <hr>
-<a href="/controller/cst/membership/scInfoForm.do">SEARCH ID / PASSWORD</a>
+<a href="scInfoForm.do">SEARCH ID / PASSWORD</a>
 |
-<a href="/controller/cst/membership/termsForm.do">JOIN</a>
+<a href="termsForm.do">JOIN</a>
+<br>
+${pageContext.request.requestURL}<br>
+${header.referer}<br>
+${requestScope["javax.servlet.forward.request_uri"]}
 </div>
