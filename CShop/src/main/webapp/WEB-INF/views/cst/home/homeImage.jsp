@@ -18,7 +18,7 @@
 		</div>
 		<div class="order">
 			<h1>ORDER</h1>
-			<a href="/controller/cst/order/advanceOrder.do">ORDER</a>
+			<a href="advanceOrder.do">ORDER</a>
 			<a href="/controller/cst/order/orderSearch.do">ORDERSEARCH</a>
 		
 		</div>
