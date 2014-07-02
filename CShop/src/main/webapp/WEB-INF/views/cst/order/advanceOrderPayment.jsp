@@ -85,7 +85,7 @@ $(document).ready(function(){
 					</tr>
 					<tr>
 						<th scope="row"><label for="orderagreement"><strong>*</strong>주문자동의</label><br>
-						<input id="allAgreement" type="checkbox" >
+						<input id="allAgreement" type="checkbox" >전체동의
 						</th>
 						<td>
 							<input name="serviceAgreement" type="checkbox" id="agreement">결제정보 수집 및 제공 동의하기<br>
