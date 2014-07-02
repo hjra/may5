@@ -189,21 +189,21 @@ public class CustomerController {
 	
 	/** 관리자페이지↓ */
 	/* 전체고객정보 화면으로 이동 */
-	@RequestMapping("mng/cstInfo/allMemberInfoForm.do")
+	@RequestMapping("allMemberInfoForm.do")
 	public String allMemberInfoForm(Model model){
 		model.addAttribute("customer", customerService.selectAllCstInfo());
 		return "mng/cstInfo/allMemberInfoForm";
 	}
 	
 	/* VIP LIST 화면으로 이동 */
-	@RequestMapping("mng/cstInfo/vipListForm.do")
+	@RequestMapping("vipListForm.do")
 	public String vipListForm(Model model){
 		model.addAttribute("customer", customerService.selectVIPCstInfo());
 		return "mng/cstInfo/vipListForm";
 	}
 	
 	/* 관심고객리스트 화면으로 이동 */
-	@RequestMapping("mng/cstInfo/blackListForm.do")
+	@RequestMapping("blackListForm.do")
 	public String blackListForm(Model model){
 		model.addAttribute("customer", customerService.selectBlackCstInfo());
 		return "mng/cstInfo/blackListForm";

@@ -13,7 +13,7 @@ public class EvaluationController {
 	@Autowired
 	EvaluationService evaluationService;
 	
-	@RequestMapping(value="/cst/menu/commentOk.do")
+	@RequestMapping(value="commentOk.do")
 	public String commentOk(){
 		System.out.println("코멘트오케잉");
 		return "cst/menu/commentOk";

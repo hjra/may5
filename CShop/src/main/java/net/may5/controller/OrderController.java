@@ -29,7 +29,7 @@ public class OrderController {
 	
 	
 	/*주문내역*/
-	@RequestMapping("cst/order/orderList.do")
+	@RequestMapping("orderList.do")
 	public ModelAndView orderList() {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("cst/order/orderList");
@@ -38,14 +38,14 @@ public class OrderController {
 		return model;
 	}
 	/*주문검색*/
-	@RequestMapping("/cst/order/orderSearch.do")
+	@RequestMapping("orderSearch.do")
 	public ModelAndView orderSearch() {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("/cst/order/orderSearch");
 		return model;
 	}
 	/*주문검색내역*/
-	@RequestMapping(value = "/cst/order/orderList.do", method = RequestMethod.GET)
+	@RequestMapping(value = "orderList.do", method = RequestMethod.GET)
 	public String orderList(@RequestParam int orderDate, Model model) {
 		model.addAttribute("orders", orderService.orderList(orderDate));
 		return "/cst/order/orderList";
@@ -66,13 +66,13 @@ public class OrderController {
 	
 	/** 관리자페이지↓ */
 	/* 주문정보화면으로 이동 */
-	@RequestMapping("mng/orderInfoMng/orderListMng.do")
+	@RequestMapping("orderListMng.do")
 	public String orderListMng(){
 		return "mng/orderInfoMng/orderListMng";
 	}
 	
 	/*알리미리스트*/
-	@RequestMapping("mng/deliveryMng/dlvNotice.do")
+	@RequestMapping("dlvNotice.do")
 	public ModelAndView alimiList() {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("mng/deliveryMng/dlvNotice");

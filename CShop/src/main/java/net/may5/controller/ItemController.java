@@ -20,7 +20,7 @@ public class ItemController {
 	/** 고객페이지↓ */
 	
 	/* 메뉴리스트로 이동*/
-	@RequestMapping(value="cst/menu/menuList.do")
+	@RequestMapping(value="menuList.do")
 	public String menuList(HttpServletRequest request){
 		HttpSession session = request.getSession();
 		session.setAttribute("itemList", itemService.getItemList());
@@ -28,7 +28,7 @@ public class ItemController {
 	}
 	
 	/* 메뉴상세정보로 이동 */
-	@RequestMapping(value = "cst/menu/menuInfo.do")
+	@RequestMapping(value = "menuInfo.do")
 	public String menuInfo(HttpServletRequest request, String itemList, String index, Model model) {
 		HttpSession session = request.getSession();
 		session.getAttribute(itemList);
@@ -45,7 +45,7 @@ public class ItemController {
 	
 	/** 관리자페이지↓ */
 	/* 상품관리로 이동 */
-	@RequestMapping(value="mng/menuMng/menuListMng.do")
+	@RequestMapping(value="menuListMng.do")
 	public String menuListMng(Model model){
 		return "mng/menuMng/menuListMng";
 	}
