@@ -14,12 +14,12 @@
 		</div>
 		<div class="menu">
 			<h1>MENU</h1>
-			<a href="/controller/cst/menu/menuList.do">MENU</a>
+			<a href="menuList.do">MENU</a>
 		</div>
 		<div class="order">
 			<h1>ORDER</h1>
 			<a href="advanceOrder.do">ORDER</a>
-			<a href="/controller/cst/order/orderSearch.do">ORDERSEARCH</a>
+			<a href="orderSearch.do">ORDERSEARCH</a>
 		
 		</div>
 		<div class="about">

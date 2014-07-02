@@ -10,7 +10,7 @@
 글 내용 : <br>
       <textarea name = "content" cols = "40" rows = "5"></textarea>
 <br>
-<f:form action="../membership/board.do" method="Post">
+<f:form action="board.do" method="Post">
 	<input type="submit" value="게시글올리기">
 	</f:form>
 	

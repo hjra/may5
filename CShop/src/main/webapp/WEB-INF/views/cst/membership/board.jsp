@@ -3,7 +3,7 @@
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="true" %>
 <h1>게시판.jsp로 이동완료</h1>
-<P><a href="/controller/cst/membership/boardCheck.do">(게시판 글 제목3)</a>
+<P><a href="boardCheck.do">(게시판 글 제목3)</a>
 
 <p><f:form action="boardWriteForm.do" >
 	<input type="submit" value="글쓰기">

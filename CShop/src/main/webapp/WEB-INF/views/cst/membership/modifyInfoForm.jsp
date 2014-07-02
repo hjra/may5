@@ -10,10 +10,6 @@
 		document.getElementById("form").action = "homeImage.do";
 		document.getElementById("form").submit();
 	}
-/* 	function drop() {
-		document.getElementById("form").action = "dropForm.do";
-		document.getElementById("form").submit();
-	} */
 </script>
 개인정보 확인 및 수정 폼
 <div>

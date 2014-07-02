@@ -45,4 +45,4 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<a href="/controller/mng/loginMng/loginForm.do">loginForm으로~</a>
+	<a href="cstLoginForm.do">loginForm으로~</a>

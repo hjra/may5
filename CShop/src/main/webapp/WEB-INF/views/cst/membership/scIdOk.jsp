@@ -3,7 +3,7 @@
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 	아이디찾기 성공화면
 	<br>
-	<a href="/controller/cst/membership/loginForm.do">로그인</a>
+	<a href="cstLoginForm.do">로그인</a>
 	<f:form action="scPasswordProcess.do" method="Post">
 		<input type="submit" value="비밀번호 찾기">
 	</f:form>

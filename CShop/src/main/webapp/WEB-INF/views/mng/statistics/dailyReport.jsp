@@ -22,10 +22,10 @@ a {
 일일현황
 <br>
 <ul>
-<li><a href="/controller/mng/statistics/orderReport.do">판매분석</a></li>
-<li><a href="/controller/mng/statistics/rsvReport.do">예약분석</a></li>
+<li><a href="orderReport.do">판매분석</a></li>
+<li><a href="rsvReport.do">예약분석</a></li>
 </ul>
 <ul>
-<li><a href="/controller/mng/statistics/salesReport.do">매출분석</a></li>
-<li><a href="/controller/mng/statistics/memberReport.do">고객분석</a></li>
+<li><a href="salesReport.do">매출분석</a></li>
+<li><a href="memberReport.do">고객분석</a></li>
 </ul>
