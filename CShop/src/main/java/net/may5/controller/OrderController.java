@@ -22,7 +22,7 @@ public class OrderController {
 	
 	/** 고객페이지 ↓ */
 	/* 예약주문 */
-	@RequestMapping(value = "cst/order/advanceOrder.do")
+	@RequestMapping("advanceOrder.do")
 	public String advanceOrder(Model model) {
 		return "cst/order/advanceOrder";
 	}
@@ -53,13 +53,13 @@ public class OrderController {
 	
 	
 	/* 주문상세 */
-	@RequestMapping(value = "cst/order/orderDetail.do")
+	@RequestMapping("orderDetail.do")
 	public String orderDetail(Model model){
 		return "cst/order/orderDetail";
 	}
 	
 	/* 수취인정보 */
-	@RequestMapping(value = "cst/order/advanceOrderPayment.do")
+	@RequestMapping("advanceOrderPayment.do")
 	public String advanceOrderPayment(Model model){
 		return "cst/order/advanceOrderPayment";
 	}
