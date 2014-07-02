@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
+<%@ page session="true" %>
 <h1>게시글 수정 페이지으로 이동하셨습니다!!!</h1>
 <form action = "board.do" method = "post">
 제목 : <input type = "text" name = "title" size = "20" /><br>

@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script type="text/javascript">
 /* checkbox 전체선택, 전체해제 */
 $(document).ready(function(){
 	$('#allAgreement').click(function(){
 		if($("#allAgreement").is(":checked")){
-			$('input:checkbox[id^=agreement]:not(checked)').attr("checked", true);
+			$('input:checkbox[id^=agreement]:not(checked)').prop("checked", true);
 		} else{
-			$('input:checkbox[id^=agreement]:checked').attr("checked", false);
+			$('input:checkbox[id^=agreement]:checked').prop("checked", false);
 		}
 	});
 });

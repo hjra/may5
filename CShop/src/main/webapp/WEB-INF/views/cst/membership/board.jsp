@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
-
+<%@ page session="true" %>
 <h1>게시판.jsp로 이동완료</h1>
 <P><a href="/controller/cst/membership/boardCheck.do">(게시판 글 제목3)</a>
 
@@ -39,7 +39,7 @@
 				<td></td>
 				<td></td>
 				<td colspan="2" align="right"><form action="myBoardList.do">
-						<input type="hidden" name="userId" value="${users.cstId }">
+						<input type="hidden" name="userId" value="${users.userid }">
 						
 						<input type="submit" value="내글 목록">
 					</form> <input type="button"
