@@ -22,7 +22,6 @@ public class Customer {
 	private String levelCode;				// 고객등급.등급코드
 	private int cstCode;					// 회원코드
 	private int cntr;						// 회원수
-	
 	public String getCstId() {
 		return cstId;
 	}
@@ -280,4 +279,5 @@ public class Customer {
 			return false;
 		return true;
 	}
+	
 }

@@ -60,64 +60,19 @@
 }
 </style>
 
-<!-- html 시작 -->
-<input type="radio" name="test" value="1" onclick="div_OnOff(this.value,'con');"> 회원신청 
-<input type="radio" name="test" value="2" onclick="div_OnOff(this.value,'con');"> 준회원 
-<input type="radio" name="test" value="3" onclick="div_OnOff(this.value,'con');"> 정회원
+<br>
+<img src="/controller/resources/img/cake/생크림딸딸딸1호.png" alt="대표이미지" style="width: 300px">
 
-<div id="con1" style="display:none">
- 회원신청
-</div>
-
-<div id="con2" style="display:none">
- 준회원
-</div>
-
-<div id="con3" style="display:none">
- 정회원
-</div>
-<!-- html 끝 -->
-
-<!-- 스크립트 시작 -->
-<script>
-function div_OnOff(v,id){
- // 라디오 버튼 value 값 조건 비교
- if(v == "3"){
-	 document.getElementById("con2").style.display = "none"; // 숨김
-	 document.getElementById("con1").style.display = "none"; // 숨김
-	  document.getElementById("con3").style.display = ""; // 보여줌
-
- }else if(v == "2"){
-	 document.getElementById("con3").style.display = "none"; // 숨김
-	 document.getElementById("con1").style.display = "none"; // 숨김
-	  document.getElementById("con2").style.display = ""; // 보여줌
- }else{
-	 document.getElementById("con3").style.display = "none"; // 숨김
-	 document.getElementById("con2").style.display = "none"; // 숨김
-	  document.getElementById("con1").style.display = ""; // 보여줌
- }
-}
-</script>
-<!-- 스크립트 끝 -->
 
 
 <form action="commentProc.do" method="post">
-<label> 아이템 아이디<input id="itemId" name="itemId"
-		value="${anItem.itemId}">
-	</label> <br> <label> 아이템 이름 <input name="itemName"
-		value="${anItem.itemName}">
-	</label> <br> <label> 아이템 가격 <input name="itemPrice"
-		value="${anItem.price}">
-	</label> <br> <label> 아이템 인포 <input name="itemInfo"
-		value="${anItem.itemInfo }">
-	</label> <br> <label> 언아이템!!! <input name="index" id="index"
-		value="${ind}">
-	</label> <br> <br>
+<label> 아이템 아이디<input id="itemId" name="itemId"		value="${anItem.itemId}"></label> <br>
+<label> 아이템 이름 <input name="itemName"		value="${anItem.itemName}"></label> <br> 
+<label> 아이템 가격 <input name="itemPrice" value="${anItem.price}"></label> <br>
+<label> 아이템 인포 <input name="itemInfo" value="${anItem.itemInfo }"></label> <br>
 <br>
-ind::${ind}<br>
-index::${index}
-	<%-- ${evaluationList } 이미지, 이름, 가격, 칼로리, 상세정보, 썸네일이미지, 평점 및 댓글 --%>
 
+<input type="hidden" name="cstCode" value="${sessionScope.cstLogin.cstCode}">
 	<%
 		int i = 0;
 	%>
@@ -137,22 +92,34 @@ index::${index}
 					<option value="2">★★☆☆☆</option>
 					<option value="1">★☆☆☆☆</option>
 				</select></td>
-			<td><input type="text" id="evaluationContents" name="evaluationContents" maxlength="300" style="width: 300px"
-				placeholder="의견을 140자 이내로 적어주세요"></td>
-			<td>회원아이디</td>
-			<%-- <c:choose>
-				<c:when test="${sessionScope.memberId == null }">
-					<td width="100px" colspan="5" align="center">
-					<input type="submit" id="ok" value="등록"></td>
+			
+			<c:choose>
+				<c:when test="${sessionScope.cstLogin.cstId == null }">
+				<td><input type="text" maxlength="300" style="width: 300px"
+				placeholder="의견을 등록하시려면 먼저 로그인을 해주세요"></td>
 				</c:when>
 				<c:otherwise>
-						<td>
-						<a href="loginProc.do" class="classname">의견등록하려면 로그인 먼저</a></td>
+			<td>
+			<input type="text" id="evaluationContents" name="evaluationContents" maxlength="300" style="width: 300px"
+				placeholder="의견을 140자 이내로 적어주세요"></td>
 				</c:otherwise>
-			</c:choose> --%>
+				</c:choose>
+			<td>${sessionScope.cstLogin.cstId}</td>
+			
 			<td align="center">
 					<input type="submit" id="ok" value="등록"></td>
-			<td>삭제</td>
+			
+			<c:choose>
+				<c:when test="${sessionScope.cstLogin.cstId == null }">
+					<!-- <td width="100px" align="center">
+					<a href="loginProc.do" class="classname">로긴</a></td> -->
+				</c:when>
+				<c:otherwise>
+					<td width="40px">삭제
+				</td>
+				</c:otherwise>
+			</c:choose>
+			
 		</tr>
 
 		<c:forEach var="board" items="${evaluationList}">
@@ -179,13 +146,24 @@ index::${index}
 			</c:when>
 					</c:choose></td>
 				<td>${board.evaluationContents }</td>
-				<td></td>
+				<td>${board.cstId}</td>
 				
 				<td align="center">
 				<fmt:formatDate value="${board.evaluationDate }" pattern="yyyy-MM-dd" />
-				<td>
-				<a href="evaluationDelete.do?evaluationIndex=${board.evaluationIndex}&itemId=${anItem.itemId}">삭제</a>
+				
+			
+			 <c:choose>
+				<c:when test="${sessionScope.cstLogin.cstId == null }">
+
+				</c:when>
+				<c:when test="${sessionScope.cstLogin.cstCode == board.cstCode }">
+				<td align="center"><a href="evaluationDelete.do?evaluationIndex=${board.evaluationIndex}&itemId=${anItem.itemId}">X</a>
 				</td>
+				</c:when>
+				<c:otherwise>
+				<td></td>
+				</c:otherwise>
+			</c:choose>
 			</tr>
 
 		</c:forEach>

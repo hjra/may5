@@ -8,9 +8,9 @@ public class Evaluation {
 	private String itemId;				// 상품정보.상품ID
 	private int grade;					// 평점
 	private String evaluationContents;	// 내용
-	private String cstCode;				// 고객정보.회원코드
+	private int cstCode;				// 고객정보.회원코드
 	private Date evaluationDate;		// 평가등록일
-	
+	private String cstId; // 고객 아이디
 	public int getEvaluationIndex() {
 		return evaluationIndex;
 	}
@@ -35,10 +35,10 @@ public class Evaluation {
 	public void setEvaluationContents(String evaluationContents) {
 		this.evaluationContents = evaluationContents;
 	}
-	public String getCstCode() {
+	public int getCstCode() {
 		return cstCode;
 	}
-	public void setCstCode(String cstCode) {
+	public void setCstCode(int cstCode) {
 		this.cstCode = cstCode;
 	}
 	public Date getEvaluationDate() {
@@ -47,18 +47,26 @@ public class Evaluation {
 	public void setEvaluationDate(Date evaluationDate) {
 		this.evaluationDate = evaluationDate;
 	}
+	public String getCstId() {
+		return cstId;
+	}
+	public void setCstId(String cstId) {
+		this.cstId = cstId;
+	}
 	@Override
 	public String toString() {
 		return "Evaluation [evaluationIndex=" + evaluationIndex + ", itemId="
 				+ itemId + ", grade=" + grade + ", evaluationContents="
 				+ evaluationContents + ", cstCode=" + cstCode
-				+ ", evaluationDate=" + evaluationDate + "]";
+				+ ", evaluationDate=" + evaluationDate + ", cstId=" + cstId
+				+ "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((cstCode == null) ? 0 : cstCode.hashCode());
+		result = prime * result + cstCode;
+		result = prime * result + ((cstId == null) ? 0 : cstId.hashCode());
 		result = prime
 				* result
 				+ ((evaluationContents == null) ? 0 : evaluationContents
@@ -79,10 +87,12 @@ public class Evaluation {
 		if (getClass() != obj.getClass())
 			return false;
 		Evaluation other = (Evaluation) obj;
-		if (cstCode == null) {
-			if (other.cstCode != null)
+		if (cstCode != other.cstCode)
+			return false;
+		if (cstId == null) {
+			if (other.cstId != null)
 				return false;
-		} else if (!cstCode.equals(other.cstCode))
+		} else if (!cstId.equals(other.cstId))
 			return false;
 		if (evaluationContents == null) {
 			if (other.evaluationContents != null)
@@ -105,4 +115,7 @@ public class Evaluation {
 			return false;
 		return true;
 	}
+	
+	
+
 }
