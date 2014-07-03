@@ -102,6 +102,8 @@ public class CustomerController {
 	/* 회원정보 찾기폼으로 이동 */
 	@RequestMapping("scInfoForm.do")
 	public String scInfoForm(Model model){
+		Customer customer = new Customer();
+		model.addAttribute("customer", customer);
 		return "cst/membership/scInfoForm";
 	}
 	
