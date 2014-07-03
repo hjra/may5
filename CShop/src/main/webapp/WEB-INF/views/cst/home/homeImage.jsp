@@ -22,7 +22,7 @@
 			<a href="orderSearch.do">ORDERSEARCH</a>
 		
 		</div>
-		<div class="about">
+		<div class="about.do">
 			<h1>ABOUT</h1>
 		
 		</div>

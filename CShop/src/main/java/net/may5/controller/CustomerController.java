@@ -182,8 +182,11 @@ public class CustomerController {
 		return "cst/membership/calendar";
 	}
 
-	
-	
+	/* ABOUT 화면으로 이동 */
+	@RequestMapping("about.do")
+	public String about(Model model){
+		return "cst/about/about";
+	}
 	
 	/*  */
 	

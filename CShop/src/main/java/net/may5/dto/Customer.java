@@ -20,7 +20,7 @@ public class Customer {
 	private Date cstLastVisitDate;			// 최종방문일
 	private int cstPostCount;				// 게시글 수
 	private String levelCode;				// 고객등급.등급코드
-	private String cstCode;					// 회원코드
+	private int cstCode;					// 회원코드
 	private int cntr;						// 회원수
 	
 	public String getCstId() {
@@ -119,10 +119,10 @@ public class Customer {
 	public void setLevelCode(String levelCode) {
 		this.levelCode = levelCode;
 	}
-	public String getCstCode() {
+	public int getCstCode() {
 		return cstCode;
 	}
-	public void setCstCode(String cstCode) {
+	public void setCstCode(int cstCode) {
 		this.cstCode = cstCode;
 	}
 	public int getCntr() {
@@ -153,7 +153,7 @@ public class Customer {
 		result = prime * result
 				+ ((cstBirthday == null) ? 0 : cstBirthday.hashCode());
 		result = prime * result + ((cstCP == null) ? 0 : cstCP.hashCode());
-		result = prime * result + ((cstCode == null) ? 0 : cstCode.hashCode());
+		result = prime * result + cstCode;
 		result = prime
 				* result
 				+ ((cstDetailAddress == null) ? 0 : cstDetailAddress.hashCode());
@@ -208,10 +208,7 @@ public class Customer {
 				return false;
 		} else if (!cstCP.equals(other.cstCP))
 			return false;
-		if (cstCode == null) {
-			if (other.cstCode != null)
-				return false;
-		} else if (!cstCode.equals(other.cstCode))
+		if (cstCode != other.cstCode)
 			return false;
 		if (cstDetailAddress == null) {
 			if (other.cstDetailAddress != null)
