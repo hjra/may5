@@ -139,7 +139,7 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<div id="ac" style="display: none">
-		계좌이체 :
+		현금영수증 :
 	</div>
 	
 	
