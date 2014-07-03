@@ -61,10 +61,11 @@ public class ItemController {
 		int listcount = itemService.getListCount();
 		System.out.println("count는 " + listcount);
 
+		//한 아이템 당 리스트 수
+		int anItemListCount = itemService.getAnItemListCount(itemId);
+		System.out.println(anItemListCount);
+		
 		// 게시글 리스트
-//		 List<Evaluation> evaluationList = itemService.getEvaluationList(page,
-//		 limit);
-		//List<Evaluation> evaluationList = itemService.getEvaluationList(itemId);
 		System.out.println("itemContorller:"+itemId);
 
 		List<Evaluation> evaluationList = itemService.getEvaluationList(itemId, ipage, limit);
@@ -74,13 +75,13 @@ public class ItemController {
 
 		// 총 페이지 수
 		// 0.95를 더해서 올림 처리
-		//int maxpage = (int) ((double) listcount / limit + 0.95);
+		int maxpage = (int) ((double) anItemListCount / limit + 0.95);
 		// 현재 페이지에 보여줄 시작 페이지 수(1, 11, 21 등...)
-		//int startpage = (((int) ((double) page / 10 + 0.9)) - 1) * 10 + 1;
+		int startpage = (((int) ((double) ipage / 10 + 0.9)) - 1) * 10 + 1;
 		// 현재 페이지에 보여줄 마지막 페이지 수(10, 20, 30 등...)
-		//int endpage = startpage + 10 - 1;
+		int endpage = startpage + 10 - 1;
 
-		//if (endpage > maxpage) endpage = maxpage;
+		if (endpage > maxpage) endpage = maxpage;
 		
 		
 		
@@ -88,10 +89,11 @@ public class ItemController {
 		ModelAndView view = new ModelAndView("cst/menu/menuInfo");
 
 		view.addObject("page", ipage); // 현재 페이지 수
-		//view.addObject("maxpage", maxpage); // 최대 페이지 수
-		//view.addObject("startpage", startpage); // 현재 페이지에 표시할 첫 페이지 수
-		//view.addObject("endpage", endpage); // 현재 페이지에 표시할 끝 페이지 수
-		view.addObject("listcount", listcount); // 글 수
+		view.addObject("maxpage", maxpage); // 최대 페이지 수
+		view.addObject("startpage", startpage); // 현재 페이지에 표시할 첫 페이지 수
+		view.addObject("endpage", endpage); // 현재 페이지에 표시할 끝 페이지 수
+		view.addObject("listcount", listcount); // 모든 아이템의 총 글 수
+		view.addObject("anItemListCount", anItemListCount); // 한 아이템 당 글 수
 		view.addObject("evaluationList", evaluationList); // 게시글 리스트
 
 		return view;

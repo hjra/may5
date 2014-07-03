@@ -7,5 +7,6 @@ public interface EvaluationMapper {
 
 	public void setEvaluation(Evaluation evaluation);
 
+	public void delEvaluation(int evaluationIndex);
 
 }

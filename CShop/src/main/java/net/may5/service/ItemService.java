@@ -18,6 +18,6 @@ public interface ItemService {
 
 	public List<Evaluation>  getEvaluationList(String itemId, int page, int limit);
 	
-	
+	public int getAnItemListCount(String itemId);
 
 }

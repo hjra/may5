@@ -5,6 +5,7 @@ import net.may5.service.EvaluationService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -32,7 +33,14 @@ public class EvaluationController {
 		return "redirect:/menuInfo.do?itemId="+itemId;
 
 	}
-
+	
+	@RequestMapping(value = "evaluationDelete.do", method=RequestMethod.GET)
+	public String delete(Model model, int evaluationIndex, String itemId) {
+		model.addAttribute("evaluationIndex", evaluationIndex);
+		System.out.println(evaluationIndex+"<=인덱스    "+itemId+"<=아이디");
+		evaluationService.delEvaluation(evaluationIndex);
+		return "redirect:/menuInfo.do?itemId="+itemId;
+	}
 	
 	
 //	@RequestMapping(value="/cst/menu/menuAjax.do", method=RequestMethod.POST)

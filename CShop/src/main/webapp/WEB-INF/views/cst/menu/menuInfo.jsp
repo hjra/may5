@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
 
 
 <style type="text/css">
@@ -59,44 +60,49 @@
 }
 </style>
 
-<!-- <script type="text/javascript">
-	$(document).ready(
-			function() {
-				$("#ok").click(
-						function() {
-							var x = f.grade.value;
-							$.ajax({
-								type : 'POST', //포스트방식
-								url : 'menuAjax.do', //요청처리
-								data : 'itemId=' + $('#itemId').val()
-										+ '&grade=' + x
-										+ '&evaluationContents='
-										+ $('#evaluationContents').val()
-										+'&index='+$('#index').val(), //파라미터
-								dataType : 'xml', //처리한 요청을 받는 형식
-								 error:function(request,status,error){
-								        alert("code:"+request.status+"\n"+"\n"+"error:"+error);}
-								      ,
-								success : function(xml) { //성공시 해당함수 실행
-									console.log('xml: ' + xml);
-								var a = $(xml).find('check').Text;
-								if (a.trim() == 'true'){
-									alert("등록되었습니당!!!");
-								}else{
-									alert("등록안되었습니당!!!");
-								}
-								},
-						});
-				});
-			});
- </script>
- -->
+<!-- html 시작 -->
+<input type="radio" name="test" value="1" onclick="div_OnOff(this.value,'con');"> 회원신청 
+<input type="radio" name="test" value="2" onclick="div_OnOff(this.value,'con');"> 준회원 
+<input type="radio" name="test" value="3" onclick="div_OnOff(this.value,'con');"> 정회원
+
+<div id="con1" style="display:none">
+ 회원신청
+</div>
+
+<div id="con2" style="display:none">
+ 준회원
+</div>
+
+<div id="con3" style="display:none">
+ 정회원
+</div>
+<!-- html 끝 -->
+
+<!-- 스크립트 시작 -->
+<script>
+function div_OnOff(v,id){
+ // 라디오 버튼 value 값 조건 비교
+ if(v == "3"){
+	 document.getElementById("con2").style.display = "none"; // 숨김
+	 document.getElementById("con1").style.display = "none"; // 숨김
+	  document.getElementById("con3").style.display = ""; // 보여줌
+
+ }else if(v == "2"){
+	 document.getElementById("con3").style.display = "none"; // 숨김
+	 document.getElementById("con1").style.display = "none"; // 숨김
+	  document.getElementById("con2").style.display = ""; // 보여줌
+ }else{
+	 document.getElementById("con3").style.display = "none"; // 숨김
+	 document.getElementById("con2").style.display = "none"; // 숨김
+	  document.getElementById("con1").style.display = ""; // 보여줌
+ }
+}
+</script>
+<!-- 스크립트 끝 -->
 
 
 <form action="commentProc.do" method="post">
-
-<!-- <form id="f" name="f">
- -->	<label> 아이템 아이디<input id="itemId" name="itemId"
+<label> 아이템 아이디<input id="itemId" name="itemId"
 		value="${anItem.itemId}">
 	</label> <br> <label> 아이템 이름 <input name="itemName"
 		value="${anItem.itemName}">
@@ -115,38 +121,38 @@ index::${index}
 	<%
 		int i = 0;
 	%>
-	<table width="600" border="1" bordercolor="#777777">
+	<table border="1" bordercolor="#777777">
 
 		<tr align="center" valign="middle">
-			<td colspan="5">평점 및 댓글</td>
+			<td colspan="6">평점 및 댓글</td>
 		</tr>
 
 		<tr align="center" valign="middle" bgcolor="#f5ccf5">
 			<td width="66px">번호</td>
 			<td width="100px"><label>평점</label> 
-			<select name="grade" id="grade">
+				<select name="grade" id="grade">
 					<option value="5">★★★★★</option>
 					<option value="4">★★★★☆</option>
 					<option value="3">★★★☆☆</option>
 					<option value="2">★★☆☆☆</option>
 					<option value="1">★☆☆☆☆</option>
-			</select></td>
-			<td><input type="text" id="evaluationContents"
-				name="evaluationContents" maxlength="300" style="width: 300px"
+				</select></td>
+			<td><input type="text" id="evaluationContents" name="evaluationContents" maxlength="300" style="width: 300px"
 				placeholder="의견을 140자 이내로 적어주세요"></td>
 			<td>회원아이디</td>
-			<c:choose>
+			<%-- <c:choose>
 				<c:when test="${sessionScope.memberId == null }">
-					<td width="100px" colspan="5" align="center"><input
-						type="submit" id="ok" value="등록"> <!-- <a href="javascript:history.go(0)">[새로고침]</a> -->
+					<td width="100px" colspan="5" align="center">
+					<input type="submit" id="ok" value="등록"></td>
 				</c:when>
 				<c:otherwise>
-					<tr>
-						<td colspan="5" align="right"><a href="menuInfoComment.do"
-							class="classname">의견등로옥</a></td>
-					</tr>
+						<td>
+						<a href="loginProc.do" class="classname">의견등록하려면 로그인 먼저</a></td>
 				</c:otherwise>
-			</c:choose>
+			</c:choose> --%>
+			<td align="center">
+					<input type="submit" id="ok" value="등록"></td>
+			<td>삭제</td>
 		</tr>
 
 		<c:forEach var="board" items="${evaluationList}">
@@ -174,17 +180,21 @@ index::${index}
 					</c:choose></td>
 				<td>${board.evaluationContents }</td>
 				<td></td>
-				<td align="center"><fmt:formatDate
-						value="${board.evaluationDate }" pattern="yyyy-MM-dd" /></td>
+				
+				<td align="center">
+				<fmt:formatDate value="${board.evaluationDate }" pattern="yyyy-MM-dd" />
+				<td>
+				<a href="evaluationDelete.do?evaluationIndex=${board.evaluationIndex}&itemId=${anItem.itemId}">삭제</a>
+				</td>
 			</tr>
 
 		</c:forEach>
 
 		<tr>
-			<td colspan="5" align="center"><c:if test="${page <= 1 }">[이전]&nbsp; </c:if>
+			<td colspan="6" align="center"><c:if test="${page <= 1 }">[이전]&nbsp; </c:if>
 				<c:if test="${page > 1 }">
-					<a href="menuInfo.do?itemId=${itemId }&page=${page-1}">이전</a>&nbsp;</c:if> <c:forEach
-					begin="${startpage }" end="${endpage }" var="a">
+					<a href="menuInfo.do?itemId=${itemId }&page=${page-1}">이전</a>&nbsp;</c:if>
+					 <c:forEach begin="${startpage }" end="${endpage }" var="a">
 					<c:if test="${a==page }">[${a}]</c:if>
 					<c:if test="${a!=page }">
 						<a href="menuInfo.do?itemId=${itemId }&page=${a}">[${a}]</a>&nbsp;</c:if>

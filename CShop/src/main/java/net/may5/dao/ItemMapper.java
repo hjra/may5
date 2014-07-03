@@ -15,10 +15,7 @@ public interface ItemMapper {
 	
 	public int getListCount();
 	
-	//public List<Evaluation>  getEvaluationList(Map<String, Integer> param);
-
-	//public List<Evaluation>  getEvaluationList(String itemId, int startrow, int endrow);
-
+	public int getAnItemListCount(String itemId);
 	
 	public List<Evaluation> getEvaluationList(HashMap<String, String> param);
 

@@ -19,6 +19,12 @@ public class EvaluationServiceImpl implements EvaluationService {
 		
 	}
 
+	@Override
+	public void delEvaluation(int evaluationIndex) {
+		evaluationMapper.delEvaluation(evaluationIndex);
+		
+	}
+
 
 	
 }

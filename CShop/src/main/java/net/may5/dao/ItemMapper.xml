@@ -14,6 +14,7 @@
 		select count(*) from item
 	</select>
 
+
 	<select id="getItemList" resultType="Item">
 		select * from item
 	</select>
@@ -23,19 +24,28 @@
 		</select> -->
 
 	<select id="getEvaluationList" resultType="Evaluation">
-	
-	SELECT B.* FROM 
-			(SELECT A.*,row_number() over (ORDER BY EVALUATIONINDEX DESC) number_of_row
-	        FROM evaluation A
-	        WHERE A.itemId=#{itemId}) B
-	WHERE B.number_of_row between #{startrow} and #{endrow}
-		
+
+		SELECT B.* FROM
+		(SELECT A.*,row_number() over (ORDER BY EVALUATIONINDEX DESC) number_of_row
+		FROM evaluation A
+		WHERE A.itemId=#{itemId}) B
+		WHERE B.number_of_row between #{startrow} and #{endrow}
+
 	</select>
 
-	
+
 
 	<select id="getListCount" resultType="int">
 		select count(*) from
 		evaluation
 	</select>
+	
+	
+	
+	<select id="getAnItemListCount" resultType="int">
+		select count(*) from
+		evaluation where itemId=#{itemId}
+	</select>
+	
+	
 </mapper>
