@@ -10,7 +10,7 @@
 	<br>
 	<br>
 	<br>
-	<a href="/controller/cst/membership/loginForm.do">LOGIN</a>
-	<a href="/controller/cst/home/homeImage.do">HOME</a>
+	<a href="cstLoginForm.do">LOGIN</a>
+	<a href="homeImage.do">HOME</a>
 </center>
 

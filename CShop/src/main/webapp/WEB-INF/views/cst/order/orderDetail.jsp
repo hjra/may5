@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page session="true" %>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
@@ -11,7 +12,7 @@
 <body>
 <h1>회원수취정보</h1>
 <p><strong>*</strong>는 필수입력 항목입니다</p>
-<f:form action="../order/advanceOrderPayment.do" method="post">
+<f:form action="advanceOrderPayment.do" method="post">
 	<fieldset>
 		<legend>정보입력</legend>
 			<table class="b" border="1"  summary="수취에 관련된 정보입력">
@@ -37,7 +38,7 @@
 					<tr>
 						<th scope="row"><label for="pnumber">전화번호</label></th>
 						<td>
-							<input type="tel" id="pnumber" placeholder="ex)0212345678" required="required"/>
+							<input type="tel" id="pnumber" placeholder="ex)0212345678" />
 						</td>
 					</tr>
 					<tr>

@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+
 <style type="text/css">
 .classname {
 	-moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
@@ -93,6 +94,7 @@
 
 
 <form action="commentProc.do" method="post">
+
 <!-- <form id="f" name="f">
  -->	<label> 아이템 아이디<input id="itemId" name="itemId"
 		value="${anItem.itemId}">

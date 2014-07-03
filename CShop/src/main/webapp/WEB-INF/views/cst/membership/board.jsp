@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
-
+<%@ page session="true" %>
 <h1>게시판.jsp로 이동완료</h1>
-<P><a href="/controller/cst/membership/boardCheck.do">(게시판 글 제목3)</a>
+<P><a href="boardCheck.do">(게시판 글 제목3)</a>
 
 <p><f:form action="boardWriteForm.do" >
 	<input type="submit" value="글쓰기">
@@ -22,16 +22,16 @@
 			</tr>
 			<c:forEach items="${boards}" var="board">
 				<tr align="center">
-					<td width="80">${board.boardNumber}</td>
+					<td width="80">${board.boardCode}</td>
 					<!-- 글번호 -->
-					<td><a href="boardContext.do?boardNumber=${board.boardNumber}">${board.title}</a></td>
+					<td><a href="boardContext.do?boardNumber=${board.boardCode}">${board.boardTitle}</a></td>
 					<!-- 제목 -->
-					<td width="80">${board.userId }</td>
+					<td width="80">${board.cstId }</td>
 					<!-- 작성자 -->
-					<td width="85">${board.qaDate }</td>
+					<td width="85">${board.boardDate }</td>
 					<!-- 작성일 -->
-					<td width="80">${board.hit}</td>
-					<!-- 조회수 -->
+					<td width="80">${board.boardDate}</td>
+					<!--나중에 잠금 아이콘으로 바꾸시오!!!!!-->
 				</tr>
 			</c:forEach>
 			<tr>

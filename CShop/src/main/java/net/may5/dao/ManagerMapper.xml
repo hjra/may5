@@ -4,6 +4,9 @@
 
 <mapper namespace="net.may5.dao.ManagerMapper">
    
-
-	
+   <!-- 관리자페이지 -->
+	<!-- 로그인 -->
+	<select id="loginMng" resultType="Manager">
+		select * from Manager where mngId=#{mngId} and mngPassword=#{mngPassword}
+	</select>
 </mapper>

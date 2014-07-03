@@ -13,8 +13,8 @@ public class EvaluationController {
 
 	@Autowired
 	EvaluationService evaluationService;
-
-	@RequestMapping(value = "/cst/menu/commentProc.do", method=RequestMethod.POST)
+	
+	@RequestMapping(value = "commentProc.do", method=RequestMethod.POST)
 	public String commentProc(Evaluation evaluation,
 			String itemId, String grade, String evaluationContents) {
 		
@@ -29,7 +29,8 @@ public class EvaluationController {
 		
 		System.out.println("redirect:/cst/menu/menuInfo.do?itemId="+itemId);
 		
-		return "redirect:/cst/menu/menuInfo.do?itemId="+itemId;
+		return "redirect:/menuInfo.do?itemId="+itemId;
+
 	}
 
 	
