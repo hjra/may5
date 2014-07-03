@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="resources/js/jquery.min.js"></script>
 <title>AdvanceOrderPayment</title>
 <script type="text/javascript">
 /* checkbox 전체선택, 전체해제 */
@@ -17,7 +18,27 @@ $(document).ready(function(){
 			$('input:checkbox[id^=agreement]:checked').attr("checked", false);
 		}
 	});
+	
+	$('#selectBoxValue').click(function(){
+		$('#inputSelect').empty();
+		if($('#selectBoxValue').val() == "0"){
+			var input = '<input type="text" val="" placeholder="휴대폰번호를 입력하세요.">';
+			$('#inputSelect').append(input);	
+		}else if($('#selectBoxValue').val() == "1"){
+			var input = '<input type="text" val="" placeholder="현금영수증카드번호를 입력하세요.">';
+			$('#inputSelect').append(input);
+		}else if($('#selectBoxValue').val() == "2"){
+			var input = '<input type="text" val="" placeholder="주민등록번호를 입력하세요.">';
+			$('#inputSelect').append(input);
+		}else{
+			var input = '<input type="text" val="" placeholder="사업자등록번호를 입력하세요.">';
+			$('#inputSelect').append(input);	
+		}
+		
+	});
 });
+
+
 </script>
 
 <script>
@@ -37,6 +58,7 @@ $(document).ready(function(){
 				document.getElementById("cp").style.display = ""; // 보여줌
 			}
 		}
+		
 		function div_OnOff2(v2, id) {
 			if (v2 == "1") {
 				document.getElementById("corcard").style.display = "none"; // 숨김
@@ -46,6 +68,43 @@ $(document).ready(function(){
 				document.getElementById("corcard").style.display = ""; // 보여줌
 			}
 		}
+		
+		function div_OnOff3(v3, id) {
+			if (v3 == "1") {
+				document.getElementById("cry").style.display = "none"; // 숨김
+				document.getElementById("crn").style.display = ""; // 보여줌
+			} else {
+				document.getElementById("crn").style.display = "none"; // 숨김
+				document.getElementById("cry").style.display = ""; // 보여줌
+			}
+		}
+		
+		function div_OnOff4(v4, id) {
+			if (v4 == "1") {
+				document.getElementById("busi").style.display = "none"; // 숨김
+				document.getElementById("pers").style.display = ""; // 보여줌
+			} else {
+				document.getElementById("pers").style.display = "none"; // 숨김
+				document.getElementById("busi").style.display = ""; // 보여줌
+			}
+		}
+		
+		function div_OnOff5(v5, id) {
+			if (v5 == "1") {
+				document.getElementById("idn").style.display = "none"; // 숨김
+				document.getElementById("rcn").style.display = "none"; // 숨김
+				document.getElementById("cpn").style.display = ""; // 보여줌
+			} else if (v5 == "2") {
+				document.getElementById("rcn").style.display = "none"; // 숨김
+				document.getElementById("cpn").style.display = "none"; // 숨김
+				document.getElementById("idn").style.display = ""; // 보여줌
+			} else {
+				document.getElementById("idn").style.display = "none"; // 숨김
+				document.getElementById("cpn").style.display = "none"; // 숨김
+				document.getElementById("rcn").style.display = ""; // 보여줌
+			}
+		}
+		
 	</script>
 	<!-- 스크립트 끝 -->
 
@@ -132,6 +191,7 @@ $(document).ready(function(){
   								<option value="">2개월</option>
   								<option value="">3개월</option>
  			</select>
+
  			<br>주문자동의 : <input id="allAgreement" type="checkbox" >전체동의<br>
  							<input name="serviceAgreement" type="checkbox" id="agreement">결제정보 수집 및 제공 동의하기<br>
 							<input name="privacyAgreement" type="checkbox" id="agreement">개인정보 제3자 제공 동의하기<br>
@@ -139,17 +199,55 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<div id="ac" style="display: none">
+		
 		현금영수증 :
+		<input type="radio" name="cashreceipt" value="1"
+			checked="checked" onclick="div_OnOff3(this.value,'crn');">신청안함
+		<input type="radio" name="cashreceipt" value="2"
+			onclick="div_OnOff3(this.value,'cry');">신청하기	
+		
+			
+			<div id="crn" style="display: block">
+				<input type="checkbox" id="agreement" name="crsave">현재 현금영수증 신청정보를 저장합니다.
+			</div>
+		
+			<div id="cry" style="display: none">
+				공제용도 : 
+				<input type="radio" name="deduction" value="1"
+				checked="checked" onclick="div_OnOff4(this.value,'pers');">개인소득공제용
+				<input type="radio" name="deduction" value="2"
+				onclick="div_OnOff4(this.value,'busi');">사업자증빙용
+				
+				<div id="pers" style="display: block">신청수단 : 
+					<select id="selectBoxValue"  title="" >
+						<option value="0" >휴대폰번호</option>
+						<option value="1" >현금영수증카드번호</option>
+						<option value="2" >주민등록번호</option>
+						
+					</select>
+					
+				</div>
+				<div id="busi" style="display: none" >
+					<select id="selectBoxValue" title="">
+						<option value="0">휴대폰번호</option>
+						<option value="1" >현금영수증카드번호</option>
+						<option value="3">사업자등록번호</option>
+						
+					</select>
+				
+				</div>
+				<div id="inputSelect"></div>
+				<input type="checkbox" id="agreement" name="crsave">현재 현금영수증 신청정보를 저장합니다.
+			</div>
+		
+	
 	</div>
-	
-	
 	<div id="cp" style="display: none">
 		휴대폰 소액결제
 	</div>
 	
 	
 	
-	</div>
 
 	<!-- html 끝 -->
 	</fieldset>
