@@ -60,22 +60,16 @@
 }
 </style>
 
-고객아이디는?<br>
-${sessionScope.cstLogin.cstId}
-고객코드는?
-${sessionScope.cstLogin.cstCode}
 <br>
-<br>
+<img src="/controller/resources/img/cake/생크림딸딸딸1호.png" alt="대표이미지" style="width: 300px">
+
+
+
 <form action="commentProc.do" method="post">
-<label> 아이템 아이디<input id="itemId" name="itemId"
-		value="${anItem.itemId}">
-	</label> <br> <label> 아이템 이름 <input name="itemName"
-		value="${anItem.itemName}">
-	</label> <br> <label> 아이템 가격 <input name="itemPrice"
-		value="${anItem.price}">
-	</label> <br> <label> 아이템 인포 <input name="itemInfo"
-		value="${anItem.itemInfo }">
-	</label> <br>
+<label> 아이템 아이디<input id="itemId" name="itemId"		value="${anItem.itemId}"></label> <br>
+<label> 아이템 이름 <input name="itemName"		value="${anItem.itemName}"></label> <br> 
+<label> 아이템 가격 <input name="itemPrice" value="${anItem.price}"></label> <br>
+<label> 아이템 인포 <input name="itemInfo" value="${anItem.itemInfo }"></label> <br>
 <br>
 
 <input type="hidden" name="cstCode" value="${sessionScope.cstLogin.cstCode}">
