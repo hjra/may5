@@ -1,5 +1,9 @@
 package net.may5.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import net.may5.dto.Customer;
 import net.may5.dto.Evaluation;
 import net.may5.service.EvaluationService;
 
@@ -17,13 +21,18 @@ public class EvaluationController {
 	
 	@RequestMapping(value = "commentProc.do", method=RequestMethod.POST)
 	public String commentProc(Evaluation evaluation,
-			String itemId, String grade, String evaluationContents) {
+			String itemId, String grade, String evaluationContents, String cstLogin,
+			HttpServletRequest request, HttpSession session, int cstCode) {
 		
 		System.out.println("insertEvaluationContents "+itemId);
+		session = request.getSession();
+		session.getAttribute(cstLogin);
 		
+		evaluation.setCstCode(cstCode);
 		evaluation.setEvaluationContents(evaluationContents);
 		evaluation.setItemId(itemId);
 		evaluation.setGrade(Integer.parseInt(grade));
+		
 		evaluationService.setEvaluation(evaluation);
 		
 		System.out.println("insertComplete => "+evaluationContents.toString());
@@ -35,50 +44,17 @@ public class EvaluationController {
 	}
 	
 	@RequestMapping(value = "evaluationDelete.do", method=RequestMethod.GET)
-	public String delete(Model model, int evaluationIndex, String itemId) {
+	public String delete(Model model, int evaluationIndex, String itemId, String cstLogin,
+			HttpServletRequest request, HttpSession session) {
 		model.addAttribute("evaluationIndex", evaluationIndex);
 		System.out.println(evaluationIndex+"<=인덱스    "+itemId+"<=아이디");
 		evaluationService.delEvaluation(evaluationIndex);
+		
+		session = request.getSession();
+		session.getAttribute(cstLogin);
+		System.out.println("cstLogin"+cstLogin);
 		return "redirect:/menuInfo.do?itemId="+itemId;
 	}
 	
 	
-//	@RequestMapping(value="/cst/menu/menuAjax.do", method=RequestMethod.POST)
-//	public ModelAndView userajax(HttpServletRequest request,
-//			HttpServletResponse response, HttpSession session , Evaluation evaluation, String itemId, String index) {
-//		
-//		//dbinsert
-//		
-//		//itemid
-//		ModelAndView view=new ModelAndView("../menuAjax");
-//		session = request.getSession();
-//		System.out.println("menuAjax.do왔어용");
-//		itemId = request.getParameter("itemId");
-//		String grade= request.getParameter("grade");
-//		System.out.println("아이템아이디 : "+itemId+"평점 : "+grade);
-//		session.setAttribute("grade", grade);
-//		System.out.println("평쩜!!"+grade);
-//		
-//		String evaluationContents = request.getParameter("evaluationContents");
-//
-//		evaluationService.setEvaluation(evaluation);
-//		System.out.println("아이템아이디 : "+itemId+"평점 : "+grade+"댓글내용 : "+evaluationContents);
-//		
-//		session.getAttribute(index);
-//		System.out.println("index::"+index);
-//
-//		int ind = Integer.parseInt(index);
-//		session.setAttribute("ind", ind);
-//		System.out.println("index::"+index+"ind::"+ind);
-//		System.out.println("성공이에용");
-//		
-//		session.setAttribute("itemId", itemId);
-//		System.out.println("itemId??? ::"+itemId);
-////		ModelAndView view=new ModelAndView(
-////				"cst/menu/menuInfoComment");
-////		return view;
-//		view.addObject("result","true");
-//		
-//		return view;
-//	}
 }

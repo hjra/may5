@@ -8,7 +8,7 @@
 	<select id="setEvaluation" parameterType="Evaluation" resultType="Evaluation">
 		insert into Evaluation(evaluationIndex, itemId,
 		grade, evaluationContents, cstCode, evaluationDate)
-		values(EVA.nextval, #{itemId}, #{grade}, #{evaluationContents}, '2',
+		values(EVA.nextval, #{itemId}, #{grade}, #{evaluationContents}, #{cstCode},
 		sysdate)
 	</select>
 	

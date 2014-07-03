@@ -36,10 +36,13 @@ public class ItemController {
 	@RequestMapping(value="menuInfo.do", method=RequestMethod.GET)
 	public ModelAndView menuInfo(HttpServletRequest request,
 			HttpServletResponse response, 
-			String itemId, String page, 
+			String itemId, String page, String cstLogin,
 			Model model) {
 		
 		HttpSession session = request.getSession();
+		session.getAttribute(cstLogin);
+		System.out.println("고객님 아이디는? 메뉴인포.두::"+ cstLogin);
+		
 		if(itemId==null){
 		session.getAttribute(itemId);
 		System.out.println("세션에서 가지고 온 아이템 아이디::"+itemId);
