@@ -11,7 +11,7 @@ public class Item {
 	private String itemImg3;		// 이미지3
 	private String itemImg4;		// 이미지4
 	private String sticker;			// 스티커
-	
+	private String price;      // 가격
 	public String getItemId() {
 		return itemId;
 	}
@@ -66,13 +66,19 @@ public class Item {
 	public void setSticker(String sticker) {
 		this.sticker = sticker;
 	}
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
 	@Override
 	public String toString() {
 		return "Item [itemId=" + itemId + ", itemName=" + itemName
 				+ ", itemCalorie=" + itemCalorie + ", itemInfo=" + itemInfo
 				+ ", itemImg1=" + itemImg1 + ", itemImg2=" + itemImg2
 				+ ", itemImg3=" + itemImg3 + ", itemImg4=" + itemImg4
-				+ ", sticker=" + sticker + "]";
+				+ ", sticker=" + sticker + ", price=" + price + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -92,6 +98,7 @@ public class Item {
 				+ ((itemInfo == null) ? 0 : itemInfo.hashCode());
 		result = prime * result
 				+ ((itemName == null) ? 0 : itemName.hashCode());
+		result = prime * result + ((price == null) ? 0 : price.hashCode());
 		result = prime * result + ((sticker == null) ? 0 : sticker.hashCode());
 		return result;
 	}
@@ -141,6 +148,11 @@ public class Item {
 				return false;
 		} else if (!itemName.equals(other.itemName))
 			return false;
+		if (price == null) {
+			if (other.price != null)
+				return false;
+		} else if (!price.equals(other.price))
+			return false;
 		if (sticker == null) {
 			if (other.sticker != null)
 				return false;
@@ -148,4 +160,5 @@ public class Item {
 			return false;
 		return true;
 	}
+
 }
