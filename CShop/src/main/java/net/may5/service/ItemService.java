@@ -16,7 +16,7 @@ public interface ItemService {
 	
 //	public List<Evaluation>  getEvaluationList(int page, int limit);
 
-	public List<Evaluation>  getEvaluationList(String itemId);
+	public List<Evaluation>  getEvaluationList(String itemId, int page, int limit);
 	
 	
 

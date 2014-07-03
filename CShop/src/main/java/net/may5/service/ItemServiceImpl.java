@@ -16,7 +16,7 @@ public class ItemServiceImpl implements ItemService {
 	@Autowired
 	private ItemMapper itemMapper;
 	
-	private static HashMap<String, Integer> param = new HashMap<String, Integer>();
+	private static HashMap<String, String> param = new HashMap<String, String>();
 
 	@Override
 	public Item getAnItem(String itemId) {
@@ -50,7 +50,15 @@ public class ItemServiceImpl implements ItemService {
 //		return itemMapper.getEvaluationList(param);
 //	}
 		@Override
-		public List<Evaluation> getEvaluationList(String itemId) {
-			return itemMapper.getEvaluationList(itemId);
+		public List<Evaluation> getEvaluationList(String itemId, int page, int limit ) {
+			
+			int startrow = (page - 1) * 10;
+			
+			param.put("itemId", itemId);
+			param.put("startrow", String.valueOf(startrow) );
+			param.put("endrow", String.valueOf(startrow + limit));
+			List<Evaluation> ev=  itemMapper.getEvaluationList(param);
+			System.out.println("imp:e");
+			return ev;
 		}
 }

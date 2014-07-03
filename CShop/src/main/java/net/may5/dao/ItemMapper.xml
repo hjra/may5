@@ -23,8 +23,13 @@
 		</select> -->
 
 	<select id="getEvaluationList" resultType="Evaluation">
-		select * from
-		evaluation where itemId=#{itemId}
+	
+	SELECT B.* FROM 
+			(SELECT A.*,row_number() over (ORDER BY EVALUATIONINDEX DESC) number_of_row
+	        FROM evaluation A
+	        WHERE A.itemId=#{itemId}) B
+	WHERE B.number_of_row between #{startrow} and #{endrow}
+		
 	</select>
 
 	
