@@ -75,12 +75,9 @@ ${sessionScope.cstLogin.cstCode}
 		value="${anItem.price}">
 	</label> <br> <label> 아이템 인포 <input name="itemInfo"
 		value="${anItem.itemInfo }">
-	</label> <br> <label> 언아이템!!! <input name="index" id="index"
-		value="${ind}">
-	</label> <br> <br>
+	</label> <br>
 <br>
-ind::${ind}<br>
-index::${index}
+
 <input type="hidden" name="cstCode" value="${sessionScope.cstLogin.cstCode}">
 	<%
 		int i = 0;
@@ -101,13 +98,34 @@ index::${index}
 					<option value="2">★★☆☆☆</option>
 					<option value="1">★☆☆☆☆</option>
 				</select></td>
-			<td><input type="text" id="evaluationContents" name="evaluationContents" maxlength="300" style="width: 300px"
+			
+			<c:choose>
+				<c:when test="${sessionScope.cstLogin.cstId == null }">
+				<td><input type="text" maxlength="300" style="width: 300px"
+				placeholder="의견을 등록하시려면 먼저 로그인을 해주세요"></td>
+				</c:when>
+				<c:otherwise>
+			<td>
+			<input type="text" id="evaluationContents" name="evaluationContents" maxlength="300" style="width: 300px"
 				placeholder="의견을 140자 이내로 적어주세요"></td>
-			<td>회원아이디</td>
+				</c:otherwise>
+				</c:choose>
+			<td>${sessionScope.cstLogin.cstId}</td>
 			
 			<td align="center">
 					<input type="submit" id="ok" value="등록"></td>
-			<td>삭제</td>
+			
+			<c:choose>
+				<c:when test="${sessionScope.cstLogin.cstId == null }">
+					<!-- <td width="100px" align="center">
+					<a href="loginProc.do" class="classname">로긴</a></td> -->
+				</c:when>
+				<c:otherwise>
+					<td width="40px">삭제
+				</td>
+				</c:otherwise>
+			</c:choose>
+			
 		</tr>
 
 		<c:forEach var="board" items="${evaluationList}">
@@ -142,12 +160,14 @@ index::${index}
 			
 			 <c:choose>
 				<c:when test="${sessionScope.cstLogin.cstId == null }">
-					<td width="100px" align="center">
-					<a href="loginProc.do" class="classname">로긴</a></td>
+
+				</c:when>
+				<c:when test="${sessionScope.cstLogin.cstCode == board.cstCode }">
+				<td align="center"><a href="evaluationDelete.do?evaluationIndex=${board.evaluationIndex}&itemId=${anItem.itemId}">X</a>
+				</td>
 				</c:when>
 				<c:otherwise>
-					<td><a href="evaluationDelete.do?evaluationIndex=${board.evaluationIndex}&itemId=${anItem.itemId}">삭제</a>
-				</td>
+				<td></td>
 				</c:otherwise>
 			</c:choose>
 			</tr>
