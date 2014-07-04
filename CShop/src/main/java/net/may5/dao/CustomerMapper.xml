@@ -21,6 +21,12 @@
 		
 	</select>
 	
+	<!-- ID 중복검사 -->
+	<select id="redundancyCheckId" parameterType="string" resultType="Customer">
+		select cstId, levelCode from Customer where cstId=#{cstId} and levelCode!='D'
+	</select>
+	
+	
 	<!-- 회원가입 -->
 	<insert id="insertJoinCst" parameterType="Customer">
 		insert into Customer(cstId, cstName, cstPassword, zipCode, cstDetailAddress, cstCP, cstEmail,

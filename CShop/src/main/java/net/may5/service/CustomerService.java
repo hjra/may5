@@ -10,6 +10,7 @@ public interface CustomerService {
 
 	/** 고객페이지 */
 	public int getAllCustomerCount();					// 가입자 수 -테스트용
+	public Customer redundancyCheckId(String cstId);	// ID 중복검사
 	
 	public List<Zip> firstSearchZip();					// 1단계 주소 검색
 	public List<Zip> secondSearchZip();					// 2단계 주소 검색

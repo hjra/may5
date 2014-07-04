@@ -12,13 +12,15 @@ public interface CustomerMapper {
 	/** 고객페이지 */
 	
 	Integer getAllCustomerCount();			// 가입자 수 - 테스트용
+	Customer redundancyCheckId(String cstId); // ID 중복검사
 
+	
 	/* 회원가입 */
-	Customer redundancyCheckId(@Param("cstId") String cstId); // ID 중복검사
 	List<Zip> firstSearchZip();				// 1단계 주소 검색
 	List<Zip> secondSearchZip();			// 2단계 주소 검색
 	List<Zip> thirdSearchZip();				// 3단계 주소 검색
 	void insertJoinCst(Customer customer);	// 회원가입
+	
 	
 	/* 로그인 */
 	Customer loginCst(Customer customer);	// 로그인

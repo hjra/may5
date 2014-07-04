@@ -61,4 +61,9 @@ public class CustomerServiceImpl implements CustomerService {
 	public Customer loginCst(Customer customer) {
 		return customerMapper.loginCst(customer);
 	}
+
+	@Override
+	public Customer redundancyCheckId(String cstId) {
+		return customerMapper.redundancyCheckId(cstId);
+	}
 }
