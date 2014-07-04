@@ -10,7 +10,7 @@
 
 
 <form action="commentProc.do" method="post">
-<label> 아이템 아이디<input id="itemId" name="itemId"		value="${anItem.itemId}"></label> <br>
+<label> 아이템 아이디<input id="itemId" name="itemId"	value="${anItem.itemId}"></label> <br>
 <label> 아이템 이름 <input name="itemName"		value="${anItem.itemName}"></label> <br> 
 <label> 아이템 가격 <input name="itemPrice" value="${anItem.price}"></label> <br>
 <label> 아이템 인포 <input name="itemInfo" value="${anItem.itemInfo }"></label> <br>
