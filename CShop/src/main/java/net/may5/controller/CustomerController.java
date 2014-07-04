@@ -1,5 +1,7 @@
 package net.may5.controller;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -51,10 +53,11 @@ public class CustomerController {
 	
 	/* 회원가입 성공화면으로 이동 */
 	@RequestMapping(value="joinOk.do", method=RequestMethod.POST)
-	public String joinProcess(@RequestParam String cstEmailAgreement, @RequestParam String cstName, 
-			@ModelAttribute("customer") Customer customer, Zip zip, BindingResult result){
+	public String joinProcess(@RequestParam String cstEmailAgreement, 
+			@ModelAttribute("customer") Customer customer, Zip zip,
+			BindingResult result){
 		customer.setCstEmailAgreement(cstEmailAgreement);
-		System.out.println("insert Customer");
+		System.out.println("insert Customer: "+customer);
 		customerService.insertJoinCst(customer);
 		return "cst/membership/joinOk";
 	}

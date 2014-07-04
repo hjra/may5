@@ -3,12 +3,16 @@
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<!-- <script src="resource/js/loginCheck.js"></script>
+<script src="resource/js/jquery.validate.js"></script> -->
+
 회원가입 입력폼<br>
-<f:form action="joinOk.do" method="post" commandName="customer">
+<f:form action="joinOk.do" method="Post" commandName="customer">
 	<div class="row_group">
 		<div id="idDiv">
-			<f:input path="cstId" placeholder="USER ID" />
+			<f:input path="cstId" placeholder="USER ID" id="cstId"/>
 		</div>
+		<span id="check"></span>
 		<div id="pass1Div">
 			<f:password path="cstPassword" placeholder="PASSWORD"/>
 		</div>
@@ -51,5 +55,5 @@
 		</div>
 	</div>
 	<f:hidden path="cstEmailAgreement"/>
-	<input type="submit" value="JOIN OK">
+	<input type="submit" id="joinOk" value="JOIN OK">
 </f:form>
