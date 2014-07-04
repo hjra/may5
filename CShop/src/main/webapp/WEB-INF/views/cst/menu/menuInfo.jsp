@@ -6,62 +6,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
 
 
-<style type="text/css">
-.classname {
-	-moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
-	-webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
-	box-shadow: inset 0px 1px 0px 0px #ffffff;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed
-		), color-stop(1, #dfdfdf));
-	background: -moz-linear-gradient(center top, #ededed 5%, #dfdfdf 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed',
-		endColorstr='#dfdfdf');
-	background-color: #ededed;
-	-webkit-border-top-left-radius: 6px;
-	-moz-border-radius-topleft: 6px;
-	border-top-left-radius: 6px;
-	-webkit-border-top-right-radius: 6px;
-	-moz-border-radius-topright: 6px;
-	border-top-right-radius: 6px;
-	-webkit-border-bottom-right-radius: 6px;
-	-moz-border-radius-bottomright: 6px;
-	border-bottom-right-radius: 6px;
-	-webkit-border-bottom-left-radius: 6px;
-	-moz-border-radius-bottomleft: 6px;
-	border-bottom-left-radius: 6px;
-	text-indent: 0;
-	border: 1px solid #b061b0;
-	display: inline-block;
-	color: #777777;
-	font-family: arial;
-	font-size: 15px;
-	font-weight: bold;
-	font-style: normal;
-	height: 20px;
-	line-height: 20px;
-	width: 80px;
-	text-decoration: none;
-	text-align: center;
-	text-shadow: 1px 1px 0px #ffffff;
-}
-
-.classname:hover {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf
-		), color-stop(1, #ededed));
-	background: -moz-linear-gradient(center top, #dfdfdf 5%, #ededed 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf',
-		endColorstr='#ededed');
-	background-color: #dfdfdf;
-}
-
-.classname:active {
-	position: relative;
-	top: 1px;
-}
-</style>
-
-<br>
-<img src="/controller/resources/img/cake/생크림딸딸딸1호.png" alt="대표이미지" style="width: 300px">
+<img src="/controller/resources/img/cake/${anItem.itemId}1.png" alt="대표이미지" style="width: 300px">
 
 
 
@@ -76,13 +21,11 @@
 	<%
 		int i = 0;
 	%>
-	<table border="1" bordercolor="#777777">
-
-		<tr align="center" valign="middle">
+	<table class="table table-bordered">
+		<tr>
 			<td colspan="6">평점 및 댓글</td>
 		</tr>
-
-		<tr align="center" valign="middle" bgcolor="#f5ccf5">
+		<tr>
 			<td width="66px">번호</td>
 			<td width="100px"><label>평점</label> 
 				<select name="grade" id="grade">
@@ -96,7 +39,7 @@
 			<c:choose>
 				<c:when test="${sessionScope.cstLogin.cstId == null }">
 				<td><input type="text" maxlength="300" style="width: 300px"
-				placeholder="의견을 등록하시려면 먼저 로그인을 해주세요"></td>
+				placeholder="의견을 등록하시려면 먼저 로그인을 해주세요" readonly></td>
 				</c:when>
 				<c:otherwise>
 			<td>
@@ -107,7 +50,8 @@
 			<td>${sessionScope.cstLogin.cstId}</td>
 			
 			<td align="center">
-					<input type="submit" id="ok" value="등록"></td>
+			
+					<input type="submit" id="ok" value="등록"${sessionScope.cstLogin.cstId == null?" disabled":"" }></td>
 			
 			<c:choose>
 				<c:when test="${sessionScope.cstLogin.cstId == null }">
