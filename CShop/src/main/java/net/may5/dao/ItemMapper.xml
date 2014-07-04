@@ -19,10 +19,6 @@
 		select * from item
 	</select>
 
-	<!-- <select id="getEvaluationList" parameterType="hashmap" resultType="Evaluation"> 
-		select * from evaluation where evaluationIndex between #{startrow} and #{endrow} 
-		</select> -->
-
 	<!-- <select id="getEvaluationList" resultType="Evaluation">
 	 SELECT B.* 
 		FROM (SELECT A.*,row_number() over (ORDER BY EVALUATIONINDEX DESC) number_of_row 
@@ -36,23 +32,10 @@
 		#{startrow} and #{endrow} </select>
 
 
-
-
-	<!-- <select id="getEvaluationList" resultType="Evaluation">
-		(select customer.cstcode, evaluation.evaluationIndex, evaluation.itemId,
-		evaluation.grade, evaluation.evaluationContents, evaluationDate
-		from customer, evaluation where customer.cstCode=evaluation.cstCode)
-		from
-		(select C.*, A.*, row_number() over (order by B.evaluationIndex desc) number_of_row
-		from customer C, evaluation A where A.itemId=#{itemId}) B
-		where B.number_of_row between #{startrow} and #{endrow}
-	</select> -->
-
 	<select id="getListCount" resultType="int">
 		select count(*) from
 		evaluation
 	</select>
-
 
 
 	<select id="getAnItemListCount" resultType="int">
@@ -61,13 +44,21 @@
 	</select>
 
 	<select id="getOrderList" resultType="Orders">
-		select * from
-		orders
+		select * from orders
 	</select>
 	
 		<select id="getOrderListCount" resultType="int">
 		select count(*) from
 		orders
 	</select>
+	
+		<select id="getAnOrderList" resultType="Orders">
+		select * from orders where itemId=#{itemId}
+		</select>
+		
+		<select id="getOrderListCountSameItemId" resultType="Orders" >
+		select itemId, count(itemId) itemCnt from orders group by itemId order by itemCnt
+		
+		</select>
 
 </mapper>

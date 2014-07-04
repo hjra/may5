@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.may5.dto.Evaluation;
 import net.may5.dto.Item;
+import net.may5.dto.Orders;
 
 
 public interface ItemMapper {
@@ -22,4 +23,8 @@ public interface ItemMapper {
 	public List<Evaluation> getOrderList();
 
 	public int getOrderListCount();
+	
+	public Orders getAnOrderList(String itemId);
+	
+	public List<Orders> getOrderListCountSameItemId();
 }

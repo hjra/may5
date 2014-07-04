@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page session="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-상품관리 페이지
+<h1>상품관리 페이지</h1>
 
 <script>
 	$(document)
@@ -31,8 +31,9 @@
 		</li>
 			<c:forEach var="item" items="${itemList}" varStatus="status">
 				<li class="cake">
-					${status.index }
-					<a href="menuInfoMng.do?itemId=${item.itemId}">임시링크</a>
+					<input type="hidden" value="${status.index }">
+					<img onclick="location.href='menuInfo.do?itemId=${item.itemId}'" src="/controller/resources/img/cake/${item.itemId}1.png" alt="대표이미지" style="width: 190px; margin: 3px">
+					<a href="menuInfoMng.do?itemId=${item.itemId}">${item.itemName}</a>
 					<footer>
 						<label>
 							<input type="checkbox" name="deleteItem" value="${item.itemId }" /> 

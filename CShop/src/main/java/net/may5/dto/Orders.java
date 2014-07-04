@@ -32,8 +32,7 @@ public class Orders {
 	private String levelCode;			// 고객등급.등급코드
 	private String itemName;			// 상품명
 	private int price;					// 가격
-	
-	
+	private int itemCnt; //중복된 아이템 카운트
 	public String getOrderCode() {
 		return orderCode;
 	}
@@ -184,8 +183,12 @@ public class Orders {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	
-	
+	public int getItemCnt() {
+		return itemCnt;
+	}
+	public void setItemCnt(int itemCnt) {
+		this.itemCnt = itemCnt;
+	}
 	@Override
 	public String toString() {
 		return "Orders [orderCode=" + orderCode + ", orderDate=" + orderDate
@@ -201,7 +204,7 @@ public class Orders {
 				+ cstCode + ", noticeComment=" + noticeComment + ", noticeImg="
 				+ noticeImg + ", itemId=" + itemId + ", cstId=" + cstId
 				+ ", levelCode=" + levelCode + ", itemName=" + itemName
-				+ ", price=" + price + "]";
+				+ ", price=" + price + ", itemCnt=" + itemCnt + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -212,6 +215,7 @@ public class Orders {
 		result = prime * result + dlvChargeCode;
 		result = prime * result
 				+ ((dlvEndDate == null) ? 0 : dlvEndDate.hashCode());
+		result = prime * result + itemCnt;
 		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
 		result = prime * result
 				+ ((itemName == null) ? 0 : itemName.hashCode());
@@ -249,7 +253,6 @@ public class Orders {
 		result = prime * result + ((zipCode == null) ? 0 : zipCode.hashCode());
 		return result;
 	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -275,6 +278,8 @@ public class Orders {
 			if (other.dlvEndDate != null)
 				return false;
 		} else if (!dlvEndDate.equals(other.dlvEndDate))
+			return false;
+		if (itemCnt != other.itemCnt)
 			return false;
 		if (itemId == null) {
 			if (other.itemId != null)
@@ -362,12 +367,6 @@ public class Orders {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 

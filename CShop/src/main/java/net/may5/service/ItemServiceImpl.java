@@ -6,6 +6,7 @@ import java.util.List;
 import net.may5.dao.ItemMapper;
 import net.may5.dto.Evaluation;
 import net.may5.dto.Item;
+import net.may5.dto.Orders;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -66,5 +67,16 @@ public class ItemServiceImpl implements ItemService {
 		public int getOrderListCount() {
 			
 			return itemMapper.getOrderListCount();
+		}
+
+		@Override
+		public Orders getAnOrderList(String itemId) {
+			
+			return itemMapper.getAnOrderList(itemId);
+		}
+
+		@Override
+		public List<Orders> getOrderListCountSameItemId() {
+			return itemMapper.getOrderListCountSameItemId();
 		}
 }

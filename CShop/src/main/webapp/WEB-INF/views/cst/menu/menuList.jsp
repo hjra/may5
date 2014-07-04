@@ -13,14 +13,17 @@
 
 	<c:forEach var="item" items="${itemList }" varStatus="status">
 		<li class="cake">
-		${status.index }
-		<%-- <input name="${status.index}" value="${status.index}" name="index">		
-				<input type="hidden" name="${item.itemId }" value="${item.itemId }" name="itemId">		
-				<input type="submit" value="${item.itemName }" name="itemName"> --%>
-			<a href="menuInfo.do?itemId=${item.itemId}">${item.itemName}</a>	
-		<%-- <a href="menuInfo.do=">${item.itemName}</a> --%>
+		<input type="hidden" value="${status.index }">
+		<img onclick="location.href='menuInfo.do?itemId=${item.itemId}'" src="/controller/resources/img/cake/${item.itemId}1.png" alt="대표이미지" style="width: 190px; margin: 3px">
+	<br>
+		<a href="menuInfo.do?itemId=${item.itemId}">${item.itemName}</a>	
  </li>
 	</c:forEach>
 	
 </ul>
+
+
+
+
+
 <!-- </form> -->

@@ -173,7 +173,9 @@ public class ItemController {
 		
 		model.addAttribute("orderList", itemService.getOrderList());
 		model.addAttribute("orderCount", itemService.getOrderListCount());
-		
+		model.addAttribute("getOrderListSameItemId", itemService.getOrderListCountSameItemId());
+		System.out.println("메뉴스탁엠엔쥐컨트롤러");
+		System.out.println(itemService.getOrderListCountSameItemId());
 		return "mng/menuMng/menuStockMng";
 	}
 	
