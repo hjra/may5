@@ -6,7 +6,6 @@
 <link href="/controller/resources/css/dlvNotice.css" rel="stylesheet">
 	주문정보조회(수정중)
 	<br>
-
 	<table class="board" border="1" >
 
 		<caption></caption>
