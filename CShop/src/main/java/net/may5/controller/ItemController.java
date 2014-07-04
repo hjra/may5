@@ -166,4 +166,15 @@ public class ItemController {
 		
 		return "redirect:/menuListMng.do";
 	}
+	
+	
+	@RequestMapping(value="menuStockMng.do")
+	public String menuStockMng(Model model){
+		
+		model.addAttribute("orderList", itemService.getOrderList());
+		model.addAttribute("orderCount", itemService.getOrderListCount());
+		
+		return "mng/menuMng/menuStockMng";
+	}
+	
 }

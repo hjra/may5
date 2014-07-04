@@ -60,6 +60,14 @@
 		evaluation where itemId=#{itemId}
 	</select>
 
-
+	<select id="getOrderList" resultType="Orders">
+		select * from
+		orders
+	</select>
+	
+		<select id="getOrderListCount" resultType="int">
+		select count(*) from
+		orders
+	</select>
 
 </mapper>

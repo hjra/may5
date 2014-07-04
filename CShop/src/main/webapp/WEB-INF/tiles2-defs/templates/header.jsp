@@ -35,8 +35,8 @@
 </script>
 <header id="master-header">
 	<a id="mobile-logo" onclick="location.href='homeImage.do'">C#</a> <a
-		id="mobile-menu-toggle"> <img
-		src="/controller/resources/img/mobile-menu-toggle-button.png"
+		id="mobile-menu-toggle"> 
+		<img src="/controller/resources/img/mobile-menu-toggle-button.png"
 		alt="메뉴펼치기"></a>
 	<menu id="gnb">
 		<li onclick="location.href='homeImage.do'">HOME</li>
@@ -48,7 +48,7 @@
 				</menu>
 			</div>
 		</li>
-		<li id="desktop-logo">C#</li>
+		<li onclick="location.href='/controller/'" id="desktop-logo">C#</li>
 		<li onclick="location.href='advanceOrder.do'">ORDER
 			<div class="submenu">
 				<menu>
@@ -56,10 +56,9 @@
 					<li onclick="location.href='orderList.do'">ORDER LIST</li>
 				</menu>
 			</div>
-
 		</li>
 		<li onclick="location.href='about.do'">ABOUT</li>
-		<li>Membership
+		<li style="font-size: 8px; left: 200px;">Membership
 			<div class="submenu">
 				<!-- 임시방편 -->
 				<menu>
@@ -102,8 +101,13 @@
 						</c:when>
 					</c:choose>
 				</menu>
-			</div>
+			</div>			
 		</li>
+		&nbsp&nbsp&nbsp
+		<li style="font-size: 8px; left: 200px;" onclick="location.href='mngLoginForm.do'">ADMIN</li>
+		
+		
+		
 	</menu>
 	<%-- <menu id="mbs">
 			<c:choose>
