@@ -9,7 +9,6 @@
 <img src="/controller/resources/img/cake/${anItem.itemId}1.png" alt="대표이미지" style="width: 300px">
 
 
-
 <form action="commentProc.do" method="post">
 <label> 아이템 아이디<input id="itemId" name="itemId"		value="${anItem.itemId}"></label> <br>
 <label> 아이템 이름 <input name="itemName"		value="${anItem.itemName}"></label> <br> 
