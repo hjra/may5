@@ -6,5 +6,6 @@
 	<br>
 	<hr />
 	<f:form action="orderListMng.do">
+		${orderList }
 		<input type="submit" value="Test">
 	</f:form>

@@ -19,6 +19,22 @@ $(document).ready(function(){
 		}
 	});
 	
+	$('#allAgreement1').click(function(){
+		if($("#allAgreement1").is(":checked")){
+			$('input:checkbox[id^=agreement1]:not(checked)').attr("checked", true);
+		} else{
+			$('input:checkbox[id^=agreement1]:checked').attr("checked", false);
+		}
+	});
+	
+	$('#allAgreement2').click(function(){
+		if($("#allAgreement2").is(":checked")){
+			$('input:checkbox[id^=agreement2]:not(checked)').attr("checked", true);
+		} else{
+			$('input:checkbox[id^=agreement2]:checked').attr("checked", false);
+		}
+	});
+	
 	$('#selectBoxValue').click(function(){
 		$('#inputSelect').empty();
 		if($('#selectBoxValue').val() == "0"){
@@ -27,15 +43,28 @@ $(document).ready(function(){
 		}else if($('#selectBoxValue').val() == "1"){
 			var input = '<input type="text" val="" placeholder="현금영수증카드번호를 입력하세요.">';
 			$('#inputSelect').append(input);
-		}else if($('#selectBoxValue').val() == "2"){
-			var input = '<input type="text" val="" placeholder="주민등록번호를 입력하세요.">';
-			$('#inputSelect').append(input);
 		}else{
-			var input = '<input type="text" val="" placeholder="사업자등록번호를 입력하세요.">';
+			var input = '<input type="text" val="" placeholder="주민등록번호를 입력하세요.">';
 			$('#inputSelect').append(input);	
 		}
 		
 	});
+	
+	$('#selectBoxValue1').click(function(){
+		$('#inputSelect1').empty();
+		if($('#selectBoxValue1').val() == "0"){
+			var input = '<input type="text" val="" placeholder="휴대폰번호를 입력하세요.">';
+			$('#inputSelect1').append(input);	
+		}else if($('#selectBoxValue1').val() == "1"){
+			var input = '<input type="text" val="" placeholder="현금영수증카드번호를 입력하세요.">';
+			$('#inputSelect1').append(input);
+		}else{
+			var input = '<input type="text" val="" placeholder="사업자등록번호를 입력하세요.">';
+			$('#inputSelect1').append(input);	
+		}
+		
+	});
+	
 });
 
 
@@ -223,27 +252,34 @@ $(document).ready(function(){
 						<option value="0" >휴대폰번호</option>
 						<option value="1" >현금영수증카드번호</option>
 						<option value="2" >주민등록번호</option>
-						
 					</select>
-					
+					<div id="inputSelect"></div>
 				</div>
-				<div id="busi" style="display: none" >
-					<select id="selectBoxValue" title="">
+				<div id="busi" style="display: none" >신청수단 : 
+					<select id="selectBoxValue1" title="">
 						<option value="0">휴대폰번호</option>
 						<option value="1" >현금영수증카드번호</option>
-						<option value="3">사업자등록번호</option>
-						
+						<option value="2">사업자등록번호</option>
 					</select>
-				
+					<div id="inputSelect1"></div>
 				</div>
-				<div id="inputSelect"></div>
 				<input type="checkbox" id="agreement" name="crsave">현재 현금영수증 신청정보를 저장합니다.
+				<br>주문자동의 : <input id="allAgreement1" type="checkbox" >전체동의<br>
+ 							<input name="serviceAgreement1" type="checkbox" id="agreement1">결제정보 수집 및 제공 동의하기<br>
+							<input name="privacyAgreement1" type="checkbox" id="agreement1">개인정보 제3자 제공 동의하기<br>
+							<input name="payAgreement1" type="checkbox" id="agreement1">위 상품의 판매정보를 명확히 확인하였으며 구매진행에 동의합니다
 			</div>
 		
 	
 	</div>
 	<div id="cp" style="display: none">
-		휴대폰 소액결제
+		휴대폰 결제안내 : 휴대폰 결제는 통신사에 따라 결제 한도 금액이 다릅니다.<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		휴대폰 결제의 경우 가입하신 이동통신사에서 증빙을 발급 받을 수 있습니다.<br>
+		<br>주문자동의 : <input id="allAgreement2" type="checkbox" >전체동의<br>
+ 							<input name="serviceAgreement2" type="checkbox" id="agreement2">결제정보 수집 및 제공 동의하기<br>
+							<input name="privacyAgreement2" type="checkbox" id="agreement2">개인정보 제3자 제공 동의하기<br>
+							<input name="payAgreement2" type="checkbox" id="agreement2">위 상품의 판매정보를 명확히 확인하였으며 구매진행에 동의합니다
 	</div>
 	
 	
