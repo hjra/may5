@@ -2,36 +2,30 @@
 	pageEncoding="UTF-8"%>
 <%@ page session="true"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="resources/js/jquery.min.js"></script>
-<title>AdvanceOrderPayment</title>
 <script type="text/javascript">
 /* checkbox 전체선택, 전체해제 */
 $(document).ready(function(){
 	$('#allAgreement').click(function(){
 		if($("#allAgreement").is(":checked")){
-			$('input:checkbox[id^=agreement]:not(checked)').attr("checked", true);
+			$('input:checkbox[id^=agreement]:not(checked)').prop("checked", true);
 		} else{
-			$('input:checkbox[id^=agreement]:checked').attr("checked", false);
+			$('input:checkbox[id^=agreement]:checked').prop("checked", false);
 		}
 	});
 	
 	$('#allAgreement1').click(function(){
 		if($("#allAgreement1").is(":checked")){
-			$('input:checkbox[id^=agreement1]:not(checked)').attr("checked", true);
+			$('input:checkbox[id^=agreement1]:not(checked)').prop("checked", true);
 		} else{
-			$('input:checkbox[id^=agreement1]:checked').attr("checked", false);
+			$('input:checkbox[id^=agreement1]:checked').prop("checked", false);
 		}
 	});
 	
 	$('#allAgreement2').click(function(){
 		if($("#allAgreement2").is(":checked")){
-			$('input:checkbox[id^=agreement2]:not(checked)').attr("checked", true);
+			$('input:checkbox[id^=agreement2]:not(checked)').prop("checked", true);
 		} else{
-			$('input:checkbox[id^=agreement2]:checked').attr("checked", false);
+			$('input:checkbox[id^=agreement2]:checked').prop("checked", false);
 		}
 	});
 	
@@ -137,8 +131,6 @@ $(document).ready(function(){
 	</script>
 	<!-- 스크립트 끝 -->
 
-</head>
-<body>
 	<h1>결제정보</h1>
 	<f:form method="post" action="">
 	<fieldset>
@@ -269,8 +261,6 @@ $(document).ready(function(){
 							<input name="privacyAgreement1" type="checkbox" id="agreement1">개인정보 제3자 제공 동의하기<br>
 							<input name="payAgreement1" type="checkbox" id="agreement1">위 상품의 판매정보를 명확히 확인하였으며 구매진행에 동의합니다
 			</div>
-		
-	
 	</div>
 	<div id="cp" style="display: none">
 		휴대폰 결제안내 : 휴대폰 결제는 통신사에 따라 결제 한도 금액이 다릅니다.<br>
@@ -281,13 +271,6 @@ $(document).ready(function(){
 							<input name="privacyAgreement2" type="checkbox" id="agreement2">개인정보 제3자 제공 동의하기<br>
 							<input name="payAgreement2" type="checkbox" id="agreement2">위 상품의 판매정보를 명확히 확인하였으며 구매진행에 동의합니다
 	</div>
-	
-	
-	
-
-	<!-- html 끝 -->
 	</fieldset>
 	</f:form>
 
-</body>
-</html>
