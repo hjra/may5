@@ -14,10 +14,12 @@ public interface ItemService {
 	
 	public int getListCount();
 	
-//	public List<Evaluation>  getEvaluationList(int page, int limit);
-
 	public List<Evaluation>  getEvaluationList(String itemId, int page, int limit);
 	
 	public int getAnItemListCount(String itemId);
+	
+	public List<Evaluation> getOrderList();
+
+	public int getOrderListCount();
 
 }

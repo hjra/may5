@@ -55,4 +55,16 @@ public class ItemServiceImpl implements ItemService {
 			
 			return itemMapper.getAnItemListCount(itemId);
 		}
+
+		@Override
+		public List<Evaluation> getOrderList() {
+			
+			return itemMapper.getOrderList();
+		}
+
+		@Override
+		public int getOrderListCount() {
+			
+			return itemMapper.getOrderListCount();
+		}
 }

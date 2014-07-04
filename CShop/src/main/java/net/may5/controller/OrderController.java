@@ -67,7 +67,8 @@ public class OrderController {
 	/** 관리자페이지↓ */
 	/* 주문정보화면으로 이동 */
 	@RequestMapping("orderListMng.do")
-	public String orderListMng(){
+	public String orderListMng(Model model){
+		model.addAttribute("orderList", orderService.getOrderList());
 		return "mng/orderInfoMng/orderListMng";
 	}
 	
@@ -81,6 +82,6 @@ public class OrderController {
 		return model;
 	}
 
-
+	
 }
 

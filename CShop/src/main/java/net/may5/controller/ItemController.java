@@ -1,6 +1,7 @@
 package net.may5.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -55,7 +56,7 @@ public class ItemController {
 		
 		
 		// 시작
-		int ipage = request.getParameter("page") ==  null ? 1 : Integer.parseInt(request.getParameter("page"));  
+		int ipage = page ==  null ? 1 : Integer.parseInt(page);  
 		int limit = 10;
 
 		
@@ -108,6 +109,72 @@ public class ItemController {
 	/* 상품관리로 이동 */
 	@RequestMapping(value = "menuListMng.do")
 	public String menuListMng(Model model) {
+		model.addAttribute("itemList", itemService.getItemList());
 		return "mng/menuMng/menuListMng";
 	}
+	
+	@RequestMapping(value = "menuModifyMng.do")
+	public String menuModifyMng() {
+		return "mng/menuMng/menuModifyMng";
+	}
+	
+	
+	@RequestMapping(value= "menuInfoMng.do")
+	public ModelAndView menuInfoMng(String itemId, String page){
+		
+		ModelAndView view = new ModelAndView("mng/menuMng/menuInfoMng");
+		
+		if(itemId==null){
+			return new ModelAndView("redirect:/menuListMng");
+		} else{
+			view.addObject("anItem", itemService.getAnItem(itemId));
+		}
+		
+		int ipage = (page ==  null) ? 1 : Integer.parseInt(page);  
+		int limit = 10;
+		List<Evaluation> evaluationList = itemService.getEvaluationList(itemId, ipage, limit);
+		
+		
+		view.addObject("page", ipage); // 현재 페이지 수
+		//view.addObject("maxpage", maxpage); // 최대 페이지 수
+		//view.addObject("startpage", startpage); // 현재 페이지에 표시할 첫 페이지 수
+		//view.addObject("endpage", endpage); // 현재 페이지에 표시할 끝 페이지 수
+		//view.addObject("listcount", listcount); // 모든 아이템의 총 글 수
+		//view.addObject("anItemListCount", anItemListCount); // 한 아이템 당 글 수
+		view.addObject("evaluationList", evaluationList); // 게시글 리스트
+		return view;		
+	}
+	
+	@RequestMapping(value="menuItemDelete.do", method=RequestMethod.POST)
+	public String menuItemDelete(HttpServletRequest request){
+		
+		Map<String, String[]> requestParams = request.getParameterMap();
+				
+	     for (Map.Entry<String, String[]> entry : requestParams.entrySet()) {
+	            String  key        = entry.getKey();         // parameter name
+	            String[] values = entry.getValue();   // parameter values as array of String
+	            
+	            		
+	            if( key.equals("deleteItem")){
+	            	for (int i = 0; i < values.length; i++) {
+	            		String deleteItemId = values [i];
+	                    System.out.println("삭제대상 => " + deleteItemId);
+	                    // ItemService.deleteItem(deleteItemId);
+	                }
+	            }
+	     }
+		
+		return "redirect:/menuListMng.do";
+	}
+	
+	
+	@RequestMapping(value="menuStockMng.do")
+	public String menuStockMng(Model model){
+		
+		model.addAttribute("orderList", itemService.getOrderList());
+		model.addAttribute("orderCount", itemService.getOrderListCount());
+		
+		return "mng/menuMng/menuStockMng";
+	}
+	
 }

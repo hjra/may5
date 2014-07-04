@@ -4,7 +4,7 @@
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link href="/controller/resources/css/dlvNotice.css" rel="stylesheet">
-주문내역서
+주문내역서(수정중)
 	<br>
 	ORDERLIST
 	<table class="board" border="1" cellspacing="0"  >

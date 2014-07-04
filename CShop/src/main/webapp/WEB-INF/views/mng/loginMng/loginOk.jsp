@@ -14,6 +14,7 @@
 <a href="dlvNotice.do">알리미</a>
 <br>
 <a href="menuListMng.do">상품관리</a>
+<a href="menuStockMng.do">상품재고</a>
 <br>
 <!-- 배송정보 넣는 자리 -->
 <a href="managerInfo.do">직원정보</a>
