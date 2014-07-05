@@ -21,3 +21,5 @@
 <br>
 <a href="dailyReport.do">통계</a>
 <br>
+<a href="allMemberInfoJsonForm.do">고객정보-Json용</a>
+<a href="ajaxView.do">고객정보-Json용2</a>

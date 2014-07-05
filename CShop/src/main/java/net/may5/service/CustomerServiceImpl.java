@@ -1,6 +1,7 @@
 package net.may5.service;
 
 import java.util.List;
+import java.util.Map;
 
 import net.may5.dao.CustomerMapper;
 import net.may5.dto.Customer;
@@ -65,5 +66,11 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public Customer redundancyCheckId(String cstId) {
 		return customerMapper.redundancyCheckId(cstId);
+	}
+
+	/* Json Test */
+	@Override
+	public List getAllCstInfo(Map<String, Object> paramMap) {
+		return customerMapper.getAllCstInfo(paramMap);
 	}
 }
