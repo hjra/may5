@@ -19,90 +19,128 @@ public class QnA {
 	private int groupNumber;			// 그룹번호
 	private String sequenceNumber;		// 시퀀스넘버
 	
+	private String cstId;
+
 	public int getBoardCode() {
 		return boardCode;
 	}
+
 	public void setBoardCode(int boardCode) {
 		this.boardCode = boardCode;
 	}
+
 	public String getCstCode() {
 		return cstCode;
 	}
+
 	public void setCstCode(String cstCode) {
 		this.cstCode = cstCode;
 	}
+
 	public String getBoardTitle() {
 		return boardTitle;
 	}
+
 	public void setBoardTitle(String boardTitle) {
 		this.boardTitle = boardTitle;
 	}
+
 	public Date getBoardDate() {
 		return boardDate;
 	}
+
 	public void setBoardDate(Date boardDate) {
 		this.boardDate = boardDate;
 	}
+
 	public String getPostPassword() {
 		return postPassword;
 	}
+
 	public void setPostPassword(String postPassword) {
 		this.postPassword = postPassword;
 	}
+
 	public String getPostContents() {
 		return postContents;
 	}
+
 	public void setPostContents(String postContents) {
 		this.postContents = postContents;
 	}
+
 	public String getFileName() {
 		return fileName;
 	}
+
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
+
 	public String getFileAddress() {
 		return fileAddress;
 	}
+
 	public void setFileAddress(String fileAddress) {
 		this.fileAddress = fileAddress;
 	}
+
 	public String getReplyOrder() {
 		return replyOrder;
 	}
+
 	public void setReplyOrder(String replyOrder) {
 		this.replyOrder = replyOrder;
 	}
+
 	public String getSaveFolder() {
 		return saveFolder;
 	}
+
 	public void setSaveFolder(String saveFolder) {
 		this.saveFolder = saveFolder;
 	}
+
 	public String getSystemFileName() {
 		return systemFileName;
 	}
+
 	public void setSystemFileName(String systemFileName) {
 		this.systemFileName = systemFileName;
 	}
+
 	public String getOriginalFileName() {
 		return originalFileName;
 	}
+
 	public void setOriginalFileName(String originalFileName) {
 		this.originalFileName = originalFileName;
 	}
+
 	public int getGroupNumber() {
 		return groupNumber;
 	}
+
 	public void setGroupNumber(int groupNumber) {
 		this.groupNumber = groupNumber;
 	}
+
 	public String getSequenceNumber() {
 		return sequenceNumber;
 	}
+
 	public void setSequenceNumber(String sequenceNumber) {
 		this.sequenceNumber = sequenceNumber;
 	}
+
+	public String getCstId() {
+		return cstId;
+	}
+
+	public void setCstId(String cstId) {
+		this.cstId = cstId;
+	}
+
 	@Override
 	public String toString() {
 		return "QnA [boardCode=" + boardCode + ", cstCode=" + cstCode
@@ -112,8 +150,10 @@ public class QnA {
 				+ fileAddress + ", replyOrder=" + replyOrder + ", saveFolder="
 				+ saveFolder + ", systemFileName=" + systemFileName
 				+ ", originalFileName=" + originalFileName + ", groupNumber="
-				+ groupNumber + ", sequenceNumber=" + sequenceNumber + "]";
+				+ groupNumber + ", sequenceNumber=" + sequenceNumber
+				+ ", cstId=" + cstId + "]";
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -124,6 +164,7 @@ public class QnA {
 		result = prime * result
 				+ ((boardTitle == null) ? 0 : boardTitle.hashCode());
 		result = prime * result + ((cstCode == null) ? 0 : cstCode.hashCode());
+		result = prime * result + ((cstId == null) ? 0 : cstId.hashCode());
 		result = prime * result
 				+ ((fileAddress == null) ? 0 : fileAddress.hashCode());
 		result = prime * result
@@ -146,6 +187,7 @@ public class QnA {
 				+ ((systemFileName == null) ? 0 : systemFileName.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -171,6 +213,11 @@ public class QnA {
 			if (other.cstCode != null)
 				return false;
 		} else if (!cstCode.equals(other.cstCode))
+			return false;
+		if (cstId == null) {
+			if (other.cstId != null)
+				return false;
+		} else if (!cstId.equals(other.cstId))
 			return false;
 		if (fileAddress == null) {
 			if (other.fileAddress != null)
@@ -221,4 +268,6 @@ public class QnA {
 			return false;
 		return true;
 	}
+	
+
 }
