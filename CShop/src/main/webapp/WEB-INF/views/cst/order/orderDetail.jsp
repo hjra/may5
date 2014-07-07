@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="/controller/resources/css/orderDetail.css" rel="stylesheet">
+<link href="/CShop/resources/css/orderDetail.css" rel="stylesheet">
 <title>AdvanceOrderPayment</title>
 </head>
 <body>

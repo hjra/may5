@@ -2,9 +2,9 @@
 <%@ page session="true" %>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link href="/controller/resources/css/dlvNotice.css" rel="stylesheet">
+<link href="/CShop/resources/css/dlvNotice.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="/controller/resources/js/web.js"></script>
+<script src="/CShop/resources/js/web.js"></script>
 	알리미
 	<br>
 	<f:form action="dlvmImage.do" method="post">
