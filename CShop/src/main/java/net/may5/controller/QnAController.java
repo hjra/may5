@@ -1,14 +1,19 @@
 package net.may5.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import net.may5.dto.Customer;
 import net.may5.dto.QnA;
 import net.may5.service.QnAService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,12 +57,36 @@ public class QnAController {
 		return "cst/membership/boardEdit";
 	}
 	/* QnA 게시판 글쓰기 페이지 이동*/
-	@RequestMapping("boardWriteForm.do") 
-	public String boardWriteForm(Model model) {
+	@RequestMapping("boardWriteForm.do")
+	public String boardWriteForm(Map<String, String> paramap, ModelMap model){
 		return "cst/membership/boardWriteForm";
+		
 	}
-
 	
+	/*게시글을 DB에 올리는 controller*/
+	@RequestMapping("writeProc.do") 
+	public String writeProc(HttpServletRequest  request, HttpSession  session,  ModelMap model) 
+			throws Throwable{		
+
+		//form에서 넘어오는 값 찍기 paramMap 안에 form에서 넘어오는 값이 있음
+		System.out.println("title = " + request.getParameter("boardTitle"));
+		System.out.println("content = " + request.getParameter("postContents"));
+		System.out.println("password = " + request.getParameter("postPassword"));
+		Customer cstLogin = (Customer)session.getAttribute("cstLogin");
+		
+		int   cstCode=cstLogin.getCstCode();
+		//저장하기 위하여 paramMap을 넘긴다.
+	 qnaService.writeProc( request.getParameter("boardTitle"), 
+				request.getParameter("postContents"), 
+				request.getParameter("postPassword")  , 
+				cstCode);
+
+		System.out.println(" 입력되었습니다/");
+
+		//처리 redirect
+		return "redirect:/board.do";
+		
+	}
 	
 	
 	

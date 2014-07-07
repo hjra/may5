@@ -1,58 +1,99 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>    
 <%@ page session="true" %>
-<table>
-  <tr>
-   <td>
-    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+<html>
+  <head>
+<SCRIPT type="text/javascript">                              
+function check(){                                         
+ with(document.msgwrite){                      
+  if(subject.value.length == 0){                  
+   alert("제목을 입력해 주세요!!");                       
+   subject.focus();                           
+   return false;                             
+  }                                         
+  if(name.value.length == 0){                   
+   alert("이름을 입력해 주세요!!");                  
+   name.focus();                              
+   return false;                                  
+  }                                         
+  if(password.value.length == 0){              
+   alert("비밀번호를 입력해 주세요!!");              
+   password.focus();                            
+   return false;                               
+  }                                        
+  if(content.value.length == 0){                    
+   alert("내용을 입력해주세요!!");                   
+   content.focus();                         
+   return false;                           
+  }                                        
+  document.msgwrite.submit();                       
+ }                                          
+}                                            
+</SCRIPT>    
+                                
+</HEAD>                                       
+<BODY>                                        
+<P>                  
+                         
+<FORM name="boardWriteForm" method="post" action="writeProc.do">    
+<CENTER>                                      
+<table width="600"cellspacing="0" cellpadding="2">           
+ <tr>                                        
+  <td colspan="2" bgcolor="#1F4F8F" height="1"></td>  
+ </tr>                                        
+ <tr>                                        
+  <td colspan="2" bgcolor="#DFEDFF" height="20" class="notice">&nbsp;&nbsp;<font size="2">새글 쓰기</font></td> 
+ </tr>                                       
+ <tr>                                       
+  <td colspan="2" bgcolor="#1F4F8F" height="1"></td>   
+ </tr>                                                                                                              
+ <tr>                                        
+  <td width="124" align="center"  bgcolor="#f4f4f4">제 목</td>   
+  <td width="494" style="padding:0 0 0 10" height="25">
+  	<input type="text" name="boardTitle" size="60" maxlength="60" class="input_style2"></td>                                      
+ </tr>                                        
+ <tr>                             
+  <td width="124" height="162" align="center" valign="top" bgcolor="#f4f4f4" style="padding-top:7px;">내 용</td>
+  <td width="494" valign="top"  style="padding:5 0 5 10">    
+   <textarea cols="65" rows="10" name="postContents" maxlength="2000" class="textarea_style1"></textarea>     
+  </td>                                     
+ </tr>                                        
+ <tr>                                        
+  <td width="124" align="center"  bgcolor="#f4f4f4">암 호</td>  
+  <td width="494" style="padding:0 0 0 10" height="25">                   
+   <input type=password name="postPassword" class="style1"><br>(비밀번호를 입력하면 수정 또는 삭제가 가능합니다.)
+  </td>                                       
+ </tr>                                       
+ <tr>                                       
+  <td colspan="2" height="1" class='button'></td>                                  
+ </tr>                                       
+ <tr>              
+  <td colspan="2" height="1" bgcolor="#1F4F8F"></td>     
+ </tr>                                      
+ <tr>                                         
+  <td colspan="2" height="10"></td>                                    
+ </tr>                                          
+ <tr>                                          
+  <td colspan="2" align="right">                    
+   <table width="100%" border="0" cellpadding="0" cellspacing="0">                      
+    <tr>                     
+     <td width="28%">&nbsp;</td>               
+     <td width="51%">&nbsp;</td>               
+     <td width="12%"><input type="submit" onClick="" value = 취소></td>
+  <td>
+     <input type="submit"
+				onclick="document.location='writeProc.do'" value="등록하기"
+				class="redBtn"></td>
      
-      
-      <center><td>글쓰기</td></center>
      
-     </tr>
-    </table>
-   <table>
-     <tr>
-      <td>&nbsp;</td>
-      <td align="center">제목</td>
-      <td><input name="title" size="56" maxlength="100"></td>
-      <td>&nbsp;</td>
-     </tr>  
-   
-     <tr height="1" bgcolor="#dddddd"><td colspan="3"></td></tr>
-     <tr>
-      <td>&nbsp;</td>
-      <td align="center">내용</td>
-      <td><textarea name="memo" cols="50" rows="13"></textarea></td>
-      <td>&nbsp;</td>
-     </tr>
-     
-      <tr>
-      <td>&nbsp;</td>
-      <td align="center">파일첨부</td>
-      <td><input name="password" size="55" maxlength="50"></td>
-      <td><input type=button value="찾아보기">  
-      <td>&nbsp;</td>
-     </tr>
-     
-     
-      <tr>
-      <td>&nbsp;</td>
-      <td align="center">비밀번호</td>
-      <td><input name="password" size="5" maxlength="5"></td>
-      <td>&nbsp;</td>
-     </tr>
-     
-     
-     
-     <tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>
-     <tr height="1" bgcolor="#82B5DF"><td colspan="4"></td></tr>
-     <tr align="center">
-      <td>&nbsp;</td>
-      <td colspan="2"><input type=button value="등록">
-       <input type=button value="취소">
-      <td>&nbsp;</td>
-     </tr>
-    </table>
-	
-</form>
+    
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>                                       
+</CENTER>                                            
+</FORM> 
+
+
+</html>
