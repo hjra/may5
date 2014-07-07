@@ -271,6 +271,11 @@ $(document).ready(function(){
 							<input name="privacyAgreement2" type="checkbox" id="agreement2">개인정보 제3자 제공 동의하기<br>
 							<input name="payAgreement2" type="checkbox" id="agreement2">위 상품의 판매정보를 명확히 확인하였으며 구매진행에 동의합니다
 	</div>
+		<p>
+				<input type="reset" value="재입력"/>
+				<input type="button" onclick="javascript:history.back(-1)" value="이전"/>
+				<input type="submit" value="다음"/>
+				</p>
 	</fieldset>
 	</f:form>
 

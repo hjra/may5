@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page session="true" %>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +23,23 @@
 					<col width="250px">
 				</colgroup>
 				<tbody>
+					<c:choose>
+					<c:when test="${sessionScope.cstLogin.cstId == null }">
+					<!-- <tr>
+						<th scope="row"><label for="orinfoyn"><strong>*</strong>기존정보 사용여부</label></th>
+						<td>
+							<input type="radio" value="uy" name="receive" required="required"/>기존정보사용<br>
+							<input type="radio" value="un" name="receive" required="required"/>새로입력
+						</td>
+					</tr> -->
+					<tr>
+						<th scope="row"><label for="name"><strong>*</strong>이름</label></th>
+						<td>
+							<input type="text" id="name" placeholder="ex)홍명보" required="required"/>
+						</td>
+					</tr>
+					</c:when>
+					<c:otherwise>
 					<tr>
 						<th scope="row"><label for="orinfoyn"><strong>*</strong>기존정보 사용여부</label></th>
 						<td>
@@ -35,6 +53,9 @@
 							<input type="text" id="name" placeholder="ex)홍명보" required="required"/>
 						</td>
 					</tr>
+					</c:otherwise>
+					</c:choose>
+					
 					<tr>
 						<th scope="row"><label for="pnumber">전화번호</label></th>
 						<td>
