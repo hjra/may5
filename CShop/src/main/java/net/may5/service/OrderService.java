@@ -12,5 +12,6 @@ public interface OrderService {
 
 	public Object orderList(int orderDate);
 	
+	public List<Orders> getOrderListMng();
 }
 

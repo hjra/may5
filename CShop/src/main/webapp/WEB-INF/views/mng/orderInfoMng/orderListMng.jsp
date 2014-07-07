@@ -10,27 +10,27 @@
 
 		<caption></caption>
 		<colgroup>
-			<col width="10%">
+			<%-- <col width="10%">
 			<col width="10%">
 			<col width="10%">
 			<col width="15%">
 			<col width="10%">
 			<col width="70px">
-			<col width="50%">
+			<col width="50%"> --%>
 		</colgroup>
 		<thead>
 			<tr>
-				<th scope="col">주문일자</th>
+				<!-- <th scope="col">주문일자</th>
 				<th scope="col">주문번호</th>
 				<th scope="col">상품명</th>
 				<th scope="col">상품금액</th>
 				<th scope="col">처리현황</th>
 				<th scope="col">상세내역</th>
-				<th scope="col">취소</th>
+				<th scope="col">취소</th> -->
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach var="orders" items="${orderList}">
+		<%-- <c:forEach var="orders" items="${orderList}">
 			<tr>
 				<td class="oorderDate" >${orders.orderDate} </td>
 				<td class="oorderCode">${orders.orderCode}${orders.orderDate}${orders.sameTimeCount}${orders.itemId}</td>
@@ -41,6 +41,6 @@
 				<td id="dsend"><input type="button"
 					value="취소" style="width: 10%; height: 22px;"></td>
 			</tr>
-			</c:forEach>
+		</c:forEach> --%>
 		</tbody>
 	</table>

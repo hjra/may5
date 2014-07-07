@@ -28,5 +28,11 @@ public class OrderServiceImpl implements OrderService {
 		return orders;
 	}
 
+	@Override
+	public List<Orders> getOrderListMng() {
+		
+		return orderMapper.getOrderListMng();
+	}
+
 }
 

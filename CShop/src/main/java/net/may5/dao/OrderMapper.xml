@@ -20,5 +20,11 @@
 		select * from orders,
 		customer where orderDate  = #{orderDate}
 	</select>
-
+	<!-- 주문관리 -->
+	<select id="getOrderListMng" resultType="Orders">
+		select * from Orders A inner join OptionPrice B on A.OptionCode = B.OptionCode 
+	</select>
+	
+	
+	
 </mapper>

@@ -10,6 +10,8 @@ public class Orders {
 	private String sameTimeCount;		// 동시간대카운트
 	private int payCode;				// 결제구분.결제코드
 	private int optionCode;				// 옵션가.옵션코드
+	private String optionType;			// 항목
+	private int optionPrice;			// 금액
 	private int dlvChargeCode;			// 배송비.배송비코드
 	private int noticeCode;				// 알리미.알리미코드
 	private int orderAmount;			// 주문수량
@@ -62,6 +64,18 @@ public class Orders {
 	}
 	public void setOptionCode(int optionCode) {
 		this.optionCode = optionCode;
+	}
+	public String getOptionType() {
+		return optionType;
+	}
+	public void setOptionType(String optionType) {
+		this.optionType = optionType;
+	}
+	public int getOptionPrice() {
+		return optionPrice;
+	}
+	public void setOptionPrice(int optionPrice) {
+		this.optionPrice = optionPrice;
 	}
 	public int getDlvChargeCode() {
 		return dlvChargeCode;
@@ -190,23 +204,6 @@ public class Orders {
 		this.itemCnt = itemCnt;
 	}
 	@Override
-	public String toString() {
-		return "Orders [orderCode=" + orderCode + ", orderDate=" + orderDate
-				+ ", sameTimeCount=" + sameTimeCount + ", payCode=" + payCode
-				+ ", optionCode=" + optionCode + ", dlvChargeCode="
-				+ dlvChargeCode + ", noticeCode=" + noticeCode
-				+ ", orderAmount=" + orderAmount + ", pointCode=" + pointCode
-				+ ", zipCode=" + zipCode + ", orderDetailAddress="
-				+ orderDetailAddress + ", receiverName=" + receiverName
-				+ ", receiverCP=" + receiverCP + ", stockAmount=" + stockAmount
-				+ ", receiverPhone=" + receiverPhone + ", dlvEndDate="
-				+ dlvEndDate + ", sizeCode=" + sizeCode + ", cstCode="
-				+ cstCode + ", noticeComment=" + noticeComment + ", noticeImg="
-				+ noticeImg + ", itemId=" + itemId + ", cstId=" + cstId
-				+ ", levelCode=" + levelCode + ", itemName=" + itemName
-				+ ", price=" + price + ", itemCnt=" + itemCnt + "]";
-	}
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -227,6 +224,9 @@ public class Orders {
 		result = prime * result
 				+ ((noticeImg == null) ? 0 : noticeImg.hashCode());
 		result = prime * result + optionCode;
+		result = prime * result + optionPrice;
+		result = prime * result
+				+ ((optionType == null) ? 0 : optionType.hashCode());
 		result = prime * result + orderAmount;
 		result = prime * result
 				+ ((orderCode == null) ? 0 : orderCode.hashCode());
@@ -310,6 +310,13 @@ public class Orders {
 			return false;
 		if (optionCode != other.optionCode)
 			return false;
+		if (optionPrice != other.optionPrice)
+			return false;
+		if (optionType == null) {
+			if (other.optionType != null)
+				return false;
+		} else if (!optionType.equals(other.optionType))
+			return false;
 		if (orderAmount != other.orderAmount)
 			return false;
 		if (orderCode == null) {
@@ -366,6 +373,24 @@ public class Orders {
 		} else if (!zipCode.equals(other.zipCode))
 			return false;
 		return true;
+	}
+	@Override
+	public String toString() {
+		return "Orders [orderCode=" + orderCode + ", orderDate=" + orderDate
+				+ ", sameTimeCount=" + sameTimeCount + ", payCode=" + payCode
+				+ ", optionCode=" + optionCode + ", optionType=" + optionType
+				+ ", optionPrice=" + optionPrice + ", dlvChargeCode="
+				+ dlvChargeCode + ", noticeCode=" + noticeCode
+				+ ", orderAmount=" + orderAmount + ", pointCode=" + pointCode
+				+ ", zipCode=" + zipCode + ", orderDetailAddress="
+				+ orderDetailAddress + ", receiverName=" + receiverName
+				+ ", receiverCP=" + receiverCP + ", stockAmount=" + stockAmount
+				+ ", receiverPhone=" + receiverPhone + ", dlvEndDate="
+				+ dlvEndDate + ", sizeCode=" + sizeCode + ", cstCode="
+				+ cstCode + ", noticeComment=" + noticeComment + ", noticeImg="
+				+ noticeImg + ", itemId=" + itemId + ", cstId=" + cstId
+				+ ", levelCode=" + levelCode + ", itemName=" + itemName
+				+ ", price=" + price + ", itemCnt=" + itemCnt + "]";
 	}
 	
 	

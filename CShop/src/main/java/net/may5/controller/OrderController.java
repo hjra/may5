@@ -35,6 +35,9 @@ public class OrderController {
 		model.setViewName("cst/order/orderList");
 		List<Orders> orderList = orderService.getOrderList();
 		model.addObject("orderList", orderList);
+		
+		/*model.addObject("orderList",orderService.getOrderList());*/
+		
 		return model;
 	}
 	/*주문검색*/
@@ -67,9 +70,11 @@ public class OrderController {
 	/** 관리자페이지↓ */
 	/* 주문정보화면으로 이동 */
 	@RequestMapping("orderListMng.do")
-	public String orderListMng(Model model){
-		model.addAttribute("orderList", orderService.getOrderList());
-		return "mng/orderInfoMng/orderListMng";
+	public ModelAndView getOptionPrice(){
+		ModelAndView model = new ModelAndView();
+		model.setViewName("mng/orderInfoMng/orderListMng");
+		model.addObject("optionPrice",orderService.getOrderListMng());
+		return model;
 	}
 	
 	/*알리미리스트*/
@@ -81,6 +86,8 @@ public class OrderController {
 		model.addObject("alimilist", alimilist);
 		return model;
 	}
+	
+	
 
 	
 }
