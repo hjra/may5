@@ -58,20 +58,17 @@ public class ItemServiceImpl implements ItemService {
 		}
 
 		@Override
-		public List<Evaluation> getOrderList() {
-			
-			return itemMapper.getOrderList();
+		public List<Evaluation> getOrderList(String orderDate) {
+			return itemMapper.getOrderList(orderDate);
 		}
 
 		@Override
 		public int getOrderListCount() {
-			
 			return itemMapper.getOrderListCount();
 		}
 
 		@Override
 		public Orders getAnOrderList(String itemId) {
-			
 			return itemMapper.getAnOrderList(itemId);
 		}
 

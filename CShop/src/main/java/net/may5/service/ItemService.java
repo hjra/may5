@@ -19,7 +19,7 @@ public interface ItemService {
 	
 	public int getAnItemListCount(String itemId);
 	
-	public List<Evaluation> getOrderList();
+	public List<Evaluation> getOrderList(String orderDate);
 
 	public int getOrderListCount();
 
