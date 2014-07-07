@@ -13,4 +13,5 @@ public interface QnAService {
 	QnA getQnA(int boardCode);
 	void updateQnA(QnA qna);
 	void deleteQnA(int boardCode);
+	QnA qnaGetContents(int boardCode);
 }

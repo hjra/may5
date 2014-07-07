@@ -8,6 +8,6 @@ public interface QnAMapper {
 
 	public List<QnA> qnaGetList();
 	public List<QnA> qnaGetList2();
-	
+	public QnA qnaGetContents(int boardCode);
 	
 }

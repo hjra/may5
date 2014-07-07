@@ -25,11 +25,19 @@
 					<td></td>
 					<td width="80" height="25"><font size="2">${board.boardCode}</font></td>
 					<!-- 글번호 -->
-					<td><a class="no-uline"
-							href="boardContext.do?boardNumber=${board.boardCode}"><font
-							size="2">${board.boardTitle}</font></a></td>
+					<td><%-- <a class="no-uline"
+							href="boardCheck.do?boardCode=${board.boardCode}">
+													<font
+							size="2">${board.boardTitle}</font></a> --%>
+						<form action="boardCheck.do" method="get">
+						<input type="submit" value="${board.boardTitle}">
+						<input type="hidden" name="boardCode" value="${board.boardCode}">
+						<!-- 보드의 제목을 클릭하게 되면 히든 타입으로 글번호가  보드체크를 따라 
+						컨트롤로 간다 -->
+						</form>	
+					</td>
 					<!-- 제목 -->
-					<td width="80"><font size="2">${board.boardDate }</font></td>
+					<td width="80"><font size="2">${board.boardDate}</font></td>
 					<!-- 작성자 -->
 					<td width="85"><font size="2">${board.cstId}</font></td>
 					<!-- 작성일 -->
@@ -48,7 +56,7 @@
 			</tr>
 		<tr>
 				<td></td>
-				<td><input type="hidden" name="userId" value="${users.userid }"><input type="button"
+				<td><input type="hidden" name="cstId" value="${board.cstId}"><input type="button"
 				onclick="document.location='boardWriteForm.do'" value="글쓰기"
 				class="redBtn"></td>
 				<td></td>
