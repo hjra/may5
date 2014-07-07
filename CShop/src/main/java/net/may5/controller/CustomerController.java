@@ -49,9 +49,28 @@ public class CustomerController {
 		Customer customer = new Customer();
 		model.addAttribute("cstEmailAgreement", cstEmailAgreement);
 		model.addAttribute("customer", customer);
-		model.addAttribute("zip", customerService.firstSearchZip());
 		return "cst/membership/joinForm";
 	}
+	
+	
+	/* JSON + AJAX Test Controller */
+/*	@RequestMapping("searchZipInfoList.do")
+	public @ResponseBody Map<?,?> testJson3(@RequestParam Map<String, Object> paramMap, ModelMap model){
+		System.out.println("JSON 테스트 결과: "+customerService.searchZipInfo(paramMap));
+		model.put("zip", customerService.searchZipInfo(paramMap));
+		return model;
+	}*/
+	
+	@RequestMapping("searchZipInfoList.do")
+	public @ResponseBody Map<?,?> testJson4(@RequestParam String zipKeyword, ModelMap model){
+		System.out.println("실행1");
+	//	List<Zip> zip = customerService.searchZipInfo2(zipKeyword);
+	//	System.out.println("실행2"+customerService.searchZipInfo2(zipKeyword));
+		model.put("zip", customerService.searchZipInfo2(zipKeyword));
+		System.out.println("실행3");
+		return model;
+	}
+	
 	
 	/* 회원가입 성공화면으로 이동 */
 	@RequestMapping(value="joinOk.do", method=RequestMethod.POST)
@@ -206,13 +225,14 @@ public class CustomerController {
 	}
 	
 	/* JSON Test Controller */
-/*	@RequestMapping("allMemberInfoJsonForm.do")
+	@RequestMapping("allMemberInfoJsonForm.do")
 	public void testJson(@RequestParam Map<String, Object> paramMap, ModelMap model){
 		System.out.println("JSON 테스트 결과: "+customerService.getAllCstInfo(paramMap));
 		model.put("customer", customerService.getAllCstInfo(paramMap));
-	}*/
+	}
 	
-	@RequestMapping("allMemberInfoJsonForm.do")
+	/* JSON + AJAX Test Controller */
+	@RequestMapping("allMemberInfoJsonForm2.do")
 	public @ResponseBody Map<?,?> testJson2(@RequestParam Map<String, Object> paramMap, ModelMap model){
 		System.out.println("JSON 테스트 결과: "+customerService.getAllCstInfo(paramMap));
 		model.put("customer", customerService.getAllCstInfo(paramMap));

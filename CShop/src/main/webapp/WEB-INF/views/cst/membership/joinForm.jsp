@@ -2,9 +2,38 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script type="text/javascript">
+	function zipInfoAjaxList(){
+		$.ajax({
+			type	: 'POST',
+			url		: "searchZipInfoList.do",
+			dataType: "json",
+			data	: "",
+			contentType: "application/json; charset=utf-8",
+			error: function(request,status,error){
+				//alert("loading error:" + request.status);
+				console.log("code : " +  request.statusText  + "\r\nmessage : " + request.responseText);},
+			success : function(result){
+				$.each(result, function(key){
+					var list = result[key];
+					
+					var content = "<table>";
+					
+					for(i=0; i<list.length; i++){
+						content += "<tr>";
+						content += "<td>" + list[i].ZIPKEYWORD + "</td>";
+						content += "</tr>";
+					}
+					content += "<table>";
+					
+					$("#zipInfoDiv").html(content);
+				});
+			}
+		});
+	}
 
-<!-- <script src="resource/js/loginCheck.js"></script>
-<script src="resource/js/jquery.validate.js"></script> -->
+</script>
+
 
 회원가입 입력폼<br>
 <f:form action="joinOk.do" method="Post" commandName="customer">
@@ -57,3 +86,11 @@
 	<f:hidden path="cstEmailAgreement"/>
 	<input type="submit" id="joinOk" value="JOIN OK">
 </f:form>
+<br>
+<br>
+<form action="searchZipInfoList.do" method="post">
+	<input type="text" name="zipKeyword" placeholder="zipKeyword">
+	<input type="submit" value="도로명 검색" onclick="zipInfoAjaxList()">
+<!-- <input type="button" value="우편정보 갖고 오기" onclick="zipInfoAjaxList()"> -->
+</form>
+<div id="zipInfoDiv"></div>

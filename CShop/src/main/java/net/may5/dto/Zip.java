@@ -15,85 +15,122 @@ public class Zip {
 	private String li;					// 리
 	private String jibunNum1;			// 지번본번
 	private String jibunNum2;			// 지번부번
-	
+
+	/* DB에서 가공해서 가져올 DATA */
+	private String zipKeyword;			// 도로명 주소 검색
+
 	public String getZipCode() {
 		return zipCode;
 	}
+
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
+
 	public String getZipNumber() {
 		return zipNumber;
 	}
+
 	public void setZipNumber(String zipNumber) {
 		this.zipNumber = zipNumber;
 	}
+
 	public String getSido() {
 		return sido;
 	}
+
 	public void setSido(String sido) {
 		this.sido = sido;
 	}
+
 	public String getSigungu() {
 		return sigungu;
 	}
+
 	public void setSigungu(String sigungu) {
 		this.sigungu = sigungu;
 	}
+
 	public String getDongubmyon() {
 		return dongubmyon;
 	}
+
 	public void setDongubmyon(String dongubmyon) {
 		this.dongubmyon = dongubmyon;
 	}
+
 	public String getDoromyong() {
 		return doromyong;
 	}
+
 	public void setDoromyong(String doromyong) {
 		this.doromyong = doromyong;
 	}
+
 	public String getBuildingNum1() {
 		return buildingNum1;
 	}
+
 	public void setBuildingNum1(String buildingNum1) {
 		this.buildingNum1 = buildingNum1;
 	}
+
 	public String getBuildingNum2() {
 		return buildingNum2;
 	}
+
 	public void setBuildingNum2(String buildingNum2) {
 		this.buildingNum2 = buildingNum2;
 	}
+
 	public String getSigunguBuildingName() {
 		return sigunguBuildingName;
 	}
+
 	public void setSigunguBuildingName(String sigunguBuildingName) {
 		this.sigunguBuildingName = sigunguBuildingName;
 	}
+
 	public String getDong() {
 		return dong;
 	}
+
 	public void setDong(String dong) {
 		this.dong = dong;
 	}
+
 	public String getLi() {
 		return li;
 	}
+
 	public void setLi(String li) {
 		this.li = li;
 	}
+
 	public String getJibunNum1() {
 		return jibunNum1;
 	}
+
 	public void setJibunNum1(String jibunNum1) {
 		this.jibunNum1 = jibunNum1;
 	}
+
 	public String getJibunNum2() {
 		return jibunNum2;
 	}
+
 	public void setJibunNum2(String jibunNum2) {
 		this.jibunNum2 = jibunNum2;
 	}
+
+	public String getZipKeyword() {
+		return zipKeyword;
+	}
+
+	public void setZipKeyword(String zipKeyword) {
+		this.zipKeyword = zipKeyword;
+	}
+
 	@Override
 	public String toString() {
 		return "Zip [zipCode=" + zipCode + ", zipNumber=" + zipNumber
@@ -102,8 +139,10 @@ public class Zip {
 				+ buildingNum1 + ", buildingNum2=" + buildingNum2
 				+ ", sigunguBuildingName=" + sigunguBuildingName + ", dong="
 				+ dong + ", li=" + li + ", jibunNum1=" + jibunNum1
-				+ ", jibunNum2=" + jibunNum2 + "]";
+				+ ", jibunNum2=" + jibunNum2 + ", zipKeyword=" + zipKeyword
+				+ "]";
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -130,9 +169,12 @@ public class Zip {
 						.hashCode());
 		result = prime * result + ((zipCode == null) ? 0 : zipCode.hashCode());
 		result = prime * result
+				+ ((zipKeyword == null) ? 0 : zipKeyword.hashCode());
+		result = prime * result
 				+ ((zipNumber == null) ? 0 : zipNumber.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -201,6 +243,11 @@ public class Zip {
 			if (other.zipCode != null)
 				return false;
 		} else if (!zipCode.equals(other.zipCode))
+			return false;
+		if (zipKeyword == null) {
+			if (other.zipKeyword != null)
+				return false;
+		} else if (!zipKeyword.equals(other.zipKeyword))
 			return false;
 		if (zipNumber == null) {
 			if (other.zipNumber != null)

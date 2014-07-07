@@ -15,9 +15,8 @@ public interface CustomerMapper {
 
 	
 	/* 회원가입 */
-	List<Zip> firstSearchZip();				// 1단계 주소 검색
-	List<Zip> secondSearchZip();			// 2단계 주소 검색
-	List<Zip> thirdSearchZip();				// 3단계 주소 검색
+	List searchZipInfo(Map<String, Object> paramMap); // 주소 검색 - JSON 적용
+	List<Zip> searchZipInfo2(String zipKeyword);	  // 주소 검색 - JSON 적용2
 	void insertJoinCst(Customer customer);	// 회원가입
 	
 	
@@ -27,7 +26,7 @@ public interface CustomerMapper {
 	
 	/** 관리자페이지 */
 	List<Customer> selectAllCstInfo();		// 전체고객 정보 조회
-	List getAllCstInfo(Map<String, Object> paramMap); // Json Test
+	List getAllCstInfo(Map<String, Object> paramMap); // JSON Test
 	List<Customer> selectBlackCstInfo();	// 관심고객 정보 조회
 	List<Customer> selectVIPCstInfo();		// VIP고객 정보 조회
 }
