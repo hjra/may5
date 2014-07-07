@@ -4,7 +4,7 @@
 	
 	<div>
 		<!-- 하단 메뉴 시작  -->
-		<a href="/controller/cst/home/homeImage.do">고객페이지 홈</a> 
+		<a href="homeImage.do">고객페이지 홈</a> 
 		| <a href="/front/php/com_intro.php"><font style="color:#555555;font-size:12;font-family:굴림;">회사소개</font></a> 
 		| <a href="/front/php/member_agree.php"><font style="color:#555555;font-size:12;font-family:굴림;">이용약관</font></a> 
 		| <a href="/front/php/privacy_agree.php"><font style="color:#555555;font-size:12;font-family:굴림;">개인정보취급방침</font></a> 

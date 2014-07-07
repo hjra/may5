@@ -52,7 +52,14 @@
   <!-- 관리자페이지 -->
 	<!-- 전체고객 정보 조회 -->
 	<select id="selectAllCstInfo" resultType="Customer">
-		select A.cntr, B.* from Customer B,(select count(*) cntr from Customer where levelCode!='D') A
+		select A.cntr, B.*, C.levelName from (select count(*) cntr from Customer
+		where levelCode!='D') A, Customer B inner join cstLevel C on B.levelCode = C.levelCode
+	</select>
+	
+	<!-- Json Test -->
+	<select id="getAllCstInfo" parameterType="Map" resultType="HashMap">
+		select A.cntr, B.*, C.levelName from (select count(*) cntr from Customer
+		where levelCode!='D') A, Customer B inner join cstLevel C on B.levelCode = C.levelCode
 	</select>
 	
 	<!-- 관심고객 정보 조회 -->

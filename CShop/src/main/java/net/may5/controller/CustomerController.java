@@ -1,5 +1,7 @@
 package net.may5.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,11 +12,13 @@ import net.may5.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -199,6 +203,25 @@ public class CustomerController {
 	public String allMemberInfoForm(Model model){
 		model.addAttribute("customer", customerService.selectAllCstInfo());
 		return "mng/cstInfo/allMemberInfoForm";
+	}
+	
+	/* JSON Test Controller */
+/*	@RequestMapping("allMemberInfoJsonForm.do")
+	public void testJson(@RequestParam Map<String, Object> paramMap, ModelMap model){
+		System.out.println("JSON 테스트 결과: "+customerService.getAllCstInfo(paramMap));
+		model.put("customer", customerService.getAllCstInfo(paramMap));
+	}*/
+	
+	@RequestMapping("allMemberInfoJsonForm.do")
+	public @ResponseBody Map<?,?> testJson2(@RequestParam Map<String, Object> paramMap, ModelMap model){
+		System.out.println("JSON 테스트 결과: "+customerService.getAllCstInfo(paramMap));
+		model.put("customer", customerService.getAllCstInfo(paramMap));
+		return model;
+	}
+	
+	@RequestMapping("ajaxView.do")
+	public void ajaxView(@RequestParam Map<String, Object> paramMap, ModelMap model){
+		
 	}
 	
 	/* VIP LIST 화면으로 이동 */

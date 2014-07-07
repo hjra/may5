@@ -6,5 +6,8 @@ import net.may5.dto.QnA;
 
 public interface QnAMapper {
 
-	public List<QnA> getQnaList();
+	public List<QnA> qnaGetList();
+	public List<QnA> qnaGetList2();
+	
+	
 }
