@@ -7,9 +7,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=2">
-	<link href="/controller/resources/css/web.css" rel="stylesheet">
+	<link href="/CShop/resources/css/web.css" rel="stylesheet">
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-	<script src="/controller/resources/js/web.js"></script>
+	<script src="/CShop/resources/js/web.js"></script>
 	<title>사전주문</title>
 <body>
 <h1>예약주문페이지</h1>

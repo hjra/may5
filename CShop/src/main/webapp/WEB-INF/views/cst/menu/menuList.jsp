@@ -14,7 +14,7 @@
 	<c:forEach var="item" items="${itemList }" varStatus="status">
 		<li class="cake">
 		<input type="hidden" value="${status.index }">
-		<img onclick="location.href='menuInfo.do?itemId=${item.itemId}'" src="/controller/resources/img/cake/${item.itemId}1.png" alt="대표이미지" style="width: 150px">
+		<img onclick="location.href='menuInfo.do?itemId=${item.itemId}'" src="/CShop/resources/img/cake/${item.itemId}1.png" alt="대표이미지" style="width: 150px">
 	<br>
 		<a href="menuInfo.do?itemId=${item.itemId}">${item.itemName}</a>	
  </li>

@@ -15,6 +15,12 @@ on 		Q.cstCode = C.cstCode
 ORDER 	BY boardCode DESC
 </select>
 
+<select id="qnaGetContents" resultType="QnA"> <!-- resultType는 DTO이름  -->
+select	Q.*, C.cstId
+from 	QnA Q inner join Customer C
+on 		Q.cstCode = C.cstCode
+where   Q.boardCode = #{boardCode}
+</select>
 
 	
 </mapper>

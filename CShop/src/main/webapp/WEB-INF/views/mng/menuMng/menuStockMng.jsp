@@ -53,7 +53,7 @@ getOrderListSameItemId::${getOrderListSameItemId}
 			<!-- 여기 특정날짜로 적용한다음에 그 날짜에 대한 주문목록만 나오고 싶당 -->
 			<div>주문날짜 :: ${order.orderDate}</div>
 			<li class="cake">
-			<img src="/controller/resources/img/cake/${order.itemId}1.png" alt="대표이미지" style="width: 200px; margin: 3px">
+			<img src="/CShop/resources/img/cake/${order.itemId}1.png" alt="대표이미지" style="width: 200px; margin: 3px">
 			<label>
 			<div> 아이템 아이디 :: ${order.itemId}</div>
 			<div> 주문수량      -      재고수</div>

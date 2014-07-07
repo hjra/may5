@@ -6,7 +6,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
 
 
-<img src="/controller/resources/img/cake/${anItem.itemId}1.png" alt="대표이미지" style="width: 300px">
+<img src="/CShop/resources/img/cake/${anItem.itemId}1.png" alt="대표이미지" style="width: 300px">
 
 
 <form action="commentProc.do" method="post">

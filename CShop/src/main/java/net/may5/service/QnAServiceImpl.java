@@ -51,4 +51,9 @@ public class QnAServiceImpl implements QnAService {
 		return qnamapper.qnaGetList2();
 	}
 
+	@Override
+	public QnA qnaGetContents(int boardCode) {
+		return qnamapper.qnaGetContents(boardCode);
+	}
+
 }
