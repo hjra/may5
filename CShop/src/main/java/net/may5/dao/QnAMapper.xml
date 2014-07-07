@@ -4,9 +4,22 @@
 
 <mapper namespace="net.may5.dao.QnAMapper">
    
- 
-<select id="getQnaList" resultType="QnA">
-	select * from QnA
+<select id="qnaGetList" resultType="QnA">
+select * from QnA
+</select>
+
+<select id="qnaGetList2" resultType="QnA">
+select	Q.boardTitle, Q.boardDate, Q.boardCode boardCode, C.cstId
+from 	QnA Q inner join Customer C
+on 		Q.cstCode = C.cstCode
+ORDER 	BY boardCode DESC
+</select>
+
+<select id="qnaGetContents" resultType="QnA"> <!-- resultType는 DTO이름  -->
+select	Q.*, C.cstId
+from 	QnA Q inner join Customer C
+on 		Q.cstCode = C.cstCode
+where   Q.boardCode = #{boardCode}
 </select>
 
 	

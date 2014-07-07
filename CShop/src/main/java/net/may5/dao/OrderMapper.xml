@@ -25,6 +25,4 @@
 		select * from Orders A inner join OptionPrice B on A.OptionCode = B.OptionCode 
 	</select>
 	
-	
-	
 </mapper>

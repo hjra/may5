@@ -36,7 +36,7 @@
 <header id="master-header">
 	<a id="mobile-logo" onclick="location.href='homeImage.do'">C#</a> <a
 		id="mobile-menu-toggle"> 
-		<img src="/controller/resources/img/mobile-menu-toggle-button.png"
+		<img src="/CShop/resources/img/mobile-menu-toggle-button.png"
 		alt="메뉴펼치기"></a>
 	<menu id="gnb">
 		<li onclick="location.href='homeImage.do'">HOME</li>
@@ -48,7 +48,7 @@
 				</menu>
 			</div>
 		</li>
-		<li onclick="location.href='/controller/'" id="desktop-logo">C#</li>
+		<li onclick="location.href='/CShop/'" id="desktop-logo">C#</li>
 		<li onclick="location.href='advanceOrder.do'">ORDER
 			<div class="submenu">
 				<menu>
@@ -65,7 +65,7 @@
 					<c:choose>
 						<c:when
 							test="${sessionScope.cstLogin==null and sessionScope.mngLogin==null
-						and requestScope['javax.servlet.forward.request_uri']!='/controller/mngLoginForm.do'}">
+						and requestScope['javax.servlet.forward.request_uri']!='/CShop/mngLoginForm.do'}">
 							<f:form id="mbsF" method="post">
 								<li onclick="cstLogin()">LOGIN</li>
 								<li onclick="join()">JOIN</li>
@@ -89,7 +89,7 @@
 						</c:when>
 						<c:when
 							test="${sessionScope.mngLogin==null
-							and requestScope['javax.servlet.forward.request_uri']=='/controller/mngLoginForm.do'}">
+							and requestScope['javax.servlet.forward.request_uri']=='/CShop/mngLoginForm.do'}">
 							<f:form id="mbsF" method="post">
 								<li onclick="mngLogin()">LOGIN</li>
 							</f:form>

@@ -1,11 +1,10 @@
 package net.may5.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import net.may5.dto.Customer;
 import net.may5.dto.Zip;
-
-import org.apache.ibatis.annotations.Param;
 
 public interface CustomerMapper {
 
@@ -28,6 +27,7 @@ public interface CustomerMapper {
 	
 	/** 관리자페이지 */
 	List<Customer> selectAllCstInfo();		// 전체고객 정보 조회
+	List getAllCstInfo(Map<String, Object> paramMap); // Json Test
 	List<Customer> selectBlackCstInfo();	// 관심고객 정보 조회
 	List<Customer> selectVIPCstInfo();		// VIP고객 정보 조회
 }

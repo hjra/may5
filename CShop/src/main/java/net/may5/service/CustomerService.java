@@ -1,6 +1,7 @@
 package net.may5.service;
 
 import java.util.List;
+import java.util.Map;
 
 import net.may5.dto.Customer;
 import net.may5.dto.Zip;
@@ -22,6 +23,7 @@ public interface CustomerService {
 	
 	/** 관리자페이지 */
 	public List<Customer> selectAllCstInfo();			// 전체고객 정보 조회
+	public List getAllCstInfo(Map<String, Object> paramMap); // Json Test
 	public List<Customer> selectBlackCstInfo();			// 관심고객 정보 조회
 	public List<Customer> selectVIPCstInfo();			// VIP고객 정보 조회
 	

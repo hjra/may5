@@ -9,11 +9,12 @@
 	<meta charset="utf-8">
 	<!-- ie는 기본적으로 Compatible을 정의하지 않으면 낮은 버전으로 에뮬레이션 되어 구동됩니다.  -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=2">
-	<link href="/controller/resources/css/web.css" rel="stylesheet">
+	<link href="/CShop/resources/css/web.css" rel="stylesheet">
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-	<script src="/controller/resources/js/web.js"></script>
+	<script src="/CShop/resources/js/web.js"></script>
 	<!-- datepicker 부분 -->
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+	<script src="/CShop/resources/js/moment.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 	<script type="text/javascript" src="jquery.ui.datepicker-ko.js"></script>

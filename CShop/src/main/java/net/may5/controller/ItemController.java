@@ -1,10 +1,12 @@
 package net.may5.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import net.may5.dto.Evaluation;
@@ -13,6 +15,7 @@ import net.may5.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -36,7 +39,6 @@ public class ItemController {
 	/* 메뉴상세정보로 이동 */
 	@RequestMapping(value="menuInfo.do", method=RequestMethod.GET)
 	public ModelAndView menuInfo(HttpServletRequest request,
-			HttpServletResponse response, 
 			String itemId, String page, String cstLogin,
 			Model model) {
 		
@@ -168,15 +170,69 @@ public class ItemController {
 	}
 	
 	
+	//검색하기위한 두
 	@RequestMapping(value="menuStockMng.do")
-	public String menuStockMng(Model model){
+	public String menuStockMng(Model model, String orderDate){
 		
-		model.addAttribute("orderList", itemService.getOrderList());
-		model.addAttribute("orderCount", itemService.getOrderListCount());
-		model.addAttribute("getOrderListSameItemId", itemService.getOrderListCountSameItemId());
+		if( orderDate == null ) {
+			// 오늘날짜 텍스트를 구해옵니다.
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat ( "YYYY-MM-DD", Locale.KOREA );
+			String todayDate = simpleDateFormat.format ( new Date () ).substring(0, 10);
+			System.out.println("todayDate => " + todayDate);
+			
+			model.addAttribute("orderList", itemService.getOrderList(todayDate));
+			//model.addAttribute("orderCount", itemService.getOrderListCount(todayDate));
+			//model.addAttribute("getOrderListSameItemId", itemService.getOrderListCountSameItemId(todayDate));
+		} else {
+			System.out.println("selectDate => " + orderDate);
+			
+			model.addAttribute("orderList", itemService.getOrderList(orderDate));
+			//model.addAttribute("orderCount", itemService.getOrderListCount(orderDate));
+			//model.addAttribute("getOrderListSameItemId", itemService.getOrderListCountSameItemId(orderDate));
+		}
+		
+		model.addAttribute("paramDate", (orderDate==null?"":orderDate) );
+		
 		System.out.println("메뉴스탁엠엔쥐컨트롤러");
 		System.out.println(itemService.getOrderListCountSameItemId());
 		return "mng/menuMng/menuStockMng";
 	}
+	//마감을 하기위한 두
+	
+	// 날짜선택 - 특정날짜를 선택!
+    @RequestMapping(value="datePicker.do")
+    public String datePicker(Date thisDay, Model model){
+    	
+    	System.out.println("선택하신 날짜는 :: "+thisDay);
+    	model.addAttribute("thisDay", thisDay);
+    	return "mng/menuMng/menuStockMng";
+    }
+	
+	
+	// 마감작업 - 재고를 0으로
+    @RequestMapping(value="stockToZero.do")
+    public String stockToZero(){
+    	System.out.println("재고가 모두 0이 되었습니다.");
+    	
+    	return "mng/menuMng/menuStockMng";
+    }
+	
+	
+	// 파일업로드 예제
+	
+	// Display the form on the get request
+	@RequestMapping(value="uploadfileindex.do", method = RequestMethod.GET)
+    public String showRegistration(Map model) {
+            return "uploadfileindex";
+    }
+
+    // Process the form.
+    @RequestMapping(value="uploadfileindex.do", method = RequestMethod.POST)
+    public String processRegistration(BindingResult result) {
+            return "uploadfileindex";
+    }
+	
+	
+
 	
 }

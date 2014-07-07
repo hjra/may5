@@ -3,7 +3,7 @@
 <%@ page session="true" %>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link href="/controller/resources/css/dlvNotice.css" rel="stylesheet">
+<link href="/CShop/resources/css/dlvNotice.css" rel="stylesheet">
 	주문정보조회(수정중)
 	<br>
 	<table class="board" border="1" >

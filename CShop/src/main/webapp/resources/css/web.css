@@ -68,7 +68,7 @@ p { margin-bottom: 20px; font-size: 17px; line-height: 2; }
 #menu-frame { width: 100%; background: white; background: rgba(255, 255, 255, 0.9); padding: 20px; }
 
 ul.cakeList li { display: inline-block; zoom: 1; *display: inline; margin-bottom: 10px; }
-ul.cakeList li a { display: block; width: 160px; height: 160px; border: 1px solid gray; }
+ul.cakeList li a { display: block; width: 200px; height: 200px; border: 1px solid gray; }
 ul.cakeList li a:hover { background: white; border: 1px solid red; }
 
 

@@ -21,7 +21,11 @@ public class Customer {
 	private int cstPostCount;				// 게시글 수
 	private String levelCode;				// 고객등급.등급코드
 	private int cstCode;					// 회원코드
+	
+	/* 다른 Table에서 join한 컬럼 */
 	private int cntr;						// 회원수
+	private String levelName;				// 회원등급명
+	
 	public String getCstId() {
 		return cstId;
 	}
@@ -130,6 +134,12 @@ public class Customer {
 	public void setCntr(int cntr) {
 		this.cntr = cntr;
 	}
+	public String getLevelName() {
+		return levelName;
+	}
+	public void setLevelName(String levelName) {
+		this.levelName = levelName;
+	}
 	@Override
 	public String toString() {
 		return "Customer [cstId=" + cstId + ", cstName=" + cstName
@@ -142,7 +152,7 @@ public class Customer {
 				+ ", cstJoinDate=" + cstJoinDate + ", cstLastVisitDate="
 				+ cstLastVisitDate + ", cstPostCount=" + cstPostCount
 				+ ", levelCode=" + levelCode + ", cstCode=" + cstCode
-				+ ", cntr=" + cntr + "]";
+				+ ", cntr=" + cntr + ", levelName=" + levelName + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -183,6 +193,8 @@ public class Customer {
 				+ ((cstQnAPermission == null) ? 0 : cstQnAPermission.hashCode());
 		result = prime * result
 				+ ((levelCode == null) ? 0 : levelCode.hashCode());
+		result = prime * result
+				+ ((levelName == null) ? 0 : levelName.hashCode());
 		result = prime * result + ((zipCode == null) ? 0 : zipCode.hashCode());
 		return result;
 	}
@@ -272,6 +284,11 @@ public class Customer {
 				return false;
 		} else if (!levelCode.equals(other.levelCode))
 			return false;
+		if (levelName == null) {
+			if (other.levelName != null)
+				return false;
+		} else if (!levelName.equals(other.levelName))
+			return false;
 		if (zipCode == null) {
 			if (other.zipCode != null)
 				return false;
@@ -279,5 +296,4 @@ public class Customer {
 			return false;
 		return true;
 	}
-	
 }
