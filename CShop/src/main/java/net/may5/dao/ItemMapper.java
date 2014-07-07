@@ -20,7 +20,7 @@ public interface ItemMapper {
 	
 	public List<Evaluation> getEvaluationList(HashMap<String, String> param);
 
-	public List<Evaluation> getOrderList();
+	public List<Evaluation> getOrderList(String orderDate);
 
 	public int getOrderListCount();
 	

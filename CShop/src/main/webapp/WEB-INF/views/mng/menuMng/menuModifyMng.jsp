@@ -1,4 +1,4 @@
-/<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page session="true" %>
 
@@ -28,9 +28,33 @@ $(document).on("click","form button",function(e){
 	}
 });
 </script>
+<script>
+		$(document).on("change","#thumbnail-items input[type=file]",function(){
+			//불러진 파일의 확장자를 읽어봅니다.
+            if( /(\.png|\.jpeg|\.jpg|\.gif|\.bmp)$/.test($(this).val()) ){
+            		//FileRender를 사용 가능한 경우
+                    if (this.files && this.files[0]) {
+                            var reader = new FileReader();
+                            var sender = this;
+                            reader.onload = function (e) {
+                            	$(sender).parents(".thumbnail-item").find("img").attr('src', e.target.result);
+                            	console.log("it!",$(sender).parents(".thumbnail-item"),$(sender).parents(".thumbnail-item").find("img"));
+                    		}
+                            reader.readAsDataURL(this.files[0]);
+                    } else {
+                    	//FileRender가 불가능한 경우 (대채로 IE구버전)
+                    	$(this).parents(".thumbnail-item").find("img").attr('src', $(this).val());
+                    }
+            } else {
+            	//파일 확장자가 올바르지 않은경우
+            	alert("썸네일은 반드시 이미지여야 합니다.");
+            	$(this).val("");
+            }}
+		);
+</script>
 <h1>상품등록</h1>
 <hr/>
-<form method="post" action="http://sample.open9.net/callback/submit_data">
+<form method="post" action="setItem.do">
 	<div class="row">
 		<div class="col-xs-6">
 			<div id="thumbnail-view">
@@ -38,38 +62,75 @@ $(document).on("click","form button",function(e){
 			</div>
 			<br/>
 			<div id="thumbnail-items" class="row">
-				<div class="col-xs-2">
+				<div class="thumbnail-item col-xs-2">
 					<img class="img-thumbnail full-width">
-					<div>
-						<button class="btn btn-default btn-sm full-width">찾기</button>
-					</div>
 				</div>
-				<div class="col-xs-2">
+				<div class="thumbnail-item col-xs-2">
 					<img class="img-thumbnail full-width">
-					<div>
-						<button class="btn btn-default btn-sm full-width">찾기</button>
-					</div>
+					<label class="full-width">
+						<input type="file" name="itemimg2" class="hidden" />
+						<span class="btn btn-default btn-sm full-width">찾기</span>
+					</label>
 				</div>
-				<div class="col-xs-2">
+				<div class="thumbnail-item col-xs-2">
 					<img class="img-thumbnail full-width">
-					<div>
-						<button class="btn btn-default btn-sm full-width">찾기</button>
-					</div>
+					<label class="full-width">
+						<input type="file" name="itemimg3" class="hidden" />
+						<span class="btn btn-default btn-sm full-width">찾기</span>
+					</label>
 				</div>
-				<div class="col-xs-2">
+				<div class="thumbnail-item col-xs-2">
 					<img class="img-thumbnail full-width">
-					<div>
-						<button class="btn btn-default btn-sm full-width">찾기</button>
-					</div>
+					<label class="full-width">
+						<input type="file" name="itemimg4" class="hidden" />
+						<span class="btn btn-default btn-sm full-width">찾기</span>
+					</label>
 				</div>
-				<div class="col-xs-2">
+				<div class="thumbnail-item col-xs-2">
 					<img class="img-thumbnail full-width">
-					<div>
-						<button class="btn btn-default btn-sm full-width">찾기</button>
-					</div>
+					<label class="full-width">
+						<input type="file" name="itemimg5" class="hidden" />
+						<span class="btn btn-default btn-sm full-width">찾기</span>
+					</label>
 				</div>
 			</div>
 		</div>
+		
+		
+		<br>
+
+<br>
+
+<%
+
+if (session.getAttribute("uploadFile") != null
+
+&& !(session.getAttribute("uploadFile")).equals("")) {
+
+%>
+
+<h3>Uploaded File</h3>
+
+<br>
+
+<img
+
+src="<%=request.getRealPath("/") + "/images/"
+
++ session.getAttribute("uploadFile")%>"
+
+alt="Upload Image" />
+
+<%
+
+session.removeAttribute("uploadFile");
+
+}
+
+%>
+		
+		
+		
 		<div class="col-xs-6">
 			<table id="info-table" class="table table-bordered">
 				<tbody>

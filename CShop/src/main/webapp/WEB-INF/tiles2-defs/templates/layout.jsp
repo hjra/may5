@@ -14,6 +14,7 @@
 	<script src="/controller/resources/js/web.js"></script>
 	<!-- datepicker 부분 -->
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+	<script src="/controller/resources/js/moment.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 	<script type="text/javascript" src="jquery.ui.datepicker-ko.js"></script>
