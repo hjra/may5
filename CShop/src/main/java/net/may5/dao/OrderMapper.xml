@@ -22,7 +22,12 @@
 	</select>
 	<!-- 주문관리 -->
 	<select id="getOrderListMng" resultType="Orders">
-		select * from Orders A inner join OptionPrice B on A.OptionCode = B.OptionCode 
+		select * from Orders A 
+		inner join OptionPrice B on A.OptionCode = B.OptionCode
+		inner join Item C on A.ItemId = C.ItemId
+		inner join PayKind D on A.PayCode = D.PayCode
+		inner join Delivery E on A.DlvChargeCode = E.DlvChargeCode
+		inner join Zip F on A.ZipCode = F.ZipCode
 	</select>
 	
 </mapper>

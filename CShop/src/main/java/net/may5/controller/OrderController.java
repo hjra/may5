@@ -73,7 +73,7 @@ public class OrderController {
 	public ModelAndView getOptionPrice(){
 		ModelAndView model = new ModelAndView();
 		model.setViewName("mng/orderInfoMng/orderListMng");
-		model.addObject("optionPrice",orderService.getOrderListMng());
+		model.addObject("orderListMng",orderService.getOrderListMng());
 		return model;
 	}
 	
