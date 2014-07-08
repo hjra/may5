@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page session="true" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+
 
 <style>
 	#thumbnail-view {
@@ -52,12 +55,89 @@ $(document).on("click","form button",function(e){
             }}
 		);
 </script>
+<style>
+#thumbnail-view{
+	position:relative;
+}
+#sticker-view {
+	position:absolute;
+	overflow:hidden;
+	margin:0;
+	padding:0;
+	top:0;
+	right:0;
+	width:100px;
+	height:100px;
+	z-index:1;
+}
+#sticker-view.active {
+	overflow:initial;
+}
+#sticker-view li{
+	list-style:none;
+	background-color:#753;
+	color:white;
+	z-index:2;
+	position:absolute;
+	margin:0;
+	padding:0;
+	width:100px;
+	height:100px;
+	text-align:center;
+	line-height:100px;
+	cursor:pointer;
+}
+#sticker-view li:hover {
+	border:1px solid blue;
+}
+</style>
+<script>
+$(document).on("click","#sticker-view",function(e){
+	if( $(this).is(".active") ){
+		e.preventDefault();
+		var target = e.target;
+		if( $(target).is("li") ){
+			$("#sticker-view-value").val($(target).data("value"));
+			$(this).removeClass("active");
+			var selectedIndex = $(this).find("ul li").index(target);
+			$(this).find("ul li").each(function(index){
+				$(this).css("left",( (index-selectedIndex) *100)+"px");
+			});
+		}
+	} else {
+		$(this).addClass("active");
+	}
+});
+$(function(){
+	//스티커 초기 위치를 잡아줍니다.
+	$("#sticker-view-display li").each(function(index){
+		$(this).css("left",100*index);
+	});
+});
+</script>
+
+
+
+
+
 <h1>상품등록</h1>
 <hr/>
-<form method="post" action="setItem.do">
+
+<form action="file.do" method="post" enctype="multipart/form-data">
 	<div class="row">
 		<div class="col-xs-6">
+			
 			<div id="thumbnail-view">
+				
+				<div id="sticker-view">
+					<ul id="sticker-view-display">
+						<li data-value="0">없음</li>
+						<li data-value="1">BEST</li>
+						<li data-value="2">SPECIAL</li>
+						<li data-value="3">SALE</li>
+					</ul>
+					<input id="sticker-view-value" type="hidden" value="0" />
+				</div>
 				이미지
 			</div>
 			<br/>
@@ -68,88 +148,56 @@ $(document).on("click","form button",function(e){
 				<div class="thumbnail-item col-xs-2">
 					<img class="img-thumbnail full-width">
 					<label class="full-width">
-						<input type="file" name="itemimg2" class="hidden" />
+						<input type="file" name="ITEMIMG2" class="hidden" />
 						<span class="btn btn-default btn-sm full-width">찾기</span>
 					</label>
 				</div>
 				<div class="thumbnail-item col-xs-2">
 					<img class="img-thumbnail full-width">
 					<label class="full-width">
-						<input type="file" name="itemimg3" class="hidden" />
+						<input type="file" name="ITEMIMG3" class="hidden" />
 						<span class="btn btn-default btn-sm full-width">찾기</span>
 					</label>
 				</div>
 				<div class="thumbnail-item col-xs-2">
 					<img class="img-thumbnail full-width">
 					<label class="full-width">
-						<input type="file" name="itemimg4" class="hidden" />
+						<input type="file" name="ITEMIMG4" class="hidden" />
 						<span class="btn btn-default btn-sm full-width">찾기</span>
 					</label>
 				</div>
 				<div class="thumbnail-item col-xs-2">
 					<img class="img-thumbnail full-width">
 					<label class="full-width">
-						<input type="file" name="itemimg5" class="hidden" />
+						<input type="file" name="ITEMIMG5" class="hidden" />
 						<span class="btn btn-default btn-sm full-width">찾기</span>
 					</label>
 				</div>
 			</div>
 		</div>
 		
-		
 		<br>
 
 <br>
 
-<%
-
-if (session.getAttribute("uploadFile") != null
-
-&& !(session.getAttribute("uploadFile")).equals("")) {
-
-%>
-
-<h3>Uploaded File</h3>
-
-<br>
-
-<img
-
-src="<%=request.getRealPath("/") + "/images/"
-
-+ session.getAttribute("uploadFile")%>"
-
-alt="Upload Image" />
-
-<%
-
-session.removeAttribute("uploadFile");
-
-}
-
-%>
-		
-		
-		
+	
 		<div class="col-xs-6">
 			<table id="info-table" class="table table-bordered">
 				<tbody>
 					<tr>
 						<th>규격</th>
 						<td>
-							<lable>크기
+							<label>크기
 								<select name="item_size">
-									<option value="s">1호</option>
-									<option value="m">2호</option>
-									<option value="l">3호</option>
+									<option value="x">4호</option>
 								</select>
-							</lable>
-							<lable>크림
+							</label>
+							<label>크림
 								<select name="item_cream">
 									<option value="1">생크림</option>
 									<option value="2">초코크림</option>
 								</select>
-							</lable>
+							</label>
 						</td>
 					</tr>
 					<tr>
@@ -180,19 +228,19 @@ session.removeAttribute("uploadFile");
 					</tr>
 					<tr>
 						<th>제품명</th>
-						<td><input name="item_name" type="text"></td>
+						<td><input name="ITEMNAME" type="text"></td>
 					</tr>
 					<tr>
 						<th>가격</th>
-						<td><input name="item_price" type="text"></td>
+						<td><input name="PRICE" type="text"></td>
 					</tr>
 					<tr>
 						<th>칼로리</th>
-						<td><input name="item_calorie" type="text"></td>
+						<td><input name="ITEMCALORIE" type="text"></td>
 					</tr>
 					<tr>
 						<th>상세정보</th>
-						<td><textarea name="item_detail"></textarea></td>
+						<td><textarea name="ITEMINFO"></textarea></td>
 					</tr>
 				</tbody>
 			</table>

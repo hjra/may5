@@ -69,7 +69,6 @@
 		
 		<select id="getOrderListCountSameItemId" resultType="Orders" >
 		select itemId, count(itemId) itemCnt from orders group by itemId order by itemCnt
-		
 		</select>
 
 </mapper>

@@ -12,7 +12,7 @@
 		}
 	})
 	.on("click","#insertNewItem",function(){
-		location.href="menuModifyMng.do";
+		location.href="menuInsertMng.do";
 	});
 </script>
 

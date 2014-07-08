@@ -11,7 +11,7 @@ $(function () {
             type: 'line'
         },
         title: {
-            text: '오늘의 시간별 판매수량'
+            text: '오늘의 시간별 예약수량'
         },
         subtitle: {
             text: ' C# :: Cake Shop'
@@ -49,7 +49,7 @@ $(function () {
                 type: 'line'
             },
             title: {
-                text: '요일별 판매수량'
+                text: '요일별 예약수량'
             },
             subtitle: {
                 text: ' C# :: Cake Shop'
@@ -93,15 +93,15 @@ $(function () {
 
 
         title: {
-            text: '이달의 판매수량'
+            text: '이달의 예약수량'
         },
 
         xAxis: {
-            categories: ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일']
+            categories: ['Alexander', 'Marie', 'Maximilian', 'Sophia', 'Lukas', 'Maria', 'Leon', 'Anna', 'Tim', 'Laura']
         },
 
         yAxis: {
-            categories: ['5주', '4주', '3주', '2주', '1주'],
+            categories: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
             title: null
         },
 

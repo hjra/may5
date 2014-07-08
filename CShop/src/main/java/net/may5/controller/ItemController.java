@@ -115,9 +115,9 @@ public class ItemController {
 		return "mng/menuMng/menuListMng";
 	}
 	
-	@RequestMapping(value = "menuModifyMng.do")
-	public String menuModifyMng() {
-		return "mng/menuMng/menuModifyMng";
+	@RequestMapping(value = "menuInsertMng.do")
+	public String menuInsertMng() {
+		return "mng/menuMng/menuInsertMng";
 	}
 	
 	
@@ -218,21 +218,6 @@ public class ItemController {
     }
 	
 	
-	// 파일업로드 예제
 	
-	// Display the form on the get request
-	@RequestMapping(value="uploadfileindex.do", method = RequestMethod.GET)
-    public String showRegistration(Map model) {
-            return "uploadfileindex";
-    }
-
-    // Process the form.
-    @RequestMapping(value="uploadfileindex.do", method = RequestMethod.POST)
-    public String processRegistration(BindingResult result) {
-            return "uploadfileindex";
-    }
-	
-	
-
 	
 }
