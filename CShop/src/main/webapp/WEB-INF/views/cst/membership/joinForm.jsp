@@ -30,25 +30,25 @@
 										$.each(result, function(key) {
 											var list = result[key];
 											if(list != "null"){
-												var content = "<table>";
+												var content = "<ul>";
 
-												for (i = 0; i < list.length; i++) {
-													content += "<tr>";
-													content += "<td>"
+												for (i=0; i<list.length; i++) {
+													content += "<li>";
+													content += "<input type='text' readonly name='";
 															+ list[i].zipCode
-															+ "</td>";
-													content += "<td>"
+															+=' value=';
+															+ list[i].zipCode
+															+ '/>";
 															+ list[i].zipKeyword
-															+ "</td>";
-													content += "<td>" + "("
+															+ " ("
 															+ list[i].dong
 															+ list[i].jibunNum1
 															+ "-"
 															+ list[i].jibunNum2
-															+ ")" + "</td>";
-													content += "</tr>";
+															+ ")";
+													content += "</li>";
 												}
-												content += "<table>";
+												content += "</ul>";
 
 												$('#zipInfoDiv').html(content).css("display", "block");
 											}else if(list == "null"){
