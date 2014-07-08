@@ -9,7 +9,7 @@ ${sessionScope.cstLogin.cstName} 고객님의 로그인을 환영합니다.
 	<br>
 	<a href="menuList.do">MENU</a>
 	<br>
-	<a href="orderList">ORDER</a>
+	<a href="advanceOrder.do">ORDER</a>
 	<br>
 	<a href="about.do">ABOUT</a>
 	<br>

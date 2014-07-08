@@ -2,6 +2,9 @@ package net.may5.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import net.may5.dto.Orders;
 import net.may5.service.OrderService;
 
@@ -23,10 +26,34 @@ public class OrderController {
 	/** 고객페이지 ↓ */
 	/* 예약주문 */
 	@RequestMapping("advanceOrder.do")
-	public String advanceOrder(Model model) {
+	public String advanceOrder(HttpServletRequest request, Model model, String cstLogin, String cstId) {
+		HttpSession session = request.getSession();
+		session.getAttribute(cstLogin);
 		return "cst/order/advanceOrder";
 	}
 	
+	/* 주문상세 */
+	@RequestMapping("orderDetail.do")
+	public String orderDetail( Model model,  String cstId){
+		
+		model.addAttribute("cstExistingInfo",orderService.getCstExistingInfo(cstId));
+		return "cst/order/orderDetail";
+	}
+	
+	/* 기존정보사용*/
+	@RequestMapping("cstExistingInfo.do")
+	public String cstExistingInfo( Model model){
+		
+		return "cst/order/orderDetail";
+	}
+	
+	/* 수취인정보 */
+	@RequestMapping("advanceOrderPayment.do")
+	public String advanceOrderPayment(Model model){
+		return "cst/order/advanceOrderPayment";
+	}
+	
+	/* 카드정보*/
 	
 	/*주문내역*/
 	@RequestMapping("orderList.do")
@@ -40,6 +67,7 @@ public class OrderController {
 		
 		return model;
 	}
+	
 	/*주문검색*/
 	@RequestMapping("orderSearch.do")
 	public ModelAndView orderSearch() {
@@ -55,17 +83,6 @@ public class OrderController {
 	}
 	
 	
-	/* 주문상세 */
-	@RequestMapping("orderDetail.do")
-	public String orderDetail(Model model){
-		return "cst/order/orderDetail";
-	}
-	
-	/* 수취인정보 */
-	@RequestMapping("advanceOrderPayment.do")
-	public String advanceOrderPayment(Model model){
-		return "cst/order/advanceOrderPayment";
-	}
 	
 	/** 관리자페이지↓ */
 	/* 주문정보화면으로 이동 */
