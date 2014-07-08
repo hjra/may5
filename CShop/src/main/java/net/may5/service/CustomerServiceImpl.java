@@ -42,23 +42,6 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public List<Zip> firstSearchZip() {
-		return customerMapper.firstSearchZip();
-	}
-
-	@Override
-	public List<Zip> secondSearchZip() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Zip> thirdSearchZip() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Customer loginCst(Customer customer) {
 		return customerMapper.loginCst(customer);
 	}
@@ -68,9 +51,21 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerMapper.redundancyCheckId(cstId);
 	}
 
-	/* Json Test */
+	/* JSON Test */
 	@Override
 	public List getAllCstInfo(Map<String, Object> paramMap) {
 		return customerMapper.getAllCstInfo(paramMap);
 	}
+
+	/* 주소 검색 - JSON 적용 */
+	@Override
+	public List searchZipInfo(Map<String, Object> paramMap) {
+		return customerMapper.searchZipInfo(paramMap);
+	}
+
+	@Override
+	public List<Zip> searchZipInfo2(String zipKeyword) {
+		return customerMapper.searchZipInfo2(zipKeyword);
+	}
+
 }

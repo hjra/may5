@@ -22,5 +22,13 @@ on 		Q.cstCode = C.cstCode
 where   Q.boardCode = #{boardCode}
 </select>
 
+<insert id="writeProc" parameterType="map">
+	insert into QnA(boardCode,boardTitle, postContents, postPassword,cstCode)
+	values( QAB.nextval,#{boardTitle}, #{postContents}, #{postPassword},#{cstCode})
+</insert>
+
+
+
+
 	
 </mapper>

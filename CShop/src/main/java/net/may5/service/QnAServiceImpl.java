@@ -1,6 +1,7 @@
 package net.may5.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,6 +55,11 @@ public class QnAServiceImpl implements QnAService {
 	@Override
 	public QnA qnaGetContents(int boardCode) {
 		return qnamapper.qnaGetContents(boardCode);
+	}
+
+	@Override
+	public void writeProc(String  boardTitle, String  postContents, String postPassword  , int cstCode ) {
+		 qnamapper.writeProc(  boardTitle,   postContents,  postPassword  ,  cstCode );
 	}
 
 }

@@ -2,9 +2,83 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- <script type="text/javascript">
+$(document).ready(function(){
+	$('#scZipBtn').click(function(){
+		if($('#scZipText').val() == ''){
+			return false;
+		} else{
+			$.ajax({
+				chche : false,
+				async : false,
+				type  : 'POST',
+				url   : 'searchZipInfoList.do',
+				data  : 'zipKeyword=' + $('#scZipText').val(),
+				dataType : 'json',
+				error : function(){
+					alert("에러 : 데이터가 안 넘어갑니다.");
+				},
+				success : function(data){
+					var result = data;
+					if(result.trim() == 'true'){
+						$('#scZipCheck').text("도로명 주소가 입력되었습니다.");
+						$('#scZipForm').submit();
+						return true;
+					} else if(result.trim() == 'fail'){
+						$('#scZipCheck').text("도로명 주소가 없습니다.");
+						return false;
+					} else{
+						$('#scZipCheck').text("도로명 주소를 잘못 입력하셨습니다.");
+						return false;
+					}
+				}
+			});
+		}
+	});
+});
+</script> -->
+<script type="text/javascript">
+<!--
 
-<!-- <script src="resource/js/loginCheck.js"></script>
-<script src="resource/js/jquery.validate.js"></script> -->
+//-->
+$(document).ready(function(){
+	$('#scZipBtn').click(function(){
+		if($('#scZipText').val() == ''){
+			return false;
+		} else{
+			$.ajax({
+				chche : false,
+				async : false,
+				type  : 'POST',
+				url   : 'searchZipInfoList.do',
+				data  : 'zipKeyword=' + $('#scZipText').val(),
+				dataType : 'json',
+				error: function(request,status,error){
+			        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);},
+				success : function(result){
+					$.each(result, function(key){
+						var list = result[key];
+						
+						var content = "<table>";
+						
+						for(i=0; i<list.length; i++){
+							content += "<tr>";
+							content += "<td>" + list[i].zipCode + "</td>";
+							content += "<td>" + list[i].zipKeyword + "</td>";
+							content += "<td>" +"("+ list[i].dong + list[i].jibunNum1 +"-"+ list[i].jibunNum2 +")"+ "</td>";
+							content += "</tr>";
+						}
+						content += "<table>";
+						
+						$("#zipInfoDiv").html(content);
+					});
+				}
+			});
+		}
+	});
+});
+</script>
+
 
 회원가입 입력폼<br>
 <f:form action="joinOk.do" method="Post" commandName="customer">
@@ -57,3 +131,20 @@
 	<f:hidden path="cstEmailAgreement"/>
 	<input type="submit" id="joinOk" value="JOIN OK">
 </f:form>
+<br>
+<br>
+<form action="searchZipInfoList.do" method="post">
+	<input type="text" name="zipKeyword" placeholder="zipKeyword">
+	<input type="submit" value="도로명 검색" onclick="zipInfoAjaxList()">
+<!-- <input type="button" value="우편정보 갖고 오기" onclick="zipInfoAjaxList()"> -->
+</form>
+<br>
+<br>
+<!-- Ajax Test -->
+<form id="scZipForm" action="searchZipInfoList.do">
+	<input type="text" id="scZipText" >
+	<input type="button" id="scZipBtn" value="도로명 검색" placeholder="도로명 주소를 적어주세요.">
+</form>
+<div id="zipInfoDiv">
+<label id="scZipCheck"></label>
+</div>

@@ -11,14 +11,15 @@
 	</select>
 	
 	<!-- 주소 검색 -->
-	<select id="firstSearchZip" resultType="Zip">
-		select distinct sido, sigungu from Zip order by sido desc
+	<select id="searchZipInfo" parameterType="Map" resultType="HashMap">
+		select distinct sido||' '||sigungu||' '||doromyong||' '||buildingNum1||'-'||buildingNum2 zipKeyword
+		from Zip where doromyong like '월드컵로%' order by zipKeyword
 	</select>
-	<select id="secondSearchZip">
-		
-	</select>
-	<select id="thirdSearchZip">
-		
+	<select id="searchZipInfo2" parameterType="String" resultType="net.may5.dto.Zip">
+		select A.zipKeyword, B.*
+		from (select replace(sido||sigungu||doromyong||buildingNum1||'-'||buildingNum2, ' ', '') zipKeyword,
+		zipCode from Zip) A inner join Zip B on A.ZIPCODE = B.zipCode
+		where A.zipKeyword like '%'||#{zipKeyword}||'%' order by A.zipKeyword
 	</select>
 	
 	<!-- ID 중복검사 -->

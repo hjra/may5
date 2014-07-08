@@ -5,9 +5,6 @@
 <%@ page session="true" %>
 <h1>게시판.jsp로 이동완료</h1>
 
-
-
-
 	<table align="center" cellpadding="0" cellspacing="0" border="0"
 			width="100%">
 			<tr

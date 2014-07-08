@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script type="text/javascript" src="/springboard/resources/js/jquery-1.11.1.min.js" charset="utf-8"></script>
+<%@ page session="true" %>
 <script type="text/javascript">
 	function viewAjaxList(){
 		$.ajax({
 			type	: "POST",
-			url		: "/springboard/allMemberInfoJsonForm.do",
+			url		: "allMemberInfoJsonForm2.do",
 			dataType: "json",
 			data	: "",
+			error: function(request,status,error){
+		        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);},
 			success : function(result){
 				$.each(result, function(key){
 					var list = result[key];
