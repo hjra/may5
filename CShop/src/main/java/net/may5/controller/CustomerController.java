@@ -55,11 +55,11 @@ public class CustomerController {
 	/* 도로명 주소 검색 - 작성중 */
 	@RequestMapping("searchZipInfoList.do")
 	public @ResponseBody Map<?,?> testJson4(@RequestParam String zipKeyword, ModelMap model){
-		model.put("zip", customerService.searchZipInfo2(zipKeyword));
-		System.out.println("도로명 주소 검색 결과: "+customerService.searchZipInfo2(zipKeyword));
+		System.out.println("공백제거 결과: "+zipKeyword.trim().replace(" ", ""));
+		model.put("zip", customerService.searchZipInfo2(zipKeyword.trim().replace(" ", "")));
+		System.out.println("도로명 주소 검색 결과: "+customerService.searchZipInfo2(zipKeyword.trim().replace(" ", "")));
 		return model;
 	}
-	
 	
 	/* 회원가입 성공화면으로 이동 */
 	@RequestMapping(value="joinOk.do", method=RequestMethod.POST)

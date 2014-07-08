@@ -18,7 +18,7 @@ public class Zip {
 
 	/* DB에서 가공해서 가져올 DATA */
 	private String zipKeyword;			// 도로명 주소 검색
-
+	
 	public String getZipCode() {
 		return zipCode;
 	}
@@ -129,18 +129,6 @@ public class Zip {
 
 	public void setZipKeyword(String zipKeyword) {
 		this.zipKeyword = zipKeyword;
-	}
-
-	@Override
-	public String toString() {
-		return "Zip [zipCode=" + zipCode + ", zipNumber=" + zipNumber
-				+ ", sido=" + sido + ", sigungu=" + sigungu + ", dongubmyon="
-				+ dongubmyon + ", doromyong=" + doromyong + ", buildingNum1="
-				+ buildingNum1 + ", buildingNum2=" + buildingNum2
-				+ ", sigunguBuildingName=" + sigunguBuildingName + ", dong="
-				+ dong + ", li=" + li + ", jibunNum1=" + jibunNum1
-				+ ", jibunNum2=" + jibunNum2 + ", zipKeyword=" + zipKeyword
-				+ "]";
 	}
 
 	@Override
@@ -255,5 +243,17 @@ public class Zip {
 		} else if (!zipNumber.equals(other.zipNumber))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Zip [zipCode=" + zipCode + ", zipNumber=" + zipNumber
+				+ ", sido=" + sido + ", sigungu=" + sigungu + ", dongubmyon="
+				+ dongubmyon + ", doromyong=" + doromyong + ", buildingNum1="
+				+ buildingNum1 + ", buildingNum2=" + buildingNum2
+				+ ", sigunguBuildingName=" + sigunguBuildingName + ", dong="
+				+ dong + ", li=" + li + ", jibunNum1=" + jibunNum1
+				+ ", jibunNum2=" + jibunNum2 + ", zipKeyword=" + zipKeyword
+				+ "]";
 	}
 }

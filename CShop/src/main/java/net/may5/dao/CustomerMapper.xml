@@ -16,8 +16,10 @@
 		from Zip where doromyong like '월드컵로%' order by zipKeyword
 	</select>
 	<select id="searchZipInfo2" parameterType="String" resultType="net.may5.dto.Zip">
-		select distinct sido||' '||sigungu||' '||doromyong||' '||buildingNum1||'-'||buildingNum2 zipKeyword
-		from Zip where doromyong like #{zipKeyword}||'%' order by zipKeyword
+		select A.zipKeyword, B.*
+		from (select replace(sido||sigungu||doromyong||buildingNum1||'-'||buildingNum2, ' ', '') zipKeyword,
+		zipCode from Zip) A inner join Zip B on A.ZIPCODE = B.zipCode
+		where A.zipKeyword like '%'||#{zipKeyword}||'%' order by A.zipKeyword
 	</select>
 	
 	<!-- ID 중복검사 -->
