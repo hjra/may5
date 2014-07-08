@@ -51,23 +51,12 @@ public class CustomerController {
 		model.addAttribute("customer", customer);
 		return "cst/membership/joinForm";
 	}
-	
-	
-	/* JSON + AJAX Test Controller */
-/*	@RequestMapping("searchZipInfoList.do")
-	public @ResponseBody Map<?,?> testJson3(@RequestParam Map<String, Object> paramMap, ModelMap model){
-		System.out.println("JSON 테스트 결과: "+customerService.searchZipInfo(paramMap));
-		model.put("zip", customerService.searchZipInfo(paramMap));
-		return model;
-	}*/
-	
+
+	/* 도로명 주소 검색 - 작성중 */
 	@RequestMapping("searchZipInfoList.do")
 	public @ResponseBody Map<?,?> testJson4(@RequestParam String zipKeyword, ModelMap model){
-		System.out.println("실행1");
-	//	List<Zip> zip = customerService.searchZipInfo2(zipKeyword);
-	//	System.out.println("실행2"+customerService.searchZipInfo2(zipKeyword));
 		model.put("zip", customerService.searchZipInfo2(zipKeyword));
-		System.out.println("실행3");
+		System.out.println("도로명 주소 검색 결과: "+customerService.searchZipInfo2(zipKeyword));
 		return model;
 	}
 	
