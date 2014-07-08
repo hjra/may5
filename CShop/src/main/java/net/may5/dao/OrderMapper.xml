@@ -4,6 +4,13 @@
 
 <mapper namespace="net.may5.dao.OrderMapper">
 
+	<!-- 고객페이지↓ -->
+	<!-- 주문상세 -->
+	<select id="getCstExistingInfo" resultType="Customer">
+		select * from customer A 
+		inner join Zip B on A.ZipCode = B.ZipCode where cstId = #{cstId}
+	</select>
+
 	<!-- 관리자페이지↓ -->
 	<!-- 알리미 -->
 	<select id="getAlimiList" resultType="Orders">

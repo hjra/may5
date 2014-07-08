@@ -1,17 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ page session="true" %>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html >
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=2">
-	<link href="/CShop/resources/css/web.css" rel="stylesheet">
-	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-	<script src="/CShop/resources/js/web.js"></script>
-	<title>사전주문</title>
-<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<link href="/CShop/resources/css/orderDetail.css" rel="stylesheet">
+
 <h1>예약주문페이지</h1>
 <p><strong>*</strong>는 필수입력 항목입니다</p>
 <f:form action="orderDetail.do" method="post">
@@ -63,8 +57,14 @@
 				<input type="reset" value="재입력"/>
 				<input type="button" onclick="javascript:history.back(-1)" value="이전"/>
 				<input type="submit" value="다음"/>
+				<c:choose>
+					<c:when test="${sessionScope.cstLogin.cstId == null}">
+					</c:when>
+					<c:otherwise>
+						<input type="hidden" value="${sessionScope.cstLogin.cstId}" name="cstId">
+						회원아이디  :: ${sessionScope.cstLogin.cstId}	
+					</c:otherwise>
+				</c:choose>
 			</p>
 	</fieldset>
 </f:form>
-</body>
-</html>

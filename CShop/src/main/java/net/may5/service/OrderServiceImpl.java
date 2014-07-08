@@ -3,6 +3,7 @@ package net.may5.service;
 import java.util.List;
 
 import net.may5.dao.OrderMapper;
+import net.may5.dto.Customer;
 import net.may5.dto.Orders;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,14 @@ public class OrderServiceImpl implements OrderService {
 		
 		return orderMapper.getOrderListMng();
 	}
+
+	@Override
+	public Customer getCstExistingInfo(String cstId) {
+		
+		return orderMapper.getCstExistingInfo(cstId);
+	}
+
+	
 
 }
 

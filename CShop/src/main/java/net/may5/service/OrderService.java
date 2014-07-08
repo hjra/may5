@@ -2,6 +2,7 @@ package net.may5.service;
 
 import java.util.List;
 
+import net.may5.dto.Customer;
 import net.may5.dto.Orders;
 
 public interface OrderService {
@@ -13,5 +14,7 @@ public interface OrderService {
 	public Object orderList(int orderDate);
 	
 	public List<Orders> getOrderListMng();
+	
+	public Customer getCstExistingInfo(String cstId);
 }
 
