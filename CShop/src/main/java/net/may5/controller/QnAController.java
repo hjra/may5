@@ -40,10 +40,13 @@ public class QnAController {
 	
 	/* QnA 게시글 암호 확인 페이지 이동*/
 	@RequestMapping(value = "boardCheck.do", method=RequestMethod.GET) 
-	public String boardCheck(Model model, @RequestParam int boardCode)/*//보드에서 보낸 보드코드를
+	public String boardCheck(Model model, @RequestParam int boardCode , String postPassword)/*//보드에서 보낸 보드코드를
 	받아준다*/	
 	{
 		model.addAttribute("boardCode", boardCode);
+		model.addAttribute("postPassword", postPassword);
+		System.out.println(boardCode);//콘솔화면에 보드코드가 출력된다
+		System.out.println(postPassword);//콘솔화면에 해당 게시글의 암호가 출력된다.
 		System.out.println("boardcheck로 이동");
 		return "cst/membership/boardCheck";
 	}
