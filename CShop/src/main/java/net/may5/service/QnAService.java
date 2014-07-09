@@ -10,6 +10,7 @@ public interface QnAService {
 	public List<QnA> qnaGetList2();
 	void insertQnA(QnA qna);
 	QnA getQnA(int boardCode);
+	//QnA getQnA
 	void updateQnA(QnA qna);
 	QnA qnaGetContents(int boardCode);
 	void writeProc(String boardTitle, String postContents, String postPassword,int cstCode);
