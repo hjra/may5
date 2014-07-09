@@ -5,6 +5,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!-- <link href="/CShop/resources/css/dlvNotice.css" rel="stylesheet"> -->
+
+<!-- 컬럼별 정렬 -->
 <script src="resources/js/table_array.js" type="text/javascript"></script>
 <style type="text/css">
 .clickable {cursor: pointer;}
@@ -14,9 +16,12 @@ th{ background:#F90;}
 .odd{ background: #FFC;}
 .even{ background: #FF9;}
 </style>
+
 	주문정보조회(수정중)
 	<br>
+	
 <!-- 	<table class="board" border="1" > -->
+
 	<table class="sortable paginated">
 		<caption></caption>
 		<colgroup>
