@@ -234,7 +234,7 @@ $(document).ready(function(){
 				
 				<div id="101" style="display: block">신청수단 : 
 					<select id="selectBoxValue"  title="cashReceiptRequestWay" >
-						<c:forEach var="requestWay" items="${cashReceiptRequestWay }">
+						<c:forEach var="requestWay" items="${cashReceiptRequestWay }" varStatus="status" begin="1" end="3">
 							<option value="${requestWay.wayCode }">${requestWay.wayType }</option>
 						</c:forEach>
 					</select>
@@ -242,7 +242,10 @@ $(document).ready(function(){
 				</div>
 				<div id="102" style="display: none" >신청수단 : 
 					<select id="selectBoxValue"  title="cashReceiptRequestWay" >
-						<c:forEach var="requestWay" items="${cashReceiptRequestWay }">
+						<c:forEach var="requestWay" items="${cashReceiptRequestWay }" varStatus="status" begin="1" end="1">
+							<option value="${requestWay.wayCode }">${requestWay.wayType }</option>
+						</c:forEach>
+						<c:forEach var="requestWay" items="${cashReceiptRequestWay }" varStatus="status" begin="3" end="4">
 							<option value="${requestWay.wayCode }">${requestWay.wayType }</option>
 						</c:forEach>
 					</select>
@@ -263,7 +266,7 @@ $(document).ready(function(){
 				
 				<div id="101" style="display: block">신청수단 : 
 					<select id="selectBoxValue"  title="cashReceiptRequestWay" >
-						<c:forEach var="requestWay" items="${cashReceiptRequestWay }">
+						<c:forEach var="requestWay" items="${cashReceiptRequestWay }" varStatus="status" begin="1" end="3">
 							<option value="${requestWay.wayCode }">${requestWay.wayType }</option>
 						</c:forEach>
 					</select>
@@ -271,7 +274,10 @@ $(document).ready(function(){
 				</div>
 				<div id="102" style="display: none" >신청수단 : 
 					<select id="selectBoxValue"  title="cashReceiptRequestWay" >
-						<c:forEach var="requestWay" items="${cashReceiptRequestWay }">
+						<c:forEach var="requestWay" items="${cashReceiptRequestWay }" varStatus="status" begin="1" end="1">
+							<option value="${requestWay.wayCode }">${requestWay.wayType }</option>
+						</c:forEach>
+						<c:forEach var="requestWay" items="${cashReceiptRequestWay }" varStatus="status" begin="3" end="4">
 							<option value="${requestWay.wayCode }">${requestWay.wayType }</option>
 						</c:forEach>
 					</select>
