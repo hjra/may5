@@ -32,12 +32,13 @@
 					success : function(json) {
 					
 						if(json.zip.length == 0){
+							
 							$('#zipInfoDiv').html("").hide();
 							$('#scZipCheck').html("<font color=red size='2px' style='font-weight:bold'> 도로명 주소가 없습니다</font>");
 		
 						}else{
-							alert("Succsss.zip.length!=0");
-							$('#zipInfoDiv').show();
+							
+							$('#zipInfoDiv').html("").show();
 							
 							for(var idx=0; idx<json.zip.length; idx++){
 								var zipCodej = json.zip[idx].zipCode;
@@ -45,21 +46,24 @@
 								var dongj = json.zip[idx].dong;
 								var jibunNum1j = json.zip[idx].jibunNum1;
 								var jibunNum2j = json.zip[idx].jibunNum2;
-								
-								$('#zipInfoDiv').append('<a>' + zipKeywordj + " (" + dongj + jibunNum1j + "-" + jibunNum2j + ")" +'</a><br/>');
-				//				$('#zipInfoDiv').append('<a><input type="hidden" name="zipCodeHide" value="'+zipCodej+"/>' + zipKeywordj + " (" + dongj + jibunNum1j + "-" + jibunNum2j + ")" +'</a><br/>');
-
+								//var zipcodeX = '<input type="hidden" id="zipcodeX" name="zipcode" value="'+zipCodej+'">';
+								$('#zipInfoDiv').append('<a><input type="hidden" id="zipCode" name="zipcode" value="'+zipCodej+'">'
+										+ zipKeywordj + " (" + dongj + jibunNum1j + "-" + jibunNum2j + ")" +'</a><br/>');
+								//$('#zipInfoDiv').append(zipcodeX);
 							};
 								
 								
 							$('#zipInfoDiv').click(function(e){
-									
-							//	var juso1 = 
-								//	'<input class="form-control input-sm" type="text" id="basejuso" name="basejuso" placeholder="기본주소" value="'+$(e.target).text()+'">';
-							
+								
+							//	alert($(e.target).html());
+							//	alert($('#zipCodeh').attr("value"));
+								$('#zipCodeDiv').html("");
 								$('input:text[id=scZipText]').val($(e.target).text());
+								$('#zipCodeDiv').append($(e.target).html()).hide();	
 								$('#zipInfoDiv').hide();
-							//	$('#add2Div').append(juso1);
+								
+								
+							
 							});
 						}
 					}
@@ -113,12 +117,13 @@
 			<input type="text" name="code" placeholder="CODE" class="row_text">
 		</div>
 		<div id="add1Div">
+			<div id="zipCodeDiv"></div>
 			<form method="post" action="javascript:nothing()">
 				<input type="text" id="scZipText" placeholder="ADDRESS" value="" class="row_text"
 					onkeydown="if (event.keyCode == 13) document.getElementById('scZipBtn').click()">
 				<input type="button" id="scZipBtn" value="SEARCH">
 				<div id="scZipCheck"></div>
-				<div id="zipInfoDiv" style="width: 300px; height: 100px; overflow: auto; display: none;">
+				<div id="zipInfoDiv" style="width: 100%; height: 100px; overflow: auto; display: none;">
 					<table id="zipInfoTable"></table>
 				</div>
 			</form>
