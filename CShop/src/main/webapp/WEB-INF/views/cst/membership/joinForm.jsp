@@ -73,13 +73,16 @@
 		function nothing() {
 				return;
 		}
+		function cstJoinOk(){
+			document.cstJoinForm.submit();
+		}
 	});
 
 </script>
 
 회원가입 입력폼
 <br>
-<f:form action="joinOk.do" method="Post" commandName="customer">
+<f:form action="joinOk.do" method="Post" commandName="customer" name="cstJoinForm">
 	<div class="row_group">
 		<div id="idDiv">
 			<f:input path="cstId" placeholder="USER ID" id="cstId" />
@@ -118,7 +121,7 @@
 		</div>
 		<div id="add1Div">
 			<div id="zipCodeDiv"></div>
-			<form method="post" action="javascript:nothing()">
+			<%-- <form method="post" action="javascript:nothing()"> --%>
 				<input type="text" id="scZipText" placeholder="ADDRESS" value="" class="row_text"
 					onkeydown="if (event.keyCode == 13) document.getElementById('scZipBtn').click()">
 				<input type="button" id="scZipBtn" value="SEARCH">
@@ -126,7 +129,7 @@
 				<div id="zipInfoDiv" style="width: 100%; height: 100px; overflow: auto; display: none;">
 					<table id="zipInfoTable"></table>
 				</div>
-			</form>
+			<%-- </form> --%>
 			<%-- <f:input path="zipCode" placeholder="ADDRESS"/> --%>
 			<%-- 			<f:select path="zipCode">
 				<c:forEach var="zip" items="${zip}">
@@ -140,7 +143,7 @@
 	</div>
 	<div class="row_group">
 		<f:hidden path="cstEmailAgreement" />
-		<input type="submit" id="joinOk" value="JOIN OK">
+		<input type="submit" onclick="cstJoinOk()" value="JOIN OK">
 	</div>
 </f:form>
 

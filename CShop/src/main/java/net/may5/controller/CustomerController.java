@@ -1,6 +1,5 @@
 package net.may5.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -53,7 +52,7 @@ public class CustomerController {
 		return "cst/membership/joinForm";
 	}
 
-	/* 도로명 주소 검색 - 작성중 */
+	/* 도로명 주소 검색 */
 	@RequestMapping("searchZipInfoList.do")
 	public @ResponseBody Map<?,?> testJson4(@RequestParam String zipKeyword, ModelMap model){
 		System.out.println("공백제거 결과: "+zipKeyword.trim().replace(" ", ""));
