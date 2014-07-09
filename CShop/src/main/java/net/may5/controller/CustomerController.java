@@ -57,14 +57,7 @@ public class CustomerController {
 	@RequestMapping("searchZipInfoList.do")
 	public @ResponseBody Map<?,?> testJson4(@RequestParam String zipKeyword, ModelMap model){
 		System.out.println("공백제거 결과: "+zipKeyword.trim().replace(" ", ""));
-		List<Zip> list = customerService.searchZipInfo2(zipKeyword.trim().replace(" ", ""));
-		System.out.println("list 상태 확인: "+list);
-		if(list.size() != 0){
-			model.put("zip", list);
-		} else{
-			model.put("zip", "null");
-		}
-	//	model.put("zip", customerService.searchZipInfo2(zipKeyword.trim().replace(" ", "")));
+		model.put("zip", customerService.searchZipInfo2(zipKeyword.trim().replace(" ", "")));
 		System.out.println("도로명 주소 검색 결과: "+model);
 		return model;
 	}
