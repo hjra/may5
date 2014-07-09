@@ -11,18 +11,18 @@
 	<div>
 		<h1 align="center">boardUpdateForm</h1>
 		<form action="boardUpdate.do" method="post">
-			<input type="hidden" name="boardNumber" value="${board.boardCode}">
+			<input type="hidden" name="boardCode" value="${board.boardCode}">
 			<table border="0" width="90%" align="center">			
 
 				<tr>
 
 					<td align="center" width="120">제&nbsp;&nbsp;&nbsp;목</td>
-					<td><input type="text" name="title" size="20"
+					<td><input type="text" name="boardtitle" size="20"
 						style="width: 90%" maxlength="50" value="${board.boardtitle}" /></td>
 				</tr>
 				<tr>
 					<td align="center">글내용</td>
-					<td><textarea name="qaContext"
+					<td><textarea name="postContents"
 							style="resize: none; width: 90%; height: 400px">${board.postContents}</textarea></td>
 				</tr>
 				<tr>
