@@ -232,8 +232,6 @@ $(document).ready(function(){
 						onclick="div_OnOff4(this.value,'${deductions.deductionCode }+100');">${deductions.deductionName }
 				</c:forEach>
 				
-				
-				
 				<div id="101" style="display: block">신청수단 : 
 					<select id="selectBoxValue"  title="cashReceiptRequestWay" >
 						<c:forEach var="requestWay" items="${cashReceiptRequestWay }">
@@ -252,7 +250,6 @@ $(document).ready(function(){
 				</div>
 				
 			</div>
-			
 			<div id="F" style="display: none">
 				공제용도 : 
 				<c:forEach var="deductions" items="${deduction }" varStatus="status" begin="1" end="1">
@@ -280,7 +277,6 @@ $(document).ready(function(){
 					</select>
 					<div id="inputSelect1"></div>
 				</div>
-				
 			</div>
 			
 			<div id="N" style="display: none">
