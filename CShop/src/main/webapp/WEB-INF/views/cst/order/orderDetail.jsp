@@ -33,7 +33,8 @@ ${cstExistingInfo.cstId}
 						<th scope="row"><label for="orinfoyn"><strong>*</strong>기존정보 사용여부</label></th>
 						<td>
 							
-							<input type="radio" value="uy" name="receive" required="required"  checked="checked" onclick="location.href='cstExistingInfo.do?cstId=${sessionScope.cstLogin.cstId}'"/>기존정보사용<br>
+							<input type="radio" value="uy" name="receive" required="required"  checked="checked" 
+								onclick="location.href='cstExistingInfo.do?cstId=${sessionScope.cstLogin.cstId}'"/>기존정보사용<br>
 							<input type="radio" value="un" name="receive" required="required"/>새로입력
 						</td>
 					</tr>

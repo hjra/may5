@@ -3,7 +3,6 @@ package net.may5.controller;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import net.may5.dto.Customer;
@@ -17,7 +16,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+
 
 @Controller
 public class QnAController {
@@ -72,13 +71,14 @@ public class QnAController {
 		System.out.println("title = " + request.getParameter("boardTitle"));
 		System.out.println("content = " + request.getParameter("postContents"));
 		System.out.println("password = " + request.getParameter("postPassword"));
+		System.out.println("boardDate = " + request.getParameter("boardDate"));
 		Customer cstLogin = (Customer)session.getAttribute("cstLogin");
 		
 		int   cstCode=cstLogin.getCstCode();
 		//저장하기 위하여 paramMap을 넘긴다.
-	 qnaService.writeProc( request.getParameter("boardTitle"), 
+	 qnaService.writeProc(request.getParameter("boardTitle"), 
 				request.getParameter("postContents"), 
-				request.getParameter("postPassword")  , 
+				request.getParameter("postPassword"),
 				cstCode);
 
 		System.out.println(" 입력되었습니다/");
@@ -87,6 +87,39 @@ public class QnAController {
 		return "redirect:/board.do";
 		
 	}
+	//게시글 삭제
+	@RequestMapping("boardDelete.do")
+	public String BoardDelete(Model model, int boardCode) {
+		System.out.println("BoardController -> boardDelete.do -> /boardList.jsp");
+		System.out.println(boardCode);
+		qnaService.deleteBoard(boardCode);
+		model.addAttribute("qnaList2", qnaService.qnaGetList2());
+		return "cst/membership/board";
+	}
+	
+	
+	//게시글 수정폼으로 이동
+	@RequestMapping(value = "boardUpdateForm.do", method = RequestMethod.POST)
+	public String BoardUpdateForm(Model model, int boardCode) {
+		QnA qna = qnaService.getBoard(boardCode);
+		model.addAttribute("QnA", qna);
+		return "cst/membership/boardUpdateForm";
+	}
+	
+	
+	
+	//게시글 수정
+	@RequestMapping(value = "boardUpdate.do", method = RequestMethod.POST)
+	public String BoardUpdate(QnA qna, Model model) {
+		
+		qnaService.updateBoard(qna);
+		model.addAttribute("boards", qnaService.qnaGetList2());
+		return "boardList";
+	}
+	
+	
+	
+	
 	
 	
 	
