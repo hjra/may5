@@ -10,7 +10,49 @@
 		select * from customer A 
 		inner join Zip B on A.ZipCode = B.ZipCode where cstId = #{cstId}
 	</select>
-
+	
+	<!-- 카드종류 -->
+	<select id="getCardKind" resultType="Payment">
+		select * from cardKind
+	</select>
+	
+	<!-- 결제구분 -->
+	<select id="getPayKind" resultType="Payment">
+		select * from payKind
+	</select>
+	
+	<!-- 카드구분 -->
+	<select id="getCardSection" resultType="Payment">
+		select * from cardSection
+	</select>
+	
+	<!-- 할부기간 -->
+	<select id="getInstallment" resultType="Payment">
+		select * from installment
+	</select>
+	
+	<!-- 현금영수증신청및저장 -->
+	<select id="getCashReceiptRequestInfoSave" resultType="Payment">
+		select * from cashReceiptRequestInfoSave
+	</select>
+	
+	<!-- 현금영수증신청수단 -->
+	<select id="getCashReceiptRequestWay" resultType="Payment">
+		select * from cashReceiptRequestWay
+	</select>
+	
+	<!-- 소득공제용 -->
+	<select id="getDeduction" resultType="Payment">
+		select * from deduction
+	</select>
+	
+	
+	
+	<!-- 옵션선택 -->
+	<select id="getOptionPrice" resultType="Orders">
+		select * from optionPrice
+	</select>
+	
 	<!-- 관리자페이지↓ -->
 	<!-- 알리미 -->
 	<select id="getAlimiList" resultType="Orders">

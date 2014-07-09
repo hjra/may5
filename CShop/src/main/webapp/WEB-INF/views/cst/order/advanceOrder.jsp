@@ -25,26 +25,30 @@
 						</td>
 					</tr>
 					<tr>
-						<th scope="row"><label for="fw"><strong>*</strong>꽃다발 추가</label></th>
+						<th scope="row"><label for=""><strong>*</strong>꽃다발</label></th>
 						<td>
-							<input type="radio" value="fy" name="receive2" required="required"/>꽃다발 추가<br>
-							<input type="radio" value="fn" name="receive2" required="required"/>선택안함
+							<c:forEach var="optionFlower" items="${optionPrice }" varStatus="status" end="1">
+							<input type="radio" value="${optionFlower.optionCode }" name="chooseFlower"/>${optionFlower.optionType } ${optionFlower.optionPrice }
+							</c:forEach>
 						</td>
 					</tr>
 					<tr>
-						<th scope="row"><label for="cd"><strong>*</strong>카드</label></th>
+						<th scope="row"><label for=""><strong>*</strong>카드</label></th>
 						<td>
-							<input type="radio" value="coy" name="receive3" required="required"/>카드 추가<br>
-							<input type="radio" value="cqy" name="receive3" required="required"/>카드(QR)코드 추가<br>
-							<input type="radio" value="can" name="receive3" required="required"/>선택안함
+							<c:forEach var="optionCard" items="${optionPrice }" varStatus="status" begin="2" end="4">
+							<input type="radio" value="${optionCard.optionCode }" name="chooseCard" />${optionCard.optionType } ${optionCard.optionPrice }
+							</c:forEach>
 						</td>
 					</tr>
+					
 					<tr>
 						<th scope="row"><label for="cm">카드문구</label></th>
 						<td>
 							<input type="text" id="cm" placeholder="ex)생일축하합니다" />
 						</td>
 					</tr>
+					
+					
 					<tr>
 						<th scope="row"><label for="fu">동영상 추가</label></th>
 						<td>
@@ -62,7 +66,6 @@
 					</c:when>
 					<c:otherwise>
 						<input type="hidden" value="${sessionScope.cstLogin.cstId}" name="cstId">
-						회원아이디  :: ${sessionScope.cstLogin.cstId}	
 					</c:otherwise>
 				</c:choose>
 			</p>
