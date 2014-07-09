@@ -53,9 +53,8 @@
 			</tr>
 		<tr>
 				<td></td>
-				<td><input type="hidden" name="cstId" value="${board.cstId}"><input type="button"
-				onclick="document.location='boardWriteForm.do'" value="글쓰기"
-				class="redBtn"></td>
+				<td><input type="hidden" name="cstId" value="${board.cstId}">
+				<input type="button" onclick="document.location='boardWriteForm.do'" value="글쓰기" class="redBtn"></td>
 				<td></td>
 				<td align="left">
 				<td></td>
