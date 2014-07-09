@@ -7,7 +7,6 @@
 <link href="/CShop/resources/css/orderDetail.css" rel="stylesheet">
 
 <h1>회원수취정보</h1>
-${cstExistingInfo.cstId}
 <p><strong>*</strong>는 필수입력 항목입니다</p>
 <f:form action="advanceOrderPayment.do" method="post">
 	<fieldset>
@@ -35,7 +34,7 @@ ${cstExistingInfo.cstId}
 							
 							<input type="radio" value="uy" name="receive" required="required"  checked="checked" 
 								onclick="location.href='cstExistingInfo.do?cstId=${sessionScope.cstLogin.cstId}'"/>기존정보사용<br>
-							<input type="radio" value="un" name="receive" required="required"/>새로입력
+							<input type="radio" value="un" name="receive" required="required" />새로입력
 						</td>
 					</tr>
 					<tr>

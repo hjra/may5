@@ -101,7 +101,9 @@ public class QnAController {
 	//게시글 수정폼으로 이동
 	@RequestMapping(value = "boardUpdateForm.do", method = RequestMethod.POST)
 	public String BoardUpdateForm(Model model, int boardCode) {
+		System.out.println(boardCode+"보드번호입니다.");
 		QnA qna = qnaService.getBoard(boardCode);
+		System.out.println(qna+"제대로 찍힙니까???");
 		model.addAttribute("QnA", qna);
 		return "cst/membership/boardUpdateForm";
 	}
@@ -110,11 +112,15 @@ public class QnAController {
 	
 	//게시글 수정
 	@RequestMapping(value = "boardUpdate.do", method = RequestMethod.POST)
-	public String BoardUpdate(QnA qna, Model model) {
+	public String BoardUpdate(HttpServletRequest request, Model model) {
 		
+		QnA qna = new QnA();
+		qna.setBoardCode(Integer.parseInt(request.getParameter("boardCode")));
+		qna.setBoardTitle(request.getParameter("boardTitle"));
+		qna.setPostContents(request.getParameter("postContents"));
 		qnaService.updateBoard(qna);
-		model.addAttribute("boards", qnaService.qnaGetList2());
-		return "boardList";
+		model.addAttribute("qnaList2", qnaService.qnaGetList2());
+		return "cst/membership/board";
 	}
 	
 	

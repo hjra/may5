@@ -10,26 +10,29 @@
 <body>
 	<div>
 		<h1 align="center">boardUpdateForm</h1>
+		
+	
+	<p>?????	${QnA} ?????
 		<form action="boardUpdate.do" method="post">
-			<input type="hidden" name="boardCode" value="${board.boardCode}">
+			<input type="hidden" name="boardCode" value="${QnA.boardCode}">
 			<table border="0" width="90%" align="center">			
 
 				<tr>
 
 					<td align="center" width="120">제&nbsp;&nbsp;&nbsp;목</td>
-					<td><input type="text" name="boardtitle" size="20"
-						style="width: 90%" maxlength="50" value="${board.boardtitle}" /></td>
+					<td><input type="text" name="boardTitle" size="20"
+						style="width: 90%" maxlength="50" value="${QnA.boardTitle}" /></td>
 				</tr>
 				<tr>
 					<td align="center">글내용</td>
 					<td><textarea name="postContents"
-							style="resize: none; width: 90%; height: 400px">${board.postContents}</textarea></td>
+							style="resize: none; width: 90%; height: 400px">${QnA.postContents}</textarea></td>
 				</tr>
 				<tr>
 					<td></td>
-					<td align="right"><input type="submit" value="수정 완료">
-						<input type="button" value="취소"
-						onclick="document.location='boardList.do'"></td>
+					<td align="right">
+					<input type="submit" onclick="document.location='boardUpdate.do'" value="수정 완료" class="redBtn">
+					<input type="button" value="취소" onclick="document.location='boardList.do'"></td>
 				</tr>
 
 			</table>

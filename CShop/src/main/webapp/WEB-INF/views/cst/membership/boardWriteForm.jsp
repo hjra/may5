@@ -81,12 +81,8 @@ function check(){
      <td width="51%">&nbsp;</td>               
      <td width="12%"><input type="submit" onClick="" value = 취소></td>
   <td>
-     <input type="submit"
-				onclick="document.location='writeProc.do'" value="등록하기"
-				class="redBtn"></td>
-     
-     
-    
+     <input type="submit" onclick="document.location='writeProc.do'" value="등록하기" class="redBtn"></td>    
+         
     </tr>
    </table>
   </td>
