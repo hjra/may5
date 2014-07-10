@@ -32,6 +32,7 @@
 		document.getElementById("mbsF").action = "mngLogoutProcess.do";
 		document.getElementById("mbsF").submit();
 	}
+	
 </script>
 <header id="master-header">
 	<a id="mobile-logo" onclick="location.href='homeImage.do'">C#</a> <a
@@ -49,6 +50,7 @@
 			</div>
 		</li>
 		<li onclick="location.href='/CShop/'" id="desktop-logo">C#</li>
+
 		<li onclick="">ORDER
 			<div class="submenu">
 				<menu>
@@ -57,6 +59,7 @@
 				</menu>
 			</div>
 		</li>
+		
 		<li onclick="location.href='about.do'">ABOUT</li>
 		<li style="font-size: 8px; left: 200px;">Membership
 			<div class="submenu">

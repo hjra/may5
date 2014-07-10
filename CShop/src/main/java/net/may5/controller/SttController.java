@@ -1,10 +1,6 @@
 package net.may5.controller;
 
 import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
-
 
 import net.may5.service.SttService;
 
@@ -34,7 +30,7 @@ public class SttController {
 	}
 	/* 판매분석 */
 	@RequestMapping(value="orderReport.do")
-	public String orderReport(Model model){
+	public String orderReport(Model model, Date thisDay){
 		return "mng/statistics/orderReport";
 	}
 	/* 메뉴분석 */
@@ -52,6 +48,15 @@ public class SttController {
 	public String memberReport(Model model){
 		return "mng/statistics/memberReport";
 	}
+	
+	// 날짜선택 - 특정날짜를 선택!
+    @RequestMapping(value="sttDatePicker.do")
+    public String datePicker(Date thisDay, Model model){
+    	System.out.println("데이트 피커쩜 두 :: 선택하신 날짜는 :: "+thisDay);
+    	model.addAttribute("orderCountPerHour", sttService.orderCountPerHour(thisDay));
+    	System.out.println(sttService.orderCountPerHour(thisDay));
+    	return "mng/menuMng/orderReport";
+    }
 	
 	
 }
