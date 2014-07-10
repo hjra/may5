@@ -17,6 +17,7 @@ public interface CustomerMapper {
 	/* 회원가입 */
 	List searchZipInfo(Map<String, Object> paramMap); // 주소 검색 - JSON 적용
 	List<Zip> searchZipInfo2(String zipKeyword);	  // 주소 검색 - JSON 적용2
+	Zip searchCstZip(String zipCode);				  // 주소 검색 - 회원정보수정용
 	void insertJoinCst(Customer customer);	// 회원가입
 	
 	

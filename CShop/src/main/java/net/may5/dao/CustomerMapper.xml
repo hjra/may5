@@ -21,6 +21,11 @@
 		zipCode from Zip) A inner join Zip B on A.ZIPCODE = B.zipCode
 		where A.keyword like #{zipKeyword}||'%' order by A.zipKeyword
 	</select>
+	<select id="searchCstZip" parameterType="String" resultType="Zip">
+		select A.zipKeyword, B.* from (select doromyong||buildingNum1||'-'||buildingNum2 keyword,
+		sido||' '||sigungu||' '||doromyong||' '||buildingNum1||'-'||buildingNum2 zipKeyword, zipCode 
+		from Zip) A inner join Zip B on A.ZIPCODE = B.zipCode where B.zipCode=#{zipCode}
+	</select>
 	
 	<!-- ID 중복검사 -->
 	<select id="redundancyCheckId" parameterType="string" resultType="Customer">

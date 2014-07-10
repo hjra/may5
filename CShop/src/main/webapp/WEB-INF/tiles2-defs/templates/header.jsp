@@ -50,12 +50,12 @@
 			</div>
 		</li>
 		<li onclick="location.href='/CShop/'" id="desktop-logo">C#</li>
-		
+
 		<li onclick="">ORDER
 			<div class="submenu">
 				<menu>
 					<li onclick="location.href='advanceOrder.do'">ADVANCE ORDER</li>
-					<li onclick="location.href='orderList.do'">ORDER LIST</li>
+					<li onclick="location.href='orderSearch.do'">ORDER LIST</li>
 				</menu>
 			</div>
 		</li>
