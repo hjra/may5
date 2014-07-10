@@ -47,8 +47,6 @@
 							<input type="text" id="cm" placeholder="ex)생일축하합니다" />
 						</td>
 					</tr>
-					
-					
 					<tr>
 						<th scope="row"><label for="fu">동영상 추가</label></th>
 						<td>
