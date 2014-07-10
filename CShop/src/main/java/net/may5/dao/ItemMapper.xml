@@ -50,26 +50,29 @@
 	</select>
 
 	<select id="getOrderList" resultType="Orders">
-		<!--
-			order date 형식은
-			'YYYY-MM-DD' 
-	 	-->
 		select * from orders
-		WHERE ORDERDATE = TO_CHAR(TO_DATE(#{orderDate},'YYYY-MM-DD'),'YY/MM/DD')
-		ORDER BY ITEMID ASC
+		where to_char(orderDate, 'yyyy-mm-dd')=#{orderDate}
+		order By itemId asc
 	</select>
 	
 		<select id="getOrderListCount" resultType="int">
 		select count(*) from orders
-	</select>
+		</select>
+	
+		<select id="getOrderListDailyCount" resultType="int">
+		select count(*) from orders where to_char(orderDate, 'yyyy-mm-dd')=#{orderDate}
+		</select>
+	
 	
 		<select id="getAnOrderList" resultType="Orders">
 		select * from orders where itemId=#{itemId}
 		</select>
 		
 		<select id="getOrderListCountSameItemId" resultType="Orders" >
-		select itemId, count(itemId) itemCnt from orders group by itemId order by itemCnt
+		select itemId, count(itemId) itemCnt from orders group by itemId 
+		order by itemCnt
 		</select>
+		
 
 		<select id="setNewItem">
 			insert into item(itemId, itemName, itemCalorie, itemInfo, itemImg1, itemImg2, itemImg3, itemImg4, sticker, price)

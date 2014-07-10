@@ -1,6 +1,10 @@
 package net.may5.service;
 
+import java.util.Date;
+import java.util.List;
+
 import net.may5.dao.SttMapper;
+import net.may5.dto.OrderCount;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +43,11 @@ public class SttServiceImpl implements SttService {
 	@Override
 	public int getCakeCount() {
 		return sttMapper.getCakeCount();
+	}
+
+	@Override
+	public List<OrderCount> orderCountPerHour(Date thisDay) {
+		return sttMapper.orderCountPerHour(thisDay);
 	}
 
 	
