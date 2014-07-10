@@ -31,5 +31,7 @@ public interface ItemService {
 	public void setNewItem(Map<String, String> insertParam);
 
 	public void deleteItem(String deleteItemId);
+	
+	public int getOrderListDailyCount(String orderDate);
 
 }

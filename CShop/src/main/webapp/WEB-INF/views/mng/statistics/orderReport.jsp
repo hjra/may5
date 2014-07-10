@@ -5,6 +5,31 @@
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script src="http://code.highcharts.com/modules/heatmap.js"></script>
 <script>
+$(document)
+.on("click","#thisDay", function(){
+	location.href="sttDatePicker.do";
+});
+
+jQuery(function(){
+	//
+	var paramDate = $("#thisDay").val();
+	if( !moment(paramDate).isValid() ){
+		$("#thisDay").val(moment().format("YYYY-MM-DD"));
+	}
+});
+</script>
+<form method="get" >
+	<div class="row-fluid text-right">
+		<span>선택된날짜</span>
+		<input type="text"  placeholder="날짜를 선택해주세요" id="thisDay"  name="thisDay" class="date-picker"  value="${paramDate}" />
+		<input type="submit" value="검색" />
+		<!-- <button id="stockToZero" class="btn btn-primary">마감</button> -->
+	</div>
+</form>
+시간별 판매수량::
+${orderCountPerHour}
+
+<script>
 $(function () {
     $('#container1').highcharts({
         chart: {

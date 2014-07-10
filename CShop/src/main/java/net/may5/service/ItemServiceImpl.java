@@ -85,4 +85,9 @@ public class ItemServiceImpl implements ItemService {
 		public void deleteItem(String deleteItemId) {
 			itemMapper.deleteItem(deleteItemId);
 		}
+
+		@Override
+		public int getOrderListDailyCount(String orderDate) {
+			return itemMapper.getOrderListDailyCount(orderDate);
+		}
 }
