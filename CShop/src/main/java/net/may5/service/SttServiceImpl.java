@@ -36,5 +36,10 @@ public class SttServiceImpl implements SttService {
 		return sttMapper.getDailyCountForMenu();
 	}
 
+	@Override
+	public int getCakeCount() {
+		return sttMapper.getCakeCount();
+	}
+
 	
 }
