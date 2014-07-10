@@ -12,4 +12,6 @@ public interface SttService {
 
 	public int getDailyCountForMenu();
 
+	public int getCakeCount();
+
 }

@@ -2,6 +2,7 @@ package net.may5.service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.may5.dao.ItemMapper;
 import net.may5.dto.Evaluation;
@@ -40,9 +41,7 @@ public class ItemServiceImpl implements ItemService {
 
 		@Override
 		public List<Evaluation> getEvaluationList(String itemId, int page, int limit ) {
-			
 			int startrow = (page - 1) * 10;
-			
 			param.put("itemId", itemId);
 			param.put("startrow", String.valueOf(startrow) );
 			param.put("endrow", String.valueOf(startrow + limit));
@@ -75,5 +74,15 @@ public class ItemServiceImpl implements ItemService {
 		@Override
 		public List<Orders> getOrderListCountSameItemId() {
 			return itemMapper.getOrderListCountSameItemId();
+		}
+
+		@Override
+		public void setNewItem(Map<String, String> insertParam) {
+			itemMapper.setNewItem(insertParam);
+		}
+
+		@Override
+		public void deleteItem(String deleteItemId) {
+			itemMapper.deleteItem(deleteItemId);
 		}
 }

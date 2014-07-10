@@ -117,7 +117,7 @@ public class ItemController {
 	
 	@RequestMapping(value = "menuInsertMng.do")
 	public String menuInsertMng() {
-		return "mng/menuMng/menuInsertMng";
+		return "mng/menuMng/menuModifyMng";
 	}
 	
 	
@@ -161,7 +161,7 @@ public class ItemController {
 	            	for (int i = 0; i < values.length; i++) {
 	            		String deleteItemId = values [i];
 	                    System.out.println("삭제대상 => " + deleteItemId);
-	                    // ItemService.deleteItem(deleteItemId);
+	                    itemService.deleteItem(deleteItemId);
 	                }
 	            }
 	     }

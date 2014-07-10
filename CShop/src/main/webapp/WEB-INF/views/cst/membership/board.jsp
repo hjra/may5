@@ -22,13 +22,17 @@
 					<td></td>
 					<td width="80" height="25"><font size="2">${board.boardCode}</font></td>
 					<!-- 글번호 -->
-					<td><%-- <a class="no-uline"
-							href="boardCheck.do?boardCode=${board.boardCode}">
-													<font
-							size="2">${board.boardTitle}</font></a> --%>
-						<form action="boardCheck.do" method="get">
+					<c:url value="boardCheck.do" var="boardTitle" scope="request">
+							<c:param name="boardCode">${board.boardCode}</c:param>
+							<c:param name="postPassword">${board.postPassword}</c:param>
+						</c:url>	
+					<td id="boardTitleAction"  onmouseover="style.color='gray'"  onclick="location='${boardTitle}'">
+						
+						${board.boardTitle}
+						<%-- <form action="boardCheck.do" method="get">
 						<input type="submit" value="${board.boardTitle}">
 						<input type="hidden" name="boardCode" value="${board.boardCode}">
+						<input type="hidden" name="postPassword" value="${board.postPassword}"> --%>
 						<!-- 보드의 제목을 클릭하게 되면 히든 타입으로 글번호가  보드체크를 따라 
 						컨트롤로 간다 -->
 						</form>	

@@ -38,6 +38,8 @@ public class Customer {
 	private String li;						// 리
 	private String jibunNum1;				// 지번본번
 	private String jibunNum2;				// 지번부번
+	private String zipKeyword;				// 도로명주소(빈칸없음)
+	
 	public String getCstId() {
 		return cstId;
 	}
@@ -224,6 +226,33 @@ public class Customer {
 	public void setJibunNum2(String jibunNum2) {
 		this.jibunNum2 = jibunNum2;
 	}
+	public String getZipKeyword() {
+		return zipKeyword;
+	}
+	public void setZipKeyword(String zipKeyword) {
+		this.zipKeyword = zipKeyword;
+	}
+	@Override
+	public String toString() {
+		return "Customer [cstId=" + cstId + ", cstName=" + cstName
+				+ ", cstPassword=" + cstPassword + ", zipCode=" + zipCode
+				+ ", cstDetailAddress=" + cstDetailAddress + ", cstCP=" + cstCP
+				+ ", cstEmail=" + cstEmail + ", cstGender=" + cstGender
+				+ ", cstBirthday=" + cstBirthday + ", cstEmailAgreement="
+				+ cstEmailAgreement + ", cstQnAPermission=" + cstQnAPermission
+				+ ", cstEvaluationPermission=" + cstEvaluationPermission
+				+ ", cstJoinDate=" + cstJoinDate + ", cstLastVisitDate="
+				+ cstLastVisitDate + ", cstPostCount=" + cstPostCount
+				+ ", levelCode=" + levelCode + ", cstCode=" + cstCode
+				+ ", cntr=" + cntr + ", levelName=" + levelName
+				+ ", zipNumber=" + zipNumber + ", sido=" + sido + ", sigungu="
+				+ sigungu + ", dongubmyon=" + dongubmyon + ", doromyong="
+				+ doromyong + ", buildingNum1=" + buildingNum1
+				+ ", buildingNum2=" + buildingNum2 + ", sigunguBuildingName="
+				+ sigunguBuildingName + ", dong=" + dong + ", li=" + li
+				+ ", jibunNum1=" + jibunNum1 + ", jibunNum2=" + jibunNum2
+				+ ", zipKeyword=" + zipKeyword + "]";
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -286,6 +315,8 @@ public class Customer {
 				+ ((sigunguBuildingName == null) ? 0 : sigunguBuildingName
 						.hashCode());
 		result = prime * result + ((zipCode == null) ? 0 : zipCode.hashCode());
+		result = prime * result
+				+ ((zipKeyword == null) ? 0 : zipKeyword.hashCode());
 		result = prime * result
 				+ ((zipNumber == null) ? 0 : zipNumber.hashCode());
 		return result;
@@ -441,6 +472,11 @@ public class Customer {
 				return false;
 		} else if (!zipCode.equals(other.zipCode))
 			return false;
+		if (zipKeyword == null) {
+			if (other.zipKeyword != null)
+				return false;
+		} else if (!zipKeyword.equals(other.zipKeyword))
+			return false;
 		if (zipNumber == null) {
 			if (other.zipNumber != null)
 				return false;
@@ -448,26 +484,4 @@ public class Customer {
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		return "Customer [cstId=" + cstId + ", cstName=" + cstName
-				+ ", cstPassword=" + cstPassword + ", zipCode=" + zipCode
-				+ ", cstDetailAddress=" + cstDetailAddress + ", cstCP=" + cstCP
-				+ ", cstEmail=" + cstEmail + ", cstGender=" + cstGender
-				+ ", cstBirthday=" + cstBirthday + ", cstEmailAgreement="
-				+ cstEmailAgreement + ", cstQnAPermission=" + cstQnAPermission
-				+ ", cstEvaluationPermission=" + cstEvaluationPermission
-				+ ", cstJoinDate=" + cstJoinDate + ", cstLastVisitDate="
-				+ cstLastVisitDate + ", cstPostCount=" + cstPostCount
-				+ ", levelCode=" + levelCode + ", cstCode=" + cstCode
-				+ ", cntr=" + cntr + ", levelName=" + levelName
-				+ ", zipNumber=" + zipNumber + ", sido=" + sido + ", sigungu="
-				+ sigungu + ", dongubmyon=" + dongubmyon + ", doromyong="
-				+ doromyong + ", buildingNum1=" + buildingNum1
-				+ ", buildingNum2=" + buildingNum2 + ", sigunguBuildingName="
-				+ sigunguBuildingName + ", dong=" + dong + ", li=" + li
-				+ ", jibunNum1=" + jibunNum1 + ", jibunNum2=" + jibunNum2 + "]";
-	}
-	
-	
 }

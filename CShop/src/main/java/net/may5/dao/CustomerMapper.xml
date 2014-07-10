@@ -33,7 +33,7 @@
 		insert into Customer(cstId, cstName, cstPassword, zipCode, cstDetailAddress, cstCP, cstEmail,
         cstGender, cstBirthday, cstEmailAgreement, cstQnAPermission, cstEvaluationPermission, cstJoinDate,
         cstLastVisitDate, cstPostCount, levelCode, cstCode)
-         values(#{cstId}, #{cstName}, #{cstPassword}, 'GG000001', #{cstDetailAddress}, #{cstCP}, #{cstEmail},
+         values(#{cstId}, #{cstName}, #{cstPassword}, #{zipCode}, #{cstDetailAddress}, #{cstCP}, #{cstEmail},
           #{cstGender}, #{cstBirthday}, #{cstEmailAgreement}, 'T', 'T', sysdate, sysdate, 0, 'N', CST.nextval)
 	</insert>
 	

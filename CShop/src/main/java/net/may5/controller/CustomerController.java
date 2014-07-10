@@ -1,6 +1,5 @@
 package net.may5.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -53,7 +52,7 @@ public class CustomerController {
 		return "cst/membership/joinForm";
 	}
 
-	/* 도로명 주소 검색 - 작성중 */
+	/* 도로명 주소 검색 */
 	@RequestMapping("searchZipInfoList.do")
 	public @ResponseBody Map<?,?> testJson4(@RequestParam String zipKeyword, ModelMap model){
 		System.out.println("공백제거 결과: "+zipKeyword.trim().replace(" ", ""));
@@ -64,10 +63,8 @@ public class CustomerController {
 	
 	/* 회원가입 성공화면으로 이동 */
 	@RequestMapping(value="joinOk.do", method=RequestMethod.POST)
-	public String joinProcess(@RequestParam String cstEmailAgreement, 
-			@ModelAttribute("customer") Customer customer, Zip zip,
+	public String joinProcess(@ModelAttribute("customer") Customer customer,
 			BindingResult result){
-		customer.setCstEmailAgreement(cstEmailAgreement);
 		System.out.println("insert Customer: "+customer);
 		customerService.insertJoinCst(customer);
 		return "cst/membership/joinOk";
