@@ -13,5 +13,5 @@ public interface SttMapper {
 
 	public int getDailyCountForMenu();
 
-
+	public int getCakeCount();
 }

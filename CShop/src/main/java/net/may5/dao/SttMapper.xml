@@ -10,7 +10,10 @@
  		select count(*) from orders
  	</select>
  	
-
+ 	<!-- 주문한 케익 수량 수 -->
+ 	<select id="getCakeCount" resultType="int">
+ 		select sum(orderAmount) from orders
+ 	</select>
  
 
  	<!-- 전체회원수 -->

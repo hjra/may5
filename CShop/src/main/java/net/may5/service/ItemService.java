@@ -1,6 +1,7 @@
 package net.may5.service;
 
 import java.util.List;
+import java.util.Map;
 
 import net.may5.dto.Evaluation;
 import net.may5.dto.Item;
@@ -26,5 +27,9 @@ public interface ItemService {
 	public Orders getAnOrderList(String itemId);
 
 	public List<Orders> getOrderListCountSameItemId();
+
+	public void setNewItem(Map<String, String> insertParam);
+
+	public void deleteItem(String deleteItemId);
 
 }

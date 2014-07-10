@@ -71,4 +71,14 @@
 		select itemId, count(itemId) itemCnt from orders group by itemId order by itemCnt
 		</select>
 
+		<select id="setNewItem">
+			insert into item(itemId, itemName, itemCalorie, itemInfo, itemImg1, itemImg2, itemImg3, itemImg4, sticker, price)
+			values(#{ITEMID}, #{ITEMNAME}, #{ITEMCALORIE}, #{ITEMINFO}, #{ITEMIMG1}, #{ITEMIMG2}, #{ITEMIMG3}, #{ITEMIMG4}, #{STICKER}, #{PRICE})
+		</select>
+		
+		<select id="deleteItem" parameterType="String">
+			delete from item where itemId = #{deleteItemId}
+		</select>
+		
+		
 </mapper>

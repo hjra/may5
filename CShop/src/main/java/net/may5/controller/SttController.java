@@ -22,12 +22,7 @@ public class SttController {
 	/* 일일현황 */
 	@RequestMapping(value="dailyReport.do")
 	public String dailyReport(Model model, Date orderDate){
-
-	//	SimpleDateFormat dateFormat = new SimpleDateFormat("2014/06/18");
-//		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-	//	String strDate = dateFormat.format(Calendar.getInstance().getTime());
-		
-//		model.addAttribute("getDailyCountForOrder", sttService.getDailyCountForOrder(strDate));
+		model.addAttribute("getCakeCount", sttService.getCakeCount());
 		model.addAttribute("getOrderCount", sttService.getOrderCount());
 		int getCustomerCount=sttService.getCustomerCount();
 		int getDCustomerCount=sttService.getDCustomerCount();
