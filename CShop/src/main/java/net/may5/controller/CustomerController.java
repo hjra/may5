@@ -207,6 +207,7 @@ public class CustomerController {
 	/* 전체고객정보 화면으로 이동 */
 	@RequestMapping("allMemberInfoForm.do")
 	public String allMemberInfoForm(Model model){
+		model.addAttribute("count", customerService.getAllCustomerCount());
 		model.addAttribute("customer", customerService.selectAllCstInfo());
 		return "mng/cstInfo/allMemberInfoForm";
 	}
