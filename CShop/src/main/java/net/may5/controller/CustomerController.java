@@ -63,10 +63,8 @@ public class CustomerController {
 	
 	/* 회원가입 성공화면으로 이동 */
 	@RequestMapping(value="joinOk.do", method=RequestMethod.POST)
-	public String joinProcess(@RequestParam String cstEmailAgreement, 
-			@ModelAttribute("customer") Customer customer, Zip zip,
+	public String joinProcess(@ModelAttribute("customer") Customer customer,
 			BindingResult result){
-		customer.setCstEmailAgreement(cstEmailAgreement);
 		System.out.println("insert Customer: "+customer);
 		customerService.insertJoinCst(customer);
 		return "cst/membership/joinOk";

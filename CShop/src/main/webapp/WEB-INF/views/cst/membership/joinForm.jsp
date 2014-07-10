@@ -39,7 +39,7 @@
 						}else{
 							
 							$('#zipInfoDiv').html("").show();
-							
+							$('#scZipCheck').html("").hide();
 							for(var idx=0; idx<json.zip.length; idx++){
 								var zipCodej = json.zip[idx].zipCode;
 								var zipKeywordj = json.zip[idx].zipKeyword;
@@ -47,7 +47,7 @@
 								var jibunNum1j = json.zip[idx].jibunNum1;
 								var jibunNum2j = json.zip[idx].jibunNum2;
 								//var zipcodeX = '<input type="hidden" id="zipcodeX" name="zipcode" value="'+zipCodej+'">';
-								$('#zipInfoDiv').append('<a><input type="hidden" id="zipCode" name="zipcode" value="'+zipCodej+'">'
+								$('#zipInfoDiv').append('<a><input type="hidden" id="zipCode" name="zipCode" value="'+zipCodej+'">'
 										+ zipKeywordj + " (" + dongj + jibunNum1j + "-" + jibunNum2j + ")" +'</a><br/>');
 								//$('#zipInfoDiv').append(zipcodeX);
 							};
@@ -60,7 +60,7 @@
 								$('#zipCodeDiv').html("");
 								$('input:text[id=scZipText]').val($(e.target).text());
 								$('#zipCodeDiv').append($(e.target).html()).hide();	
-								$('#zipInfoDiv').hide();
+								$('#zipInfoDiv').html("").hide();
 								
 								
 							
@@ -73,16 +73,13 @@
 		function nothing() {
 				return;
 		}
-		function cstJoinOk(){
-			document.cstJoinForm.submit();
-		}
 	});
 
 </script>
 
 회원가입 입력폼
 <br>
-<f:form action="joinOk.do" method="Post" commandName="customer" name="cstJoinForm">
+<f:form action="joinOk.do" method="Post" commandName="customer">
 	<div class="row_group">
 		<div id="idDiv">
 			<f:input path="cstId" placeholder="USER ID" id="cstId" />
@@ -142,8 +139,8 @@
 		</div>
 	</div>
 	<div class="row_group">
-		<f:hidden path="cstEmailAgreement" />
-		<input type="submit" onclick="cstJoinOk()" value="JOIN OK">
+		<f:hidden path="cstEmailAgreement" value="${cstEmailAgreement}" />
+		<input type="submit" value="JOIN OK">
 	</div>
 </f:form>
 
