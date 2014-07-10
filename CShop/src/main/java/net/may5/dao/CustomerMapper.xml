@@ -28,7 +28,7 @@
 	</select>
 	
 	<!-- ID 중복검사 -->
-	<select id="redundancyCheckId" parameterType="string" resultType="Customer">
+	<select id="redundancyCheckId" parameterType="String" resultType="Customer">
 		select cstId, levelCode from Customer where cstId=#{cstId} and levelCode!='D'
 	</select>
 	
@@ -46,7 +46,18 @@
 	<select id="loginCst" resultType="Customer">
 		select * from Customer where cstId=#{cstId} and cstPassword=#{cstPassword} and levelCode!='D'	
 	</select>
-
+	
+	<!-- 회원정보조회-세션 -->
+	<select id="loginCstInfo" parameterType="int" resultType="Customer">
+		select * from Customer where cstCode=#{cstCode}
+	</select>
+	
+	<!-- 회원정보수정 -->
+	<update id="modifyCstInfo" parameterType="Customer">
+		update Customer set cstPassword=#{cstPassword}, zipCode=#{zipCode}, 
+		cstDetailAddress=#{cstDetailAddress}, cstCP=#{cstCP}, cstEmailAgreement=#{cstEmailAgreement} 
+		where cstCode=#{cstCode}
+	</update>
 
 	<!-- 회원탈퇴 -->
 	<update id="deleteMemberInfo" parameterType="Customer">
