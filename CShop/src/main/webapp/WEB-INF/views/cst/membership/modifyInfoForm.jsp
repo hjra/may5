@@ -70,7 +70,7 @@
 				BIRTH DAY
 			</div>
 			<div>
-				<f:input path="cstBirthday" value="${sessionScope.cstLogin.cstBirthday}" />
+				<f:label path="cstBirthday" >${sessionScope.cstLogin.cstBirthday}</f:label>
 			</div>
 		</div>
 		<div id="mailDiv">
@@ -104,7 +104,7 @@
 				ADDRESS
 			</div>
 			<div>
-				<f:input path="zipCode" value="${sessionScope.cstLogin.zipCode}"/>
+				<f:input path="zipCode" value="${zip.zipKeyword}"/>
 			</div>
 		</div>
 		<div id="add2Div">
@@ -120,14 +120,14 @@
 				RECEIVE E-MAIL
 			</div>
 			<div>
-				<%-- <f:checkbox path="cstEmailAgreement" /> --%>
-				<input type="checkbox" name="cstEmailAgreement" value="T" ${sessionScope.cstLogin.cstEmailAgreement == "T" ? "CHECKED" : ""}	/>
-				
+				<input type="checkbox" name="cstEmailAgreement" value="T" ${sessionScope.cstLogin.cstEmailAgreement == "T" ? "CHECKED" : ""} />
 			</div>
 		</div>
 	</div>
 	<input type="submit" onclick="modify()" value="MODIFY">
-	<input type="submit" onclick="home()" value="HOME">
+	<!-- <input type="submit" onclick="home()" value="HOME"> -->
 	<input type="reset" value="RESET">
 </f:form>
 </div>
+<script src="resources/script/membership.js"></script>
+<script type="text/javascript"></script>

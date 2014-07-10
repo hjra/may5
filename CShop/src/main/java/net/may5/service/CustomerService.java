@@ -15,6 +15,7 @@ public interface CustomerService {
 	
 	public List searchZipInfo(Map<String, Object> paramMap); // 주소 검색 - JSON 적용
 	public List<Zip> searchZipInfo2(String zipKeyword);	  // 주소 검색 - JSON 적용2
+	public Zip searchCstZip(String zipCode);			  // 주소 검색 - 회원정보수정
 	public void insertJoinCst(Customer customer);		// 회원가입
 
 	public Customer loginCst(Customer customer);		// 로그인

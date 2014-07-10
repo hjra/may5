@@ -154,9 +154,10 @@ public class CustomerController {
 	
 	/* 회원정보수정 입력폼으로 이동 */
 	@RequestMapping("modifyInfoForm.do")
-	public String modifyInfoForm(Model model){
+	public String modifyInfoForm(Model model, @RequestParam String zipCode){
 		Customer customer = new Customer();
 		model.addAttribute("customer", customer);
+		model.addAttribute("zip", customerService.searchCstZip(zipCode));
 		return "cst/membership/modifyInfoForm";
 	}
 	
