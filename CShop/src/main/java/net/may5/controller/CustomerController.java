@@ -63,10 +63,8 @@ public class CustomerController {
 	
 	/* 회원가입 성공화면으로 이동 */
 	@RequestMapping(value="joinOk.do", method=RequestMethod.POST)
-	public String joinProcess(@RequestParam String cstEmailAgreement, 
-			@ModelAttribute("customer") Customer customer, Zip zip,
+	public String joinProcess(@ModelAttribute("customer") Customer customer,
 			BindingResult result){
-		customer.setCstEmailAgreement(cstEmailAgreement);
 		System.out.println("insert Customer: "+customer);
 		customerService.insertJoinCst(customer);
 		return "cst/membership/joinOk";
@@ -156,9 +154,10 @@ public class CustomerController {
 	
 	/* 회원정보수정 입력폼으로 이동 */
 	@RequestMapping("modifyInfoForm.do")
-	public String modifyInfoForm(Model model){
+	public String modifyInfoForm(Model model, @RequestParam String zipCode){
 		Customer customer = new Customer();
 		model.addAttribute("customer", customer);
+		model.addAttribute("zip", customerService.searchCstZip(zipCode));
 		return "cst/membership/modifyInfoForm";
 	}
 	
@@ -209,6 +208,7 @@ public class CustomerController {
 	/* 전체고객정보 화면으로 이동 */
 	@RequestMapping("allMemberInfoForm.do")
 	public String allMemberInfoForm(Model model){
+		model.addAttribute("count", customerService.getAllCustomerCount());
 		model.addAttribute("customer", customerService.selectAllCstInfo());
 		return "mng/cstInfo/allMemberInfoForm";
 	}

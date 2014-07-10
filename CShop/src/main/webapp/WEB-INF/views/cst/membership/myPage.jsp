@@ -3,7 +3,10 @@
 <%@ page session="true" %>
 	MY C# 기본 페이지
 	<br>
-	<a href="modifyInfoForm.do">회원정보수정</a>
+	<form action="modifyInfoForm.do" method="get">
+		<input type="hidden" name="zipCode" value="${sessionScope.cstLogin.zipCode}">
+		<input type="submit" value="회원정보수정">
+	</form>
 	<br>
 	<a href="board.do">Q&amp;A</a>
 	<br>

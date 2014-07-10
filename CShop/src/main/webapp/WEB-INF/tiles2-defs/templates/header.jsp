@@ -40,7 +40,7 @@
 		alt="메뉴펼치기"></a>
 	<menu id="gnb">
 		<li onclick="location.href='homeImage.do'">HOME</li>
-		<li onclick="location.href='menuList.do'">MENU
+		<li onclick="">MENU
 			<div class="submenu">
 				<menu>
 					<li onclick="location.href='menuList.do'">MENU LIST</li>
@@ -49,11 +49,11 @@
 			</div>
 		</li>
 		<li onclick="location.href='/CShop/'" id="desktop-logo">C#</li>
-		<li onclick="location.href='advanceOrder.do'">ORDER
+		<li onclick="">ORDER
 			<div class="submenu">
 				<menu>
 					<li onclick="location.href='advanceOrder.do'">ADVANCE ORDER</li>
-					<li onclick="location.href='orderList.do'">ORDER LIST</li>
+					<li onclick="location.href='orderSearch.do'">ORDER LIST</li>
 				</menu>
 			</div>
 		</li>

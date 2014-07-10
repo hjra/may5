@@ -68,4 +68,9 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerMapper.searchZipInfo2(zipKeyword);
 	}
 
+	@Override
+	public Zip searchCstZip(String zipCode) {
+		return customerMapper.searchCstZip(zipCode);
+	}
+
 }
