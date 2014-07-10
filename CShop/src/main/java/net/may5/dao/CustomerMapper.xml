@@ -16,10 +16,10 @@
 		from Zip where doromyong like '월드컵로%' order by zipKeyword
 	</select>
 	<select id="searchZipInfo2" parameterType="String" resultType="net.may5.dto.Zip">
-		select A.zipKeyword, B.*
-		from (select replace(sido||sigungu||doromyong||buildingNum1||'-'||buildingNum2, ' ', '') zipKeyword,
+		select A.zipKeyword, B.* from (select doromyong||buildingNum1||'-'||buildingNum2 keyword,
+		sido||' '||sigungu||' '||doromyong||' '||buildingNum1||'-'||buildingNum2 zipKeyword,
 		zipCode from Zip) A inner join Zip B on A.ZIPCODE = B.zipCode
-		where A.zipKeyword like '%'||#{zipKeyword}||'%' order by A.zipKeyword
+		where A.keyword like #{zipKeyword}||'%' order by A.zipKeyword
 	</select>
 	
 	<!-- ID 중복검사 -->
@@ -33,7 +33,7 @@
 		insert into Customer(cstId, cstName, cstPassword, zipCode, cstDetailAddress, cstCP, cstEmail,
         cstGender, cstBirthday, cstEmailAgreement, cstQnAPermission, cstEvaluationPermission, cstJoinDate,
         cstLastVisitDate, cstPostCount, levelCode, cstCode)
-         values(#{cstId}, #{cstName}, #{cstPassword}, 'GG000001', #{cstDetailAddress}, #{cstCP}, #{cstEmail},
+         values(#{cstId}, #{cstName}, #{cstPassword}, #{zipCode}, #{cstDetailAddress}, #{cstCP}, #{cstEmail},
           #{cstGender}, #{cstBirthday}, #{cstEmailAgreement}, 'T', 'T', sysdate, sysdate, 0, 'N', CST.nextval)
 	</insert>
 	

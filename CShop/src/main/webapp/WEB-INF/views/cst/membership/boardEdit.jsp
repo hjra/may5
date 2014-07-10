@@ -3,8 +3,25 @@
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <%@ page session="true"%>
 <h1>게시글 수정 페이지으로 이동하셨습니다!!!</h1>
-<form action="board.do" method="post">
 
+
+<script type="text/javascript">
+	function updateGo() {
+
+		document.getElementById("GoSelect").action = "boardUpdateForm.do";
+		document.getElementById("GoSelect").submit();
+	}
+
+	function deleteGo() {
+		document.getElementById("GoSelect").action = "boardDelete.do";
+		document.getElementById("GoSelect").submit();
+	}
+</script>
+
+
+
+<%-- <form action="board.do" method="post">
+ --%>
 	<div>
 
 		<h1 align="center">boardContext</h1>
@@ -32,19 +49,18 @@
 				<tr>
 					<td></td>
 					<td align="right" colspan="3"
-						style="background: repeat-x; text-align: center;"><c:choose>
-							<c:when test="${users.cstid==board.cstId}">
+						style="background: repeat-x; text-align: center;">
+	
+	
 								<form id="GoSelect" method="post">
-									<input type="hidden" name="boardNumber"
-										value="${board.boardCode}" class="redBtn"> <input
-										type="button" id="update" onclick="updateGo()" value="수정"
-										class="redBtn" /> <input type="button" id="delete"
-										onclick="deleteGo()" value="삭제" class="redBtn" /> <input
-										type="button" value="목록"
-										onclick="document.location='boardList.do'" class="redBtn">
+									<input type="hidden" name="boardCode" value="${board.boardCode}" class="redBtn"> 
+									<input type="button" id="update" onclick="updateGo()" value="수정" class="redBtn" />
+									<input type="button" id="delete" onclick="deleteGo()" value="삭제" class="redBtn" />										
+									<%-- <input type="button" id="delete" onclick="document.location='boardDelete.do?boardCode=${board.boardCode}'" value="삭제" class="redBtn" />										
+									 --%>
+									<input type="button" value="목록" onclick="document.location='board.do'" class="redBtn" />		
 								</form>
-							</c:when>
-						</c:choose></td>
+						</td>
 					<td></td>
 				</tr>
 

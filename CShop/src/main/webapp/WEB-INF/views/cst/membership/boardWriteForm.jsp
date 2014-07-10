@@ -1,41 +1,39 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>    
 <%@ page session="true" %>
 <html>
   <head>
-<SCRIPT type="text/javascript">                              
-function check(){                                         
- with(document.msgwrite){                      
-  if(subject.value.length == 0){                  
+	<SCRIPT language="javascript">        
+	function check(){ 
+
+  with(document.boardWriteForm){
+   
+  
+  if(boardTitle.value.length == 0){                  
    alert("제목을 입력해 주세요!!");                       
-   subject.focus();                           
+   boardTitle.focus();                           
    return false;                             
-  }                                         
-  if(name.value.length == 0){                   
-   alert("이름을 입력해 주세요!!");                  
-   name.focus();                              
-   return false;                                  
-  }                                         
-  if(password.value.length == 0){              
-   alert("비밀번호를 입력해 주세요!!");              
-   password.focus();                            
-   return false;                               
-  }                                        
-  if(content.value.length == 0){                    
+  }                                                                                                
+  if(postContents.value.length == 0){                    
    alert("내용을 입력해주세요!!");                   
-   content.focus();                         
+   postContents.focus();                         
    return false;                           
-  }                                        
-  document.msgwrite.submit();                       
- }                                          
-}                                            
+  }
+  if(postPassword.value.length !=4){              
+  alert("비밀번호를 숫자 4글자로 입력해 주세요!!");              
+  postPassword.focus();                            
+	return false;                               
+  }                              
+ return  true;                	       
+ }                                 
+}                                           
 </SCRIPT>    
                                 
 </HEAD>                                       
 <BODY>                                        
 <P>                  
                          
-<FORM name="boardWriteForm" method="post" action="writeProc.do">    
+<FORM name="boardWriteForm" method="post" action="writeProc.do"  onsubmit="return check()">    
 <CENTER>                                      
 <table width="600"cellspacing="0" cellpadding="2">           
  <tr>                                        
@@ -61,7 +59,7 @@ function check(){
  <tr>                                        
   <td width="124" align="center"  bgcolor="#f4f4f4">암 호</td>  
   <td width="494" style="padding:0 0 0 10" height="25">                   
-   <input type=password name="postPassword" class="style1"><br>(비밀번호를 입력하면 수정 또는 삭제가 가능합니다.)
+   <input type=password name="postPassword" class="style1"><br>비밀번호를 입력해주세요.(숫자4글자)
   </td>                                       
  </tr>                                       
  <tr>                                       
@@ -79,14 +77,10 @@ function check(){
     <tr>                     
      <td width="28%">&nbsp;</td>               
      <td width="51%">&nbsp;</td>               
-     <td width="12%"><input type="submit" onClick="" value = 취소></td>
+     
   <td>
-     <input type="submit"
-				onclick="document.location='writeProc.do'" value="등록하기"
-				class="redBtn"></td>
-     
-     
-    
+     <input type="submit"  value="등록하기" class="redBtn"></td>    
+     <td width="12%"><input type="button" onClick="document.location='board.do'" value = 취소></td>    
     </tr>
    </table>
   </td>
@@ -94,6 +88,6 @@ function check(){
 </table>                                       
 </CENTER>                                            
 </FORM> 
-
+</BODY>
 
 </html>

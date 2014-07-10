@@ -52,12 +52,12 @@ public class CustomerController {
 		return "cst/membership/joinForm";
 	}
 
-	/* 도로명 주소 검색 - 작성중 */
+	/* 도로명 주소 검색 */
 	@RequestMapping("searchZipInfoList.do")
 	public @ResponseBody Map<?,?> testJson4(@RequestParam String zipKeyword, ModelMap model){
 		System.out.println("공백제거 결과: "+zipKeyword.trim().replace(" ", ""));
 		model.put("zip", customerService.searchZipInfo2(zipKeyword.trim().replace(" ", "")));
-		System.out.println("도로명 주소 검색 결과: "+customerService.searchZipInfo2(zipKeyword.trim().replace(" ", "")));
+		System.out.println("도로명 주소 검색 결과: "+model);
 		return model;
 	}
 	

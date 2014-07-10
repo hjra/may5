@@ -9,7 +9,7 @@ select * from QnA
 </select>
 
 <select id="qnaGetList2" resultType="QnA">
-select	Q.boardTitle, Q.boardDate, Q.boardCode boardCode, C.cstId
+select	Q.boardTitle, Q.boardDate, Q.postPassword, Q.boardCode boardCode, C.cstId
 from 	QnA Q inner join Customer C
 on 		Q.cstCode = C.cstCode
 ORDER 	BY boardCode DESC
@@ -22,13 +22,38 @@ on 		Q.cstCode = C.cstCode
 where   Q.boardCode = #{boardCode}
 </select>
 
-<insert id="writeProc" parameterType="map">
-	insert into QnA(boardCode,boardTitle, postContents, postPassword,cstCode)
-	values( QAB.nextval,#{boardTitle}, #{postContents}, #{postPassword},#{cstCode})
+<!-- sysDate는 오라클자체에서 처리해서 xml에만 넣으면 되고
+아래의 구문들은 각각의 순서를 맞쳐야 한다. -->
+<insert id="writeProc" parameterType="map"> 
+	insert into QnA(boardCode,boardTitle, postContents, postPassword,cstCode, boardDate)
+	values( QAB.nextval, #{boardTitle}, #{postContents}, #{postPassword},#{cstCode}, sysDate)
 </insert>
 
+<delete id="deleteBoard" parameterType="int">
+delete from QNA
+		where
+		BOARDCODE =
+		#{boardCode}
+	</delete>
 
-
+<update id="updateBoard" parameterType="QnA">
+		update QNA set
+		boardTitle=#{boardTitle},
+		postContents=#{postContents},
+		boardDate=sysDate
+		where
+		boardCode=#{boardCode}
+	</update>
+	
+<select id="getBoard" parameterType="int" resultType="QnA">
+		
+		select
+		c.cstId, q.boardTitle, q.boardDate, q.postContents,q.boardCode
+		from QNA Q inner join customer C
+		on q.cstCode=c.cstCode 
+		where
+		BOARDCODE = #{boardCode}
+	</select>
 
 	
 </mapper>

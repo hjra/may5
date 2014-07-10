@@ -1,11 +1,9 @@
 package net.may5.service;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import net.may5.dao.QnAMapper;
 import net.may5.dto.QnA;
 
@@ -34,11 +32,6 @@ public class QnAServiceImpl implements QnAService {
 		
 	}
 
-	@Override
-	public void deleteQnA(int boardCode) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public List<QnA> qnaGetList() {
@@ -58,8 +51,25 @@ public class QnAServiceImpl implements QnAService {
 	}
 
 	@Override
-	public void writeProc(String  boardTitle, String  postContents, String postPassword  , int cstCode ) {
-		 qnamapper.writeProc(  boardTitle,   postContents,  postPassword  ,  cstCode );
+	public void writeProc(String boardTitle, String postContents, String postPassword, int cstCode) {
+		 qnamapper.writeProc(boardTitle, postContents, postPassword, cstCode);
+	}
+
+	@Override
+	public void deleteBoard(int boardCode) {
+		qnamapper.deleteBoard(boardCode);
+	}
+
+	@Override
+	public void updateBoard(QnA qna) {
+		qnamapper.updateBoard(qna);
+		
+	}
+
+	@Override
+	public QnA getBoard(int boardCode) {
+		
+		return qnamapper.getBoard(boardCode);
 	}
 
 }

@@ -29,6 +29,7 @@ public class OrderController {
 	public String advanceOrder(HttpServletRequest request, Model model, String cstLogin, String cstId) {
 		HttpSession session = request.getSession();
 		session.getAttribute(cstLogin);
+		model.addAttribute("optionPrice", orderService.getOptionPrice());
 		return "cst/order/advanceOrder";
 	}
 	
@@ -50,10 +51,23 @@ public class OrderController {
 	/* 수취인정보 */
 	@RequestMapping("advanceOrderPayment.do")
 	public String advanceOrderPayment(Model model){
+		model.addAttribute("payKind", orderService.getPayKind());
+		model.addAttribute("cardSection", orderService.getCardSection());
+		model.addAttribute("cashReceiptRequestInfoSave", orderService.getCashReceiptRequestInfoSave());
+		System.out.println(orderService.getCashReceiptRequestInfoSave());
+		model.addAttribute("deduction", orderService.getDeduction());
+		model.addAttribute("cardKind",orderService.getCardKind());
+		model.addAttribute("installment", orderService.getInstallment());
+		model.addAttribute("cashReceiptRequestWay", orderService.getCashReceiptRequestWay());
 		return "cst/order/advanceOrderPayment";
 	}
 	
-	/* 카드정보*/
+	/* 카드(QR)옵션
+	@RequestMapping("optionCard.do")
+	public String getOptionCard( Model model, int optionCode){
+		
+		return "redirect:/advanceOrder.do";
+	}*/
 	
 	
 	/*주문내역*/
