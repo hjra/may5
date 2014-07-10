@@ -30,6 +30,14 @@ $(document).ready(function(){
 		}
 	});
 	
+	$('#allAgreement3').click(function(){
+		if($("#allAgreement3").is(":checked")){
+			$('input:checkbox[id^=agreement3]:not(checked)').prop("checked", true);
+		} else{
+			$('input:checkbox[id^=agreement3]:checked').prop("checked", false);
+		}
+	});
+	
 	$('#selectBoxValue').click(function(){
 		$('#inputSelect').empty();
 		if($('#selectBoxValue').val() == "0"){
@@ -200,10 +208,10 @@ $(document).ready(function(){
   								
  			</select>
 
- 			<br>주문자동의 : <input id="allAgreement" type="checkbox" >전체동의<br>
- 							<input name="serviceAgreement" type="checkbox" id="agreement">결제정보 수집 및 제공 동의하기<br>
-							<input name="privacyAgreement" type="checkbox" id="agreement">개인정보 제3자 제공 동의하기<br>
-							<input name="payAgreement" type="checkbox" id="agreement">위 상품의 판매정보를 명확히 확인하였으며 구매진행에 동의합니다
+ 			<br>주문자동의 : <input id="allAgreement1" type="checkbox" >전체동의<br>
+ 							<input name="serviceAgreement1" type="checkbox" id="agreement1">결제정보 수집 및 제공 동의하기<br>
+							<input name="privacyAgreement1" type="checkbox" id="agreement1">개인정보 제3자 제공 동의하기<br>
+							<input name="payAgreement1" type="checkbox" id="agreement1">위 상품의 판매정보를 명확히 확인하였으며 구매진행에 동의합니다
 		</div>
 	</div>
 	<div id="2" style="display: none">
@@ -288,20 +296,20 @@ $(document).ready(function(){
 			<div id="N" style="display: none">
 				
 			</div>
-			<br>주문자동의 : <input id="allAgreement1" type="checkbox" >전체동의<br>
- 							<input name="serviceAgreement1" type="checkbox" id="agreement1">결제정보 수집 및 제공 동의하기<br>
-							<input name="privacyAgreement1" type="checkbox" id="agreement1">개인정보 제3자 제공 동의하기<br>
-							<input name="payAgreement1" type="checkbox" id="agreement1">위 상품의 판매정보를 명확히 확인하였으며 구매진행에 동의합니다
+			<br>주문자동의 : <input id="allAgreement2" type="checkbox" >전체동의<br>
+ 							<input name="serviceAgreement2" type="checkbox" id="agreement2">결제정보 수집 및 제공 동의하기<br>
+							<input name="privacyAgreement2" type="checkbox" id="agreement2">개인정보 제3자 제공 동의하기<br>
+							<input name="payAgreement2" type="checkbox" id="agreement2">위 상품의 판매정보를 명확히 확인하였으며 구매진행에 동의합니다
 	</div>
 		
 	<div id="3" style="display: none">
 		휴대폰 결제안내 : 휴대폰 결제는 통신사에 따라 결제 한도 금액이 다릅니다.<br>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		휴대폰 결제의 경우 가입하신 이동통신사에서 증빙을 발급 받을 수 있습니다.<br>
-		<br>주문자동의 : <input id="allAgreement2" type="checkbox" >전체동의<br>
- 							<input name="serviceAgreement2" type="checkbox" id="agreement2">결제정보 수집 및 제공 동의하기<br>
-							<input name="privacyAgreement2" type="checkbox" id="agreement2">개인정보 제3자 제공 동의하기<br>
-							<input name="payAgreement2" type="checkbox" id="agreement2">위 상품의 판매정보를 명확히 확인하였으며 구매진행에 동의합니다
+		<br>주문자동의 : <input id="allAgreement3" type="checkbox" >전체동의<br>
+ 							<input name="serviceAgreement3" type="checkbox" id="agreement3">결제정보 수집 및 제공 동의하기<br>
+							<input name="privacyAgreement3" type="checkbox" id="agreement3">개인정보 제3자 제공 동의하기<br>
+							<input name="payAgreement3" type="checkbox" id="agreement3">위 상품의 판매정보를 명확히 확인하였으며 구매진행에 동의합니다
 	</div>
 		<p>
 				<input type="reset" value="재입력"/>
