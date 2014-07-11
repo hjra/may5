@@ -22,23 +22,30 @@
 					<td></td>
 					<td width="80" height="25"><font size="2">${board.boardCode}</font></td>
 					<!-- 글번호 -->
-					<c:url value="boardCheck.do" var="boardTitle" scope="request">
+				<%-- 	<c:url value="boardCheck.do" var="boardTitle" scope="request">
 							<c:param name="boardCode">${board.boardCode}</c:param>
 							<c:param name="postPassword">${board.postPassword}</c:param>
 						</c:url>	
 					<td id="boardTitleAction"  onmouseover="style.color='gray'"  onclick="location='${boardTitle}'">
-						
-						${board.boardTitle}
-						<%-- <form action="boardCheck.do" method="get">
-						<input type="submit" value="${board.boardTitle}">
+						 --%>
+						<td id="boardTitleAction"  onmouseover="style.color='gray'"  onclick="location='${board.boardTitle}'" >
+					<%--${board.boardTitle}--%>						 
+						<f:form action="boardCheck.do" method="post" commandName="qnA">
+						<input type="submit" name="boardTitle" value="${board.boardTitle}">
 						<input type="hidden" name="boardCode" value="${board.boardCode}">
-						<input type="hidden" name="postPassword" value="${board.postPassword}"> --%>
+						<input type="hidden" name="postPassword" value="${board.postPassword}">
+						<input type="hidden" name="cstCode" value="${board.cstCode}">
+						<input type="hidden" name="qnaReply" value="${board.qnaReply}">
+						<input type="hidden" name="boardDate" value="${board.boardDate}">
+						<input type="hidden" name="replyCount" value="${board.replyCount}">
+						<!-- 윗 부분이 없다면 전달 받은 변수들이 다시 컨트롤러로 가지 못하게 된다 위의 구문들이 변수를 가지고
+						있다가 다시 컨트롤러로 변수를 전달해주는 그릇 역활을 하게 한다. -->
 						<!-- 보드의 제목을 클릭하게 되면 히든 타입으로 글번호가  보드체크를 따라 
 						컨트롤로 간다 -->
-						</form>	
+						</f:form>	
 					</td>
 					<!-- 제목 -->
-					<td width="80"><font size="2">${board.boardDate}</font></td>
+					<td width="80"><font size="2">${board.boardDate}</font></td>	
 					<!-- 작성자 -->
 					<td width="85"><font size="2">${board.cstId}</font></td>
 					<!-- 작성일 -->

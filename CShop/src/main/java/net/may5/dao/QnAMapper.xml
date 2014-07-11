@@ -9,7 +9,7 @@ select * from QnA
 </select>
 
 <select id="qnaGetList2" resultType="QnA">
-select	Q.boardTitle, Q.boardDate, Q.postPassword, Q.boardCode boardCode, C.cstId
+select	Q.boardTitle, Q.boardDate, Q.postPassword, Q.boardCode,Q.qnaReply, Q.replyCount, C.cstId, C.cstCode
 from 	QnA Q inner join Customer C
 on 		Q.cstCode = C.cstCode
 ORDER 	BY boardCode DESC

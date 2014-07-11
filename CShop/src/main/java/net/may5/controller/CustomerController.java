@@ -19,9 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
+@SessionAttributes(types=Customer.class)
 public class CustomerController {
 	
 	@Autowired
@@ -153,20 +156,25 @@ public class CustomerController {
 	}
 	
 	/* 회원정보수정 입력폼으로 이동 */
-	@RequestMapping("modifyInfoForm.do")
-	public String modifyInfoForm(Model model, @RequestParam String zipCode){
-		Customer customer = new Customer();
-		model.addAttribute("customer", customer);
+	@RequestMapping(value="modifyInfoForm.do", method=RequestMethod.POST)
+	public String modifyInfoForm(Model model, @RequestParam int cstCode,
+			@RequestParam String zipCode){
+		model.addAttribute("customer", customerService.loginCstInfo(cstCode));
 		model.addAttribute("zip", customerService.searchCstZip(zipCode));
 		return "cst/membership/modifyInfoForm";
 	}
 	
 	@RequestMapping("modifyInfoProcess.do")
-	public String modifyInfoProcess(Model model){
-		Customer customer = new Customer();
-		model.addAttribute("customer", customer);
-		return "cst/membership/modifyInfoForm";
+	public ModelAndView modifyInfoProcess(@ModelAttribute Customer customer,
+			@RequestParam String zipCode){
+		ModelAndView model = new ModelAndView();
+		customerService.modifyCstInfo(customer);
+		customerService.searchCstZip(zipCode);
+		model.setViewName("cst/membership/modifyInfoForm");
+		System.out.println("우편정보"+customerService.searchCstZip(zipCode));
+		return model;
 	}
+	
 	
 	/* 회원탈퇴 입력폼으로 이동 */
 	@RequestMapping("deleteMemberInfoForm.do")

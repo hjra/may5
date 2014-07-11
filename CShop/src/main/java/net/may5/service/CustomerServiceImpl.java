@@ -73,4 +73,14 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerMapper.searchCstZip(zipCode);
 	}
 
+	@Override
+	public void modifyCstInfo(Customer customer) {
+		customerMapper.modifyCstInfo(customer);
+	}
+
+	@Override
+	public Customer loginCstInfo(int cstCode) {
+		return customerMapper.loginCstInfo(cstCode);
+	}
+
 }
