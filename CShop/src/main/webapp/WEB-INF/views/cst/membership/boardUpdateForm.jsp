@@ -32,7 +32,7 @@
 					<td></td>
 					<td align="right">
 					<input type="submit" onclick="document.location='boardUpdate.do'" value="수정 완료" class="redBtn">
-					<input type="button" value="취소" onclick="document.location='boardList.do'"></td>
+					<input type="button" value="취소" onclick="document.location='board.do'"></td>
 				</tr>
 
 			</table>

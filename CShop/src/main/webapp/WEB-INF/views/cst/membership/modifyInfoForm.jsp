@@ -18,7 +18,8 @@
 .row_input {width:400px; display: inline-block;}
 </style>
 
-개인정보 확인 및 수정 폼 zipKeyword: ${zip.zipKeyword}
+개인정보 확인 및 수정 폼<br>
+zipKeyword: ${zip.zipKeyword}
 <br><br><br>
 <div>
 <f:form id="form" method="post" commandName="customer">
