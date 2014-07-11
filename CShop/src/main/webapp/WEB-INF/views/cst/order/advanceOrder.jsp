@@ -58,14 +58,16 @@
 			<p>
 				<input type="reset" value="재입력"/>
 				<input type="button" onclick="javascript:history.back(-1)" value="이전"/>
-				<input type="submit" value="다음"/>
-				<c:choose>
-					<c:when test="${sessionScope.cstLogin.cstId == null}">
-					</c:when>
-					<c:otherwise>
-						<input type="hidden" value="${sessionScope.cstLogin.cstId}" name="cstId">
-					</c:otherwise>
-				</c:choose>
+					<c:choose>
+						<c:when test="${sessionScope.cstLogin.cstId == null}">
+							<input type="hidden" value="${sessionScope.cstLogin.cstId}" name="cstId">
+						</c:when>
+						<c:otherwise>
+							<input type="hidden" value="${sessionScope.cstLogin.cstId}" name="cstId">
+						</c:otherwise>
+					</c:choose>
+				<input type="submit" value="다음">
+					
 			</p>
 	</fieldset>
 </f:form>
