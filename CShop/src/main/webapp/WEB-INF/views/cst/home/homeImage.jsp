@@ -19,7 +19,7 @@
 		<div class="order">
 			<h1>ORDER</h1>
 			<a href="advanceOrder.do">ORDER</a>
-			<a href="orderSearch.do">ORDERSEARCH</a>
+			<a href="orderList.do">ORDERSEARCH</a>
 		
 		</div>
 		<div class="about.do">

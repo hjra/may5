@@ -1,66 +1,66 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page session="true" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link href="/CShop/resources/css/dlvNotice.css" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=2">
+<link href="/CShop/resources/css/orderNotice.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="/CShop/resources/js/web.js"></script>
-	알리미
-	<br>
-	<f:form action="dlvmImage.do" method="post">
-	<select name="dcategory">
-			<option value="all">모두</option>
-			<option value="orderCode">주문번호</option>
-			<option value="cstId">고객아이디</option>
-		</select>
-	<input type="text" name="ordersearch" value="cstId">
-		<input type="submit" value="조회" />
+<script src="/CShop/resources/js/dlvNotice.js"></script>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<title>Insert title here</title>
+<div id="alimimain">
+	<div id="alimi">알리미 수정 중이에요~</div>
+	<div id="forma">
+		<f:form action="levelCodeSearch.do" method="post">
+			<select name="dcategory">
+				<option value="levelCode">고객등급</option>
+				<option value="orderNumber">주문번호</option>
+				<option value="cstId">고객아이디</option>
+			</select>
+			<input id="alimisearch" type="text" name="searchText">
+			<input id="alimibutton" type="submit" value="Search"/>
 		</f:form>
+	</div>
+ 	<div id="listname"><div id="l1">번호</div>
+						<div id="l2">고객등급</div>
+						<div id="l3">회원아이디</div>
+						<div id="l4">주문번호</div>
+						<div id="l7">확인</div>
+						<div id="l8">이미지</div>
+						<div id="l5">메세지</div>
+						<div id="l6">전송</div>
+	</div> 
+	
+	<c:forEach var="orders" varStatus="status" items="${alimilist}">
 
-	<table class="board" border="1" cellspacing="0"  >
-
-		<caption></caption>
-		<colgroup>
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
-			<col width="15%">
-			<col width="10%">
-			<col width="70px">
-			<col width="50%">
-			<col width="70px">
-		</colgroup>
-		<thead>
-			<tr>
-				<th scope="col">번호</th>
-				<th scope="col">고객등급</th>
-				<th scope="col">아이디</th>
-				<th scope="col">주문번호</th>
-				<th scope="col">확인</th>
-				<th scope="col">이미지</th>
-				<th scope="col">메세지</th>
-				<th scope="col">전송</th>
-			</tr>
-		</thead>
-		<tbody>
-		<c:forEach var="orders" items="${alimilist}">
-			<tr>
-				<td class="dnumber" >번호 </td>
-				<td class="dlevelCode">${orders.levelCode}</td>
-				<td class="dcstId">${orders.cstId}</td>
-				<td class="dorderCode">${orders.orderCode}${orders.orderDate}${orders.sameTimeCount}${orders.itemId}</td>
-				<td class="dceck">확인</td>
-				<td id="dImg"><input type="button"
-					value="불러오기" style="width: 90%; height: 23px;"></td>
-				<td class="dnoticeComment">메세지  ${orders.noticeComment}</td>
-				<td id="dsend"><input type="button"
-					value="보냄" style="width: 80%; height: 22px;"></td>
-			</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-	<a href="loginForm.do">loginForm으로~</a>
+		<div id="am">
+			<div id="a1" title="번호">
+				<div id="apa">누구세요?</div>
+				<div id="ap">${status.count}</div>
+				<div id="aa1">
+					<div id="aaq1">${orders.levelCode}</div>
+					<div id="aaq2">${orders.cstId}</div>
+					<div id="aaq3">${fn:replace(orders.orderDate,'-','')}${orders.sameTimeCount}${orders.itemId}</div>
+				</div>
+			</div>
+			<div id="a2" title="고객등급">${orders.levelCode}</div>
+			<div id="a3" title="회원아이디">${orders.cstId}</div>
+			<div id="a4" title="주문번호">${fn:replace(orders.orderDate,'-','')}${orders.sameTimeCount}${orders.itemId}</div>
+			<div id="a7" title="주문번호">확인</div>
+			<div id="a8" title="주문번호">이미지</div>
+			<div id="a5" title="메세지">${orders.noticeComment}</div>
+			<div id="a6" title="취소버튼">
+				<input id="a6send" type="button" value="보냄" />
+			</div>
+			<div id="aa"></div>
+		</div>
 
 
+	</c:forEach>
 
-
+	<div id="form">
+		<a href="mngLoginForm.do">loginForm으로~</a>
+	</div>
+</div>

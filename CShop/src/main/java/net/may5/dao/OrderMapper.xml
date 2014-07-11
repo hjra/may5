@@ -53,22 +53,84 @@
 		select * from optionPrice
 	</select>
 	
+	
+	
+	<!-- 주문내역 -->
+	<select id="getOrderList" resultType="Orders">
+		select ITEM.*, ORDERS.*,
+		to_char(ORDERS.ORDERDATE,'YYYYMMDDHHMI')||ORDERS.SAMETIMECOUNT||ITEM.ITEMID
+		orderNumber
+		from Orders inner join Item on ORDERS.itemid = ITEM.itemid
+	</select>
+	
+	<select id="getorderDateSearch" parameterType="map" resultType="Orders">
+		select ITEM.*, ORDERS.*,
+		to_char(ORDERS.ORDERDATE,'YYYYMMDDHHMI')||ORDERS.SAMETIMECOUNT||ITEM.ITEMID
+		orderNumber
+		from Orders inner join Item on ORDERS.ITEMID = ITEM.ITEMID
+		where TRUNC(ORDERS.ORDERDATE)=to_date(#{orderDate}, 'YYYYMMDD')
+	</select>
+	
+	<select id="getOrderlNumberSearch" parameterType="map" resultType="Orders">
+		select ITEM.*, ORDERS.*,
+		to_char(ORDERS.ORDERDATE,'YYYYMMDDHHMI')||ORDERS.SAMETIMECOUNT||ITEM.ITEMID
+		orderNumber
+		from Orders inner join Item on ORDERS.ITEMID = ITEM.ITEMID
+		where TRUNC(ORDERS.ORDERDATE)=to_date(#{orderDate}, 'YYYYMMDD') and ORDERS.SAMETIMECOUNT=#{sameTimeCount} and
+		ITEM.ITEMID=#{itemId}
+	</select>
+
+	<select id="getitemNameSearch" parameterType="String" resultType="Orders">
+		select ITEM.*, ORDERS.*,
+		to_char(ORDERS.ORDERDATE,'YYYYMMDDHHMI')||ORDERS.SAMETIMECOUNT||ITEM.ITEMID
+		orderNumber
+		from Orders inner join Item on ORDERS.itemid = ITEM.itemid
+		where ITEM.ITEMNAME=#{itemName}
+	</select>
+	
+	
 	<!-- 관리자페이지↓ -->
 	<!-- 알리미 -->
 	<select id="getAlimiList" resultType="Orders">
-		select * from orders,
-		customer
+		select CUSTOMER.*, ORDERS.*,
+		to_char(ORDERS.ORDERDATE,'YYYYMMDDHHMI')||ORDERS.SAMETIMECOUNT||ITEM.ITEMID
+		orderNumber
+		from Orders inner join Item on ORDERS.ITEMID = ITEM.ITEMID
+		inner join Customer on ORDERS.CSTCODE = CUSTOMER.CSTCODE
+	</select>
+	
+	<select id="getLevelCodeSearch" parameterType="String" resultType="Orders">
+		select CUSTOMER.*, ORDERS.*,
+		to_char(ORDERS.ORDERDATE,'YYYYMMDDHHMI')||ORDERS.SAMETIMECOUNT||ITEM.ITEMID
+		orderNumber
+		from Orders inner join Item on ORDERS.ITEMID = ITEM.ITEMID
+		inner join Customer on ORDERS.CSTCODE = CUSTOMER.CSTCODE
+		where upper(LEVELCODE) LIKE '%'||upper(#{levelCode})||'%'
 	</select>
 
-	<select id="getOrderList" resultType="Orders">
-		select * from orders,
-		customer
+	<select id="getOrderNumberSearch" parameterType="map" resultType="Orders">
+		select CUSTOMER.*, ORDERS.*,
+		to_char(ORDERS.ORDERDATE,'YYYYMMDDHHMI')||ORDERS.SAMETIMECOUNT||ITEM.ITEMID
+		orderNumber
+		from Orders inner join Item on ORDERS.ITEMID = ITEM.ITEMID
+		inner join Customer on ORDERS.CSTCODE = CUSTOMER.CSTCODE
+		where TRUNC(ORDERS.ORDERDATE)=to_date(#{orderDate}, 'YYYYMMDD') and ORDERS.SAMETIMECOUNT=#{sameTimeCount} and
+		ITEM.ITEMID=#{itemId}
 	</select>
 
-	<select id="orderList" parameterType="int" resultType="Orders">
-		select * from orders,
-		customer where orderDate  = #{orderDate}
+	<select id="getCstIdSearch" parameterType="String" resultType="Orders">
+		select CUSTOMER.*, ORDERS.*,
+		to_char(ORDERS.ORDERDATE,'YYYYMMDDHHMI')||ORDERS.SAMETIMECOUNT||ITEM.ITEMID
+		orderNumber
+		from Orders inner join Item on ORDERS.ITEMID = ITEM.ITEMID
+		inner join Customer on ORDERS.CSTCODE = CUSTOMER.CSTCODE
+		where upper(CSTID) LIKE '%'||upper(#{cstId})||'%'
 	</select>
+	
+	
+	
+	
+	
 	<!-- 주문관리 -->
 	<select id="getOrderListMng" resultType="Orders">
 		select * from Orders A 

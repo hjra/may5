@@ -4,13 +4,13 @@ import java.util.List;
 
 import net.may5.dao.OrderMapper;
 import net.may5.dto.Customer;
-import net.may5.dto.OptionPrice;
+
 import net.may5.dto.Orders;
 import net.may5.dto.Payment;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
 
 @Service("orderService")
 public class OrderServiceImpl implements OrderService {
@@ -23,12 +23,6 @@ public class OrderServiceImpl implements OrderService {
 	
 	public List<Orders> getOrderList() {
 		return orderMapper.getOrderList();
-	}
-	
-	@Transactional
-	public Orders orderList(int orderDate) {
-		Orders orders = orderMapper.orderList(orderDate);
-		return orders;
 	}
 
 	@Override
@@ -98,6 +92,41 @@ public class OrderServiceImpl implements OrderService {
 		
 		return orderMapper.getOptionCard();
 	}*/
+
+	
+	
+	/*알리미*/
+	@Override
+	public List<Orders> getLevelCodeSearch(String levelCode) {
+		return orderMapper.getLevelCodeSearch(levelCode); // levelCode로 조회하기
+	}
+
+	@Override
+	public List<Orders> getCstIdSearch(String cstId) {
+		return orderMapper.getCstIdSearch(cstId); // cstId로 조회하기
+	}
+
+	@Override
+	public List<Orders> getOrderNumberSearch(String orderDate, String sameTimeCount , String itemId) {
+		return orderMapper.getOrderNumberSearch( orderDate,  sameTimeCount ,   itemId); // orderNumber로 조회하기
+	}
+
+	
+	/*주문내역*/
+	@Override
+	public List<Orders> getorderDateSearch(String orderDate) {
+		return orderMapper.getorderDateSearch(orderDate); // orderDate로 조회하기
+	}
+
+	@Override
+	public List<Orders> getitemNameSearch(String itemName) {
+		return orderMapper.getitemNameSearch(itemName); // itemName로 조회하기
+	}
+	
+	@Override
+	public List<Orders> getOrderlNumberSearch(String orderDate, String sameTimeCount , String itemId) {
+		return orderMapper.getOrderlNumberSearch( orderDate,  sameTimeCount ,   itemId); // orderNumber로 조회하기
+	}
 
 	
 

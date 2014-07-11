@@ -50,6 +50,13 @@ public class Orders {
 	private int price;					// 가격
 	private int itemCnt; //중복된 아이템 카운트
 	
+	/*상세정보db가져오기*/
+	private String cstName;					// 이름
+	private String cstCP;					// 휴대폰번호
+	private String cstEmail;				// E-mail
+	
+	
+	
 	public String getOrderCode() {
 		return orderCode;
 	}
@@ -302,6 +309,51 @@ public class Orders {
 	public void setItemCnt(int itemCnt) {
 		this.itemCnt = itemCnt;
 	}
+	public String getCstName() {
+		return cstName;
+	}
+	public void setCstName(String cstName) {
+		this.cstName = cstName;
+	}
+	public String getCstCP() {
+		return cstCP;
+	}
+	public void setCstCP(String cstCP) {
+		this.cstCP = cstCP;
+	}
+	public String getCstEmail() {
+		return cstEmail;
+	}
+	public void setCstEmail(String cstEmail) {
+		this.cstEmail = cstEmail;
+	}
+	
+	@Override
+	public String toString() {
+		return "Orders [orderCode=" + orderCode + ", orderDate=" + orderDate
+				+ ", sameTimeCount=" + sameTimeCount + ", payCode=" + payCode
+				+ ", payType=" + payType + ", optionCode=" + optionCode
+				+ ", optionType=" + optionType + ", optionPrice=" + optionPrice
+				+ ", dlvChargeCode=" + dlvChargeCode + ", dlvCharge="
+				+ dlvCharge + ", noticeCode=" + noticeCode + ", orderAmount="
+				+ orderAmount + ", pointCode=" + pointCode + ", zipCode="
+				+ zipCode + ", zipNumber=" + zipNumber + ", sido=" + sido
+				+ ", sigungu=" + sigungu + ", dongubmyon=" + dongubmyon
+				+ ", doromyong=" + doromyong + ", buildingNum1=" + buildingNum1
+				+ ", buildingNum2=" + buildingNum2 + ", sigunguBuildingName="
+				+ sigunguBuildingName + ", dong=" + dong + ", li=" + li
+				+ ", jibunNum1=" + jibunNum1 + ", jibunNum2=" + jibunNum2
+				+ ", orderDetailAddress=" + orderDetailAddress
+				+ ", receiverName=" + receiverName + ", receiverCP="
+				+ receiverCP + ", stockAmount=" + stockAmount
+				+ ", receiverPhone=" + receiverPhone + ", dlvEndDate="
+				+ dlvEndDate + ", sizeCode=" + sizeCode + ", cstCode="
+				+ cstCode + ", noticeComment=" + noticeComment + ", noticeImg="
+				+ noticeImg + ", itemId=" + itemId + ", cstId=" + cstId
+				+ ", levelCode=" + levelCode + ", itemName=" + itemName
+				+ ", price=" + price + ", itemCnt=" + itemCnt + ", cstName="
+				+ cstName + ", cstCP=" + cstCP + ", cstEmail=" + cstEmail + "]";
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -310,8 +362,12 @@ public class Orders {
 				+ ((buildingNum1 == null) ? 0 : buildingNum1.hashCode());
 		result = prime * result
 				+ ((buildingNum2 == null) ? 0 : buildingNum2.hashCode());
+		result = prime * result + ((cstCP == null) ? 0 : cstCP.hashCode());
 		result = prime * result + ((cstCode == null) ? 0 : cstCode.hashCode());
+		result = prime * result
+				+ ((cstEmail == null) ? 0 : cstEmail.hashCode());
 		result = prime * result + ((cstId == null) ? 0 : cstId.hashCode());
+		result = prime * result + ((cstName == null) ? 0 : cstName.hashCode());
 		result = prime * result + dlvCharge;
 		result = prime * result + dlvChargeCode;
 		result = prime * result
@@ -376,6 +432,7 @@ public class Orders {
 				+ ((zipNumber == null) ? 0 : zipNumber.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -395,15 +452,30 @@ public class Orders {
 				return false;
 		} else if (!buildingNum2.equals(other.buildingNum2))
 			return false;
+		if (cstCP == null) {
+			if (other.cstCP != null)
+				return false;
+		} else if (!cstCP.equals(other.cstCP))
+			return false;
 		if (cstCode == null) {
 			if (other.cstCode != null)
 				return false;
 		} else if (!cstCode.equals(other.cstCode))
 			return false;
+		if (cstEmail == null) {
+			if (other.cstEmail != null)
+				return false;
+		} else if (!cstEmail.equals(other.cstEmail))
+			return false;
 		if (cstId == null) {
 			if (other.cstId != null)
 				return false;
 		} else if (!cstId.equals(other.cstId))
+			return false;
+		if (cstName == null) {
+			if (other.cstName != null)
+				return false;
+		} else if (!cstName.equals(other.cstName))
 			return false;
 		if (dlvCharge != other.dlvCharge)
 			return false;
@@ -564,31 +636,11 @@ public class Orders {
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		return "Orders [orderCode=" + orderCode + ", orderDate=" + orderDate
-				+ ", sameTimeCount=" + sameTimeCount + ", payCode=" + payCode
-				+ ", payType=" + payType + ", optionCode=" + optionCode
-				+ ", optionType=" + optionType + ", optionPrice=" + optionPrice
-				+ ", dlvChargeCode=" + dlvChargeCode + ", dlvCharge="
-				+ dlvCharge + ", noticeCode=" + noticeCode + ", orderAmount="
-				+ orderAmount + ", pointCode=" + pointCode + ", zipCode="
-				+ zipCode + ", zipNumber=" + zipNumber + ", sido=" + sido
-				+ ", sigungu=" + sigungu + ", dongubmyon=" + dongubmyon
-				+ ", doromyong=" + doromyong + ", buildingNum1=" + buildingNum1
-				+ ", buildingNum2=" + buildingNum2 + ", sigunguBuildingName="
-				+ sigunguBuildingName + ", dong=" + dong + ", li=" + li
-				+ ", jibunNum1=" + jibunNum1 + ", jibunNum2=" + jibunNum2
-				+ ", orderDetailAddress=" + orderDetailAddress
-				+ ", receiverName=" + receiverName + ", receiverCP="
-				+ receiverCP + ", stockAmount=" + stockAmount
-				+ ", receiverPhone=" + receiverPhone + ", dlvEndDate="
-				+ dlvEndDate + ", sizeCode=" + sizeCode + ", cstCode="
-				+ cstCode + ", noticeComment=" + noticeComment + ", noticeImg="
-				+ noticeImg + ", itemId=" + itemId + ", cstId=" + cstId
-				+ ", levelCode=" + levelCode + ", itemName=" + itemName
-				+ ", price=" + price + ", itemCnt=" + itemCnt + "]";
-	}
+	
+	
+	
+	
+	
 	
 	
 }

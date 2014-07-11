@@ -24,6 +24,47 @@ public class OrderController {
 	private OrderService orderService;
 	
 	/** 고객페이지 ↓ */
+	/*주문내역*/
+	@RequestMapping("orderList.do")
+	public ModelAndView orderList() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("cst/order/orderList");
+		List<Orders> orderlist = orderService.getOrderList();
+		model.addObject("orderlist", orderlist);
+		return model;
+	}
+	
+	
+	@RequestMapping(value = "orderlistSearch.do", method = RequestMethod.POST)
+	public String orderCategory(Model model, @RequestParam String searchOrder,
+			HttpServletRequest request) {
+		
+		String ocategory = request.getParameter("ocategory");
+		// String searchText = request.getParameter("searchOrder");
+		System.out.println("ocategory: " + ocategory);
+		System.out.println("searchOrder: " + searchOrder);
+		List<Orders> orders = null;
+		/* String temp=null; */
+		if (ocategory.equals("orderDate")) {
+			orders = orderService.getorderDateSearch(searchOrder);
+		} else if (ocategory.equals("orderNumber")) {
+			orders = orderService.getOrderlNumberSearch(
+					searchOrder.substring(0, 8), 
+					searchOrder.substring(8, 10),
+					searchOrder.substring(10, 15));
+		} else if (ocategory.equals("itemName")) {
+			orders = orderService.getitemNameSearch(searchOrder);
+		} else {
+			System.out.println("오류");
+		}
+		model.addAttribute("orderlist", orders);
+		return "cst/order/orderList";
+	}
+	
+	
+	
+	
+	
 	/* 예약주문 */
 	@RequestMapping("advanceOrder.do")
 	public String advanceOrder(HttpServletRequest request, Model model, String cstLogin, String cstId) {
@@ -68,20 +109,7 @@ public class OrderController {
 		
 		return "redirect:/advanceOrder.do";
 	}*/
-	
-	
-	/*주문내역*/
-	@RequestMapping("orderList.do")
-	public ModelAndView orderList() {
-		ModelAndView model = new ModelAndView();
-		model.setViewName("cst/order/orderList");
-		List<Orders> orderList = orderService.getOrderList();
-		model.addObject("orderList", orderList);
-		
-		/*model.addObject("orderList",orderService.getOrderList());*/
-		
-		return model;
-	}
+
 	
 	/*주문검색*/
 	@RequestMapping("orderSearch.do")
@@ -90,13 +118,6 @@ public class OrderController {
 		model.setViewName("/cst/order/orderSearch");
 		return model;
 	}
-	/*주문검색내역*/
-	@RequestMapping(value = "orderList.do", method = RequestMethod.GET)
-	public String orderList(@RequestParam int orderDate, Model model) {
-		model.addAttribute("orders", orderService.orderList(orderDate));
-		return "/cst/order/orderList";
-	}
-	
 	
 	
 	/** 관리자페이지↓ */
@@ -109,6 +130,8 @@ public class OrderController {
 		return model;
 	}
 	
+	
+	
 	/*알리미리스트*/
 	@RequestMapping("dlvNotice.do")
 	public ModelAndView alimiList() {
@@ -119,6 +142,33 @@ public class OrderController {
 		return model;
 	}
 	
+	
+	/*알리미리스트*/
+	@RequestMapping(value = "levelCodeSearch.do", method = RequestMethod.POST)
+	public String alimiCategory(Model model, @RequestParam String searchText,
+			HttpServletRequest request) {
+
+		String dcategory = request.getParameter("dcategory");
+		// String searchText = request.getParameter("searchText");
+		System.out.println("dcategory: " + dcategory);
+		System.out.println("searchText: " + searchText);
+		List<Orders> orders = null;
+		/* String temp=null; */
+		if (dcategory.equals("levelCode")) {
+			orders = orderService.getLevelCodeSearch(searchText);
+		} else if (dcategory.equals("orderNumber")) {
+			orders = orderService.getOrderNumberSearch(
+					searchText.substring(0, 8), 
+					searchText.substring(8, 10),
+					searchText.substring(10, 15));
+		} else if (dcategory.equals("cstId")) {
+			orders = orderService.getCstIdSearch(searchText);
+		} else {
+			System.out.println("오류");
+		}
+		model.addAttribute("alimilist", orders);
+		return "mng/deliveryMng/dlvNotice";
+	}
 	
 
 	
