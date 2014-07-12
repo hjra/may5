@@ -9,6 +9,7 @@ import net.may5.dto.Customer;
 import net.may5.service.CustomerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.session.HttpSessionCreatedEvent;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;

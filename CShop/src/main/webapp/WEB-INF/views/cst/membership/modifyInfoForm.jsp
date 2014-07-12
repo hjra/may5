@@ -20,7 +20,7 @@
 
 개인정보 확인 및 수정 폼<br>
 <div>
-<f:form id="form" method="post" commandName="cstLogin">
+<f:form id="form" method="post" commandName="cstLogin" onkeypress="return event.keyCode!=13">
 	<div class="row_group">
 		<div id="idDiv">
 			<div class="row_text">
@@ -112,7 +112,7 @@
 			</div>
 			<div id="zipCodeDiv"></div>
 				<input type="text" id="scZipText" placeholder="ADDRESS" value="${zip.zipKeyword}" class="row_input"
-					onkeydown="if (event.keyCode == 13) document.getElementById('scZipBtn').click()">
+				onkeydown="if (event.keyCode == 13) document.getElementById('scZipBtn').click()" >
 				<input type="button" id="scZipBtn" value="SEARCH">
 				<div id="scZipCheck"></div>
 				<div id="zipInfoDiv" style="width: 100%; height: 100px; overflow: auto; display: none;">
