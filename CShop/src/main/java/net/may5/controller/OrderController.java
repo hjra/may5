@@ -9,6 +9,7 @@ import net.may5.dto.Orders;
 import net.may5.service.OrderService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,7 +37,8 @@ public class OrderController {
 	/* 주문상세 */
 	@RequestMapping("orderDetail.do")
 	public String orderDetail( Model model,  String cstId){
-		
+		Orders orders = new Orders();
+		model.addAttribute("orders", orders);
 		model.addAttribute("cstExistingInfo",orderService.getCstExistingInfo(cstId));
 		return "cst/order/orderDetail";
 	}
