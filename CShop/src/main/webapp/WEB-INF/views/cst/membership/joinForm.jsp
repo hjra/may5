@@ -6,7 +6,7 @@
 
 회원가입 입력폼
 <br>
-<f:form action="joinOk.do" method="Post" commandName="customer">
+<f:form action="joinOk.do" method="Post" commandName="customer" onkeypress="return event.keyCode!=13">
 	<div class="row_group">
 		<div id="idDiv">
 			<f:input path="cstId" placeholder="USER ID" id="cstId" />
