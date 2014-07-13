@@ -25,24 +25,38 @@
 
 <div class="row-fluid">
 	<form id="deleteForm" method="post" action="menuItemDelete.do">
-		<ul class="menu-list">
-		<li class="cake title">
-			<label>1호 케익입니다.</label>
-		</li>
-			<c:forEach var="item" items="${itemList}" varStatus="status">
-				<li class="cake">
-					<input type="hidden" value="${status.index }">
-					<img onclick="location.href='menuInfo.do?itemId=${item.itemId}'" src="/CShop/resources/img/cake/${item.itemId}1.png" alt="대표이미지" style="width: 150px">
-					<a href="menuInfoMng.do?itemId=${item.itemId}">${item.itemName}</a>
-					<footer>
-						<label>
-							<input type="checkbox" name="deleteItem" value="${item.itemId }" /> 
-							<span>${item.itemName}</span>
-						</label>
-					</footer>	
-		 		</li>
-			</c:forEach>
-		</ul>
+		<c:forEach var="list" items="${collection}" varStatus="status">
+			<ul class="menu-list">
+				<li class="cake title">
+					<c:choose>
+						<c:when test="${status.index < 4}">
+							<label>${status.index + 1}호 케익입니다.</label>						
+						</c:when>
+						<c:otherwise>
+							<label>기타 사이즈 입니다.</label>
+						</c:otherwise>
+					</c:choose>
+				</li>
+				<c:forEach var="item" items="${list}">
+					<li class="cake">
+						<img onclick="location.href='menuModifyMng.do?itemId=${item.itemId}'" src="/CShop/resources/img/cake/${item.itemId}1.png" alt="대표이미지" style="width: 150px">
+						<a href="menuModifyMng.do?itemId=${item.itemId}">${item.itemName}</a>
+						<c:choose>
+							<c:when test="${item.sticker == 1}">S.BEST</c:when>
+							<c:when test="${item.sticker == 2}">S.SPECIAL</c:when>
+							<c:when test="${item.sticker == 3}">S.SALE</c:when>
+						</c:choose>
+						
+						<footer>
+							<label>
+								<input type="checkbox" name="deleteItem" value="${item.itemId }" /> 
+								<span>${item.itemName}</span>
+							</label>
+						</footer>	
+			 		</li>
+				</c:forEach>
+			</ul>
+		</c:forEach>
 	</form>
 	<img id="imgid" src="${pageContext.request.contextPath}/resources/newImage/${fileName}" />
 	

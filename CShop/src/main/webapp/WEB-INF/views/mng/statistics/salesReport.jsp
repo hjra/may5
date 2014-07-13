@@ -17,7 +17,7 @@ $(function () {
             text: ' C# :: Cake Shop'
         },
         xAxis: {
-            categories: ['9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+            categories: ['09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
         },
         yAxis: {
             title: {
@@ -43,43 +43,6 @@ $(function () {
 });
 
 
-$(function () {
-        $('#container2').highcharts({
-            chart: {
-                type: 'line'
-            },
-            title: {
-                text: '요일별 매출분석'
-            },
-            subtitle: {
-                text: ' C# :: Cake Shop'
-            },
-            xAxis: {
-                categories: ['월', '화', '수', '목', '금', '토', '일']
-            },
-            yAxis: {
-                title: {
-                    text: '개'
-                }
-            },
-            plotOptions: {
-                line: {
-                    dataLabels: {
-                        enabled: true
-                    },
-                    enableMouseTracking: false
-                }
-            },
-            series: [{
-                name: '이번 주',
-                data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2]
-            }, {
-                name: 'Average',
-                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0]
-            }]
-        });
-    });
-    
     
 $(function () {
 
@@ -148,10 +111,6 @@ $(function () {
 <br><br><br><br>
 
 <div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
-<br><br><br><br>
-
-<div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
 <br><br><br><br>
 

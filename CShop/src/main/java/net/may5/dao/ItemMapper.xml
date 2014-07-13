@@ -79,6 +79,13 @@
 			values(#{ITEMID}, #{ITEMNAME}, #{ITEMCALORIE}, #{ITEMINFO}, #{ITEMIMG1}, #{ITEMIMG2}, #{ITEMIMG3}, #{ITEMIMG4}, #{STICKER}, #{PRICE})
 		</select>
 		
+	
+		
+		<update id="modifyItem">
+			update item set itemName=#{ITEMNAME}, itemCalorie=#{ITEMCALORIE}, itemInfo= #{ITEMINFO}, itemImg1=#{ITEMIMG1}, itemImg2=#{ITEMIMG2}, itemImg3=#{ITEMIMG3}, itemImg4=#{ITEMIMG4}, sticker=#{STICKER}, price=#{PRICE}
+   		   WHERE itemId = #{itemId}
+		</update>
+		
 		<select id="deleteItem" parameterType="String">
 			delete from item where itemId = #{deleteItemId}
 		</select>

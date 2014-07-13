@@ -1,6 +1,8 @@
 package net.may5.controller;
 
-import java.sql.Date;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 import net.may5.service.SttService;
 
@@ -25,14 +27,23 @@ public class SttController {
 		int getCustomerResCount=getCustomerCount-getDCustomerCount;
 		model.addAttribute("getCustomerResCount", getCustomerResCount);
 		model.addAttribute("getDailyCountForMenu", sttService.getDailyCountForMenu());
-		
 		return "mng/statistics/dailyReport";
 	}
 	/* 판매분석 */
 	@RequestMapping(value="orderReport.do")
-	public String orderReport(Model model, Date thisDay){
+	public String orderReport(Model model, String orderDate){
+		if (orderDate == null) {
+			String today = (new SimpleDateFormat("YYYY-MM-dd", Locale.KOREA))
+					.format(new Date()).substring(0, 10);
+			System.out.println("today :: " + today);
+		}else{
+			model.addAttribute("paramDate", orderDate);
+	    	model.addAttribute("orderCountPerHour", sttService.orderCountPerHour(orderDate));
+			System.out.println("오더카운트퍼아우어::"+sttService.orderCountPerHour(orderDate));
+		}	
 		return "mng/statistics/orderReport";
 	}
+
 	/* 메뉴분석 */
 	@RequestMapping(value="menuReport.do")
 	public String rsvReport(Model model){
@@ -51,10 +62,11 @@ public class SttController {
 	
 	// 날짜선택 - 특정날짜를 선택!
     @RequestMapping(value="sttDatePicker.do")
-    public String datePicker(Date thisDay, Model model){
-    	System.out.println("데이트 피커쩜 두 :: 선택하신 날짜는 :: "+thisDay);
-    	model.addAttribute("orderCountPerHour", sttService.orderCountPerHour(thisDay));
-    	System.out.println(sttService.orderCountPerHour(thisDay));
+    public String datePicker(Date thisDay2, Model model){
+    	System.out.println("데이트 피커쩜 두 :: 선택하신 날짜는 :: "+thisDay2);
+//    	model.addAttribute("orderCountPerHour", sttService.orderCountPerHour(thisDay));
+//    	System.out.println(sttService.orderCountPerHour(thisDay));
+		model.addAttribute("thisDay", thisDay2);
     	return "mng/menuMng/orderReport";
     }
 	
