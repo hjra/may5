@@ -90,4 +90,10 @@ public class ItemServiceImpl implements ItemService {
 		public int getOrderListDailyCount(String orderDate) {
 			return itemMapper.getOrderListDailyCount(orderDate);
 		}
+
+		@Override
+		public void modifyItem(Map<String, String> insertParam) {
+			itemMapper.modifyItem(insertParam);
+			
+		}
 }

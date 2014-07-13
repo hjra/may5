@@ -1,35 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page session="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script src="http://code.highcharts.com/modules/heatmap.js"></script>
 <script>
 $(document)
-.on("click","#thisDay", function(){
+.on("click","#datePicker", function(){
 	location.href="sttDatePicker.do";
+})
+.on("click","#stockToZero",function(){
+	location.href="stockToZero.do";
 });
-
-jQuery(function(){
-	//
-	var paramDate = $("#thisDay").val();
-	if( !moment(paramDate).isValid() ){
-		$("#thisDay").val(moment().format("YYYY-MM-DD"));
-	}
-});
+ 
 </script>
-<form method="get" >
+
+<!-- 날짜선택, 마감작업 둘다 작동하도록    => itemController 에서 처리? 
+1. 특정 날짜 선택하면, 상품재고 목록이 나타나도록
+2. 마감버튼 클릭하면 상품재고가 0이 되도록-->
+
+시간별 판매수량 :: 
+${orderCountPerHour}
+<br><Br>
+<div id="perHourChartData" class="template">
+	<ul>
+		<c:forEach var="a" items="${orderCountPerHour}">
+		<li name="${a.a}">${a.b}</li>
+		</c:forEach>
+	</ul>
+</div>
+
+<form method="get">
 	<div class="row-fluid text-right">
 		<span>선택된날짜</span>
-		<input type="text"  placeholder="날짜를 선택해주세요" id="thisDay"  name="thisDay" class="date-picker"  value="${paramDate}" />
+		<input type="text" name="orderDate" placeholder="날짜를 선택해주세요" class="date-picker" id="thisDay" value="${paramDate}" />
 		<input type="submit" value="검색" />
 		<!-- <button id="stockToZero" class="btn btn-primary">마감</button> -->
 	</div>
 </form>
-시간별 판매수량::
-${orderCountPerHour}
 
 <script>
+var axisx = [];
+var axisy = [];
+// 0 시작시간 25 끝시간(-1)
+for(var i=0,l=25;i<l;i++){
+	axisx.push(i);
+	axisy.push(0);
+}
+$("#perHourChartData li").each(function(){
+	axisy[parseInt( $(this).attr("name") )] = parseInt($(this).text()); 
+});
+//
+
 $(function () {
     $('#container1').highcharts({
         chart: {
@@ -42,7 +66,7 @@ $(function () {
             text: ' C# :: Cake Shop'
         },
         xAxis: {
-            categories: ['9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+            categories:axisx
         },
         yAxis: {
             title: {
@@ -59,53 +83,16 @@ $(function () {
         },
         series: [{
             name: 'Today',
-            data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-        }, {
+            data: axisy
+        }/* , {
             name: 'Average',
             data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-        }]
+        } */]
     });
 });
 
 
-$(function () {
-        $('#container2').highcharts({
-            chart: {
-                type: 'line'
-            },
-            title: {
-                text: '요일별 판매수량'
-            },
-            subtitle: {
-                text: ' C# :: Cake Shop'
-            },
-            xAxis: {
-                categories: ['월', '화', '수', '목', '금', '토', '일']
-            },
-            yAxis: {
-                title: {
-                    text: '개'
-                }
-            },
-            plotOptions: {
-                line: {
-                    dataLabels: {
-                        enabled: true
-                    },
-                    enableMouseTracking: false
-                }
-            },
-            series: [{
-                name: '이번 주',
-                data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2]
-            }, {
-                name: 'Average',
-                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0]
-            }]
-        });
-    });
-    
-    
+
 $(function () {
 
     $('#container3').highcharts({
@@ -176,8 +163,5 @@ $(function () {
 
 <br><br><br><br>
 
-<div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
-<br><br><br><br>
 
 <div id="container3" style="height: 400px; min-width: 310px; max-width: 800px; margin: 0 auto"></div>

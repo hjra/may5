@@ -1,6 +1,5 @@
 package net.may5.service;
 
-import java.util.Date;
 import java.util.List;
 
 import net.may5.dto.OrderCount;
@@ -19,6 +18,6 @@ public interface SttService {
 
 	public int getCakeCount();
 
-	public List<OrderCount> orderCountPerHour(Date thisDay);
+	public List<OrderCount> orderCountPerHour(String orderDate);
 
 }

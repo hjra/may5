@@ -1,6 +1,5 @@
 package net.may5.service;
 
-import java.util.Date;
 import java.util.List;
 
 import net.may5.dao.SttMapper;
@@ -46,8 +45,8 @@ public class SttServiceImpl implements SttService {
 	}
 
 	@Override
-	public List<OrderCount> orderCountPerHour(Date thisDay) {
-		return sttMapper.orderCountPerHour(thisDay);
+	public List<OrderCount> orderCountPerHour(String orderDate) {
+		return sttMapper.orderCountPerHour(orderDate);
 	}
 
 	
