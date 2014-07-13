@@ -110,7 +110,9 @@
 			<div class="row_text">
 				ADDRESS
 			</div>
-			<div id="zipCodeDiv"></div>
+			<div id="zipCodeDiv">
+				<input type="hidden" name="zipCode" value="${cstLogin.zipCode}">
+			</div>
 				<input type="text" id="scZipText" placeholder="ADDRESS" value="${zip.zipKeyword}" class="row_input"
 				onkeydown="if (event.keyCode == 13) document.getElementById('scZipBtn').click()" >
 				<input type="button" id="scZipBtn" value="SEARCH">

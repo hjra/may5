@@ -3,6 +3,20 @@
 <%@ page session="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<link rel="stylesheet" type="text/css" href="http://w2ui.com/src/w2ui-1.4.min.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://w2ui.com/src/w2ui-1.4.min.js"></script>
+
+<br>
+총 회원 ${count}명 O: 비회원, C: 일반회원, V: VIP, B: 관심고객<br>
+<br>
+<div id="grid" style="width: 100%; height: 400px; overflow: hidden;"></div>
+<br>
+
+<script src="resources/script/cstInfo.js"></script>
+<script type="text/javascript"></script>
+
+-----------------------------------------------------------------------------------
 <style type="text/css">
 table.tblCst {background:#E2F2D3; width:90%; margin:0 auto; text-align:right}
 .tblCst td {border-bottom:1px solid #dcdac2; padding:5px; text-align:center}
