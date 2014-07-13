@@ -17,12 +17,16 @@ public interface CustomerMapper {
 	/* 회원가입 */
 	List searchZipInfo(Map<String, Object> paramMap); // 주소 검색 - JSON 적용
 	List<Zip> searchZipInfo2(String zipKeyword);	  // 주소 검색 - JSON 적용2
-	Zip searchCstZip(String zipCode);				  // 주소 검색 - 회원정보수정용
 	void insertJoinCst(Customer customer);	// 회원가입
 	
 	
 	/* 로그인 */
 	Customer loginCst(Customer customer);	// 로그인
+	Customer loginCstInfo(int cstCode);		  // 로그인 세션 정보 조회
+	
+	/* 회원정보수정 */
+	Zip searchCstZip(String zipCode);				  // 주소 검색
+	void modifyCstInfo(Customer customer);			  // 회원정보수정
 	
 	
 	/** 관리자페이지 */

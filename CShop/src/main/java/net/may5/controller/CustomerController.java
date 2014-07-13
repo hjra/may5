@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import net.may5.dto.Customer;
-import net.may5.dto.Zip;
 import net.may5.service.CustomerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,31 +18,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 @Controller
+@SessionAttributes("cstLogin")
 public class CustomerController {
 	
 	@Autowired
 	private CustomerService customerService;
 	
 	/** 고객페이지↓ */
-	/* 고객페이지로 이동 */
+	// 고객페이지로 이동 
 	@RequestMapping("homeImage.do")
-	public String homeImage(Model model, HttpServletRequest request) {
-		Customer cstLogin = (Customer) request.getSession().getAttribute("cstLogin");
-		model.addAttribute("cstLogin", cstLogin);
+	public String homeImage(Model model/*, HttpServletRequest request*/) {
+	//	Customer cstLogin = (Customer) request.getSession().getAttribute("cstLogin");
+	//	model.addAttribute("cstLogin", cstLogin);
 		model.addAttribute("count", customerService.getAllCustomerCount());
 		return "cst/home/homeImage";
 	}
 	
-	/* 회원가입 동의폼으로 이동 */
+	// 회원가입 동의폼으로 이동 
 	@RequestMapping("termsForm.do")
 	public String termsForm(Model model){
 		return "cst/membership/termsForm";
 	}
 	
-	/* 회원가입 입력폼으로 이동 */
+	// 회원가입 입력폼으로 이동 
 	@RequestMapping(value="joinForm.do", method=RequestMethod.POST)
 	public String joinForm(@RequestParam String cstEmailAgreement, Model model){
 		Customer customer = new Customer();
@@ -52,7 +53,7 @@ public class CustomerController {
 		return "cst/membership/joinForm";
 	}
 
-	/* 도로명 주소 검색 */
+	// 도로명 주소 검색 
 	@RequestMapping("searchZipInfoList.do")
 	public @ResponseBody Map<?,?> testJson4(@RequestParam String zipKeyword, ModelMap model){
 		System.out.println("공백제거 결과: "+zipKeyword.trim().replace(" ", ""));
@@ -61,7 +62,7 @@ public class CustomerController {
 		return model;
 	}
 	
-	/* 회원가입 성공화면으로 이동 */
+	// 회원가입 성공화면으로 이동 
 	@RequestMapping(value="joinOk.do", method=RequestMethod.POST)
 	public String joinProcess(@ModelAttribute("customer") Customer customer,
 			BindingResult result){
@@ -70,7 +71,7 @@ public class CustomerController {
 		return "cst/membership/joinOk";
 	}
 	
-	/* 로그인 입력폼으로 이동 */
+	// 로그인 입력폼으로 이동 
 	@RequestMapping("cstLoginForm.do")
 	public String loginForm(Model model){
 		Customer customer = new Customer();
@@ -78,8 +79,8 @@ public class CustomerController {
 		return "cst/membership/loginForm";
 	}
 	
-	/* 회원 로그인 성공화면으로 이동 */
-	/* 비회원 로그인 성공화면으로 이동 */
+	// 회원 로그인 성공화면으로 이동 
+	// 비회원 로그인 성공화면으로 이동 
 	@RequestMapping(value="cstLoginProcess.do", method=RequestMethod.POST)
 	public String loginProcess(Model model, Customer customer,
 			HttpServletRequest request, HttpSession session){
@@ -101,7 +102,7 @@ public class CustomerController {
 		}
 	}
 	
-	/* 로그아웃 */
+	// 로그아웃 
 	@RequestMapping("cstLogoutProcess.do")
 	public String logoutProcess(HttpSession session){
 		System.out.println("고객 로그아웃");
@@ -110,7 +111,7 @@ public class CustomerController {
 		return "cst/home/homeImage";
 	}
 		
-	/* 회원정보 찾기폼으로 이동 */
+	// 회원정보 찾기폼으로 이동 
 	@RequestMapping("scInfoForm.do")
 	public String scInfoForm(Model model){
 		Customer customer = new Customer();
@@ -118,94 +119,109 @@ public class CustomerController {
 		return "cst/membership/scInfoForm";
 	}
 	
-	/* 아이디찾기 성공화면으로 이동 */
+	// 아이디찾기 성공화면으로 이동 
 	@RequestMapping("scIdProcess.do")
 	public String scIdProcess(Model model){
 		
 		return "cst/membership/scIdOk";
 	}
 	
-	/* 비번찾기 입력폼으로 이동 */
+	// 비번찾기 입력폼으로 이동 
 	@RequestMapping(value="scPasswordProcess.do", method=RequestMethod.POST)
 	public String scPasswordProcess(Model model){
 		
 		return "cst/membership/scPasswordForm";
 	}
 	
-	/* 비번찾기 변경폼으로 이동 */
+	// 비번찾기 변경폼으로 이동 
 	@RequestMapping(value="scPasswordModifyForm.do", method=RequestMethod.POST)
 	public String scPasswordModifyForm(Model model){
 		
 		return "cst/membership/scPasswordModifyForm";
 	}
 	
-	/* 비로그인 비번변경 성공화면으로 이동 */
+	// 비로그인 비번변경 성공화면으로 이동 
 	@RequestMapping(value="scPasswordModifyProcess.do", method=RequestMethod.POST)
 	public String scPasswordModifyProcess(Model model){
 		
 		return "cst/membership/scPasswordModifyOk";
 	}
 	
-	/* 마이페이지 메인화면으로 이동 */
+	// 마이페이지 메인화면으로 이동 
 	@RequestMapping("myPage.do")
 	public String myPage(Model model){
 		return "cst/membership/myPage";
 	}
 	
-	/* 회원정보수정 입력폼으로 이동 */
-	@RequestMapping("modifyInfoForm.do")
-	public String modifyInfoForm(Model model, @RequestParam String zipCode){
-		Customer customer = new Customer();
-		model.addAttribute("customer", customer);
+	// 회원정보수정 입력폼으로 이동 
+	@RequestMapping(value="modifyInfoForm.do", method=RequestMethod.POST)
+	public String modifyInfoForm(Model model, @RequestParam int cstCode,
+			@RequestParam String zipCode){
+		model.addAttribute("cstLogin", customerService.loginCstInfo(cstCode));
 		model.addAttribute("zip", customerService.searchCstZip(zipCode));
 		return "cst/membership/modifyInfoForm";
 	}
 	
 	@RequestMapping("modifyInfoProcess.do")
-	public String modifyInfoProcess(Model model){
-		Customer customer = new Customer();
-		model.addAttribute("customer", customer);
+	public String modifyInfoProcess(@ModelAttribute Customer cstLogin,
+			@RequestParam String zipCode, @RequestParam int cstCode, Model model){
+		customerService.modifyCstInfo(cstLogin);
+		model.addAttribute("zip", customerService.searchCstZip(zipCode));
+		model.addAttribute("cstLogin", customerService.loginCstInfo(cstCode));
 		return "cst/membership/modifyInfoForm";
 	}
 	
-	/* 회원탈퇴 입력폼으로 이동 */
+/*	@RequestMapping("modifyInfoProcess.do")
+	public ModelAndView modifyInfoProcess(@ModelAttribute Customer customer,
+			@RequestParam String zipCode){
+		ModelAndView model = new ModelAndView();
+		customerService.modifyCstInfo(customer);
+		customerService.searchCstZip(zipCode);
+		
+		model.setViewName("cst/membership/modifyInfoForm");
+		System.out.println("우편정보"+customerService.searchCstZip(zipCode));
+		return model;
+	}*/
+	
+	
+	// 회원탈퇴 입력폼으로 이동 
 	@RequestMapping("deleteMemberInfoForm.do")
 	public String deleteMemberInfoForm(Model model){
 		return "cst/membership/deleteMemberInfoForm";
 	}
 	
-	/* 회원탈퇴 인증폼으로 이동 */
+	// 회원탈퇴 인증폼으로 이동 
 	@RequestMapping(value="deleteMemberVerifyForm.do", method=RequestMethod.POST)
 	public String deleteMemberVerifyForm(Model model){
 		
 		return "cst/membership/deleteMemberVerifyForm";
 	}
 	
-	/* 회원탈퇴 성공화면으로 이동 */
+	// 회원탈퇴 성공화면으로 이동 
 	@RequestMapping(value="/deleteMemberProcess.do", method=RequestMethod.POST)
 	public String deleteMemberProcess(Model model){
 		
 		return "cst/membership/deleteMemberOk";
 	}
 	
-	/* 달력기능 화면으로 이동 */
+	// 달력기능 화면으로 이동 
 	@RequestMapping("calendar.do")
 	public String calendar(Model model){
 		return "cst/membership/calendar";
 	}
 
-	/* ABOUT 화면으로 이동 */
+	// ABOUT 화면으로 이동 
 	@RequestMapping("about.do")
 	public String about(Model model){
 		return "cst/about/about";
 	}
 	
-	/*  */
+	  
 	
 	
 	
 	/** 관리자페이지↓ */
-	/* 전체고객정보 화면으로 이동 */
+	// 전체고객정보 화면으로 이동 
 	@RequestMapping("allMemberInfoForm.do")
 	public String allMemberInfoForm(Model model){
 		model.addAttribute("count", customerService.getAllCustomerCount());
@@ -213,14 +229,14 @@ public class CustomerController {
 		return "mng/cstInfo/allMemberInfoForm";
 	}
 	
-	/* JSON Test Controller */
+	// JSON Test Controller 
 	@RequestMapping("allMemberInfoJsonForm.do")
 	public void testJson(@RequestParam Map<String, Object> paramMap, ModelMap model){
 		System.out.println("JSON 테스트 결과: "+customerService.getAllCstInfo(paramMap));
 		model.put("customer", customerService.getAllCstInfo(paramMap));
 	}
 	
-	/* JSON + AJAX Test Controller */
+	// JSON + AJAX Test Controller 
 	@RequestMapping("allMemberInfoJsonForm2.do")
 	public @ResponseBody Map<?,?> testJson2(@RequestParam Map<String, Object> paramMap, ModelMap model){
 		System.out.println("JSON 테스트 결과: "+customerService.getAllCstInfo(paramMap));
@@ -233,14 +249,14 @@ public class CustomerController {
 		
 	}
 	
-	/* VIP LIST 화면으로 이동 */
+	// VIP LIST 화면으로 이동 
 	@RequestMapping("vipListForm.do")
 	public String vipListForm(Model model){
 		model.addAttribute("customer", customerService.selectVIPCstInfo());
 		return "mng/cstInfo/vipListForm";
 	}
 	
-	/* 관심고객리스트 화면으로 이동 */
+	// 관심고객리스트 화면으로 이동 
 	@RequestMapping("blackListForm.do")
 	public String blackListForm(Model model){
 		model.addAttribute("customer", customerService.selectBlackCstInfo());

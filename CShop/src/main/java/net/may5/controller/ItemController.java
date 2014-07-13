@@ -40,7 +40,7 @@ public class ItemController {
 	public String menuList(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.setAttribute("itemList", itemService.getItemList());
-		System.out.println("리스트:: " + itemService.getItemList());
+		System.out.println("리스트:: "+itemService.getItemList());
 		return "cst/menu/menuList";
 	}
 
@@ -50,6 +50,7 @@ public class ItemController {
 			String page, String cstLogin) {
 		ModelAndView view = new ModelAndView("cst/menu/menuInfoCommonView");
 		view.addObject("pageAction","view");
+
 		
 		HttpSession session = request.getSession();
 		session.getAttribute(cstLogin);
@@ -105,23 +106,24 @@ public class ItemController {
 		
 
 		// 시작
-		int ipage = page == null ? 1 : Integer.parseInt(page);
+		int ipage = page ==  null ? 1 : Integer.parseInt(page);  
 		int limit = 10;
+
+		
 
 		// 총 리스트 수
 		int listcount = itemService.getListCount();
 		System.out.println("count는 " + listcount);
 
-		// 한 아이템 당 리스트 수
+		//한 아이템 당 리스트 수
 		int anItemListCount = itemService.getAnItemListCount(itemId);
 		System.out.println(anItemListCount);
-
+		
 		// 게시글 리스트
-		System.out.println("itemContorller:" + itemId);
+		System.out.println("itemContorller:"+itemId);
 
-		List<Evaluation> evaluationList = itemService.getEvaluationList(itemId,
-				ipage, limit);
-
+		List<Evaluation> evaluationList = itemService.getEvaluationList(itemId, ipage, limit);
+		
 		System.out.println(itemId);
 		System.out.println(evaluationList.toString());
 
@@ -149,6 +151,8 @@ public class ItemController {
 		return view;
 	}
 
+	
+	
 	/** 관리자페이지↓ */
 	/* 상품관리로 이동 */
 	@RequestMapping(value = "menuListMng.do")
@@ -178,7 +182,7 @@ public class ItemController {
 		
 		return "mng/menuMng/menuListMng";
 	}
-
+	
 	@RequestMapping(value = "menuInsertMng.do")
 	public ModelAndView menuInsertMng() {
 		ModelAndView view = new ModelAndView("cst/menu/menuInfoCommonView");
@@ -186,7 +190,9 @@ public class ItemController {
 		
 		
 		return view;
+
 	}
+
 	@RequestMapping(value = "menuModifyMng.do")
 	public ModelAndView menuModifyMng(String itemId) {
 		ModelAndView view = new ModelAndView("cst/menu/menuInfoCommonView");
@@ -391,21 +397,21 @@ public class ItemController {
 	public String menuItemDelete(HttpServletRequest request) {
 
 		Map<String, String[]> requestParams = request.getParameterMap();
-
-		for (Map.Entry<String, String[]> entry : requestParams.entrySet()) {
-			String key = entry.getKey(); // parameter name
-			String[] values = entry.getValue(); // parameter values as array of
-												// String
-
-			if (key.equals("deleteItem")) {
-				for (int i = 0; i < values.length; i++) {
-					String deleteItemId = values[i];
-					System.out.println("삭제대상 => " + deleteItemId);
-					itemService.deleteItem(deleteItemId);
-				}
-			}
-		}
-
+				
+	     for (Map.Entry<String, String[]> entry : requestParams.entrySet()) {
+	            String  key        = entry.getKey();         // parameter name
+	            String[] values = entry.getValue();   // parameter values as array of String
+	            
+	            		
+	            if( key.equals("deleteItem")){
+	            	for (int i = 0; i < values.length; i++) {
+	            		String deleteItemId = values [i];
+	                    System.out.println("삭제대상 => " + deleteItemId);
+	                    // ItemService.deleteItem(deleteItemId);
+	                }
+	            }
+	     }
+		
 		return "redirect:/menuListMng.do";
 	}
 
@@ -424,39 +430,42 @@ public class ItemController {
 //			 model.addAttribute("getOrderListSameItemId",
 //			 itemService.getOrderListCountSameItemId(today));
 //			 System.out.println("오늘 같은 카운트 아이템:: "+ itemService.getOrderListCountSameItemId(today));
-		} else {
-			model.addAttribute("orderList", itemService.getOrderList(orderDate));
-			model.addAttribute("paramDate", orderDate);
-			model.addAttribute("orderCount",  itemService.getOrderListDailyCount(orderDate));
-			System.out.println("특정날짜 오더리스트 :: "+ itemService.getOrderList(orderDate));
-			System.out.println("특정날짜 몇개 팔았나요?? :: "+itemService.getOrderListDailyCount(orderDate));
-//			 model.addAttribute("getOrderListSameItemId",
-//			 itemService.getOrderListCountSameItemId(orderDate));
-			System.out.println(itemService.getOrderListCount());
 
+		} else {
+			System.out.println("selectDate => " + orderDate);
+			
+			model.addAttribute("orderList", itemService.getOrderList(orderDate));
+			//model.addAttribute("orderCount", itemService.getOrderListCount(orderDate));
+			//model.addAttribute("getOrderListSameItemId", itemService.getOrderListCountSameItemId(orderDate));
 		}
 		
+		model.addAttribute("paramDate", (orderDate==null?"":orderDate) );
+		
 		System.out.println("메뉴스탁엠엔쥐컨트롤러");
+		System.out.println(itemService.getOrderListCountSameItemId());
 		return "mng/menuMng/menuStockMng";
-
 	}
-
-	// 마감을 하기위한 두
-
+	//마감을 하기위한 두
+	
 	// 날짜선택 - 특정날짜를 선택!
-	@RequestMapping(value = "datePicker.do")
-	public String datePicker(Date thisDay, Model model) {
-		System.out.println("선택하신 날짜는 :: " + thisDay);
-		model.addAttribute("thisDay", thisDay);
-		return "mng/menuMng/menuStockMng";
-	}
-
+    @RequestMapping(value="datePicker.do")
+    public String datePicker(Date thisDay, Model model){
+    	
+    	System.out.println("선택하신 날짜는 :: "+thisDay);
+    	model.addAttribute("thisDay", thisDay);
+    	return "mng/menuMng/menuStockMng";
+    }
+	
+	
 	// 마감작업 - 재고를 0으로
-	@RequestMapping(value = "stockToZero.do")
-	public String stockToZero() {
-		System.out.println("재고가 모두 0이 되었습니다.");
-
-		return "mng/menuMng/menuStockMng";
-	}
-
+    @RequestMapping(value="stockToZero.do")
+    public String stockToZero(){
+    	System.out.println("재고가 모두 0이 되었습니다.");
+    	
+    	return "mng/menuMng/menuStockMng";
+    }
+	
+	
+	
+	
 }

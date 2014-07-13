@@ -17,23 +17,23 @@ th{ background:#F90;}
 .even{ background: #FF9;}
 </style>
 
-	주문정보조회(수정중)
+	주문정보조회(수정 다되감)
 	<br>
-	
-<!-- 	<table class="board" border="1" > -->
+	눌러봐봐
+	<!-- <table class="board" border="1" > -->
 
 	<table class="sortable paginated">
 		<caption></caption>
 		<colgroup>
 			<col width="10%">
 			<col width="10%">
+			<col width="5%">
 			<col width="10%">
 			<col width="10%">
+			<col width="5%">
 			<col width="10%">
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
-			<col width="10%">
+			<col width="5%">
+			<col width="20%">
 			<col width="10%">
 			<col width="10%">
 		</colgroup>
