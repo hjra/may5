@@ -56,13 +56,19 @@
 			<ul class="menu-list">
 				<li class="cake title">
 					<c:choose>
-						<c:when test="${status.index < 4}">
-							<label>${status.index + 1}호 케익입니다.</label>						
+						<c:when test="${status.index == 0}">
+							<label>SMALL</label>						
+						</c:when>
+						<c:when test="${status.index == 1}">
+							<label>MIDIUM</label>						
+						</c:when>
+						<c:when test="${status.index == 2}">
+							<label>BIG</label>						
 						</c:when>
 						<c:otherwise>
-							<label>기타 사이즈 입니다.</label>
+							<label>ETC</label>
 						</c:otherwise>
-					</c:choose>
+			</c:choose>
 				</li>
 				<c:forEach var="item" items="${list}">
 					<li class="cake">
