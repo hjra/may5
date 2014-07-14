@@ -4,8 +4,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
-
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jRating.jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jRating.jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/jRating.jquery.css" media="screen" />
 <style>
 	#thumbnail-view {
 			border:1px solid #ddd;
@@ -65,6 +66,7 @@
 
 </style>
 <script>
+
 $(document).on("click","form button",function(e){
 	if(!$(this).hasClass("submit-button")){
 		return false;
@@ -129,6 +131,17 @@ $(function(){
 	var initItem = parseInt($("#sticker-view-value").val());
 	if(typeof initItem!=="number") initItem = 0;
 	activeStikcer.call( $("#sticker-view li").eq(initItem) );
+});
+
+$(document).ready(function(){
+    // simple jRating call
+   $(".basic").jRating({
+      onClick : function(element,rate) {
+       /* alert(rate); */
+       grade = rate;
+      $('input[name=grade]').attr('value',grade);
+      }
+   });      
 });
 </script>
 
@@ -365,16 +378,22 @@ $(function(){
 							<td colspan="6">평점 및 댓글</td>
 						</tr>
 						<tr>
-							<td width="66px">번호</td>
-							<td width="100px"><label>평점</label> 
+							<td width="66px">번호
+														<input type="hidden" name="itemId" value="${itemId }">
+							</td>
+							<!-- <td width="100px"><label>평점</label> 
 								<select name="grade" id="grade">
 									<option value="5">★★★★★</option>
 									<option value="4">★★★★☆</option>
 									<option value="3">★★★☆☆</option>
 									<option value="2">★★☆☆☆</option>
 									<option value="1">★☆☆☆☆</option>
-								</select></td>
-							
+								</select></td> -->
+										<td>
+   <!-- in this exemple, 12 is the average and 1 is the id of the line to update in DB -->
+   <div class="basic" data-average="5" data-id="1"  >
+   <input id="grade" type="hidden" name="grade"/></div>
+      </td>
 							<c:choose>
 								<c:when test="${sessionScope.cstLogin.cstId == null }">
 								<td><input type="text" maxlength="300" style="width: 300px"
@@ -408,23 +427,24 @@ $(function(){
 							<%
 								i++;
 							%>
-							<tr height="35px">
+							<tr height="35px" >
 								<td align="center">${board.evaluationIndex}</td>
-								<td align="center"><c:choose>
+								<td align="center">
+								<c:choose>
 										<c:when test="${board.grade ==5}">
-										★★★★★
+										<img src="/CShop/resources/img/stars/5.png" style="width: 100px">
 							</c:when>
 										<c:when test="${board.grade ==4}">
-										★★★★☆
+										<img src="/CShop/resources/img/stars/4.png" style="width: 100px">
 							</c:when>
 										<c:when test="${board.grade ==3}">
-										★★★☆☆
+										<img src="/CShop/resources/img/stars/3.png" style="width: 100px">
 							</c:when>
 										<c:when test="${board.grade ==2}">
-										★★☆☆☆
+										<img src="/CShop/resources/img/stars/2.png" style="width: 100px">
 							</c:when>
 										<c:when test="${board.grade ==1}">
-										★☆☆☆☆
+										<img src="/CShop/resources/img/stars/1.png" style="width: 100px">
 							</c:when>
 									</c:choose></td>
 								<td>${board.evaluationContents }</td>
