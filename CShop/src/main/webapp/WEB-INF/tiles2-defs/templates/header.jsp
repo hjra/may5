@@ -46,7 +46,6 @@
 			<div class="submenu">
 				<menu>
 					<li onclick="location.href='menuList.do'">MENU LIST</li>
-					<li onclick="location.href='menuInfo.do'">MENU INFO</li>
 				</menu>
 			</div>
 		</li>
