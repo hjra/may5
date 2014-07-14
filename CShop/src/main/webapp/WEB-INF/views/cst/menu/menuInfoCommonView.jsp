@@ -47,9 +47,7 @@
 	height:100px;
 	z-index:1;
 }
-#sticker-view.active {
-	overflow:initial;
-}
+
 #sticker-view li{
 	list-style:none;
 	background-color:#753;
@@ -63,9 +61,6 @@
 	text-align:center;
 	line-height:100px;
 	cursor:pointer;
-}
-#sticker-view li:hover {
-	border:1px solid blue;
 }
 
 </style>
