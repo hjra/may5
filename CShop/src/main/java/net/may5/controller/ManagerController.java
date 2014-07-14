@@ -1,5 +1,7 @@
 package net.may5.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,8 +11,11 @@ import net.may5.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ManagerController {
@@ -75,4 +80,14 @@ public class ManagerController {
 		//데이터를 넘길 것들
 		return "mng/manager/managerEdit";	
 	}
+	
+	// 직원정보 JSON 테스트
+		@RequestMapping("allMngInfoJsonList.do")
+		public @ResponseBody Map<?,?> allMngInfoJson(ModelMap model){
+			System.out.println("allMngInfoJsonList 실행");
+			System.out.println("allMngInfoJsonList 실행 전: "+model);
+			model.put("manager", managerService.allMngInfoList());
+			System.out.println("allMngInfoJsonList 결과: "+model);
+			return model;
+		}
 }
