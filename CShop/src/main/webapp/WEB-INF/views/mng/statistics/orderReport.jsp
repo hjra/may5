@@ -21,8 +21,8 @@ $(document)
 1. 특정 날짜 선택하면, 상품재고 목록이 나타나도록
 2. 마감버튼 클릭하면 상품재고가 0이 되도록-->
 
-시간별 판매수량 :: 
-${orderCountPerHour}
+<%-- 시간별 판매수량 :: 
+${orderCountPerHour} --%>
 <br><Br>
 <div id="perHourChartData" class="template">
 	<ul>

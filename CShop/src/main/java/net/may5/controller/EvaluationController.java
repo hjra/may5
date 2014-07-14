@@ -24,10 +24,10 @@ public class EvaluationController {
 			String itemId, String grade, String evaluationContents, String cstLogin,
 			HttpServletRequest request, HttpSession session, int cstCode) {
 		
-		System.out.println("insertEvaluationContents "+itemId);
+		System.out.println("insertEvaluationItemId "+itemId);
 		session = request.getSession();
 		session.getAttribute(cstLogin);
-		
+		System.out.println("Grade::"+grade);
 		evaluation.setCstCode(cstCode);
 		evaluation.setEvaluationContents(evaluationContents);
 		evaluation.setItemId(itemId);
