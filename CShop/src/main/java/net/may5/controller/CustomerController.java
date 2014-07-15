@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 
 @Controller
@@ -55,7 +56,7 @@ public class CustomerController {
 
 	// 도로명 주소 검색 
 	@RequestMapping("searchZipInfoList.do")
-	public @ResponseBody Map<?,?> testJson4(@RequestParam String zipKeyword, ModelMap model){
+	public @ResponseBody Map<?,?> searchDoromyongZip(@RequestParam String zipKeyword, ModelMap model){
 		System.out.println("공백제거 결과: "+zipKeyword.trim().replace(" ", ""));
 		model.put("zip", customerService.searchZipInfo2(zipKeyword.trim().replace(" ", "")));
 		System.out.println("도로명 주소 검색 결과: "+model);
@@ -104,8 +105,9 @@ public class CustomerController {
 	
 	// 로그아웃 
 	@RequestMapping("cstLogoutProcess.do")
-	public String logoutProcess(HttpSession session){
+	public String logoutProcess(HttpSession session, SessionStatus status){
 		System.out.println("고객 로그아웃");
+		status.setComplete();
 		session.removeAttribute("cstLogin");
 		session.invalidate();
 		return "cst/home/homeImage";
@@ -154,35 +156,27 @@ public class CustomerController {
 	}
 	
 	// 회원정보수정 입력폼으로 이동 
-	@RequestMapping(value="modifyInfoForm.do", method=RequestMethod.POST)
-	public String modifyInfoForm(Model model, @RequestParam int cstCode,
-			@RequestParam String zipCode){
+	@RequestMapping("modifyInfoForm.do")
+	public String modifyInfoForm(Model model/*, HttpServletRequest request*/,
+			@ModelAttribute("cstLogin") Customer cstLogin){
+//		Customer cstLogin = (Customer)request.getSession().getAttribute("cstLogin");
+		int cstCode = cstLogin.getCstCode();
+		String zipCode = cstLogin.getZipCode();
+		System.out.println("cstCode: "+cstCode);
+		System.out.println("zipCode: "+zipCode);
+				
 		model.addAttribute("cstLogin", customerService.loginCstInfo(cstCode));
 		model.addAttribute("zip", customerService.searchCstZip(zipCode));
-		return "cst/membership/modifyInfoForm";
-	}
-	
-	@RequestMapping("modifyInfoProcess.do")
-	public String modifyInfoProcess(@ModelAttribute Customer cstLogin,
-			@RequestParam String zipCode, @RequestParam int cstCode, Model model){
-		customerService.modifyCstInfo(cstLogin);
-		model.addAttribute("zip", customerService.searchCstZip(zipCode));
-		model.addAttribute("cstLogin", customerService.loginCstInfo(cstCode));
-		return "cst/membership/modifyInfoForm";
-	}
-	
-/*	@RequestMapping("modifyInfoProcess.do")
-	public ModelAndView modifyInfoProcess(@ModelAttribute Customer customer,
-			@RequestParam String zipCode){
-		ModelAndView model = new ModelAndView();
-		customerService.modifyCstInfo(customer);
-		customerService.searchCstZip(zipCode);
 		
-		model.setViewName("cst/membership/modifyInfoForm");
-		System.out.println("우편정보"+customerService.searchCstZip(zipCode));
-		return model;
-	}*/
+		return "cst/membership/modifyInfoForm";
+	}
 	
+	@RequestMapping(value="modifyInfoProcess.do", method=RequestMethod.POST)
+	public String modifyInfoProcess(@ModelAttribute("cstLogin") Customer cstLogin){
+		System.out.println("modifyInfoProcess의 cstLogin 값: "+cstLogin);
+		customerService.modifyCstInfo(cstLogin);
+		return "redirect:/modifyInfoForm.do";
+	}
 	
 	// 회원탈퇴 입력폼으로 이동 
 	@RequestMapping("deleteMemberInfoForm.do")
@@ -199,10 +193,12 @@ public class CustomerController {
 	
 	// 회원탈퇴 성공화면으로 이동 
 	@RequestMapping(value="/deleteMemberProcess.do", method=RequestMethod.POST)
-	public String deleteMemberProcess(Model model){
+	public String deleteMemberProcess(Model model, SessionStatus status){
 		
+		status.setComplete();		// SessionAttributes의 session 정보 삭제
 		return "cst/membership/deleteMemberOk";
 	}
+	
 	
 	// 달력기능 화면으로 이동 
 	@RequestMapping("calendar.do")

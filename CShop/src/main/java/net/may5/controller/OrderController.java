@@ -77,6 +77,11 @@ public class OrderController {
 		return "cst/order/advanceOrderPayment";
 	}
 	
+	@RequestMapping("payment.do")
+	public String payment(){
+		return "cst/order/payment";
+	}
+	
 	/* 카드(QR)옵션
 	@RequestMapping("optionCard.do")
 	public String getOptionCard( Model model, int optionCode){

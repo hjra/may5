@@ -5,10 +5,8 @@
 
 <tiles-definitions> 
     <definition name=".default" template="/WEB-INF/tiles2-defs/templates/layout.jsp">
-        
         <put-attribute name="title"  value="C#" type="string" />
         <put-attribute name="header"  value="/WEB-INF/tiles2-defs/templates/header.jsp" />
         <put-attribute name="footer"  value="/WEB-INF/tiles2-defs/templates/footer.jsp" />
     </definition>
-
 </tiles-definitions>

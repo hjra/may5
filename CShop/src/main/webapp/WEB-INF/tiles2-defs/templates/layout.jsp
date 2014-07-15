@@ -39,7 +39,7 @@
 	});
 	</script>
 </head>
-<body>	
+<body>
 	<tiles:insertAttribute name="header" />
 	<main>
 		<tiles:insertAttribute name="body" />

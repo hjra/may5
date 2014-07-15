@@ -6,7 +6,7 @@
 
 	
 	<h1>결제정보</h1>
-	<f:form method="post" action="">
+	<f:form method="post" action="payment.do">
 	<fieldset>
 	<legend>결제방법선택</legend>
 	
