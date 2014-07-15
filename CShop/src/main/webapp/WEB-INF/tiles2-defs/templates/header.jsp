@@ -56,7 +56,7 @@
 			<div class="submenu">
 				<menu>
 					<li onclick="location.href='advanceOrder.do'">ADVANCE ORDER</li>
-					<li onclick="location.href='orderSearch.do'">ORDER LIST</li>
+					<li onclick="location.href='orderList.do'">ORDER SEARCH</li>
 				</menu>
 			</div>
 		</li>

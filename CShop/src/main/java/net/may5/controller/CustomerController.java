@@ -199,7 +199,6 @@ public class CustomerController {
 		return "cst/membership/deleteMemberOk";
 	}
 	
-	
 	// 달력기능 화면으로 이동 
 	@RequestMapping("calendar.do")
 	public String calendar(Model model){
@@ -248,8 +247,14 @@ public class CustomerController {
 	// VIP LIST 화면으로 이동 
 	@RequestMapping("vipListForm.do")
 	public String vipListForm(Model model){
-		model.addAttribute("customer", customerService.selectVIPCstInfo());
 		return "mng/cstInfo/vipListForm";
+	}
+	
+	@RequestMapping("vipCstInfoJsonForm.do")
+	public @ResponseBody Map<?,?> vipCstInfoListJson(ModelMap model){
+		model.put("customer", customerService.selectVIPCstInfo());
+		System.out.println("vipCstInfoListJson 실행 결과: "+model);
+		return model;
 	}
 	
 	// 관심고객리스트 화면으로 이동 
@@ -257,6 +262,13 @@ public class CustomerController {
 	public String blackListForm(Model model){
 		model.addAttribute("customer", customerService.selectBlackCstInfo());
 		return "mng/cstInfo/blackListForm";
+	}
+	
+	@RequestMapping("blackCstInfoJsonForm.do")
+	public @ResponseBody Map<?,?> blackCstInfoListJson(ModelMap model){
+		model.put("customer", customerService.selectBlackCstInfo());
+		System.out.println("blackCstInfoListJson 실행 결과: "+model);
+		return model;
 	}
 	
 }
