@@ -54,8 +54,7 @@ public class Orders {
 	private String cstName;					// 이름
 	private String cstCP;					// 휴대폰번호
 	private String cstEmail;				// E-mail
-	
-	
+	private String noticeType;				// 결제처리
 	
 	public String getOrderCode() {
 		return orderCode;
@@ -327,6 +326,13 @@ public class Orders {
 	public void setCstEmail(String cstEmail) {
 		this.cstEmail = cstEmail;
 	}
+	public String getNoticeType() {
+		return noticeType;
+	}
+	public void setNoticeType(String noticeType) {
+		this.noticeType = noticeType;
+	}
+	
 	
 	@Override
 	public String toString() {
@@ -352,7 +358,8 @@ public class Orders {
 				+ noticeImg + ", itemId=" + itemId + ", cstId=" + cstId
 				+ ", levelCode=" + levelCode + ", itemName=" + itemName
 				+ ", price=" + price + ", itemCnt=" + itemCnt + ", cstName="
-				+ cstName + ", cstCP=" + cstCP + ", cstEmail=" + cstEmail + "]";
+				+ cstName + ", cstCP=" + cstCP + ", cstEmail=" + cstEmail
+				+ ", noticeType=" + noticeType + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -393,6 +400,8 @@ public class Orders {
 				+ ((noticeComment == null) ? 0 : noticeComment.hashCode());
 		result = prime * result
 				+ ((noticeImg == null) ? 0 : noticeImg.hashCode());
+		result = prime * result
+				+ ((noticeType == null) ? 0 : noticeType.hashCode());
 		result = prime * result + optionCode;
 		result = prime * result + optionPrice;
 		result = prime * result
@@ -432,6 +441,7 @@ public class Orders {
 				+ ((zipNumber == null) ? 0 : zipNumber.hashCode());
 		return result;
 	}
+	
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -545,6 +555,11 @@ public class Orders {
 				return false;
 		} else if (!noticeImg.equals(other.noticeImg))
 			return false;
+		if (noticeType == null) {
+			if (other.noticeType != null)
+				return false;
+		} else if (!noticeType.equals(other.noticeType))
+			return false;
 		if (optionCode != other.optionCode)
 			return false;
 		if (optionPrice != other.optionPrice)
@@ -636,8 +651,6 @@ public class Orders {
 			return false;
 		return true;
 	}
-	
-	
 	
 	
 	

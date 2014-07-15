@@ -1,10 +1,16 @@
 package net.may5.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import net.may5.dto.Evaluation;
 import net.may5.dto.Orders;
 import net.may5.service.OrderService;
 
@@ -14,6 +20,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -60,6 +68,7 @@ public class OrderController {
 		model.addAttribute("orderlist", orders);
 		return "cst/order/orderList";
 	}
+	
 	
 	
 	
@@ -132,7 +141,7 @@ public class OrderController {
 	
 	
 	
-	/*알리미리스트*/
+	/* 알리미리스트메인뷰 */
 	@RequestMapping("dlvNotice.do")
 	public ModelAndView alimiList() {
 		ModelAndView model = new ModelAndView();
@@ -143,7 +152,7 @@ public class OrderController {
 	}
 	
 	
-	/*알리미리스트*/
+	/* 알리미리스트검색 */
 	@RequestMapping(value = "levelCodeSearch.do", method = RequestMethod.POST)
 	public String alimiCategory(Model model, @RequestParam String searchText,
 			HttpServletRequest request) {
@@ -170,7 +179,59 @@ public class OrderController {
 		return "mng/deliveryMng/dlvNotice";
 	}
 	
+	
+	/* 메세지작업  */
+	
+	@RequestMapping(value = "alimimessage.do", method=RequestMethod.POST)
+	public String updateAlimimessage(Model model, Orders orders) {
+		orderService.setNoticeComment(orders);	// update 구문
+		// email sender를 넣어줘야 함.
 
+		List<Orders> alimilist = orderService.getAlimiList(); // 조회해서 List로 담아주는 것
+		model.addAttribute("alimilist", alimilist);	// List를 dlvNotice.do로 보내주는 것
+		return "dlvNotic.do";
+
+	}
+	
+	
+	
+	/*선물옵션*/
+	@RequestMapping("dlvPresent.do")
+	public ModelAndView presentList() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("cst/order/dlvPresent");
+		List<Orders> presentlist = orderService.getPriceList();
+		model.addObject("presentlist", presentlist);
+		return model;
+	}
+	
+	
+	/* 선물옵션검색 */
+	@RequestMapping(value = "levelCodePresent.do", method = RequestMethod.POST)
+	public String presentCategory(Model model, @RequestParam String searchText,
+			HttpServletRequest request) {
+
+		String dcategory = request.getParameter("dcategory");
+		// String searchText = request.getParameter("searchText");
+		System.out.println("dcategory: " + dcategory);
+		System.out.println("searchText: " + searchText);
+		List<Orders> orders = null;
+		/* String temp=null; */
+		if (dcategory.equals("levelCode")) {
+			orders = orderService.getLevelCodepresent(searchText);
+		} else if (dcategory.equals("orderNumber")) {
+			orders = orderService.getOrderNumberpresent(
+					searchText.substring(0, 8), 
+					searchText.substring(8, 10),
+					searchText.substring(10, 15));
+		} else if (dcategory.equals("cstId")) {
+			orders = orderService.getCstIdpresent(searchText);
+		} else {
+			System.out.println("오류");
+		}
+		model.addAttribute("presentlist", orders);
+		return "mng/deliveryMng/dlvPresent";
+	}
 	
 }
 

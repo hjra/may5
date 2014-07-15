@@ -1,3 +1,42 @@
+/* 상세내역스크롤 */
+
+.detailhome article {
+	position: relative;
+	overflow: hidden;
+	height: 0px; 
+	background: #512800;
+	width: 830px;
+	margin-left:-450px;
+	margin-top: 15px;
+	transition: 0.9s; 
+} 
+
+.detailhome article dtinformation {
+	display: block;  
+	padding: 12px;
+	margin: 5px;
+ 
+	 
+}
+
+.detailhome input:checked ~ article.orderartcle {
+	height: 370px;
+
+}
+
+
+
+
+
+/* 상세내역정보 */
+.alla { margin-top:10px; border-bottom: 1px solid; width: 825px; height: 65px; }
+
+
+
+
+
+
+
 #alimimain {
   text-align: center;
 }

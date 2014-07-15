@@ -7,9 +7,12 @@
 <link href="/CShop/resources/css/orderList.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="/CShop/resources/js/web.js"></script>
+<script src="/CShop/resources/js/orderList.js"></script>
 <script src="/CShop/resources/js/dlvNotice.js"></script>
+
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <title>Insert title here</title>
+
 <div id="alimimain">
 	<div id="alimi">주문내역 수정 중이에요~</div>
 	<div id="forma">
@@ -58,20 +61,21 @@
 					<div id="aaq3">${fn:replace(orders.orderDate,'-','')}${orders.sameTimeCount}${orders.itemId}</div>
 				</div>
 			</div>
-			<div id="a2" title="주문일자">${orders.orderDate}</div>
+			<div id="a2" title="주문일자">${fn:replace(orders.orderDate,'-','')}</div>
 			<div id="a3" title="주문번호">${fn:replace(orders.orderDate,'-','')}${orders.sameTimeCount}${orders.itemId}</div>
 			<div id="a4" title="상품명">${orders.itemName}</div>
 			<div id="a7" title="상품금액">${orders.price}</div>
-			<div id="a8" title="처리현황">처리현황</div>
+			<div id="a8" title="처리현황">${orders.noticeType}결제완료</div>
 			<div id="a5" title="상세내역">
 			
 				<!-- 상세내역 웹 -->
 			
 				<section class="detailhome">
-					<input class="dtbutton" name="dtb" type="checkbox">
+					<input id="dtbutton" name="dtb" type="checkbox">
 					<article class="orderartcle">
+						<div class="image">${orders.noticeImg}</div>
+						<div class="Commenta">${orders.noticeComment}</div>
 						<div class="dtinformation">
-
 							<div class="alla">
 								<div class="oda">
 									<div class="odinfoa">주문상세정보</div>
@@ -157,6 +161,21 @@
 
 
 	</c:forEach>
+	
+	<!-- 페이징 -->
+		<div class="pageqq">
+			<div class="pageqa" align="center"><c:if test="${page <= 1 }">[이전]&nbsp; </c:if>
+				<c:if test="${page > 1 }">
+					<a href="menuInfo.do?itemId=${itemId }&page=${page-1}">이전</a>&nbsp;</c:if>
+					 <c:forEach begin="${startpage }" end="${endpage }" var="a">
+					<c:if test="${a==page }">[${a}]</c:if>
+					<c:if test="${a!=page }">
+						<a href="menuInfo.do?itemId=${itemId }&page=${a}">[${a}]</a>&nbsp;</c:if>
+				</c:forEach> <c:if test="${page>=maxpage }">[다음]</c:if> <c:if
+					test="${page<maxpage }">
+					<a href="menuInfo.do?itemId=${itemId }&page=${page+1}">[다음]</a>
+				</c:if></div>
+		</div>
 
 	<div id="form">
 		<a href="mngLoginForm.do">loginForm으로~</a>

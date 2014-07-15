@@ -127,6 +127,59 @@
 		where upper(CSTID) LIKE '%'||upper(#{cstId})||'%'
 	</select>
 	
+	<!-- 알리미메세지  -->
+	<select id="setNewAlimi">
+			insert into item (itemId, itemName, itemCalorie, itemInfo, itemImg1, itemImg2, itemImg3, itemImg4, sticker, price)
+			values(#{ITEMID}, #{ITEMNAME}, #{ITEMCALORIE}, #{ITEMINFO}, #{ITEMIMG1}, #{ITEMIMG2}, #{ITEMIMG3}, #{ITEMIMG4}, #{STICKER}, #{PRICE})
+	</select>
+	
+	
+	<update id="setNoticeComment" parameterType="Orders">
+		update Orders set noticeComment=#{noticeComment} where orderCode=#{orderCode}
+	</update>
+
+
+
+	<!-- 선물옵션 -->
+	<select id="getPriceList" resultType="Orders">
+		select CUSTOMER.*, ORDERS.*, OPTIONPRICE. *,
+		to_char(ORDERS.ORDERDATE,'YYYYMMDDHHMI')||ORDERS.SAMETIMECOUNT||ITEM.ITEMID
+		orderNumber
+		from Orders inner join Item on ORDERS.ITEMID = ITEM.ITEMID
+		inner join Customer on ORDERS.CSTCODE = CUSTOMER.CSTCODE
+		inner join OPTIONPRICE on ORDERS.OPTIONCODE = OPTIONPRICE.OPTIONCODE
+	</select>
+	
+	<select id="getLevelCodePrice" parameterType="String" resultType="Orders">
+		select CUSTOMER.*, ORDERS.*, OPTIONPRICE. *,
+		to_char(ORDERS.ORDERDATE,'YYYYMMDDHHMI')||ORDERS.SAMETIMECOUNT||ITEM.ITEMID
+		orderNumber
+		from Orders inner join Item on ORDERS.ITEMID = ITEM.ITEMID
+		inner join Customer on ORDERS.CSTCODE = CUSTOMER.CSTCODE
+		inner join OPTIONPRICE on ORDERS.OPTIONCODE = OPTIONPRICE.OPTIONCODE
+		where upper(LEVELCODE) LIKE '%'||upper(#{levelCode})||'%'
+	</select>
+
+	<select id="getOrderNumberPrice" parameterType="map" resultType="Orders">
+		select CUSTOMER.*, ORDERS.*, OPTIONPRICE. *,
+		to_char(ORDERS.ORDERDATE,'YYYYMMDDHHMI')||ORDERS.SAMETIMECOUNT||ITEM.ITEMID
+		orderNumber
+		from Orders inner join Item on ORDERS.ITEMID = ITEM.ITEMID
+		inner join Customer on ORDERS.CSTCODE = CUSTOMER.CSTCODE
+		inner join OPTIONPRICE on ORDERS.OPTIONCODE = OPTIONPRICE.OPTIONCODE
+		where TRUNC(ORDERS.ORDERDATE)=to_date(#{orderDate}, 'YYYYMMDD') and ORDERS.SAMETIMECOUNT=#{sameTimeCount} and
+		ITEM.ITEMID=#{itemId}
+	</select>
+
+	<select id="getCstIdPrice" parameterType="String" resultType="Orders">
+		select CUSTOMER.*, ORDERS.*, OPTIONPRICE. *,
+		to_char(ORDERS.ORDERDATE,'YYYYMMDDHHMI')||ORDERS.SAMETIMECOUNT||ITEM.ITEMID
+		orderNumber
+		from Orders inner join Item on ORDERS.ITEMID = ITEM.ITEMID
+		inner join Customer on ORDERS.CSTCODE = CUSTOMER.CSTCODE
+		inner join OPTIONPRICE on ORDERS.OPTIONCODE = OPTIONPRICE.OPTIONCODE
+		where upper(CSTID) LIKE '%'||upper(#{cstId})||'%'
+	</select>
 	
 	
 	

@@ -1,9 +1,9 @@
 package net.may5.service;
 
 import java.util.List;
+import java.util.Map;
 
 import net.may5.dto.Customer;
-
 import net.may5.dto.Orders;
 import net.may5.dto.Payment;
 
@@ -44,7 +44,17 @@ public interface OrderService {
 	public List<Orders> getitemNameSearch(String itemName);		// itemName로 조회하기
 	public List<Orders> getOrderlNumberSearch(String orderDate ,String sameTimeCount , String itemId); // orderNumber로 조회하기
 
+	/* 알리미메세지  */
+	public void setNewAlimi(Map<String, String> insertParam);
+	public void setAlimimessage(Orders orders);
+	public void setNoticeComment(Orders orders);
 	
+	/*선물옵션*/
+	public List<Orders> getLevelCodepresent(String levelCode); // levelCode로 조회하기
+	public List<Orders> getCstIdpresent(String cstId);		// cstId로 조회하기
+	public List<Orders> getOrderNumberpresent(String orderDate ,String sameTimeCount , String itemId); // orderNumber로 조회하기
+	public List<Orders> getPriceList();
+
 	/*public OptionPrice getOptionCard();*/
 }
 

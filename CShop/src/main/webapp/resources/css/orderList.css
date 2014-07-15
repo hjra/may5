@@ -4,27 +4,30 @@
 	position: relative;
 	overflow: hidden;
 	height: 0px; 
-	background-color: #FFF0F5;
+	background: #FFFFFF;
 	width: 830px;
 	margin-left: -628px;   
 	margin-top: 10px;
+	transition: 0.9s; 
 } 
 
 .detailhome article dtinformation {
 	display: block; 
 	padding: 12px;
 	margin: 5px;
-  	background-color: #FFFFFF;
-	
 }
 
 .detailhome input:checked ~ article.orderartcle {
-	height: 370px; 
+	height: 620px;
 }
+
+/* 배송이미지  */
+.image {border: 1px solid; width: 300px; height: 200px; padding-top: 100px; margin: 0 auto;}
+.Commenta {border: 1px solid; width: 300px; height: 30px;  padding-top: 8px; margin: 0 auto; }
 
 
 /* 상세내역정보 */
-.alla {border-bottom: 1px solid; width: 825px; height: 65px; }
+.alla {margin-top:10px; border-bottom: 1px solid; width: 825px; height: 65px; }
 .oda { float: left; width: 200px; border-right: 1px solid; font-size: 20px; height: 30px; margin-top: 20px;}
 .odinfoa {margin-top: 1px;}  
 .odina {margin-top:10px; margin-left: 320px;  width: 500px; }
@@ -172,6 +175,12 @@
 #a6 {float: left; left: 300px; border: 1px; background-color: #FFFFE9;  width: 68px; height: 30px;  font-size: 12px; margin-top:5px;}
 
 
+
+ .pageqq { visibility: visible;} 
+ .pageqa { visibility: visible;}
+
+
+
 @media only screen and (max-width: 768px){
 	
 /* 	
@@ -304,15 +313,13 @@
  #a5 {visibility:hidden; margin-left:  -100px; border: 1px; background-color: #FFDD75; width: 100px; height: 30px;   } 
  #a6 {visibility:hidden;  margin-left:  -100px; border: 1px; background-color: #FFDD75; width: 100px;height: 30px; }
 
-
-
-
-
-
  
  #form {
 	visibility: hidden;
 }
+ 
+ .pageqq { visibility: hidden;}
+ .pageqa { visibility: hidden;}
  
 }
 
