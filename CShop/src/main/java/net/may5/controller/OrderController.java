@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import net.may5.dto.Orders;
+import net.may5.dto.Payment;
 import net.may5.service.OrderService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
+@SessionAttributes("cstLogin")
 public class OrderController {
 
 	@Autowired
@@ -35,8 +38,7 @@ public class OrderController {
 	
 	/* 주문상세 */
 	@RequestMapping("orderDetail.do")
-	public String orderDetail( Model model,  String cstId){
-		Orders orders = new Orders();
+	public String orderDetail( Model model, Orders orders, String cstId ){
 		model.addAttribute("orders", orders);
 		model.addAttribute("cstExistingInfo",orderService.getCstExistingInfo(cstId));
 		return "cst/order/orderDetail";
@@ -65,20 +67,26 @@ public class OrderController {
 	
 	/* 수취인정보 */
 	@RequestMapping("advanceOrderPayment.do")
-	public String advanceOrderPayment(Model model){
+	public String advanceOrderPayment( Model model, Orders orders, String cstId, String dlvwarn ){
+		System.out.println("왔어요??");
 		model.addAttribute("payKind", orderService.getPayKind());
 		model.addAttribute("cardSection", orderService.getCardSection());
 		model.addAttribute("cashReceiptRequestInfoSave", orderService.getCashReceiptRequestInfoSave());
-		System.out.println(orderService.getCashReceiptRequestInfoSave());
+		//System.out.println(orderService.getCashReceiptRequestInfoSave());
 		model.addAttribute("deduction", orderService.getDeduction());
 		model.addAttribute("cardKind",orderService.getCardKind());
 		model.addAttribute("installment", orderService.getInstallment());
 		model.addAttribute("cashReceiptRequestWay", orderService.getCashReceiptRequestWay());
+		model.addAttribute("orders", orders);
+		model.addAttribute("dlvwarn", dlvwarn);
+		//System.out.println("주의사항 : "+dlvwarn);
 		return "cst/order/advanceOrderPayment";
 	}
 	
 	@RequestMapping("payment.do")
-	public String payment(){
+	public String payment(@RequestParam Payment payment, Model model){
+		System.out.println("들어왔나 "+payment);
+		model.addAttribute("payment", payment);
 		return "cst/order/payment";
 	}
 	

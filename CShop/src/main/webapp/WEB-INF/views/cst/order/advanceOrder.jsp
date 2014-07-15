@@ -20,40 +20,33 @@
 				</colgroup>
 				<tbody>
 					<tr>
-						<th scope="row"><label for="ca"><strong>*</strong>케이크 수량</label></th>
+						<th scope="row"><label for="orderAmount"><strong>*</strong>케이크 수량</label></th>
 						<td>
-							<input type="number" min="1" max="10" step="1"  id="ca" required="required">
+							<input type="number" min="1" max="10" step="1"  name="orderAmount" required="required">
 						</td>
 					</tr>
 					<tr>
-						<th scope="row"><label for=""><strong>*</strong>꽃다발</label></th>
+						<th scope="row"><label for=""><strong>*</strong>옵션선택</label></th>
 						<td>
-							<c:forEach var="optionFlower" items="${optionPrice }" varStatus="status" end="1">
-							<input type="radio" value="${optionFlower.optionCode }" name="chooseFlower"/>${optionFlower.optionType } ${optionFlower.optionPrice }
-							</c:forEach>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row"><label for=""><strong>*</strong>카드</label></th>
-						<td>
-							<c:forEach var="optionCard" items="${optionPrice }" varStatus="status" begin="2" end="4">
-							<input type="radio" value="${optionCard.optionCode }" name="chooseCard" />${optionCard.optionType } ${optionCard.optionPrice }
+							<c:forEach var="optionChoose" items="${optionPrice }" end="5">
+								<input type="radio" value="${optionChoose.optionCode }" name="optionCode" required="required">
+									${optionChoose.optionType } ${optionChoose.optionPrice }원<br>
 							</c:forEach>
 						</td>
 					</tr>
 					
 					<tr>
-						<th scope="row"><label for="cm">카드문구</label></th>
+						<th scope="row"><label for="cardMessage">카드문구</label></th>
 						<td>
-							<input type="text" id="cm" placeholder="ex)생일축하합니다" />
+							<input type="text" name="cardMessage" placeholder="ex)생일축하합니다" />
 						</td>
 					</tr>
-					<tr>
+					<!-- <tr>
 						<th scope="row"><label for="fu">동영상 추가</label></th>
 						<td>
 							<input type="file" />
 						</td>
-					</tr>
+					</tr> -->
 				</tbody>
 			</table>
 			<p>

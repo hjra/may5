@@ -49,8 +49,8 @@ public class Orders {
 	private String itemName;			// 상품명
 	private int price;					// 가격
 	private int itemCnt; //중복된 아이템 카운트
-	
-	
+	private String cardMessage;
+	private String dlvwarn;
 	public String getOrderCode() {
 		return orderCode;
 	}
@@ -303,6 +303,18 @@ public class Orders {
 	public void setItemCnt(int itemCnt) {
 		this.itemCnt = itemCnt;
 	}
+	public String getCardMessage() {
+		return cardMessage;
+	}
+	public void setCardMessage(String cardMessage) {
+		this.cardMessage = cardMessage;
+	}
+	public String getDlvwarn() {
+		return dlvwarn;
+	}
+	public void setDlvwarn(String dlvwarn) {
+		this.dlvwarn = dlvwarn;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -311,12 +323,15 @@ public class Orders {
 				+ ((buildingNum1 == null) ? 0 : buildingNum1.hashCode());
 		result = prime * result
 				+ ((buildingNum2 == null) ? 0 : buildingNum2.hashCode());
+		result = prime * result
+				+ ((cardMessage == null) ? 0 : cardMessage.hashCode());
 		result = prime * result + ((cstCode == null) ? 0 : cstCode.hashCode());
 		result = prime * result + ((cstId == null) ? 0 : cstId.hashCode());
 		result = prime * result + dlvCharge;
 		result = prime * result + dlvChargeCode;
 		result = prime * result
 				+ ((dlvEndDate == null) ? 0 : dlvEndDate.hashCode());
+		result = prime * result + ((dlvwarn == null) ? 0 : dlvwarn.hashCode());
 		result = prime * result + ((dong == null) ? 0 : dong.hashCode());
 		result = prime * result
 				+ ((dongubmyon == null) ? 0 : dongubmyon.hashCode());
@@ -396,6 +411,11 @@ public class Orders {
 				return false;
 		} else if (!buildingNum2.equals(other.buildingNum2))
 			return false;
+		if (cardMessage == null) {
+			if (other.cardMessage != null)
+				return false;
+		} else if (!cardMessage.equals(other.cardMessage))
+			return false;
 		if (cstCode == null) {
 			if (other.cstCode != null)
 				return false;
@@ -414,6 +434,11 @@ public class Orders {
 			if (other.dlvEndDate != null)
 				return false;
 		} else if (!dlvEndDate.equals(other.dlvEndDate))
+			return false;
+		if (dlvwarn == null) {
+			if (other.dlvwarn != null)
+				return false;
+		} else if (!dlvwarn.equals(other.dlvwarn))
 			return false;
 		if (dong == null) {
 			if (other.dong != null)
@@ -588,8 +613,10 @@ public class Orders {
 				+ cstCode + ", noticeComment=" + noticeComment + ", noticeImg="
 				+ noticeImg + ", itemId=" + itemId + ", cstId=" + cstId
 				+ ", levelCode=" + levelCode + ", itemName=" + itemName
-				+ ", price=" + price + ", itemCnt=" + itemCnt + "]";
+				+ ", price=" + price + ", itemCnt=" + itemCnt
+				+ ", cardMessage=" + cardMessage + ", dlvwarn=" + dlvwarn + "]";
 	}
+	
 	
 	
 }
