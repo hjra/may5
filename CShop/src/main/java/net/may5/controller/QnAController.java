@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,12 +44,8 @@ public class QnAController {
 	public String boardCheck(Model model, @RequestParam int boardCode) /*보드에서 보낸 보드코드를 받아준다*/	
 	{
 			
-	/*	System.out.println(boardCode+"boardCode");
-		System.out.println(cstCode+"cstCode");
-		model.addAttribute("replyCount", replyCount);*/
 		System.out.println("boardCode: "+boardCode);
 		model.addAttribute("qna", qnaService.qnaGetContents(boardCode));
-		
 		return "cst/membership/boardCheck";
 		
 	}
@@ -57,12 +54,21 @@ public class QnAController {
 	public String boardEdit(Model model, @RequestParam int boardCode){
 		System.out.println("게시글 수정페이지 이동 boardCode: "+boardCode);
 		
-		model.addAttribute("qna", qnaService.qnaGetContents(boardCode));
-		//model.addAttribute("board", board);		
-		//QnA board =	qnaService.qnaGetContents(boardCode);
+		model.addAttribute("qnaContent", qnaService.getQnAContent(boardCode));
+		model.addAttribute("boardReply", qnaService.getQnAContentReplies(boardCode));
+		
+		System.out.println("게시글의 본문 내용입니다>>>>>"+qnaService.getQnAContent(boardCode));
+		System.out.println("리플의 내용입니다.>>>>>"+qnaService.getQnAContentReplies(boardCode));
+		model.addAttribute("boardCode",boardCode);
+		
+		/*qnaReplyList는 
+		해당 글번호의 댓글과 게시글내용을 가지고온다*/
 		System.out.println(boardCode);
+		
 		return "cst/membership/boardEdit";
 	}
+	
+	
 	/* QnA 게시판 글쓰기 페이지 이동*/
 	@RequestMapping("boardWriteForm.do")
 	public String boardWriteForm(Map<String, String> paramap, ModelMap model){
@@ -108,14 +114,14 @@ public class QnAController {
 	
 	//게시글 수정폼으로 이동
 	@RequestMapping(value = "boardUpdateForm.do", method = RequestMethod.POST)
-	public String BoardUpdateForm(Model model, int boardCode) {
-		System.out.println(boardCode+"보드번호입니다.");
-		QnA qna = qnaService.getBoard(boardCode);
-		System.out.println(qna+"제대로 찍힙니까???");
-		model.addAttribute("QnA", qna);
-		return "cst/membership/boardUpdateForm";
-	}
-	
+			public String boardUpdateForm(Model model, int boardCode) {
+					
+					System.out.println(boardCode+"보드번호입니다.");
+					QnA qna = qnaService.getBoard(boardCode);
+					System.out.println(qna+"제대로 찍힙니까???");
+					model.addAttribute("QnA", qna);
+					return "cst/membership/boardUpdateForm";
+			}
 	
 	
 	//게시글 수정
@@ -131,10 +137,36 @@ public class QnAController {
 		return "cst/membership/board";
 	}
 	
-	
-	
-	
-	
+	//boardEdit.jsp에서 댓글을 입력해주는 메서드입니다.
+	@RequestMapping(value = "replyProc.do", method=RequestMethod.POST)
+	public String replyProc(QnA qna, @RequestParam int boardCode,
+			BindingResult result, Model model) 
+	{
+		
+		
+		
+		//DB에 저장시켜주는 변수들
+		System.out.println("!!!");
+		System.out.println("qna: "+qna);
+	//	System.out.println("qnaReply: "+qnaReply);
+		qnaService.setReply(qna);
+		System.out.println("!!!!!!@2");
+	//	qna.setQnaReply(qnaReply);
+		
+		
+	//	System.out.println("boardCode는 >>>>>"+boardCode);
+		System.out.println("댓글입력 나가신다~ ");
+	//	System.out.println("boardCode는>>>>>"+boardCode);
+		//qna.setBoardCode(Integer.parseInt(request.getParameter("boardCode")));
+		//qna.setReplyCount(replyCount);
+		model.addAttribute("qnaContent", qnaService.getQnAContent(boardCode));
+		model.addAttribute("boardReply", qnaService.getQnAContentReplies(boardCode));
+		
+		
+		return "cst/membership/boardEdit";
+
+	}
+
 	
 	
 	/*관리자페이지경로설정*/

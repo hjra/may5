@@ -1,0 +1,204 @@
+@charset "UTF-8";
+/*
+	sass style kit
+	auther        : hojugn ahn (open9.net)
+	version       : 0.5
+	concept       : interface set, auto preload image, easy hack, easy animation
+*/
+/* table styilus*/
+table.style-dashboard-01 { table-layout: fixed; width: 100%; border-spacing: 0px; border-collapse: collapse; }
+table.style-dashboard-01 td, table.style-dashboard-01 th { position: relative; vertical-align: middle; border: none; }
+table.style-dashboard-01 td input, table.style-dashboard-01 th input { margin: 0px; }
+table.style-dashboard-01 th, table.style-dashboard-01 td { background: white; border: 1px solid #ddd; }
+table.style-dashboard-01 thead th, table.style-dashboard-01 thead td { text-align: center; }
+table.style-dashboard-01 th, table.style-dashboard-01 td { color: #666; padding: 10px; }
+table.style-dashboard-01 thead th { background: #ffffff; /* Old browsers */ background: -moz-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%); /* FF3.6+ */ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(47%, #f6f6f6), color-stop(100%, #ededed)); /* Chrome,Safari4+ */ background: -webkit-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%); /* Chrome10+,Safari5.1+ */ background: -o-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%); /* Opera 11.10+ */ background: -ms-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%); /* IE10+ */ background: linear-gradient(to bottom, white 0%, #f6f6f6 47%, #ededed 100%); /* W3C */ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */ }
+table.style-dashboard-01 tbody { text-align: center; }
+
+/*�뀒留�*/
+input, textarea { -webkit-transition: all 0.30s ease-in-out; -moz-transition: all 0.30s ease-in-out; -ms-transition: all 0.30s ease-in-out; -o-transition: all 0.30s ease-in-out; box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 3px; -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 3px; -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 3px; padding: 5px; border: solid 1px #E5E5E5; outline: 0; background: #FFFFFF; }
+
+input:focus, textarea:focus { box-shadow: #45b0e5 0px 0px 5px; -moz-box-shadow: #45b0e5 0px 0px 5px; -webkit-box-shadow: #45b0e5 0px 0px 5px; }
+
+.modal-style-01 { background: white; border: 20px solid #ffcc99; }
+
+.modal-style-01 .model-header { text-align: left; }
+
+.modal .modal-dialog { background: white; border: 20px solid #d5bb81; }
+
+.form-group button, .form-group input { vertical-align: top; }
+
+/*而댄룷�꼳�듃*/
+.datepicker.dropdown-menu { z-index: 1100; }
+
+input.daterange-01, input.reportrange-01 { display: inline-block; zoom: 1; *display: inline; width: 210px; }
+
+input.daterange-01:before, input.reportrange-01:before { content: "�떖�젰�씠�떦"; }
+
+.input-group .input-group-addon { box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 3px; -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 3px; -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 3px; top: 0px; border: solid 1px #E5E5E5; background: white; }
+
+ul.pagecontrol li { display: inline-block; zoom: 1; *display: inline; width: 20px; height: 20px; text-align: center; cursor: pointer; color: #666; }
+
+ul.pagecontrol li:hover { background: #eee; color: #333; }
+
+ul.pagecontrol li.action { width: 40px; }
+
+ul.pagecontrol li.mute { color: #ccc; background: none; cursor: default; }
+
+ul.pagecontrol li.active { font-weight: bold; }
+
+/*************** 蹂대뱶 �뒪���씪     */
+table.board-list-01, table.board-view-01, table.board-list-02 { width: 100%; table-layout: fixed; }
+
+/****************************** 蹂대뱶 �뒪���씪 -01- �뿤�뜑 諛깃렇�씪�슫�뱶 �꽕�젙    */
+table.board-list-01 thead, table.board-view-01 thead th { background: url("../img/assets/thead-background.png"); }
+
+/****************************** 蹂대뱶 �뒪���씪 -01- 酉곗쓽 �씪�씤       */
+table.board-view-01 thead tr, table.board-view-01 tfoot tr { border-bottom: 1px solid #d8d8d8; }
+
+table.board-view-01 thead tr:first-child, table.board-view-01 tfoot tr:first-child { border-top: 1px solid #d8d8d8; }
+
+/****************************** 蹂대뱶 �뒪���씪 -01- 湲곕낯 濡쒖슦 �꽕�젙  */
+table.board-list-01 td, table.board-list-01 th, table.board-view-01 thead td, table.board-view-01 thead th, table.board-view-01 tfoot td, table.board-view-01 tfoot th { font-size: 12px; vertical-align: middle; height: 30px; /*nowrap*/ white-space: nowrap; text-overflow: ellipsis; -o-text-overflow: ellipsis; -ms-text-overflow: ellipsis; overflow: hidden; word-wrap: normal !important; /*padding*/ padding-left: 15px; padding-right: 15px; }
+
+/****************************** 蹂대뱶 �뒪���씪 -01- �뿤�뜑 �꽕�젙       */
+table.board-list-01 thead td, table.board-list-01 thead th, table.board-list-01 tfoot td, table.board-list-01 tfoot th, table.board-view-01 thead th, table.board-view-01 thead td, table.board-view-01 tfoot th { text-align: center; border-top: 1px solid #d8d8d8; border-bottom: 1px solid #d8d8d8; color: #646464; }
+
+table.board-view-01 thead td, table.board-view-01 tfoot th { text-align: left; background: none; }
+
+table.board-view-01 tfoot th { text-align: center; }
+
+/****************************** 蹂대뱶 �뒪���씪 -01- �뿤�뜑 �뜲肄붾젅�씠�뀡    */
+table.board-list-01 thead td, table.board-list-01 thead th { background: url("../img/assets/thead-break.png") no-repeat left bottom; }
+
+table.board-list-01 thead td:first-child, table.board-list-01 thead th:first-child { background: none; }
+
+/****************************** 蹂대뱶 �뒪���씪 -01- 諛붾뵒 �꽕�젙 諛� 而⑦뀗痢� */
+table.board-list-01 tbody td, table.board-list-01 tbody th, table.board-view-01 tbody td, table.board-view-01 tbody th { color: #404040; }
+
+table.board-view-01 tbody .table-content { min-height: 300px; padding: 20px; }
+
+/****************************** 蹂대뱶 �뒪���씪 -01- 諛붾뵒 �뜲肄붾젅�씠�뀡    */
+table.board-list-01 tbody tr { border-bottom: 1px solid #d8d8d8; }
+
+table.board-list-hover tbody tr { cursor: pointer; }
+
+table.board-list-hover tbody tr:hover { background: #fdfdfd; }
+
+/****************************** 蹂대뱶 �뒪���씪 -01- �뭼�꽣 �뜲肄붾젅�씠�뀡    */
+table.board-list-01 tfoot th, table.board-view-01 tfoot th { background: url("../img/assets/thead-break.png") no-repeat right bottom; }
+
+/****************************** 蹂대뱶 �뒪���씪 -01- �뒪�럹�뀥    */
+table.board-selectable > tbody > tr > th, table.board-selectable > tbody > tr > td { cursor: pointer; }
+
+table.board-selectable > tbody > tr:hover > th, table.board-selectable > tbody > tr:hover > td { background: #f8f7ec; }
+
+table.board-list-01 .multi-line, table.board-view-01 .multi-line { padding-top: 5px; padding-bottom: 5px; }
+
+table.board-list-01 tr.row-selected { background: #4192d9; }
+
+table.board-list-01 tr.row-selected th, table.board-list-01 tr.row-selected td { color: white !important; }
+
+/****************************** 蹂대뱶 �뒪���씪 -02- �뿤�뜑 �뒪���씪 �꽕�젙    */
+table.board-list-02 thead { border-bottom: 2px solid #d8d8d8; }
+
+/****************************** 蹂대뱶 �뒪���씪 -02- 酉곗쓽 �씪�씤       */
+table.board-view-02 thead tr, table.board-view-02 tfoot tr { border-bottom: 1px solid #d8d8d8; }
+
+/****************************** 蹂대뱶 �뒪���씪 -02- 湲곕낯 濡쒖슦 �꽕�젙  */
+table.board-list-02 td, table.board-list-02 th, table.board-view-02 thead td, table.board-view-02 thead th, table.board-view-02 tfoot td, table.board-view-02 tfoot th { font-size: 11px; vertical-align: middle; height: 30px; /*nowrap*/ white-space: nowrap; text-overflow: ellipsis; -o-text-overflow: ellipsis; -ms-text-overflow: ellipsis; overflow: hidden; word-wrap: normal !important; /*padding*/ padding-left: 10px; padding-right: 10px; }
+
+/****************************** 蹂대뱶 �뒪���씪 -02- �뿤�뜑 �꽕�젙       */
+table.board-list-02 thead td, table.board-list-02 thead th, table.board-list-02 tfoot td, table.board-list-02 tfoot th, table.board-view-02 thead th, table.board-view-02 thead td, table.board-view-02 tfoot th { text-align: center; border-top: 1px solid #d8d8d8; border-bottom: 1px solid #d8d8d8; color: #646464; }
+
+table.board-list-02 tfoot td, table.board-list-02 tfoot th { padding-top: 5px; border-bottom: none; }
+
+table.board-list-02 tfoot td { padding-right: 0px; }
+
+table.board-view-02 thead td, table.board-view-02 tfoot th { text-align: left; background: none; }
+
+table.board-view-02 tfoot th { text-align: center; }
+
+/****************************** 蹂대뱶 �뒪���씪 -02- �뿤�뜑 �뜲肄붾젅�씠�뀡    */
+table.board-list-02 thead td, table.board-list-02 thead th { background: url("../img/assets/thead-break.png") no-repeat left bottom; }
+
+table.board-list-02 thead td:first-child, table.board-list-02 thead th:first-child { background: none; }
+
+/****************************** 蹂대뱶 �뒪���씪 -02- 諛붾뵒 �꽕�젙 諛� 而⑦뀗痢� */
+table.board-list-02 tbody td, table.board-list-02 tbody th, table.board-view-02 tbody td, table.board-view-02 tbody th { color: #404040; }
+
+table.board-view-02 tbody .table-content { min-height: 300px; padding: 20px; }
+
+/****************************** 蹂대뱶 �뒪���씪 -02- 諛붾뵒 �뜲肄붾젅�씠�뀡    */
+table.board-list-02 tbody tr { border-bottom: 1px solid #d8d8d8; }
+
+table.board-list-02 tbody th { background: url("../img/assets/thead-break.png") no-repeat right bottom; }
+
+table.board-list-hover tbody tr { cursor: pointer; }
+
+table.board-list-hover tbody tr:hover { background: #fdfdfd; }
+
+/****************************** 蹂대뱶 �뒪���씪 -02- �뭼�꽣 �뜲肄붾젅�씠�뀡    */
+table.board-list-02 tfoot th, table.board-view-02 tfoot th { background: url("../img/assets/thead-break.png") no-repeat right bottom; }
+
+/****************************** 蹂대뱶 �뒪���씪 -02- �뒪�럹�뀥    */
+table.board-list-02 .multi-line, table.board-view-02 .multi-line { padding-top: 5px; padding-bottom: 5px; }
+
+table.board-list-02 tr.row-selected { background: #4192d9; }
+
+table.board-list-02 tr.with-component td { padding-top: 5px; padding-bottom: 5px; }
+
+table.board-list-02 tr.row-selected th, table.board-list-02 tr.row-selected td { color: white; }
+
+/****************************** 遺��듃�뒪�듃�옪 callout -01- �뭼�꽣 �뜲肄붾젅�씠�뀡 */
+.bs-callout { margin: 20px 0; padding: 20px; border-left: 3px solid #eeeeee; }
+
+.bs-callout h4 { margin-top: 0; margin-bottom: 5px; }
+
+.bs-callout-close { margin: 0 0 5px 0; padding-top: 10px; padding-bottom: 10px; }
+
+.bs-callout p:last-child { margin-bottom: 0; }
+
+.bs-callout code { background-color: #fff; border-radius: 3px; }
+
+.bs-callout-danger { background-color: #fdf7f7; border-color: #d9534f; }
+
+.bs-callout-danger h4 { color: #d9534f; }
+
+.bs-callout-warning { background-color: #fcf8f2; border-color: #f0ad4e; }
+
+.bs-callout-warning h4 { color: #f0ad4e; }
+
+.bs-callout-info { background-color: #f4f8fa; border-color: #5bc0de; }
+
+.bs-callout-info h4 { color: #5bc0de; }
+
+/*subject System*/
+.text-subject { padding-top: 10px; padding-bottom: 10px; margin: 0px; width: auto; }
+
+.text-subject .glyphicon { color: #2d67b3; margin-right: 5px; font-size: 90%; }
+
+.text-subject .label { font-size: 50%; }
+
+h1.text-subject { padding-bottom: 20px; margin-bottom: 10px; border-bottom: 2px solid #ddd; }
+
+h1.text-subject .glyphicon { margin-right: 10px; }
+
+h2.text-subject { padding-bottom: 15px; border-bottom: 2px solid #ddd; }
+
+h3.text-subject { border-top: 2px dotted #eee; }
+
+h5.text-subject { border-top: none; }
+
+.tip { cursor: alias; background: #eec; }
+
+/*develop*/
+table.table-nowrap { table-style: fixed; }
+
+table.table-nowrap > * > tr > td, table.table-nowrap > * > tr > th { white-space: nowrap; text-overflow: ellipsis; -o-text-overflow: ellipsis; -ms-text-overflow: ellipsis; overflow: hidden; word-wrap: normal !important; text-align: left; max-width: 150px; }
+
+.table-frame { border: 3px solid #d5eefa; background: white; border-radius: 2px; }
+
+.table-frame-resize-control { cursor: row-resize; text-align: center; }
+
+.panel.panel-toolbar { background: #fcfcfc; border: 3px solid silver; }

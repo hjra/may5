@@ -22,7 +22,11 @@ ${getDailyCountForMenu}
 </li>
 </ul>
 <ul>
-<li class="stt"><a href="salesReport.do">매출분석</a><br>
+<li class="stt">
+<input  type="IMAGE" name="Button" value="Button"
+onclick="location.href='salesReport.do'"
+							src="/CShop/resources/img/button/money.png">
+<a href="salesReport.do">매출분석</a><br>
 </li>
 
 <li class="stt"><a href="memberReport.do">고객분석</a><br>
