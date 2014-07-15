@@ -410,7 +410,7 @@ $(document).ready(function(){
 							<td align="center">
 							<input type="IMAGE" name="Submit" value="Submit"  ${sessionScope.cstLogin.cstId == null?" disabled":"" }
 							src="/CShop/resources/img/button/comment.png">
-</td>
+							</td>
 							<c:choose>
 								<c:when test="${sessionScope.cstLogin.cstId == null }">
 									<!-- <td width="100px" align="center">
