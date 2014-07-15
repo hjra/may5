@@ -4,51 +4,57 @@ import java.sql.Date;
 
 public class Orders {
 	
-	private String orderCode;			// 주문코드
-	private Date orderDate;				// 주문날짜(sysdate)
-
-	private String sameTimeCount;		// 동시간대카운트
-	private int payCode;				// 결제구분.결제코드
-	private String payType;				// 결제수단
-	private int optionCode;				// 옵션가.옵션코드
-	private String optionType;			// 항목
-	private int optionPrice;			// 금액
-	private int dlvChargeCode;			// 배송비코드
-	private int dlvCharge;				// 배송비
-	private int noticeCode;				// 알리미.알리미코드
-	private int orderAmount;			// 주문수량
-	private int pointCode;				// 적립정보.적립코드
-	private String zipCode;				// 우편정보.우편코드
-	private String zipNumber;			// 우편번호
-	private String sido;				// 시도
-	private String sigungu;				// 시군구
-	private String dongubmyon;			// 읍면
-	private String doromyong;			// 도로명
-	private String buildingNum1;		// 건물번호본번
-	private String buildingNum2;		// 건물번호부번
+	private String orderCode;	// 주문코드
+	private Date orderDate;	// 주문날짜(sysdate)
+	
+	private String sameTimeCount;	// 동시간대카운트
+	private int payCode;	// 결제구분.결제코드
+	private String payType;	// 결제수단
+	private int optionCode;	// 옵션가.옵션코드
+	private String optionType;	// 항목
+	private int optionPrice;	// 금액
+	private int dlvChargeCode;	// 배송비코드
+	private int dlvCharge;	// 배송비
+	private int noticeCode;	// 알리미.알리미코드
+	private int orderAmount;	// 주문수량
+	private int pointCode;	// 적립정보.적립코드
+	private String zipCode;	// 우편정보.우편코드
+	private String zipNumber;	// 우편번호
+	private String sido;	// 시도
+	private String sigungu;	// 시군구
+	private String dongubmyon;	// 읍면
+	private String doromyong;	// 도로명
+	private String buildingNum1;	// 건물번호본번
+	private String buildingNum2;	// 건물번호부번
 	private String sigunguBuildingName;	// 시군구용건물명
-	private String dong;				// 법정동명
-	private String li;					// 리
-	private String jibunNum1;			// 지번본번
-	private String jibunNum2;			// 지번부번
+	private String dong;	// 법정동명
+	private String li;	// 리
+	private String jibunNum1;	// 지번본번
+	private String jibunNum2;	// 지번부번
 	private String orderDetailAddress;	// 상세주소
-	private String receiverName;		// 수령자
-	private String receiverCP;			// 수령자 휴대폰번호
-	private int stockAmount;			// 입고수량
-	private String receiverPhone;		// 수령자 전화번호
-	private Date dlvEndDate;			// 배송완료일
-	private String sizeCode;			// 크기정보.크기ID
-	private String cstCode;				// 고객정보.회원코드
-	private String noticeComment;		// 코멘트
-	private String noticeImg;			// 촬영이미지
+	private String receiverName;	// 수령자
+	private String receiverCP;	// 수령자 휴대폰번호
+	private int stockAmount;	// 입고수량
+	private String receiverPhone;	// 수령자 전화번호
+	private Date dlvEndDate;	// 배송완료일
+	private String sizeCode;	// 크기정보.크기ID
+	private String cstCode;	// 고객정보.회원코드
+	private String noticeComment;	// 코멘트
+	private String noticeImg;	// 촬영이미지
 	
 	/*db가져오기*/
-	private String itemId;				// 상품정보.상품ID
-	private String cstId;				// 회원아이디
-	private String levelCode;			// 고객등급.등급코드
-	private String itemName;			// 상품명
-	private int price;					// 가격
+	private String itemId;	// 상품정보.상품ID
+	private String cstId;	// 회원아이디
+	private String levelCode;	// 고객등급.등급코드
+	private String itemName;	// 상품명
+	private int price;	// 가격
 	private int itemCnt; //중복된 아이템 카운트
+	
+	/*상세정보db가져오기*/
+	private String cstName;	// 이름
+	private String cstCP;	// 휴대폰번호
+	private String cstEmail;	// E-mail
+	private String noticeType;	// 결제처리
 	private String cardMessage;
 	private String dlvwarn;
 	public String getOrderCode() {
@@ -303,6 +309,30 @@ public class Orders {
 	public void setItemCnt(int itemCnt) {
 		this.itemCnt = itemCnt;
 	}
+	public String getCstName() {
+		return cstName;
+	}
+	public void setCstName(String cstName) {
+		this.cstName = cstName;
+	}
+	public String getCstCP() {
+		return cstCP;
+	}
+	public void setCstCP(String cstCP) {
+		this.cstCP = cstCP;
+	}
+	public String getCstEmail() {
+		return cstEmail;
+	}
+	public void setCstEmail(String cstEmail) {
+		this.cstEmail = cstEmail;
+	}
+	public String getNoticeType() {
+		return noticeType;
+	}
+	public void setNoticeType(String noticeType) {
+		this.noticeType = noticeType;
+	}
 	public String getCardMessage() {
 		return cardMessage;
 	}
@@ -316,6 +346,34 @@ public class Orders {
 		this.dlvwarn = dlvwarn;
 	}
 	@Override
+	public String toString() {
+		return "Orders [orderCode=" + orderCode + ", orderDate=" + orderDate
+				+ ", sameTimeCount=" + sameTimeCount + ", payCode=" + payCode
+				+ ", payType=" + payType + ", optionCode=" + optionCode
+				+ ", optionType=" + optionType + ", optionPrice=" + optionPrice
+				+ ", dlvChargeCode=" + dlvChargeCode + ", dlvCharge="
+				+ dlvCharge + ", noticeCode=" + noticeCode + ", orderAmount="
+				+ orderAmount + ", pointCode=" + pointCode + ", zipCode="
+				+ zipCode + ", zipNumber=" + zipNumber + ", sido=" + sido
+				+ ", sigungu=" + sigungu + ", dongubmyon=" + dongubmyon
+				+ ", doromyong=" + doromyong + ", buildingNum1=" + buildingNum1
+				+ ", buildingNum2=" + buildingNum2 + ", sigunguBuildingName="
+				+ sigunguBuildingName + ", dong=" + dong + ", li=" + li
+				+ ", jibunNum1=" + jibunNum1 + ", jibunNum2=" + jibunNum2
+				+ ", orderDetailAddress=" + orderDetailAddress
+				+ ", receiverName=" + receiverName + ", receiverCP="
+				+ receiverCP + ", stockAmount=" + stockAmount
+				+ ", receiverPhone=" + receiverPhone + ", dlvEndDate="
+				+ dlvEndDate + ", sizeCode=" + sizeCode + ", cstCode="
+				+ cstCode + ", noticeComment=" + noticeComment + ", noticeImg="
+				+ noticeImg + ", itemId=" + itemId + ", cstId=" + cstId
+				+ ", levelCode=" + levelCode + ", itemName=" + itemName
+				+ ", price=" + price + ", itemCnt=" + itemCnt + ", cstName="
+				+ cstName + ", cstCP=" + cstCP + ", cstEmail=" + cstEmail
+				+ ", noticeType=" + noticeType + ", cardMessage=" + cardMessage
+				+ ", dlvwarn=" + dlvwarn + "]";
+	}
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -325,8 +383,12 @@ public class Orders {
 				+ ((buildingNum2 == null) ? 0 : buildingNum2.hashCode());
 		result = prime * result
 				+ ((cardMessage == null) ? 0 : cardMessage.hashCode());
+		result = prime * result + ((cstCP == null) ? 0 : cstCP.hashCode());
 		result = prime * result + ((cstCode == null) ? 0 : cstCode.hashCode());
+		result = prime * result
+				+ ((cstEmail == null) ? 0 : cstEmail.hashCode());
 		result = prime * result + ((cstId == null) ? 0 : cstId.hashCode());
+		result = prime * result + ((cstName == null) ? 0 : cstName.hashCode());
 		result = prime * result + dlvCharge;
 		result = prime * result + dlvChargeCode;
 		result = prime * result
@@ -353,6 +415,8 @@ public class Orders {
 				+ ((noticeComment == null) ? 0 : noticeComment.hashCode());
 		result = prime * result
 				+ ((noticeImg == null) ? 0 : noticeImg.hashCode());
+		result = prime * result
+				+ ((noticeType == null) ? 0 : noticeType.hashCode());
 		result = prime * result + optionCode;
 		result = prime * result + optionPrice;
 		result = prime * result
@@ -416,15 +480,30 @@ public class Orders {
 				return false;
 		} else if (!cardMessage.equals(other.cardMessage))
 			return false;
+		if (cstCP == null) {
+			if (other.cstCP != null)
+				return false;
+		} else if (!cstCP.equals(other.cstCP))
+			return false;
 		if (cstCode == null) {
 			if (other.cstCode != null)
 				return false;
 		} else if (!cstCode.equals(other.cstCode))
 			return false;
+		if (cstEmail == null) {
+			if (other.cstEmail != null)
+				return false;
+		} else if (!cstEmail.equals(other.cstEmail))
+			return false;
 		if (cstId == null) {
 			if (other.cstId != null)
 				return false;
 		} else if (!cstId.equals(other.cstId))
+			return false;
+		if (cstName == null) {
+			if (other.cstName != null)
+				return false;
+		} else if (!cstName.equals(other.cstName))
 			return false;
 		if (dlvCharge != other.dlvCharge)
 			return false;
@@ -498,6 +577,11 @@ public class Orders {
 			if (other.noticeImg != null)
 				return false;
 		} else if (!noticeImg.equals(other.noticeImg))
+			return false;
+		if (noticeType == null) {
+			if (other.noticeType != null)
+				return false;
+		} else if (!noticeType.equals(other.noticeType))
 			return false;
 		if (optionCode != other.optionCode)
 			return false;
@@ -590,32 +674,9 @@ public class Orders {
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		return "Orders [orderCode=" + orderCode + ", orderDate=" + orderDate
-				+ ", sameTimeCount=" + sameTimeCount + ", payCode=" + payCode
-				+ ", payType=" + payType + ", optionCode=" + optionCode
-				+ ", optionType=" + optionType + ", optionPrice=" + optionPrice
-				+ ", dlvChargeCode=" + dlvChargeCode + ", dlvCharge="
-				+ dlvCharge + ", noticeCode=" + noticeCode + ", orderAmount="
-				+ orderAmount + ", pointCode=" + pointCode + ", zipCode="
-				+ zipCode + ", zipNumber=" + zipNumber + ", sido=" + sido
-				+ ", sigungu=" + sigungu + ", dongubmyon=" + dongubmyon
-				+ ", doromyong=" + doromyong + ", buildingNum1=" + buildingNum1
-				+ ", buildingNum2=" + buildingNum2 + ", sigunguBuildingName="
-				+ sigunguBuildingName + ", dong=" + dong + ", li=" + li
-				+ ", jibunNum1=" + jibunNum1 + ", jibunNum2=" + jibunNum2
-				+ ", orderDetailAddress=" + orderDetailAddress
-				+ ", receiverName=" + receiverName + ", receiverCP="
-				+ receiverCP + ", stockAmount=" + stockAmount
-				+ ", receiverPhone=" + receiverPhone + ", dlvEndDate="
-				+ dlvEndDate + ", sizeCode=" + sizeCode + ", cstCode="
-				+ cstCode + ", noticeComment=" + noticeComment + ", noticeImg="
-				+ noticeImg + ", itemId=" + itemId + ", cstId=" + cstId
-				+ ", levelCode=" + levelCode + ", itemName=" + itemName
-				+ ", price=" + price + ", itemCnt=" + itemCnt
-				+ ", cardMessage=" + cardMessage + ", dlvwarn=" + dlvwarn + "]";
-	}
+	
+	
+	
 	
 	
 	
