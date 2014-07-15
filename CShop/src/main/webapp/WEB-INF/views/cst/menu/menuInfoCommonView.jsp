@@ -408,9 +408,9 @@ $(document).ready(function(){
 							<td>${sessionScope.cstLogin.cstId}</td>
 							
 							<td align="center">
-							
-									<input type="submit" id="ok" value="등록"${sessionScope.cstLogin.cstId == null?" disabled":"" }></td>
-							
+							<input type="IMAGE" name="Submit" value="Submit"  ${sessionScope.cstLogin.cstId == null?" disabled":"" }
+							src="/CShop/resources/img/button/comment.png">
+							</td>
 							<c:choose>
 								<c:when test="${sessionScope.cstLogin.cstId == null }">
 									<!-- <td width="100px" align="center">
@@ -459,7 +459,8 @@ $(document).ready(function(){
 				
 								</c:when>
 								<c:when test="${sessionScope.cstLogin.cstCode == board.cstCode }">
-								<td align="center"><a href="evaluationDelete.do?evaluationIndex=${board.evaluationIndex}&itemId=${itemId}">X</a>
+								<td align="center">
+									<img src="/CShop/resources/img/button/delete.png" onclick="location.href='evaluationDelete.do?evaluationIndex=${board.evaluationIndex}&itemId=${itemId}'">
 								</td>
 								</c:when>
 								<c:otherwise>

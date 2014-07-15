@@ -60,9 +60,8 @@
 				</menu>
 			</div>
 		</li>
-		
 		<li onclick="location.href='about.do'">ABOUT</li>
-		<li style="font-size: 8px; left: 200px;">Membership
+		<li style="font-size: 8px">Membership
 			<div class="submenu">
 				<!-- 임시방편 -->
 				<menu>
@@ -107,36 +106,9 @@
 				</menu>
 			</div>			
 		</li>
-		&nbsp&nbsp&nbsp
-		<li style="font-size: 8px; left: 200px;" onclick="location.href='mngLoginForm.do'">ADMIN</li>
-		
-		
-		
-	</menu>
-	<%-- <menu id="mbs">
-			<c:choose>
-				<c:when test="${sessionScope.login==null}">
-					<f:form id="mbsF" method="post">
-						<li onclick="login()">LOGIN</li>
-						<li onclick="join()">JOIN</li>
-					</f:form>
-				</c:when>
-				<c:when test="${sessionScope.login.levelCode=='F'}">
-					<f:form id="mbsF" method="post">
-						<li onclick="logout()">LOGOUT</li>
-						<li onclick="join()">JOIN</li>
-					</f:form>
-				</c:when>
-				<c:when test="${sessionScope.login.levelCode=='N'or
-								sessionScope.login.levelCode=='V'or
-								sessionScope.login.levelCode=='B'}">
-					<f:form id="mbsF" method="post">
-						<li onclick="logout()">LOGOUT</li>
-						<li onclick="myPage()">MY C#</li>
-						<li onclick="calendar()">Calendar</li>
-					</f:form>
-				</c:when>
-			</c:choose>
-		</menu> --%>
-
+&nbsp&nbsp&nbsp
+		<li>
+		<input type="IMAGE" name="Button" value="Button"
+			src="/CShop/resources/img/button/settings.png"  onclick="location.href='mngLoginForm.do'">
+		</li></menu>
 </header>

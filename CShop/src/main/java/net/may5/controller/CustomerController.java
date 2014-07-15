@@ -158,7 +158,7 @@ public class CustomerController {
 	// 회원정보수정 입력폼으로 이동 
 	@RequestMapping("modifyInfoForm.do")
 	public String modifyInfoForm(Model model/*, HttpServletRequest request*/,
-			@ModelAttribute("cstLogin") Customer cstLogin, SessionStatus status){
+			@ModelAttribute("cstLogin") Customer cstLogin){
 //		Customer cstLogin = (Customer)request.getSession().getAttribute("cstLogin");
 		int cstCode = cstLogin.getCstCode();
 		String zipCode = cstLogin.getZipCode();
