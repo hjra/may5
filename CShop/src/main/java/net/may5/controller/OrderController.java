@@ -12,6 +12,7 @@ import net.may5.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -71,19 +72,27 @@ public class OrderController {
 	
 	/* 예약주문 */
 	@RequestMapping("advanceOrder.do")
-	public String advanceOrder(HttpServletRequest request, Model model, String cstLogin, String cstId) {
-		HttpSession session = request.getSession();
-		session.getAttribute(cstLogin);
-		model.addAttribute("optionPrice", orderService.getOptionPrice());
-		return "cst/order/advanceOrder";
+	public String advanceOrder(){
+		return "";
 	}
+	
+	
 	
 	/* 주문상세 */
 	@RequestMapping("orderDetail.do")
-	public String orderDetail( Model model, Orders orders, String cstId ){
+	public String orderDetail(HttpServletRequest request, Model model, String cstLogin, String cstId) {
+		HttpSession session = request.getSession();
+		session.getAttribute(cstLogin);
+		model.addAttribute("optionPrice", orderService.getOptionPrice());
+		return "cst/order/orderDetail";
+	}
+	
+	/* 수취정보*/
+	@RequestMapping(value="orderReceiverInfo.do", method=RequestMethod.POST)
+	public String orderReceiverInfo( Model model, Orders orders, String cstId ){
 		model.addAttribute("orders", orders);
 		model.addAttribute("cstExistingInfo",orderService.getCstExistingInfo(cstId));
-		return "cst/order/orderDetail";
+		return "cst/order/orderReceiverInfo";
 	}
 	
 	/*QR코드 테스트*/
@@ -104,10 +113,10 @@ public class OrderController {
 	@RequestMapping("cstExistingInfo.do")
 	public String cstExistingInfo( Model model){
 		
-		return "cst/order/orderDetail";
+		return "cst/order/orderReceiverInfo";
 	}
 	
-	/* 수취인정보 */
+	/* 결제수단정보 */
 	@RequestMapping("advanceOrderPayment.do")
 	public String advanceOrderPayment( Model model, Orders orders, String cstId, String dlvwarn ){
 		System.out.println("왔어요??");
@@ -122,12 +131,14 @@ public class OrderController {
 		model.addAttribute("orders", orders);
 		model.addAttribute("dlvwarn", dlvwarn);
 		//System.out.println("주의사항 : "+dlvwarn);
+		
 		return "cst/order/advanceOrderPayment";
 	}
 	
+	/*결제*/
 	@RequestMapping("payment.do")
-	public String payment(@RequestParam Payment payment, Model model){
-		System.out.println("들어왔나 "+payment);
+	public String payment( Model model, @RequestParam Payment payment, BindingResult result){
+		System.err.println("들어왔나 "+payment);
 		model.addAttribute("payment", payment);
 		return "cst/order/payment";
 	}
