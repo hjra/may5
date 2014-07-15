@@ -43,7 +43,6 @@ public class OrderController {
 	}
 	
 	/*QR코드 테스트*/
-	
 	/*@RequestMapping("orderTemp.do")
 	public String orderDetail( Model model,  String cstId){
 		Orders orders = new Orders();
