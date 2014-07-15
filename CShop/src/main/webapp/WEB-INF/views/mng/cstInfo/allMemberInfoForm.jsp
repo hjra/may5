@@ -12,5 +12,5 @@
 <br>
 총 회원 ${count}명 O: 비회원, C: 일반회원, V: VIP, B: 관심고객<br>
 <br>
-<div id="grid" style="width: 100%; height: 550px; overflow: hidden;"></div>
+<div id="grid" style="width: 100%; height: 500px; overflow: hidden;"></div>
 
