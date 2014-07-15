@@ -1,3 +1,4 @@
+/*주문자동의ChechBox*/
 $(document).ready(function(){
 	$('#allAgreement').click(function(){
 		if($("#allAgreement").is(":checked")){
@@ -62,18 +63,22 @@ $(document).ready(function(){
 	});
 	
 });
+/*주문자동의ChechBox끝*/
 
+
+
+/*결제방법선택*/
+	//라디오 버튼 value 값 조건 비교
 function div_OnOff(v, id) {
-	// 라디오 버튼 value 값 조건 비교
-	if (v == "1") {
+	if (v == "1") { // 신용카드
 		document.getElementById("2").style.display = "none"; // 숨김
 		document.getElementById("3").style.display = "none"; // 숨김
 		document.getElementById("1").style.display = ""; // 보여줌
-	} else if (v == "2") {
+	} else if (v == "2") { // 계좌이체
 		document.getElementById("1").style.display = "none"; // 숨김
 		document.getElementById("3").style.display = "none"; // 숨김
 		document.getElementById("2").style.display = ""; // 보여줌
-	} else {
+	} else { // 휴대폰 소액결제
 		document.getElementById("1").style.display = "none"; // 숨김
 		document.getElementById("2").style.display = "none"; // 숨김
 		document.getElementById("3").style.display = ""; // 보여줌
@@ -81,25 +86,25 @@ function div_OnOff(v, id) {
 }
 
 function div_OnOff2(v2, id) {
-	if (v2 == "1") {
+	if (v2 == "1") { // 개인카드
 		document.getElementById("12").style.display = "none"; // 숨김
 		document.getElementById("11").style.display = ""; // 보여줌
-	} else {
+	} else { // 법인카드
 		document.getElementById("11").style.display = "none"; // 숨김
 		document.getElementById("12").style.display = ""; // 보여줌
 	}
 }
 
 function div_OnOff3(v3, id) {
-	if (v3 == "T") {
+	if (v3 == "T") { // 현금영수증 신청 및 저장
 		document.getElementById("F").style.display = "none"; // 숨김
 		document.getElementById("N").style.display = "none"; // 숨김
 		document.getElementById("T").style.display = ""; // 보여줌
-	} else if(v3 == "F"){
+	} else if(v3 == "F"){ // 현금영수증 신청
 		document.getElementById("T").style.display = "none"; // 숨김
 		document.getElementById("N").style.display = "none"; // 숨김
 		document.getElementById("F").style.display = ""; // 보여줌
-	} else {
+	} else { // 해당사항 없음
 		document.getElementById("T").style.display = "none"; // 숨김
 		document.getElementById("F").style.display = "none"; // 숨김
 		document.getElementById("N").style.display = ""; // 보여줌
@@ -107,27 +112,81 @@ function div_OnOff3(v3, id) {
 }
 
 function div_OnOff4(v4, id) {
-	if (v4 == "1") {
+	if (v4 == "1") { // 개인소득공제용
 		document.getElementById("102").style.display = "none"; // 숨김
 		document.getElementById("101").style.display = ""; // 보여줌
-	} else {
+	} else { // 사업자증빙용
 		document.getElementById("101").style.display = "none"; // 숨김
 		document.getElementById("102").style.display = ""; // 보여줌
 	}
 }
+/*결제방법선택끝*/
 
-function div_OnOff5(v5, id) {
-	if (v5 == "1") {
-		document.getElementById("idn").style.display = "none"; // 숨김
-		document.getElementById("rcn").style.display = "none"; // 숨김
-		document.getElementById("cpn").style.display = ""; // 보여줌
-	} else if (v5 == "2") {
-		document.getElementById("rcn").style.display = "none"; // 숨김
-		document.getElementById("cpn").style.display = "none"; // 숨김
-		document.getElementById("idn").style.display = ""; // 보여줌
-	} else {
-		document.getElementById("idn").style.display = "none"; // 숨김
-		document.getElementById("cpn").style.display = "none"; // 숨김
-		document.getElementById("rcn").style.display = ""; // 보여줌
+
+/*주소찾기(도로명주소)*/
+$(document).ready(function() {
+	
+	//ADDRESS 텍스트 클릭 시 초기화
+	$('#scZipText').dblclick(function(){
+		$('input:text[id=scZipText]').val('');
+	});
+	
+	//우편정보 가져오기
+	$('#scZipBtn').click(function() {
+
+		if ($('#scZipText').val() == '') {
+			$('#scZipCheck').html("<font color=red size='2px' style='font-weight:bold'> 도로명 주소를 입력해 주세요. </font>");
+		} else {
+			$.ajax({
+				chche : false,
+				async : false,
+				type : 'POST',
+				url : 'searchZipInfoList.do',
+				data : 'zipKeyword=' + $('#scZipText').val(),
+				dataType : 'json',
+				error : function() {
+					alert("Error");
+				},
+				success : function(json) {
+				
+					if(json.zip.length == 0){
+						
+						$('#zipInfoDiv').html("").hide();
+						$('#scZipCheck').html("<font color=red size='2px' style='font-weight:bold'> 도로명 주소가 없습니다</font>");
+	
+					}else{
+						
+						$('#zipInfoDiv').html("").show();
+						$('#scZipCheck').html("").hide();
+						for(var idx=0; idx<json.zip.length; idx++){
+							var zipCodej = json.zip[idx].zipCode;
+							var zipKeywordj = json.zip[idx].zipKeyword;
+							var dongj = json.zip[idx].dong;
+							var jibunNum1j = json.zip[idx].jibunNum1;
+							var jibunNum2j = json.zip[idx].jibunNum2;
+							//var zipcodeX = '<input type="hidden" id="zipcodeX" name="zipcode" value="'+zipCodej+'">';
+							$('#zipInfoDiv').append('<a><input type="hidden" id="zipCode" name="zipCode" value="'+zipCodej+'">'
+									+ zipKeywordj + " (" + dongj + jibunNum1j + "-" + jibunNum2j + ")" +'</a><br/>');
+							//$('#zipInfoDiv').append(zipcodeX);
+						};
+							
+							
+						$('#zipInfoDiv').click(function(e){
+							
+						//	alert($(e.target).html());
+						//	alert($('#zipCodeh').attr("value"));
+							$('#zipCodeDiv').html("");
+							$('input:text[id=scZipText]').val($(e.target).text());
+							$('#zipCodeDiv').append($(e.target).html()).hide();	
+							$('#zipInfoDiv').html("").hide();
+							
+						});
+					}
+				}
+			});
+		}
+	});
+	function nothing() {
+			return;
 	}
-}
+});

@@ -9,4 +9,9 @@
 	<select id="loginMng" resultType="Manager">
 		select * from Manager where mngId=#{mngId} and mngPassword=#{mngPassword}
 	</select>
+	
+	<!-- 직원정보 -->
+	<select id="allMngInfoList" resultType="Manager">
+		select * from Manager	
+	</select>
 </mapper>

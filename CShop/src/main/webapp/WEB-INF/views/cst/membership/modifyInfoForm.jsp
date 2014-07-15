@@ -12,6 +12,10 @@
 		document.getElementById("form").action = "homeImage.do";
 		document.getElementById("form").submit();
 	}
+	function myPage() {
+		document.getElementById("form").action = "myPage.do";
+		document.getElementById("form").submit();
+	}
 </script>
 <style type="text/css">
 .row_text {width:200px; float:left; display: inline-block;}
@@ -141,10 +145,9 @@
 			</div>
 		</div>
 	</div>
-	<input type="hidden" name="cstCode" value="${sessionScope.cstLogin.cstCode}">
 	<input type="submit" onclick="modify()" value="MODIFY">
+	<input type="submit" onclick="myPage()" value="CANCEL">
 	<!-- <input type="submit" onclick="home()" value="HOME"> -->
-	<input type="reset" value="RESET">
 </f:form>
 </div>
 <script src="resources/script/membership.js"></script>

@@ -1,5 +1,7 @@
 package net.may5.service;
 
+import java.util.List;
+
 import net.may5.dao.ManagerMapper;
 import net.may5.dto.Manager;
 
@@ -15,6 +17,11 @@ public class ManagerServiceImpl implements ManagerService {
 	@Override
 	public Manager loginMng(Manager manager) {
 		return managerMapper.loginMng(manager);
+	}
+
+	@Override
+	public List<Manager> allMngInfoList() {
+		return managerMapper.allMngInfoList();
 	}
 
 }
