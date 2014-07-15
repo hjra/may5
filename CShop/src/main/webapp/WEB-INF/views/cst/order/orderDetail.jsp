@@ -8,7 +8,7 @@
 
 <h1>회원수취정보</h1>
 <p><strong>*</strong>는 필수입력 항목입니다</p>
-<f:form action="advanceOrderPayment.do" method="post" commandName="orders">
+<f:form action="advanceOrderPayment.do" method="post" commandName="orders" onkeypress="return event.keyCode!=13">
 	<div class="od">
 		<div class="odName">
 		<c:choose>

@@ -8,7 +8,8 @@
 
 <h1>예약주문페이지</h1>
 <p><strong>*</strong>는 필수입력 항목입니다</p>
-<f:form action="orderDetail.do" method="post">
+<%-- <f:form action="orderDetail.do" method="post"> --%>
+<f:form action="advanceOrder.do" method="post">
 	<fieldset>
 		<legend>선물하기 - 옵션</legend>
 			<table border="1"  summary="옵션정보입력">
