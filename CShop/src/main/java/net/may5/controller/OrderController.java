@@ -28,55 +28,11 @@ public class OrderController {
 	private OrderService orderService;
 	
 	/** 고객페이지 ↓ */
-	/*주문내역*/
-	@RequestMapping("orderList.do")
-	public ModelAndView orderList() {
-		ModelAndView model = new ModelAndView();
-		model.setViewName("cst/order/orderList");
-		List<Orders> orderlist = orderService.getOrderList();
-		model.addObject("orderlist", orderlist);
-		return model;
-	}
-	
-	
-	@RequestMapping(value = "orderlistSearch.do", method = RequestMethod.POST)
-	public String orderCategory(Model model, @RequestParam String searchOrder,
-			HttpServletRequest request) {
-		
-		String ocategory = request.getParameter("ocategory");
-		// String searchText = request.getParameter("searchOrder");
-		System.out.println("ocategory: " + ocategory);
-		System.out.println("searchOrder: " + searchOrder);
-		List<Orders> orders = null;
-		/* String temp=null; */
-		if (ocategory.equals("orderDate")) {
-			orders = orderService.getorderDateSearch(searchOrder);
-		} else if (ocategory.equals("orderNumber")) {
-			orders = orderService.getOrderlNumberSearch(
-					searchOrder.substring(0, 8), 
-					searchOrder.substring(8, 10),
-					searchOrder.substring(10, 15));
-		} else if (ocategory.equals("itemName")) {
-			orders = orderService.getitemNameSearch(searchOrder);
-		} else {
-			System.out.println("오류");
-		}
-		model.addAttribute("orderlist", orders);
-		return "cst/order/orderList";
-	}
-	
-	
-	
-	
-	
-	
 	/* 예약주문 */
 	@RequestMapping("advanceOrder.do")
 	public String advanceOrder(){
 		return "";
 	}
-	
-	
 	
 	/* 주문상세 */
 	@RequestMapping("orderDetail.do")
@@ -149,6 +105,45 @@ public class OrderController {
 		
 		return "redirect:/advanceOrder.do";
 	}*/
+	
+	
+	/*주문내역*/
+	@RequestMapping("orderList.do")
+	public ModelAndView orderList() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("cst/order/orderList");
+		List<Orders> orderlist = orderService.getOrderList();
+		model.addObject("orderlist", orderlist);
+		return model;
+	}
+	
+	@RequestMapping(value = "orderlistSearch.do", method = RequestMethod.POST)
+	public String orderCategory(Model model, @RequestParam String searchOrder,
+			HttpServletRequest request) {
+		
+		String ocategory = request.getParameter("ocategory");
+		// String searchText = request.getParameter("searchOrder");
+		System.out.println("ocategory: " + ocategory);
+		System.out.println("searchOrder: " + searchOrder);
+		List<Orders> orders = null;
+		/* String temp=null; */
+		if (ocategory.equals("orderDate")) {
+			orders = orderService.getorderDateSearch(searchOrder);
+		} else if (ocategory.equals("orderNumber")) {
+			orders = orderService.getOrderlNumberSearch(
+					searchOrder.substring(0, 8), 
+					searchOrder.substring(8, 10),
+					searchOrder.substring(10, 15));
+		} else if (ocategory.equals("itemName")) {
+			orders = orderService.getitemNameSearch(searchOrder);
+		} else {
+			System.out.println("오류");
+		}
+		model.addAttribute("orderlist", orders);
+		return "cst/order/orderList";
+	}
+	
+	
 
 	
 	/*주문검색*/
