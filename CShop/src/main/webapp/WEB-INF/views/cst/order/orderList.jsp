@@ -68,8 +68,10 @@
 			<div id="a8" title="처리현황">${orders.noticeType}결제완료</div>
 			<div id="a5" title="상세내역">
 			
-				<!-- 상세내역 웹 -->
 			
+
+				<!-- 상세내역 웹 -->
+
 				<section class="detailhome">
 					<input id="dtbutton" name="dtb" type="checkbox">
 					<article class="orderartcle">
@@ -150,6 +152,10 @@
 					</article>
 				</section>
 
+
+				
+				
+				
 				
 				
 			</div>
@@ -180,4 +186,16 @@
 	<div id="form">
 		<a href="mngLoginForm.do">loginForm으로~</a>
 	</div>
+	
+	
+	
+	
+	
+	
+
+	
+	
+
+
+	
 </div>

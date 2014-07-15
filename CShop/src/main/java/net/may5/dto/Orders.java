@@ -43,18 +43,19 @@ public class Orders {
 	private String noticeImg;			// 촬영이미지
 	
 	/*db가져오기*/
-	private String itemId;				// 상품정보.상품ID
-	private String cstId;				// 회원아이디
-	private String levelCode;			// 고객등급.등급코드
-	private String itemName;			// 상품명
-	private int price;					// 가격
-	private int itemCnt; //중복된 아이템 카운트
-	
+	private String itemId;		
+
 	/*상세정보db가져오기*/
 	private String cstName;					// 이름
 	private String cstCP;					// 휴대폰번호
-	private String cstEmail;				// E-mail
+	private String cstEmail;				// 상품정보.상품ID
+	private String cstId;					// 회원아이디
+	private String levelCode;				// 고객등급.등급코드
+	private String itemName;				// 상품명
+	private int price;						// 가격
+	private int itemCnt;					//중복된 아이템 카운트
 	private String noticeType;				// 결제처리
+
 	
 	public String getOrderCode() {
 		return orderCode;

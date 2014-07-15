@@ -16,10 +16,10 @@
  	</select>
  
  	<!-- 시간별 주문 수량 -->
-	<select id="orderCountPerHour">
+	<select id="orderCountPerHour" resultType="OrderCount" >
 		select to_char(orderDate, 'HH24') a, count(to_char(orderDate, 'HH24')) b
 		from Orders where to_char(orderDate, 'YYYY-MM-DD')
-		= ${thisDay} group by to_char(orderDate, 'HH24')
+		= #{orderDate} group by to_char(orderDate, 'HH24')
 	</select>
 
  	<!-- 전체회원수 -->

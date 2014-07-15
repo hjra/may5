@@ -101,6 +101,66 @@ transform: rotate(90deg); margin: 18px 0px 0px 18px; }
 .abouta { font-size: 50px; font-weight: bold; width: 100%; margin: 0 auto; padding-top: 30px; color: #D2B48C;  transition: 0.7s;}
 .abouta:hover { font-size: 60px; font-weight: bold; width: 100%; margin: 0 auto; padding-top: 30px; color: #D2B48C;  transition: 0.7s;}
 
+
+
+@media only screen and (max-width: 768px){
+
+.content { margin: 0; }
+
+.home { background-color: #FEFCF0; height: 500px;   text-align: center; transition: 0.7s; }
+.home:hover { background-color: #FEFCF0; height: 650px;   text-align: center;  transition: 0.7s;}
+:before, :after {
+	display: block;
+	content: ""; 
+
+}
+
+.m { margin: 0 auto; padding-top: 300px; }  
+.ma {height: 55px;}
+#aaa {margin-left: -40px; }
+.icons {  width: 80px; height: 80px; background-color:#1294AB; display:inline-block; border-radius: 100%;
+		-moz-border-radius: 100%;
+		-webkit-border-radius: 100%; 
+		-o-border-radius: 100%; 
+		position: absolute;
+		transition: 0.3s;
+	}
+.icons:hover {background-color: #36B8CF; transition: 0.3s;  }	
+.homemenu  { background-color: #FFFFFF; display: inline-block; width: 8px; height: 40px; transform:rotate(-45deg); margin: 26px 0px 0px 26px;    
+}  
+.homemenu:after {width: 8px; height: 35px; background-color: #FFFFFF;
+transform: rotate(90deg); margin: 18px 0px 0px 18px; }  
+ 
+
+.menu { background-color: #8B4513; height: 100px;  text-align: center; margin: 0 auto; transition: 0.7s; }
+.menu:hover { background-color: #8B4513; height: 200px;  text-align: center; margin: 0 auto; transition: 0.7s; padding-top: 30px;}
+.menua  { display:inline-block; font-size: 50px; font-weight: bold; width: 100%; margin: 0 auto; padding-top: 20px; transition: 0.7s;  }
+.menua:hover  { display:inline-block; font-size: 60px; font-weight: bold; width: 100%; margin: 0 auto; padding-top: 30px; transition: 0.7s;  }
+.menua a{color: #FAF4C0;}
+.order { background-color: #FFDEAD; height: 150px;  text-align: center; transition: 0.7s;}
+.order:hover { background-color: #FFDEAD; height: 250px;  text-align: center; transition: 0.7s; padding-top: 30px;}
+.ordera { font-size: 50px; font-weight: bold; width: 100%; margin: 0 auto; padding-top: 20px; float: left; transition: 0.7s; }
+.ordera:hover { font-size: 60px; font-weight: bold; width: 100%; margin: 0 auto; padding-top: 20px; float: left; transition: 0.7s; }
+.ordera a {color: #DEB887;}
+.orderb { font-size: 30px; font-weight: bold; width: 100%; margin: 0 auto; padding-top: 20px; transition: 0.7s;}
+.orderb:hover { font-size: 35px; font-weight: bold; width: 100%; margin: 0 auto; padding-top: 10px; transition: 0.7s;}
+.orderb a {color: #DEB887;}
+.about { background-color: #FFEBCD; height: 300px; text-align: center; transition: 0.7s;}
+.about:hover { background-color: #FFEBCD; height: 400px; text-align: center; transition: 0.7s; padding-top: 50px;}
+.abouta { font-size: 30px; font-weight: bold; width: 100%; margin: 0 auto; padding-top: 30px; color: #D2B48C;  transition: 0.7s;}
+.abouta:hover { font-size: 40px; font-weight: bold; width: 100%; margin: 0 auto; padding-top: 30px; color: #D2B48C;  transition: 0.7s;}
+
+
+
+}
+
+
+
+
+
+
+
+
 #menu-frame { width: 100%; background: white; background: rgba(255, 255, 255, 0.9); padding: 20px; }
 
 ul.cakeList li { display: inline-block; zoom: 1; *display: inline; margin-bottom: 10px; }
