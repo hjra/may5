@@ -20,18 +20,20 @@
 </SCRIPT>
 </head>
 <body>
+<%-- ${qna } --%>
+<input type="hidden" name="boardCode" value="${reply.boardCode}">
 <%-- qna: ${qna} --%>
-<p>!!!비밀번호 : ${qna.postPassword}	 참고 하세요.!!!</p>
-	<h1>게시글의 암호체크페이지 입니다.</h1>
+
+	<center><h1>게시글의 암호체크페이지 입니다.</h1></center>
 
 	<FORM name="boardCheck" method="post" action="boardEdit.do" onsubmit="return check()">
-
+	<center>
 
 		<p>
 			비밀번호: <input type="password" name="postPassword" size="20" value="">
-			현재 접속한 글번호: ${qna.boardCode}<br> 현재 접속한 글번호의 password :
-			${qna.postPassword}<br> <input type="hidden" name="p"
-				value="${qna.postPassword}">
+			현재 접속한 글번호: ${qna.boardCode}
+			<br> 현재 접속한 글번호의 password : ${qna.postPassword}<br> 
+			<input type="hidden" name="p" value="${qna.postPassword}">
 		<p>
 			<f:form action="boardEdit.do" method="Post">
 				<input type="submit" value="입력완료">
@@ -39,5 +41,6 @@
 			</f:form>
 		</p>
 		</FORM>
+		</center>
 </body>
 </html>

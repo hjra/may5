@@ -3,8 +3,7 @@
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page session="true" %>
-<h1>게시판.jsp로 이동완료</h1>
-
+<center><h1>게시판.jsp로 이동완료</h1></center>	
 	<table align="center" cellpadding="0" cellspacing="0" border="0"
 			width="100%">
 			<tr
@@ -17,7 +16,9 @@
 				
 				<td width="7">
 			</tr>
+			
 			<c:forEach items="${qnaList2}" var="board" >
+			<%-- ${board } --%>
 				<tr align="center" bgcolor="white">
 					<td></td>
 					<td width="80" height="25"><font size="2">${board.boardCode}</font></td>
@@ -36,8 +37,9 @@
 						<input type="hidden" name="postPassword" value="${board.postPassword}">
 						<input type="hidden" name="cstCode" value="${board.cstCode}">
 						<input type="hidden" name="qnaReply" value="${board.qnaReply}">
-						<input type="hidden" name="boardDate" value="${board.boardDate}">
+					<%-- <input type="hidden" name="boardDate" value="${board.boardDate}"> --%>
 						<input type="hidden" name="replyCount" value="${board.replyCount}">
+						<input type="hidden" name="replyCode" value="${board.replyCode}">
 						<!-- 윗 부분이 없다면 전달 받은 변수들이 다시 컨트롤러로 가지 못하게 된다 위의 구문들이 변수를 가지고
 						있다가 다시 컨트롤러로 변수를 전달해주는 그릇 역활을 하게 한다. -->
 						<!-- 보드의 제목을 클릭하게 되면 히든 타입으로 글번호가  보드체크를 따라 
@@ -53,6 +55,8 @@
 					<td></td>
 				</tr>
 			</c:forEach>
+			
+			
 			<tr height="1" bgcolor="#D2D2D2">
 				<td></td>
 				<td></td>

@@ -12,7 +12,6 @@
 		<h1 align="center">boardUpdateForm</h1>
 		
 	
-	<p>?????	${QnA} ?????
 		<form action="boardUpdate.do" method="post">
 			<input type="hidden" name="boardCode" value="${QnA.boardCode}">
 			<table border="0" width="90%" align="center">			

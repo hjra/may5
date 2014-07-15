@@ -5,10 +5,9 @@ import java.sql.Date;
 public class QnA {
 
 	private int boardCode;				// 번호
-	private int groupNumber;			// 그룹번호
-	private int replyCount;				//게시글의 댓글 순서
+	private int groupNumber;			// 그룹번호	
 	private Date boardDate;				// 등록일자
-	private String cstCode;				// 고객정보.회원코드
+	private int cstCode;				// 고객정보.회원코드
 	private String boardTitle;			// 제목
 	private String postPassword;		// 게시글 암호
 	private String postContents;		// 게시판 본문
@@ -18,146 +17,13 @@ public class QnA {
 	private String saveFolder;			// 저장폴더명
 	private String systemFileName;		// 시스템파일명
 	private String originalFileName;	// 원래파일명
-	private String sequenceNumber;		// 시퀀스넘버
-	private String qnaReply;			//게시글의 댓글
+	private String sequenceNumber;		// 시퀀스넘버	
+	
 	private String cstId;				
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + boardCode;
-		result = prime * result
-				+ ((boardDate == null) ? 0 : boardDate.hashCode());
-		result = prime * result
-				+ ((boardTitle == null) ? 0 : boardTitle.hashCode());
-		result = prime * result + ((cstCode == null) ? 0 : cstCode.hashCode());
-		result = prime * result + ((cstId == null) ? 0 : cstId.hashCode());
-		result = prime * result
-				+ ((fileAddress == null) ? 0 : fileAddress.hashCode());
-		result = prime * result
-				+ ((fileName == null) ? 0 : fileName.hashCode());
-		result = prime * result + groupNumber;
-		result = prime
-				* result
-				+ ((originalFileName == null) ? 0 : originalFileName.hashCode());
-		result = prime * result
-				+ ((postContents == null) ? 0 : postContents.hashCode());
-		result = prime * result
-				+ ((postPassword == null) ? 0 : postPassword.hashCode());
-		result = prime * result
-				+ ((qnaReply == null) ? 0 : qnaReply.hashCode());
-		result = prime * result + replyCount;
-		result = prime * result
-				+ ((replyOrder == null) ? 0 : replyOrder.hashCode());
-		result = prime * result
-				+ ((saveFolder == null) ? 0 : saveFolder.hashCode());
-		result = prime * result
-				+ ((sequenceNumber == null) ? 0 : sequenceNumber.hashCode());
-		result = prime * result
-				+ ((systemFileName == null) ? 0 : systemFileName.hashCode());
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		QnA other = (QnA) obj;
-		if (boardCode != other.boardCode)
-			return false;
-		if (boardDate == null) {
-			if (other.boardDate != null)
-				return false;
-		} else if (!boardDate.equals(other.boardDate))
-			return false;
-		if (boardTitle == null) {
-			if (other.boardTitle != null)
-				return false;
-		} else if (!boardTitle.equals(other.boardTitle))
-			return false;
-		if (cstCode == null) {
-			if (other.cstCode != null)
-				return false;
-		} else if (!cstCode.equals(other.cstCode))
-			return false;
-		if (cstId == null) {
-			if (other.cstId != null)
-				return false;
-		} else if (!cstId.equals(other.cstId))
-			return false;
-		if (fileAddress == null) {
-			if (other.fileAddress != null)
-				return false;
-		} else if (!fileAddress.equals(other.fileAddress))
-			return false;
-		if (fileName == null) {
-			if (other.fileName != null)
-				return false;
-		} else if (!fileName.equals(other.fileName))
-			return false;
-		if (groupNumber != other.groupNumber)
-			return false;
-		if (originalFileName == null) {
-			if (other.originalFileName != null)
-				return false;
-		} else if (!originalFileName.equals(other.originalFileName))
-			return false;
-		if (postContents == null) {
-			if (other.postContents != null)
-				return false;
-		} else if (!postContents.equals(other.postContents))
-			return false;
-		if (postPassword == null) {
-			if (other.postPassword != null)
-				return false;
-		} else if (!postPassword.equals(other.postPassword))
-			return false;
-		if (qnaReply == null) {
-			if (other.qnaReply != null)
-				return false;
-		} else if (!qnaReply.equals(other.qnaReply))
-			return false;
-		if (replyCount != other.replyCount)
-			return false;
-		if (replyOrder == null) {
-			if (other.replyOrder != null)
-				return false;
-		} else if (!replyOrder.equals(other.replyOrder))
-			return false;
-		if (saveFolder == null) {
-			if (other.saveFolder != null)
-				return false;
-		} else if (!saveFolder.equals(other.saveFolder))
-			return false;
-		if (sequenceNumber == null) {
-			if (other.sequenceNumber != null)
-				return false;
-		} else if (!sequenceNumber.equals(other.sequenceNumber))
-			return false;
-		if (systemFileName == null) {
-			if (other.systemFileName != null)
-				return false;
-		} else if (!systemFileName.equals(other.systemFileName))
-			return false;
-		return true;
-	}
-	@Override
-	public String toString() {
-		return "QnA [boardCode=" + boardCode + ", groupNumber=" + groupNumber
-				+ ", replyCount=" + replyCount + ", boardDate=" + boardDate
-				+ ", cstCode=" + cstCode + ", boardTitle=" + boardTitle
-				+ ", postPassword=" + postPassword + ", postContents="
-				+ postContents + ", fileName=" + fileName + ", fileAddress="
-				+ fileAddress + ", replyOrder=" + replyOrder + ", saveFolder="
-				+ saveFolder + ", systemFileName=" + systemFileName
-				+ ", originalFileName=" + originalFileName
-				+ ", sequenceNumber=" + sequenceNumber + ", qnaReply="
-				+ qnaReply + ", cstId=" + cstId + "]";
-	}
+	private int replyCode;				//댓글의 pk  qnacomment에 있다
+	private int replyCount;				//게시글의 댓글 순서  qnacomment에 있다
+	private String qnaReply;			//게시글의 댓글   qnacomment에 있다
+	private Date replyDate;				//게시글 댓글의 날자 qnacomment에 있다
 	public int getBoardCode() {
 		return boardCode;
 	}
@@ -170,22 +36,16 @@ public class QnA {
 	public void setGroupNumber(int groupNumber) {
 		this.groupNumber = groupNumber;
 	}
-	public int getReplyCount() {
-		return replyCount;
-	}
-	public void setReplyCount(int replyCount) {
-		this.replyCount = replyCount;
-	}
 	public Date getBoardDate() {
 		return boardDate;
 	}
 	public void setBoardDate(Date boardDate) {
 		this.boardDate = boardDate;
 	}
-	public String getCstCode() {
+	public int getCstCode() {
 		return cstCode;
 	}
-	public void setCstCode(String cstCode) {
+	public void setCstCode(int cstCode) {
 		this.cstCode = cstCode;
 	}
 	public String getBoardTitle() {
@@ -248,20 +108,50 @@ public class QnA {
 	public void setSequenceNumber(String sequenceNumber) {
 		this.sequenceNumber = sequenceNumber;
 	}
-	public String getQnaReply() {
-		return qnaReply;
-	}
-	public void setQnaReply(String qnaReply) {
-		this.qnaReply = qnaReply;
-	}
 	public String getCstId() {
 		return cstId;
 	}
 	public void setCstId(String cstId) {
 		this.cstId = cstId;
 	}
+	public int getReplyCode() {
+		return replyCode;
+	}
+	public void setReplyCode(int replyCode) {
+		this.replyCode = replyCode;
+	}
+	public int getReplyCount() {
+		return replyCount;
+	}
+	public void setReplyCount(int replyCount) {
+		this.replyCount = replyCount;
+	}
+	public String getQnaReply() {
+		return qnaReply;
+	}
+	public void setQnaReply(String qnaReply) {
+		this.qnaReply = qnaReply;
+	}
+	public Date getReplyDate() {
+		return replyDate;
+	}
+	public void setReplyDate(Date replyDate) {
+		this.replyDate = replyDate;
+	}
+	@Override
+	public String toString() {
+		return "QnA [boardCode=" + boardCode + ", groupNumber=" + groupNumber
+				+ ", boardDate=" + boardDate + ", cstCode=" + cstCode
+				+ ", boardTitle=" + boardTitle + ", postPassword="
+				+ postPassword + ", postContents=" + postContents
+				+ ", fileName=" + fileName + ", fileAddress=" + fileAddress
+				+ ", replyOrder=" + replyOrder + ", saveFolder=" + saveFolder
+				+ ", systemFileName=" + systemFileName + ", originalFileName="
+				+ originalFileName + ", sequenceNumber=" + sequenceNumber
+				+ ", cstId=" + cstId + ", replyCode=" + replyCode
+				+ ", replyCount=" + replyCount + ", qnaReply=" + qnaReply
+				+ ", replyDate=" + replyDate + "]";
+	}
 
 	
-	
-
 }

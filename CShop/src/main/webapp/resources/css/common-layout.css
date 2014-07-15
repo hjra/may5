@@ -1,0 +1,39 @@
+@charset "UTF-8";
+ul.cakeList li { display: inline-block; zoom: 1; *display: inline; margin-bottom: 10px; }
+ul.cakeList li a { display: block; width: 200px; height: 200px; border: 1px solid gray; }
+ul.cakeList li a:hover { background: white; border: 1px solid red; }
+
+
+ul.menu-list {
+	list-style: none;
+	width: auto;
+	border: 1px;
+	margin: 10px;
+}
+
+ul.menu-list li.cake {
+	display: inline-block;
+	position:relative;
+	width: 200px;
+	height: 200px;
+	border: 1px solid #ddd;
+	margin: 20px;
+	vertical-align:top;
+}
+ul.menu-list li.cake footer{
+	display:block;
+	position:absolute;
+	width:100%;
+	left:0;
+	bottom:-30px;
+	height:30px;
+}
+ul.menu-list li.cake footer label{
+	cursor:pointer;
+}
+ul.menu-list li.cake.title{
+	text-align:center;
+	line-height:200px;
+	background:#e5c0b7;
+	color:white;
+}

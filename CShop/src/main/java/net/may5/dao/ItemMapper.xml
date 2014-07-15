@@ -34,7 +34,7 @@
 			) B,
 	    customer C
 	WHERE B.cstCode = C.cstCode 
-		  AND B.number_of_row between #{startrow} and #{endrow}
+		  AND B.number_of_row between #{startrow} and #{endrow} ORDER BY EVALUATIONINDEX DESC
 </select>
 
 
