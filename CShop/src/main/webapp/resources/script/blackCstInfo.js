@@ -9,7 +9,6 @@ $(function () {
 		success : function(result){
 	    	$.each(result, function(key){
 	    		var j = result[key];
-			alert("데이터 로드 성공"+j);
 			var myRecords = [];
 			for(var i in j){
 				myRecords.push({
