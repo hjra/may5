@@ -36,10 +36,25 @@ public class OrderController {
 	/* 주문상세 */
 	@RequestMapping("orderDetail.do")
 	public String orderDetail( Model model,  String cstId){
-		
+		Orders orders = new Orders();
+		model.addAttribute("orders", orders);
 		model.addAttribute("cstExistingInfo",orderService.getCstExistingInfo(cstId));
 		return "cst/order/orderDetail";
 	}
+	
+	/*QR코드 테스트*/
+	/*@RequestMapping("orderTemp.do")
+	public String orderDetail( Model model,  String cstId){
+		Orders orders = new Orders();
+		model.addAttribute("orders", orders);
+		model.addAttribute("cstExistingInfo",orderService.getCstExistingInfo(cstId));
+		return "cst/order/orderTemp";
+	}
+	
+	@RequestMapping("qrcode.do")
+	public String qrcode(){
+		return "cst/order/qrcode";
+	}*/
 	
 	/* 기존정보사용*/
 	@RequestMapping("cstExistingInfo.do")

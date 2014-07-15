@@ -50,6 +50,7 @@ public class Orders {
 	private int price;					// 가격
 	private int itemCnt; //중복된 아이템 카운트
 	
+	
 	public String getOrderCode() {
 		return orderCode;
 	}
