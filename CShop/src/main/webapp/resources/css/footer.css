@@ -1,14 +1,15 @@
-#footerh {width: 100%; height: 100%; text-align: center; }
-.footerhomee{ margin: 0 auto; display: inline-block; } 
-.footerhome { margin: 0 auto; display: inline-block; }
-
-.aa {  margin: 0 auto;  float:left;  padding-left: 10px;  }  
+#footerh { text-align: center; }
+.footerhomee{ display: inline-block; } 
+.footerhome { display: inline-block; }
+.aa {  float:left;  padding-left: 10px;  }  
 .aa a{color: #000000;}
-.aaa {  margin: 0 auto;  text-align: center;}
-.aaaa {display: inline-block;} 
-.aaaa a{display: inline-block; padding-left:  20px; color: #D2691E; font-weight: bold;}
-.ab {float: left; margin: 0 auto;  } 
-.footcompany {font-size: 12px; margin: 0 auto; }
+.aaaa {display: inline-block; text-align: center;} 
+.aaaa a{display: inline-block; padding-left:  20px; color: #D2691E; font-weight: bold;} 
+.ab {float: left; display: inline-block; } 
+.footcompany {font-size: 12px; }
 .ah a {color:#808080; font-size: 12px;  } 
-.ah {margin: 0 auto; }
 .footerbottom {width: 100%; }
+
+@media only screen and (max-width: 768px){
+.ab {float: none;} 
+	}
