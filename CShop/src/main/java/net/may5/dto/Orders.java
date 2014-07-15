@@ -43,20 +43,14 @@ public class Orders {
 	private String noticeImg;			// 촬영이미지
 	
 	/*db가져오기*/
-	private String itemId;		
-
-	/*상세정보db가져오기*/
-	private String cstName;					// 이름
-	private String cstCP;					// 휴대폰번호
-	private String cstEmail;				// 상품정보.상품ID
-	private String cstId;					// 회원아이디
-	private String levelCode;				// 고객등급.등급코드
-	private String itemName;				// 상품명
-	private int price;						// 가격
-	private int itemCnt;					//중복된 아이템 카운트
-	private String noticeType;				// 결제처리
-
-	
+	private String itemId;				// 상품정보.상품ID
+	private String cstId;				// 회원아이디
+	private String levelCode;			// 고객등급.등급코드
+	private String itemName;			// 상품명
+	private int price;					// 가격
+	private int itemCnt; //중복된 아이템 카운트
+	private String cardMessage;
+	private String dlvwarn;
 	public String getOrderCode() {
 		return orderCode;
 	}
@@ -309,58 +303,17 @@ public class Orders {
 	public void setItemCnt(int itemCnt) {
 		this.itemCnt = itemCnt;
 	}
-	public String getCstName() {
-		return cstName;
+	public String getCardMessage() {
+		return cardMessage;
 	}
-	public void setCstName(String cstName) {
-		this.cstName = cstName;
+	public void setCardMessage(String cardMessage) {
+		this.cardMessage = cardMessage;
 	}
-	public String getCstCP() {
-		return cstCP;
+	public String getDlvwarn() {
+		return dlvwarn;
 	}
-	public void setCstCP(String cstCP) {
-		this.cstCP = cstCP;
-	}
-	public String getCstEmail() {
-		return cstEmail;
-	}
-	public void setCstEmail(String cstEmail) {
-		this.cstEmail = cstEmail;
-	}
-	public String getNoticeType() {
-		return noticeType;
-	}
-	public void setNoticeType(String noticeType) {
-		this.noticeType = noticeType;
-	}
-	
-	
-	@Override
-	public String toString() {
-		return "Orders [orderCode=" + orderCode + ", orderDate=" + orderDate
-				+ ", sameTimeCount=" + sameTimeCount + ", payCode=" + payCode
-				+ ", payType=" + payType + ", optionCode=" + optionCode
-				+ ", optionType=" + optionType + ", optionPrice=" + optionPrice
-				+ ", dlvChargeCode=" + dlvChargeCode + ", dlvCharge="
-				+ dlvCharge + ", noticeCode=" + noticeCode + ", orderAmount="
-				+ orderAmount + ", pointCode=" + pointCode + ", zipCode="
-				+ zipCode + ", zipNumber=" + zipNumber + ", sido=" + sido
-				+ ", sigungu=" + sigungu + ", dongubmyon=" + dongubmyon
-				+ ", doromyong=" + doromyong + ", buildingNum1=" + buildingNum1
-				+ ", buildingNum2=" + buildingNum2 + ", sigunguBuildingName="
-				+ sigunguBuildingName + ", dong=" + dong + ", li=" + li
-				+ ", jibunNum1=" + jibunNum1 + ", jibunNum2=" + jibunNum2
-				+ ", orderDetailAddress=" + orderDetailAddress
-				+ ", receiverName=" + receiverName + ", receiverCP="
-				+ receiverCP + ", stockAmount=" + stockAmount
-				+ ", receiverPhone=" + receiverPhone + ", dlvEndDate="
-				+ dlvEndDate + ", sizeCode=" + sizeCode + ", cstCode="
-				+ cstCode + ", noticeComment=" + noticeComment + ", noticeImg="
-				+ noticeImg + ", itemId=" + itemId + ", cstId=" + cstId
-				+ ", levelCode=" + levelCode + ", itemName=" + itemName
-				+ ", price=" + price + ", itemCnt=" + itemCnt + ", cstName="
-				+ cstName + ", cstCP=" + cstCP + ", cstEmail=" + cstEmail
-				+ ", noticeType=" + noticeType + "]";
+	public void setDlvwarn(String dlvwarn) {
+		this.dlvwarn = dlvwarn;
 	}
 	@Override
 	public int hashCode() {
@@ -370,16 +323,15 @@ public class Orders {
 				+ ((buildingNum1 == null) ? 0 : buildingNum1.hashCode());
 		result = prime * result
 				+ ((buildingNum2 == null) ? 0 : buildingNum2.hashCode());
-		result = prime * result + ((cstCP == null) ? 0 : cstCP.hashCode());
-		result = prime * result + ((cstCode == null) ? 0 : cstCode.hashCode());
 		result = prime * result
-				+ ((cstEmail == null) ? 0 : cstEmail.hashCode());
+				+ ((cardMessage == null) ? 0 : cardMessage.hashCode());
+		result = prime * result + ((cstCode == null) ? 0 : cstCode.hashCode());
 		result = prime * result + ((cstId == null) ? 0 : cstId.hashCode());
-		result = prime * result + ((cstName == null) ? 0 : cstName.hashCode());
 		result = prime * result + dlvCharge;
 		result = prime * result + dlvChargeCode;
 		result = prime * result
 				+ ((dlvEndDate == null) ? 0 : dlvEndDate.hashCode());
+		result = prime * result + ((dlvwarn == null) ? 0 : dlvwarn.hashCode());
 		result = prime * result + ((dong == null) ? 0 : dong.hashCode());
 		result = prime * result
 				+ ((dongubmyon == null) ? 0 : dongubmyon.hashCode());
@@ -401,8 +353,6 @@ public class Orders {
 				+ ((noticeComment == null) ? 0 : noticeComment.hashCode());
 		result = prime * result
 				+ ((noticeImg == null) ? 0 : noticeImg.hashCode());
-		result = prime * result
-				+ ((noticeType == null) ? 0 : noticeType.hashCode());
 		result = prime * result + optionCode;
 		result = prime * result + optionPrice;
 		result = prime * result
@@ -442,8 +392,6 @@ public class Orders {
 				+ ((zipNumber == null) ? 0 : zipNumber.hashCode());
 		return result;
 	}
-	
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -463,30 +411,20 @@ public class Orders {
 				return false;
 		} else if (!buildingNum2.equals(other.buildingNum2))
 			return false;
-		if (cstCP == null) {
-			if (other.cstCP != null)
+		if (cardMessage == null) {
+			if (other.cardMessage != null)
 				return false;
-		} else if (!cstCP.equals(other.cstCP))
+		} else if (!cardMessage.equals(other.cardMessage))
 			return false;
 		if (cstCode == null) {
 			if (other.cstCode != null)
 				return false;
 		} else if (!cstCode.equals(other.cstCode))
 			return false;
-		if (cstEmail == null) {
-			if (other.cstEmail != null)
-				return false;
-		} else if (!cstEmail.equals(other.cstEmail))
-			return false;
 		if (cstId == null) {
 			if (other.cstId != null)
 				return false;
 		} else if (!cstId.equals(other.cstId))
-			return false;
-		if (cstName == null) {
-			if (other.cstName != null)
-				return false;
-		} else if (!cstName.equals(other.cstName))
 			return false;
 		if (dlvCharge != other.dlvCharge)
 			return false;
@@ -496,6 +434,11 @@ public class Orders {
 			if (other.dlvEndDate != null)
 				return false;
 		} else if (!dlvEndDate.equals(other.dlvEndDate))
+			return false;
+		if (dlvwarn == null) {
+			if (other.dlvwarn != null)
+				return false;
+		} else if (!dlvwarn.equals(other.dlvwarn))
 			return false;
 		if (dong == null) {
 			if (other.dong != null)
@@ -555,11 +498,6 @@ public class Orders {
 			if (other.noticeImg != null)
 				return false;
 		} else if (!noticeImg.equals(other.noticeImg))
-			return false;
-		if (noticeType == null) {
-			if (other.noticeType != null)
-				return false;
-		} else if (!noticeType.equals(other.noticeType))
 			return false;
 		if (optionCode != other.optionCode)
 			return false;
@@ -652,8 +590,32 @@ public class Orders {
 			return false;
 		return true;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "Orders [orderCode=" + orderCode + ", orderDate=" + orderDate
+				+ ", sameTimeCount=" + sameTimeCount + ", payCode=" + payCode
+				+ ", payType=" + payType + ", optionCode=" + optionCode
+				+ ", optionType=" + optionType + ", optionPrice=" + optionPrice
+				+ ", dlvChargeCode=" + dlvChargeCode + ", dlvCharge="
+				+ dlvCharge + ", noticeCode=" + noticeCode + ", orderAmount="
+				+ orderAmount + ", pointCode=" + pointCode + ", zipCode="
+				+ zipCode + ", zipNumber=" + zipNumber + ", sido=" + sido
+				+ ", sigungu=" + sigungu + ", dongubmyon=" + dongubmyon
+				+ ", doromyong=" + doromyong + ", buildingNum1=" + buildingNum1
+				+ ", buildingNum2=" + buildingNum2 + ", sigunguBuildingName="
+				+ sigunguBuildingName + ", dong=" + dong + ", li=" + li
+				+ ", jibunNum1=" + jibunNum1 + ", jibunNum2=" + jibunNum2
+				+ ", orderDetailAddress=" + orderDetailAddress
+				+ ", receiverName=" + receiverName + ", receiverCP="
+				+ receiverCP + ", stockAmount=" + stockAmount
+				+ ", receiverPhone=" + receiverPhone + ", dlvEndDate="
+				+ dlvEndDate + ", sizeCode=" + sizeCode + ", cstCode="
+				+ cstCode + ", noticeComment=" + noticeComment + ", noticeImg="
+				+ noticeImg + ", itemId=" + itemId + ", cstId=" + cstId
+				+ ", levelCode=" + levelCode + ", itemName=" + itemName
+				+ ", price=" + price + ", itemCnt=" + itemCnt
+				+ ", cardMessage=" + cardMessage + ", dlvwarn=" + dlvwarn + "]";
+	}
 	
 	
 	

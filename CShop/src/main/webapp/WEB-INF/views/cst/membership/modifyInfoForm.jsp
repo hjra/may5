@@ -5,8 +5,8 @@
 <script type="text/javascript">
 	function modify() {
 		document.getElementById("form").action = "modifyInfoProcess.do";
-		alert("입력하신 개인정보의 수정이 완료되었습니다.");
 		document.getElementById("form").submit();
+		alert("입력하신 개인정보의 수정이 완료되었습니다.");
 	}
 	function home() {
 		document.getElementById("form").action = "homeImage.do";
@@ -15,6 +15,7 @@
 	function myPage() {
 		document.getElementById("form").action = "myPage.do";
 		document.getElementById("form").submit();
+		alert("개인정보 수정이 취소되었습니다.");
 	}
 </script>
 <style type="text/css">
@@ -147,7 +148,6 @@
 	</div>
 	<input type="submit" onclick="modify()" value="MODIFY">
 	<input type="submit" onclick="myPage()" value="CANCEL">
-	<!-- <input type="submit" onclick="home()" value="HOME"> -->
 </f:form>
 </div>
 <script src="resources/script/membership.js"></script>

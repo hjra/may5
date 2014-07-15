@@ -11,11 +11,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=2">
 	
 	<!-- style -->
-	<link href="/CShop/resources/css/web.css" rel="stylesheet">
+	<link href="/CShop/resources/css/admin-layout.css" rel="stylesheet">
 	
 	<!-- default js -->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script src="/CShop/resources/js/web.js"></script>
+	<script src="/CShop/resources/js/admin.js"></script>
 	
 	<!-- datepicker 부분 -->
 	<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
@@ -44,8 +44,12 @@
 <body>
 	<tiles:insertAttribute name="header" />
 	<main>
-		<tiles:insertAttribute name="body" />
+		<section class="local-side">
+			<tiles:insertAttribute name="menu" />
+		</section>
+		<section class="local-side-contents">
+			<tiles:insertAttribute name="body" />
+		</section>
 	</main>
-	<tiles:insertAttribute name="footer" />
 </body>
 </html>
