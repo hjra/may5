@@ -219,7 +219,7 @@ public class OrderController {
 	@RequestMapping("dlvPresent.do")
 	public ModelAndView presentList() {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("cst/order/dlvPresent");
+		model.setViewName("mng/deliveryMng/dlvPresent");
 		List<Orders> presentlist = orderService.getPriceList();
 		model.addObject("presentlist", presentlist);
 		return model;
