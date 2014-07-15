@@ -47,8 +47,6 @@
 					<dt>세번째</dt>
 					<dd><a href="managerInfo.do">직원정보</a></dd>
 					<dd><a href="dailyReport.do">통계</a></dd>
-					<dd><a href="allMemberInfoJsonForm.do">고객정보-Json용</a></dd>
-					<dd><a href="ajaxView.do">고객정보-Json용2</a></dd>
 				</dl>
 			</div>
 		</li>
