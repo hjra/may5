@@ -34,4 +34,7 @@ public interface ItemMapper {
 	public int getOrderListDailyCount(String orderDate);
 
 	public void deleteItem(String deleteItemId);
+	
+	public void modifyItem(Map<String, String> insertParam);
+
 }

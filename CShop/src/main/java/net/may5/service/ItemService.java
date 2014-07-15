@@ -34,4 +34,6 @@ public interface ItemService {
 	
 	public int getOrderListDailyCount(String orderDate);
 
+	public void modifyItem(Map<String, String> insertParam);
+
 }

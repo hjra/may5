@@ -1,33 +1,31 @@
 package net.may5.dto;
 
 public class OrderCount {
-
-	private String time;
-	private String countPerHour;
-	public String getTime() {
-		return time;
+	
+	private String a;
+	private String b;
+	public String getA() {
+		return a;
 	}
-	public void setTime(String time) {
-		this.time = time;
+	public void setA(String a) {
+		this.a = a;
 	}
-	public String getCountPerHour() {
-		return countPerHour;
+	public String getB() {
+		return b;
 	}
-	public void setCountPerHour(String countPerHour) {
-		this.countPerHour = countPerHour;
+	public void setB(String b) {
+		this.b = b;
 	}
 	@Override
 	public String toString() {
-		return "OrderCount [time=" + time + ", countPerHour=" + countPerHour
-				+ "]";
+		return "OrderCount [a=" + a + ", b=" + b + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((countPerHour == null) ? 0 : countPerHour.hashCode());
-		result = prime * result + ((time == null) ? 0 : time.hashCode());
+		result = prime * result + ((a == null) ? 0 : a.hashCode());
+		result = prime * result + ((b == null) ? 0 : b.hashCode());
 		return result;
 	}
 	@Override
@@ -39,18 +37,16 @@ public class OrderCount {
 		if (getClass() != obj.getClass())
 			return false;
 		OrderCount other = (OrderCount) obj;
-		if (countPerHour == null) {
-			if (other.countPerHour != null)
+		if (a == null) {
+			if (other.a != null)
 				return false;
-		} else if (!countPerHour.equals(other.countPerHour))
+		} else if (!a.equals(other.a))
 			return false;
-		if (time == null) {
-			if (other.time != null)
+		if (b == null) {
+			if (other.b != null)
 				return false;
-		} else if (!time.equals(other.time))
+		} else if (!b.equals(other.b))
 			return false;
 		return true;
 	}
-	
-	
 }
