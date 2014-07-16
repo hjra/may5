@@ -8,5 +8,5 @@
 
 <h1>예약주문페이지</h1>
 <f:form action="orderDetail" method="post">
-
+	<input type="submit" value="다음">
 </f:form>

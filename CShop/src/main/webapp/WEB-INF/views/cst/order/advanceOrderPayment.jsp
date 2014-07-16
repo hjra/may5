@@ -122,8 +122,8 @@
 					</select>
 					<div id="inputSelect"></div>
 				</div>
-				fjfdjfdjk
-				<div id="102" style="display: none" >213213213신청수단 : 
+				
+				<div id="102" style="display: none" >신청수단 : 
 					<select id="selectBoxValue" name="wayCode" title="cashReceiptRequestWay" >
 						<c:forEach var="requestWay" items="${cashReceiptRequestWay }" varStatus="status" begin="1" end="4">
 						
@@ -142,30 +142,39 @@
 			</div>
 			<div id="F" style="display: none">
 				공제용도 : 
-				<c:forEach var="deductions" items="${deduction }" varStatus="status" begin="1" end="1">
+				<c:forEach var="deductions" items="${deduction }" varStatus="status" >
+					<input type="radio" name="deductionCode" value="${deductions.deductionCode }" 
+						onclick="div_OnOff4(this.value,'${deductions.deductionCode }+100');">${deductions.deductionName }
+				</c:forEach>
+				<%-- <c:forEach var="deductions" items="${deduction }" varStatus="status" begin="1" end="1">
 					<input type="radio" name="deduction" value="${deductions.deductionCode }" 
 						checked="checked" onclick="div_OnOff4(this.value,'${deductions.deductionCode }+100');">${deductions.deductionName }
 				</c:forEach>
 				<c:forEach var="deductions" items="${deduction }" varStatus="status" begin="2" >
 					<input type="radio" name="deduction" value="${deductions.deductionCode }" 
 						onclick="div_OnOff4(this.value,'${deductions.deductionCode }+100');">${deductions.deductionName }
-				</c:forEach>
+				</c:forEach> --%>
 				
 				<div id="101" style="display: block">신청수단 : 
-					<select id="selectBoxValue"  title="cashReceiptRequestWay" >
+					<select id="selectBoxValue" name="wayCode" title="cashReceiptRequestWay" >
 						<c:forEach var="requestWay" items="${cashReceiptRequestWay }" varStatus="status" begin="1" end="3">
+					
 							<option value="${requestWay.wayCode }">${requestWay.wayType }</option>
 						</c:forEach>
 					</select>
 					<div id="inputSelect"></div>
 				</div>
 				<div id="102" style="display: none" >신청수단 : 
-					<select id="selectBoxValue"  title="cashReceiptRequestWay" >
-						<c:forEach var="requestWay" items="${cashReceiptRequestWay }" varStatus="status" begin="1" end="1">
-							<option value="${requestWay.wayCode }">${requestWay.wayType }</option>
-						</c:forEach>
-						<c:forEach var="requestWay" items="${cashReceiptRequestWay }" varStatus="status" begin="3" end="4">
-							<option value="${requestWay.wayCode }">${requestWay.wayType }</option>
+					<select id="selectBoxValue" name="wayCode" title="cashReceiptRequestWay" >
+						<c:forEach var="requestWay" items="${cashReceiptRequestWay }" varStatus="status" begin="1" end="4">
+						
+						<%--	<option value="${requestWay.wayCode }">${requestWay.wayType }</option>
+						 </c:forEach>
+						<c:forEach var="requestWay" name="wayCode" items="${cashReceiptRequestWay }" 
+										varStatus="status" begin="3" end="4"> --%>
+							<c:if test="${status.index!=2 }">		
+							  <option value="${requestWay.wayCode }">213213213${requestWay.wayType }</option>
+							</c:if>
 						</c:forEach>
 					</select>
 					<div id="inputSelect1"></div>
