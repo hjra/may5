@@ -26,8 +26,8 @@ $(function () {
 						= (typeof j[i].cstPostCount == "undefined") ? '': j[i].cstPostCount,
 					cstGender : j[i].cstGender
 						= (typeof j[i].cstGender == "undefined") ? '': j[i].cstGender,
-					cstBirthDay : j[i].cstBirthDay
-						= (typeof j[i].cstBirthDay == "undefined") ? '': j[i].cstBirthDay,
+					cstBirthDay : j[i].cstBirthday
+						= (typeof j[i].cstBirthday == "undefined") ? '': j[i].cstBirthday,
 					cstEmail : j[i].cstEmail
 						= (typeof j[i].cstEmail == "undefined") ? '': j[i].cstEmail,
 					cstCP : j[i].cstCP
@@ -71,18 +71,18 @@ $(function () {
 	                 ],
 	                 onExpand: function (e) {
 	                     $('#'+e.box_id).html('<div style="padding: 10px"> 아이디: '
-	                   		  +j[e.recid].CSTID+'<br> 이름: '
-	                   		  +j[e.recid].CSTNAME+'<br> 회원등급: '
-	                   		  +j[e.recid].LEVELCODE+'<br> 가입일: '
-	                   		  +j[e.recid].CSTJOINDATE+'<br> 최종방문일: '
-	                   		  +j[e.recid].CSTLASTDATE+'<br> 게시글 수: '
-	                   		  +j[e.recid].CSTPOSTCOUNT+'<br> 성별: '
-	                   		  +j[e.recid].CSTGENDER+'<br> 생년월일: '
-	                   		  +j[e.recid].CSTBIRTHDAY+'<br> E-mail: '
-	                   		  +j[e.recid].CSTEMAIL+'<br> 전화번호: '
-	                   		  +j[e.recid].CSTCP+'<br> 주소: '
-	                   		  +j[e.recid].CSTDETAILADDRESS+'<br> 글쓰기 권한: '
-	                   		  +j[e.recid].CSTQNAPERMISSION
+	                   		  +j[e.recid].cstId+'<br> 이름: '
+	                   		  +j[e.recid].cstName+'<br> 회원등급: '
+	                   		  +j[e.recid].levelCode+'<br> 가입일: '
+	                   		  +j[e.recid].cstJoinDate+'<br> 최종방문일: '
+	                   		  +j[e.recid].cstLastVisitDate+'<br> 게시글 수: '
+	                   		  +j[e.recid].cstPostCount+'<br> 성별: '
+	                   		  +j[e.recid].cstGender+'<br> 생년월일: '
+	                   		  +j[e.recid].cstBirthDay+'<br> E-mail: '
+	                   		  +j[e.recid].cstEmail+'<br> 전화번호: '
+	                   		  +j[e.recid].cstCP+'<br> 주소: '
+	                   		  +j[e.recid].cstDetailAddress+'<br> 글쓰기 권한: '
+	                   		  +j[e.recid].cstQnAPermission
 	                   		  +'</div>').animate({ 'height': 160 }, 50);
 	                }
 			});

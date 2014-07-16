@@ -1,6 +1,7 @@
 package net.may5.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,10 +13,12 @@ import net.may5.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -165,6 +168,13 @@ public class OrderController {
 		return model;
 	}
 	
+	@RequestMapping("orderInfoJson.do")
+	public @ResponseBody Map<?,?> orderListMngJson(ModelMap model){
+		model.put("orders", orderService.getOrderListMng());
+		System.out.println("orderListMngJson 실행 결과: "+model);
+		return model;
+	}
+	
 	
 	
 	/* 알리미리스트메인뷰 */
@@ -259,5 +269,7 @@ public class OrderController {
 		return "mng/deliveryMng/dlvPresent";
 	}
 	
+	
+
 }
 
