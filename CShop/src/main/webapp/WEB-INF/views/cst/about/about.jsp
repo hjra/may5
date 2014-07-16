@@ -9,7 +9,7 @@ function callNumber(num){
 </script>
 
 	
-<h1>about 화면입니다.
+<h1>about 화면입니다.</h1>
 
 <P>
 <P>

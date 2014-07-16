@@ -91,8 +91,6 @@
 				<dl>
 					<dt>아이콘 참조</dt>
 					<dd><a href="http://getbootstrap.com/components/">아이콘 참조 링크</a></dd>
-					<dd><a href="allMemberInfoJsonForm.do">고객정보-Json용</a></dd>
-					<dd><a href="ajaxView.do">고객정보-Json용2</a></dd>
 				</dl>
 			</div>
 		</li>
