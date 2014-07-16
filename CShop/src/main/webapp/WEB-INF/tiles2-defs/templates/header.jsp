@@ -35,7 +35,7 @@
 	
 </script>
 <header id="master-header">
-	<a id="mobile-logo" onclick="location.href='homeImage.do'">C#</a> <a
+	<a id="mobile-logo" onclick="location.href='homeImage.do'"><img src="/CShop/resources/img/main/CI1.png" width="50px" height="50px"></a> <a
 		id="mobile-menu-toggle"> 
 		<img src="/CShop/resources/img/mobile-menu-toggle-button.png"
 		alt="메뉴펼치기"></a>
@@ -49,13 +49,13 @@
 				</menu>
 			</div>
 		</li>
-		<li onclick="location.href='/CShop/'" id="desktop-logo">C#</li>
+		<li onclick="location.href='/CShop/'" id="desktop-logo"><img src="/CShop/resources/img/main/CI1.png" width="60px" height="60px"></li>
 
 		<li>
 			<a href="advanceOrder.do">ORDER</a>
-			<div class="submenu">
-				<menu>
-					<li onclick="location.href='advanceOrder.do'">ADVANCE ORDER</li>
+			<div class="submenu"> 
+				<menu> 
+					<li onclick="location.href='advanceOrder.do'">ADVANCE ORDER</li> 
 					<li onclick="location.href='orderList.do'">ORDER SEARCH</li>
 				</menu>
 			</div>

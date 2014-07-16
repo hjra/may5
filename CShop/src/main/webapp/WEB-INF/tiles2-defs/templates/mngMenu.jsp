@@ -33,6 +33,7 @@
 					<dt>두번째</dt>
 					<dd><a href="orderListMng.do">주문관리</a></dd>
 					<dd><a href="dlvNotice.do">알리미</a></dd>
+					<dd><a href="dlvPresent.do">선물옵션</a></dd>
 					<dd><a href="menuListMng.do">상품관리</a></dd>
 					<dd><a href="menuStockMng.do">상품재고</a></dd>
 				</dl>
