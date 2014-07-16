@@ -16,7 +16,7 @@
 			</div>
 			<div class="text">
 				<dl>
-					<dt href="mngLoginForm.do">고객정보</dt>
+					<dt href="allMemberInfoForm.do">고객정보</dt>
 					<dd><a href="allMemberInfoForm.do">고객정보</a></dd>
 					<dd><a href="vipListForm.do">VIP LIST</a></dd>
 					<dd><a href="blackListForm.do">관심고객리스트</a></dd>
@@ -30,7 +30,7 @@
 			</div>
 			<div class="text">
 				<dl>
-					<dt>주문정보</dt>
+					<dt href="orderListMng.do">주문정보</dt>
 					<dd><a href="orderListMng.do">주문내역</a></dd>
 				</dl>
 			</div>
@@ -41,7 +41,7 @@
 			</div>
 			<div class="text">
 				<dl>
-					<dt>상품관리</dt>
+					<dt href="menuListMng.do">상품관리</dt>
 					<dd><a href="menuListMng.do">상품정보</a></dd>
 					<dd><a href="menuStockMng.do">상품재고</a></dd>
 				</dl>
@@ -53,7 +53,7 @@
 			</div>
 			<div class="text">
 				<dl>
-					<dt>배송정보</dt>
+					<dt href="dlvNotice.do">배송정보</dt>
 					<dd><a href="dlvNotice.do">알리미</a></dd>
 					<dd><a href="dlvNotice.do">선물옵션</a></dd>
 				</dl>
