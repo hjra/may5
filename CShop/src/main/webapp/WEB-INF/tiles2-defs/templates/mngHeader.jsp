@@ -9,8 +9,9 @@
 		<div class="header-heading-title">
                   <div class="folder">
                       <span class="glyphicon glyphicon-list"></span>
-                  </div><!-- inline-fix 
-			--><div class="brand">
+                  </div>
+                  <!-- inline-fix -->
+                  <div class="brand">
                       C# 관리자페이지
                   </div>
 			<div class="location">Home &gt; 대시보드</div>

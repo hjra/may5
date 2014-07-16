@@ -4,6 +4,42 @@
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<link rel="stylesheet" type="text/css" href="http://w2ui.com/src/w2ui-1.4.min.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://w2ui.com/src/w2ui-1.4.min.js"></script>
+<script src="resources/script/orderListInfo.js"></script>
+<script type="text/javascript"></script>
+
+주문관리 화면
+<br>
+<div id="gridOrderInfo" style="width: 100%; height: 780px; overflow: hidden;"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- <link href="/CShop/resources/css/dlvNotice.css" rel="stylesheet"> -->
 
 <!-- 컬럼별 정렬 -->
