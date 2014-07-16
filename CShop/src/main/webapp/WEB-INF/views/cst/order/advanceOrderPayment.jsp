@@ -100,7 +100,7 @@
 			
 			<div id="T" style="display: block">
 				공제용도 : 
-				<c:forEach var="deductions" items="${deduction }" varStatus="status" >
+				<c:forEach var="deductions" items="${deduction }" varStatus="status" begin="1">
 					<input type="radio" name="deductionCode" value="${deductions.deductionCode }" 
 						onclick="div_OnOff4(this.value,'${deductions.deductionCode }+100');">${deductions.deductionName }
 				</c:forEach>
@@ -142,7 +142,7 @@
 			</div>
 			<div id="F" style="display: none">
 				공제용도 : 
-				<c:forEach var="deductions" items="${deduction }" varStatus="status" >
+				<c:forEach var="deductions" items="${deduction }" varStatus="status" begin="1">
 					<input type="radio" name="deductionCode" value="${deductions.deductionCode }" 
 						onclick="div_OnOff4(this.value,'${deductions.deductionCode }+100');">${deductions.deductionName }
 				</c:forEach>
