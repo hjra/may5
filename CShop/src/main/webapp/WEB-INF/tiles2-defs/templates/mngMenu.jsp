@@ -16,7 +16,7 @@
 			</div>
 			<div class="text">
 				<dl>
-					<dt href="mngLoginForm.do">첫번째</dt>
+					<dt href="mngLoginForm.do">고객정보</dt>
 					<dd><a href="allMemberInfoForm.do">고객정보</a></dd>
 					<dd><a href="vipListForm.do">VIP LIST</a></dd>
 					<dd><a href="blackListForm.do">관심고객리스트</a></dd>
@@ -30,11 +30,32 @@
 			</div>
 			<div class="text">
 				<dl>
-					<dt>두번째</dt>
-					<dd><a href="orderListMng.do">주문관리</a></dd>
-					<dd><a href="dlvNotice.do">알리미</a></dd>
-					<dd><a href="menuListMng.do">상품관리</a></dd>
+					<dt>주문정보</dt>
+					<dd><a href="orderListMng.do">주문내역</a></dd>
+				</dl>
+			</div>
+		</li>
+		<li>
+			<div class="icon">
+				<span class="glyphicon glyphicon-heart-empty"></span>
+			</div>
+			<div class="text">
+				<dl>
+					<dt>상품관리</dt>
+					<dd><a href="menuListMng.do">상품정보</a></dd>
 					<dd><a href="menuStockMng.do">상품재고</a></dd>
+				</dl>
+			</div>
+		</li>
+		<li>
+			<div class="icon">
+				<span class="glyphicon glyphicon-heart-empty"></span>
+			</div>
+			<div class="text">
+				<dl>
+					<dt>배송정보</dt>
+					<dd><a href="dlvNotice.do">알리미</a></dd>
+					<dd><a href="dlvNotice.do">선물옵션</a></dd>
 				</dl>
 			</div>
 		</li>
@@ -44,19 +65,34 @@
 			</div>
 			<div class="text">
 				<dl>
-					<dt>세번째</dt>
-					<dd><a href="managerInfo.do">직원정보</a></dd>
-					<dd><a href="dailyReport.do">통계</a></dd>
+					<dt href="dailyReport.do">통계</dt>
+					<dd><a href="orderReport.do">판매분석</a></dd>
+					<dd><a href="menuReport.do">예약분석</a></dd>
+					<dd><a href="salesReport.do">매출분석</a></dd>
+					<dd><a href="memberReport.do">고객분석</a></dd>
 				</dl>
 			</div>
 		</li>
-		<li href="http://getbootstrap.com/components/">
+		<li>
+			<div class="icon">
+				<span class="glyphicon glyphicon-user"></span>
+			</div>
+			<div class="text">
+				<dl>
+					<dt href="managerInfo.do">직원정보</dt>
+				</dl>
+			</div>
+		</li>
+		<li>
 			<div class="icon">
 				<span class="glyphicon glyphicon-user"></span>
 			</div>
 			<div class="text">
 				<dl>
 					<dt>아이콘 참조</dt>
+					<dd><a href="http://getbootstrap.com/components/">아이콘 참조 링크</a></dd>
+					<dd><a href="allMemberInfoJsonForm.do">고객정보-Json용</a></dd>
+					<dd><a href="ajaxView.do">고객정보-Json용2</a></dd>
 				</dl>
 			</div>
 		</li>

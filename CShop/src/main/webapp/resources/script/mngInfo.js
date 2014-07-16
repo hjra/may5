@@ -70,8 +70,8 @@ $(function () {
 	                onExpand: function (event) {
 	                 $('#'+event.box_id).html('<div style="padding: 10px"> 아이디: '
 	                		 +j[event.recid].mngId+'<br> 이름: '
-	                		 +j[event.recid].mngRank+'<br> 등급: '
-	                   		 +j[event.recid].mngName
+	                		 +j[event.recid].mngName+'<br> 등급: '
+	                   		 +j[event.recid].mngRank
 	                   		 +'</div>').animate({ 'height': 160 }, 50);
 	                }
 	    		});
