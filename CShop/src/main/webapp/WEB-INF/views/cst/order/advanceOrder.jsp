@@ -11,8 +11,9 @@
 <br>
 
 <style>
-#div1 {width:400px;height:400px;padding:10px;border:1px solid #aaaaaa; display: inline-block;}
-.dragImg {display: inline-block;}
+#afterItemBasket {width:400px;height:400px;;border:1px solid #aaaaaa; float:left; display: inline-block;}
+#beforeItemBasket {width:400px;height:400px;padding:10px;border:1px solid #aaaaaa; display: inline-block;}
+.dragImg {padding:5px;}
 </style>
 <script>
 function allowDrop(ev) {
@@ -30,11 +31,14 @@ function drop(ev) {
 }
 </script>
 
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="afterItemBasket" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 <br>
-<img id="drag1" class="dragImg" src="/CShop/resources/img/cake/TopB.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
-<img id="drag2" class="dragImg" src="/CShop/resources/img/cake/TopS.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
-<img id="drag3" class="dragImg" src="/CShop/resources/img/cake/TopG.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
+
+<div id="beforeItemBasket" ondrop="drop(event)" ondragover="allowDrop(event)">
+	<img id="drag1" class="dragImg" src="/CShop/resources/img/cake/TopB.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
+	<img id="drag2" class="dragImg" src="/CShop/resources/img/cake/TopS.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
+	<img id="drag3" class="dragImg" src="/CShop/resources/img/cake/TopG.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
+</div>
 
 
 
