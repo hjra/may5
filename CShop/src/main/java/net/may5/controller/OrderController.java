@@ -30,8 +30,8 @@ public class OrderController {
 	/** 고객페이지 ↓ */
 	/* 예약주문 */
 	@RequestMapping("advanceOrder.do")
-	public String advanceOrder(){
-		return "";
+	public String advanceOrder(Model model){
+		return "cst/order/advanceOrder";
 	}
 	
 	/* 주문상세 */
