@@ -1,4 +1,4 @@
-$(function () {
+$(function allCstInfoAjax() {
 	$.ajax({
 		type	: "POST",
 		url		: "allMemberInfoJsonForm2.do",
@@ -36,7 +36,7 @@ $(function () {
 						= (typeof j.customer[i].CSTQNAPERMISSION == "undefined") ? '': j.customer[i].CSTQNAPERMISSION
 				});
 			}
-			$('#grid').w2grid({
+			$('#gridAllCstInfo').w2grid({
 				name : 'grid',
 				columns: [
 				           { field: 'cstId', caption: '아이디', size: '80px', resizable: true, sortable: true, editable: { type: 'text' } },

@@ -31,7 +31,9 @@ $(document).ready(function(){
 			$('input:checkbox[id^=agreement3]:checked').prop("checked", false);
 		}
 	});
+/*주문자동의ChechBox끝*/
 	
+/*현금영수증수단*/
 	$('#selectBoxValue').click(function(){
 		$('#inputSelect').empty();
 		if($('#selectBoxValue').val() == "0"){
@@ -63,12 +65,14 @@ $(document).ready(function(){
 	});
 	
 });
-/*주문자동의ChechBox끝*/
+/*현금영수증수단끝*/
 
 
 
 /*결제방법선택*/
 	//라디오 버튼 value 값 조건 비교
+
+// 일반결제
 function div_OnOff(v, id) {
 	if (v == "1") { // 신용카드
 		document.getElementById("2").style.display = "none"; // 숨김
@@ -85,6 +89,7 @@ function div_OnOff(v, id) {
 	}
 }
 
+// 카드구분
 function div_OnOff2(v2, id) {
 	if (v2 == "1") { // 개인카드
 		document.getElementById("12").style.display = "none"; // 숨김
@@ -121,6 +126,17 @@ function div_OnOff4(v4, id) {
 	}
 }
 /*결제방법선택끝*/
+
+
+function div_OnOff5(v5, id) {
+	if (v5 == "dy") { // 배송
+		document.getElementById("dn").style.display = "none"; // 숨김
+		document.getElementById("dy").style.display = ""; // 보여줌
+	} else { // 직접수령
+		document.getElementById("dy").style.display = "none"; // 숨김
+		document.getElementById("dn").style.display = ""; // 보여줌
+	}
+}
 
 
 /*주소찾기(도로명주소)*/

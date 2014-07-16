@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <%@ page session="true" %>
+<link href="/CShop/resources/css/homeimage.css" rel="stylesheet">
 <header>
 	<nav>
 		<div class="chome content">
@@ -10,7 +12,7 @@
 				<div class="m">
 					<div>THE FRUIT CAKE STORE</div>
 					<div>CONBINATION OF FRUIT CAKE</div>
-					<div class="ma">MADE IN KOREAN - BIT C# PROJECT</div>
+					<div class="ma">MADE IN KOREA - BIT C# PROJECT</div>
 					<div id="aaa"><a href=".menu">
 						<div class="icons"></div>
 						<div class="homemenu"></div></a>
