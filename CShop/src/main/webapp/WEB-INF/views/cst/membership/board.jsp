@@ -58,13 +58,13 @@
 			
 			
 			<tr height="1" bgcolor="#D2D2D2">
+				<!-- <td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td></td>
+				<td></td> -->
 			</tr>
 		<tr>
 				<td></td>
@@ -78,5 +78,14 @@
 		
 
 		</table>
-
+		
+	<div>
+	<form method="post" action="">
+    	<input type="checkbox" name=title value="title"/>제목
+        <input type="checkbox" name="content" value="content"/>내용
+        <input type="text" name="keyword" value="" />
+     	<input type="submit" value="검색"/>
+       </form>
+       
+       </div>
 

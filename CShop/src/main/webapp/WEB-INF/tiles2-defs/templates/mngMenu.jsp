@@ -20,7 +20,7 @@
 					<dd><a href="allMemberInfoForm.do">고객정보</a></dd>
 					<dd><a href="vipListForm.do">VIP LIST</a></dd>
 					<dd><a href="blackListForm.do">관심고객리스트</a></dd>
-					<dd><a href="managerQnA.do">QnA관리</a></dd>
+					<dd><a href="board.do">QnA관리</a></dd>
 				</dl>
 			</div>
 		</li>

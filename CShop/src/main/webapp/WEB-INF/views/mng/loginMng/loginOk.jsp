@@ -6,8 +6,8 @@
 <a href="allMemberInfoForm.do">고객정보</a> | 
 <a href="vipListForm.do">VIP LIST</a> | 
 <a href="blackListForm.do">관심고객리스트</a> | 
-<a href="managerQnA.do">QnA관리</a>
-
+<a href="board.do">QnA관리</a>
+	
 <br>
 <a href="orderListMng.do">주문관리</a>
 <br>
