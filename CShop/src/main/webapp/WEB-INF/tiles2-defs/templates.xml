@@ -11,14 +11,16 @@
         <put-attribute name="footer"  value="/WEB-INF/tiles2-defs/templates/footer.jsp" />
     </definition>
     
+    <definition name=".mng.loginMng.*" template="/WEB-INF/tiles2-defs/templates/defaultLayout.jsp">
+	   <put-attribute name="title" value="C#" type="string" />
+	</definition>
+    
     <definition name=".mng.*" template="/WEB-INF/tiles2-defs/templates/mngLayout.jsp">
 	    <put-attribute name="title" value="C# Admin" type="string" />
 	    <put-attribute name="header" value="/WEB-INF/tiles2-defs/templates/mngHeader.jsp" />
 	    <put-attribute name="menu" value="/WEB-INF/tiles2-defs/templates/mngMenu.jsp" />
 	</definition>
 	
-	<definition name=".mng.loginMng.*" template="/WEB-INF/tiles2-defs/templates/defaultLayout.jsp">
-	   <put-attribute name="title" value="C#" type="string" />
-	</definition>
+	
 	
 </tiles-definitions>

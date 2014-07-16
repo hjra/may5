@@ -17,3 +17,4 @@
 			<input name="stayLogin" type="checkbox" value="T">Stay Signed in
 		</div>
 	</f:form>
+<a href="/CShop/homeImage.do">고객페이지</a>

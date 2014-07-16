@@ -47,7 +47,7 @@ public class ManagerController {
 				session = request.getSession(true);
 			}
 			session.setAttribute("mngLogin", mngLogin);
-			return "mng/loginMng/loginOk";			
+			return "redirect:allMemberInfoForm.do";			
 		}else{
 			request.setAttribute("errMsg", "아이디 또는 비밀번호를 다시 확인하세요<br>"
 					+ "C#에 등록되지 않은 아이디이거나,<br>"

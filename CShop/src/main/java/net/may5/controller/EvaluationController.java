@@ -27,6 +27,12 @@ public class EvaluationController {
 		System.out.println("insertEvaluationItemId "+itemId);
 		session = request.getSession();
 		session.getAttribute(cstLogin);
+		try {
+			if(grade == null);
+		} catch (Exception e) {
+			System.out.println("점수를 입력해주세요");
+			return "redirect:/menuInfo.do?itemId="+itemId;
+		}
 		System.out.println("Grade::"+grade);
 		evaluation.setCstCode(cstCode);
 		evaluation.setEvaluationContents(evaluationContents);
