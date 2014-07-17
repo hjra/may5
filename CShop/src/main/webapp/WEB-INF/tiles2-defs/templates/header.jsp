@@ -103,12 +103,5 @@
 							</f:form>
 						</c:when>
 					</c:choose>
-				</menu>
-			</div>			
-		</li>
-&nbsp&nbsp&nbsp
-		<li>
-		<input type="IMAGE" name="Button" value="Button"
-			src="/CShop/resources/img/button/settings.png"  onclick="location.href='mngLoginForm.do'">
-		</li></menu>
+				</menu> 
 </header>

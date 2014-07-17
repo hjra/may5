@@ -11,7 +11,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=2">
 	
 	<!-- style -->
-	<link href="/CShop/resources/css/web.css" rel="stylesheet">
+	<link href="/CShop/resources/css/web-layout.css" rel="stylesheet">
 	
 	<!-- default js -->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
