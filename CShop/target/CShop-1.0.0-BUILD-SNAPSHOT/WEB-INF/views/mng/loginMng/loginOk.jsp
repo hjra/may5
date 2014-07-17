@@ -12,6 +12,7 @@
 <a href="orderListMng.do">주문관리</a>
 <br>
 <a href="dlvNotice.do">알리미</a>
+<a href="dlvPresent.do">선물옵션</a>
 <br>
 <a href="menuListMng.do">상품관리</a>
 <a href="menuStockMng.do">상품재고</a>

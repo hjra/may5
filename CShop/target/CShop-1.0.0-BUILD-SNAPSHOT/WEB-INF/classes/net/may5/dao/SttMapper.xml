@@ -15,17 +15,17 @@
  		select sum(orderAmount) from orders
  	</select>
  
-<!-- select orderDate, to_char(orderDate, 'HH24')
-from orders where to_char(orderDate, 'yyyy-mm-dd') = to_char(sysdate, 'yyyy-mm-dd')
-group by orderDate;
- -->
+ 	<!-- 시간별 주문 수량 -->
+	<select id="orderCountPerHour" resultType="OrderCount" >
+		select to_char(orderDate, 'HH24') a, count(to_char(orderDate, 'HH24')) b
+		from Orders where to_char(orderDate, 'YYYY-MM-DD')
+		= #{orderDate} group by to_char(orderDate, 'HH24')
+	</select>
+
  	<!-- 전체회원수 -->
-
-<select id="getCustomerCount" resultType="int">
-
-select count(*) from customer
-
-</select>
+	<select id="getCustomerCount" resultType="int">
+		select count(*) from customer
+	</select>
 
 
 <!-- 탈퇴한회원수 -->

@@ -34,7 +34,7 @@
 			) B,
 	    customer C
 	WHERE B.cstCode = C.cstCode 
-		  AND B.number_of_row between #{startrow} and #{endrow}
+		  AND B.number_of_row between #{startrow} and #{endrow} ORDER BY EVALUATIONINDEX DESC
 </select>
 
 
@@ -50,30 +50,45 @@
 	</select>
 
 	<select id="getOrderList" resultType="Orders">
-		<!--
-			order date 형식은
-			'YYYY-MM-DD' 
-	 	-->
 		select * from orders
-		WHERE ORDERDATE = TO_CHAR(TO_DATE(#{orderDate},'YYYY-MM-DD'),'YY/MM/DD')
-		ORDER BY ITEMID ASC
+		where to_char(orderDate, 'yyyy-mm-dd')=#{orderDate}
+		order By itemId asc
 	</select>
 	
 		<select id="getOrderListCount" resultType="int">
 		select count(*) from orders
-	</select>
+		</select>
+	
+		<select id="getOrderListDailyCount" resultType="int">
+		select count(*) from orders where to_char(orderDate, 'yyyy-mm-dd')=#{orderDate}
+		</select>
+	
 	
 		<select id="getAnOrderList" resultType="Orders">
 		select * from orders where itemId=#{itemId}
 		</select>
 		
 		<select id="getOrderListCountSameItemId" resultType="Orders" >
-		select itemId, count(itemId) itemCnt from orders group by itemId order by itemCnt
+		select itemId, count(itemId) itemCnt from orders group by itemId 
+		order by itemCnt
 		</select>
+		
 
-		<select id="setNewItem" resultType="void">
+		<select id="setNewItem">
 			insert into item(itemId, itemName, itemCalorie, itemInfo, itemImg1, itemImg2, itemImg3, itemImg4, sticker, price)
 			values(#{ITEMID}, #{ITEMNAME}, #{ITEMCALORIE}, #{ITEMINFO}, #{ITEMIMG1}, #{ITEMIMG2}, #{ITEMIMG3}, #{ITEMIMG4}, #{STICKER}, #{PRICE})
 		</select>
+		
+	
+		
+		<update id="modifyItem">
+			update item set itemName=#{ITEMNAME}, itemCalorie=#{ITEMCALORIE}, itemInfo= #{ITEMINFO}, itemImg1=#{ITEMIMG1}, itemImg2=#{ITEMIMG2}, itemImg3=#{ITEMIMG3}, itemImg4=#{ITEMIMG4}, sticker=#{STICKER}, price=#{PRICE}
+   		   WHERE itemId = #{itemId}
+		</update>
+		
+		<select id="deleteItem" parameterType="String">
+			delete from item where itemId = #{deleteItemId}
+		</select>
+		
 		
 </mapper>

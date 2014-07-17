@@ -32,33 +32,36 @@
 		document.getElementById("mbsF").action = "mngLogoutProcess.do";
 		document.getElementById("mbsF").submit();
 	}
+	
 </script>
 <header id="master-header">
-	<a id="mobile-logo" onclick="location.href='homeImage.do'">C#</a> <a
+	<a id="mobile-logo" onclick="location.href='homeImage.do'"><img src="/CShop/resources/img/main/CI1.png" width="50px" height="50px"></a> <a
 		id="mobile-menu-toggle"> 
 		<img src="/CShop/resources/img/mobile-menu-toggle-button.png"
 		alt="메뉴펼치기"></a>
 	<menu id="gnb">
 		<li onclick="location.href='homeImage.do'">HOME</li>
-		<li onclick="location.href='menuList.do'">MENU
+		<li>
+			<a href="menuList.do">MENU</a>
 			<div class="submenu">
 				<menu>
 					<li onclick="location.href='menuList.do'">MENU LIST</li>
-					<li onclick="location.href='menuInfo.do'">MENU INFO</li>
 				</menu>
 			</div>
 		</li>
-		<li onclick="location.href='/CShop/'" id="desktop-logo">C#</li>
-		<li onclick="location.href='advanceOrder.do'">ORDER
-			<div class="submenu">
-				<menu>
-					<li onclick="location.href='advanceOrder.do'">ADVANCE ORDER</li>
-					<li onclick="location.href='orderList.do'">ORDER LIST</li>
+		<li onclick="location.href='/CShop/'" id="desktop-logo"><img src="/CShop/resources/img/main/CI1.png" width="60px" height="60px"></li>
+
+		<li>
+			<a href="advanceOrder.do">ORDER</a>
+			<div class="submenu"> 
+				<menu> 
+					<li onclick="location.href='advanceOrder.do'">ADVANCE ORDER</li> 
+					<li onclick="location.href='orderList.do'">ORDER SEARCH</li>
 				</menu>
 			</div>
 		</li>
 		<li onclick="location.href='about.do'">ABOUT</li>
-		<li style="font-size: 8px; left: 200px;">Membership
+		<li style="font-size: 8px">Membership
 			<div class="submenu">
 				<!-- 임시방편 -->
 				<menu>
@@ -100,39 +103,5 @@
 							</f:form>
 						</c:when>
 					</c:choose>
-				</menu>
-			</div>			
-		</li>
-		&nbsp&nbsp&nbsp
-		<li style="font-size: 8px; left: 200px;" onclick="location.href='mngLoginForm.do'">ADMIN</li>
-		
-		
-		
-	</menu>
-	<%-- <menu id="mbs">
-			<c:choose>
-				<c:when test="${sessionScope.login==null}">
-					<f:form id="mbsF" method="post">
-						<li onclick="login()">LOGIN</li>
-						<li onclick="join()">JOIN</li>
-					</f:form>
-				</c:when>
-				<c:when test="${sessionScope.login.levelCode=='F'}">
-					<f:form id="mbsF" method="post">
-						<li onclick="logout()">LOGOUT</li>
-						<li onclick="join()">JOIN</li>
-					</f:form>
-				</c:when>
-				<c:when test="${sessionScope.login.levelCode=='N'or
-								sessionScope.login.levelCode=='V'or
-								sessionScope.login.levelCode=='B'}">
-					<f:form id="mbsF" method="post">
-						<li onclick="logout()">LOGOUT</li>
-						<li onclick="myPage()">MY C#</li>
-						<li onclick="calendar()">Calendar</li>
-					</f:form>
-				</c:when>
-			</c:choose>
-		</menu> --%>
-
+				</menu> 
 </header>

@@ -10,19 +10,9 @@ $(document)
 .on("click","#stockToZero",function(){
 	location.href="stockToZero.do";
 });
-
-
-
-jQuery(function(){
-	//
-	var paramDate = $("#thisDay").val();
-	if( !moment(paramDate).isValid() ){
-		$("#thisDay").val(moment().format("YYYY-MM-DD"));
-	}
-});
-
-
+ 
 </script>
+
 <!-- 날짜선택, 마감작업 둘다 작동하도록    => itemController 에서 처리? 
 1. 특정 날짜 선택하면, 상품재고 목록이 나타나도록
 2. 마감버튼 클릭하면 상품재고가 0이 되도록-->

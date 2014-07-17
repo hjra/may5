@@ -2,28 +2,55 @@
 	pageEncoding="UTF-8"%>
 <%@ page session="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
-
-<p>메뉴리스트입니다.</p>
-	<!-- <form action="menuInfo.do" method="post"> -->
-<ul class="menu-list">
-
-	<li class="cake title">
-		<label>1호 케익입니다.</label>
-	</li>
-
-	<c:forEach var="item" items="${itemList }" varStatus="status">
-		<li class="cake">
-		<input type="hidden" value="${status.index }">
-		<img onclick="location.href='menuInfo.do?itemId=${item.itemId}'" src="/CShop/resources/img/cake/${item.itemId}1.png" alt="대표이미지" style="width: 150px">
-	<br>
-		<a href="menuInfo.do?itemId=${item.itemId}">${item.itemName}</a>	
- </li>
-	</c:forEach>
+<div class="back">
+<div class="menuList">
+ <c:forEach var="list" items="${collection}" varStatus="status">
+	<div class="menulista">  
+		<div class="caketitlea">
+			<c:choose>
+						<c:when test="${status.index == 0}">
+							<label>SMALL</label>						  
+						</c:when>
+						<c:when test="${status.index == 1}"> 
+							<label>MIDIUM</label>						
+						</c:when>
+						<c:when test="${status.index == 2}"> 
+							<label>BIG</label>						 
+						</c:when> 
+						<c:otherwise>  
+							<label>ETC</label> 
+						</c:otherwise> 
+			</c:choose> 
+		
 	
-</ul>
+	
+	
+	<div class="menula"> 
+	<c:forEach var="item" items="${list}">
+					<div class="aaac">
+					<div class="cake">
+					<img onclick="location.href='menuInfo.do?itemId=${item.itemId}'" src="/CShop/resources/img/cake/${item.itemId}1.png" alt="대표이미지" style="width: 95px; ">
+						<c:choose>
+						
+							<c:when test="${item.sticker == 1}"><div id="sticker-view"><ul id="sticker-view-display"><li data-value="1">BEST</li></ul></div></c:when>
+							<c:when test="${item.sticker == 2}"><div id="sticker-view"><ul id="sticker-view-display"><li data-value="2">SPECIAL</li></ul></div></c:when>
+							<c:when test="${item.sticker == 3}"><div id="sticker-view"><ul id="sticker-view-display"><li data-value="3">SALE</li></ul></div></c:when>
+						
+						</c:choose>
+			 		</div> 
+			 		<div class="itemnamea">    
+							<label>
+								<span>${item.itemName}</span>  
+							</label>
+						</div>
+						</div>
+				</c:forEach> 
+				
+			</div>  
+	</div>  
+			</div>
+		</c:forEach>
 
+</div>
 
-
-
-
-<!-- </form> -->
+</div>

@@ -16,14 +16,19 @@
 		from Zip where doromyong like '월드컵로%' order by zipKeyword
 	</select>
 	<select id="searchZipInfo2" parameterType="String" resultType="net.may5.dto.Zip">
-		select A.zipKeyword, B.*
-		from (select replace(sido||sigungu||doromyong||buildingNum1||'-'||buildingNum2, ' ', '') zipKeyword,
+		select A.zipKeyword, B.* from (select doromyong||buildingNum1||'-'||buildingNum2 keyword,
+		sido||' '||sigungu||' '||doromyong||' '||buildingNum1||'-'||buildingNum2 zipKeyword,
 		zipCode from Zip) A inner join Zip B on A.ZIPCODE = B.zipCode
-		where A.zipKeyword like '%'||#{zipKeyword}||'%' order by A.zipKeyword
+		where A.keyword like #{zipKeyword}||'%' order by A.zipKeyword
+	</select>
+	<select id="searchCstZip" parameterType="String" resultType="Zip">
+		select A.zipKeyword, B.* from (select doromyong||buildingNum1||'-'||buildingNum2 keyword,
+		sido||' '||sigungu||' '||doromyong||' '||buildingNum1||'-'||buildingNum2 zipKeyword, zipCode 
+		from Zip) A inner join Zip B on A.ZIPCODE = B.zipCode where B.zipCode=#{zipCode}
 	</select>
 	
 	<!-- ID 중복검사 -->
-	<select id="redundancyCheckId" parameterType="string" resultType="Customer">
+	<select id="redundancyCheckId" parameterType="String" resultType="Customer">
 		select cstId, levelCode from Customer where cstId=#{cstId} and levelCode!='D'
 	</select>
 	
@@ -33,7 +38,7 @@
 		insert into Customer(cstId, cstName, cstPassword, zipCode, cstDetailAddress, cstCP, cstEmail,
         cstGender, cstBirthday, cstEmailAgreement, cstQnAPermission, cstEvaluationPermission, cstJoinDate,
         cstLastVisitDate, cstPostCount, levelCode, cstCode)
-         values(#{cstId}, #{cstName}, #{cstPassword}, 'GG000001', #{cstDetailAddress}, #{cstCP}, #{cstEmail},
+         values(#{cstId}, #{cstName}, #{cstPassword}, #{zipCode}, #{cstDetailAddress}, #{cstCP}, #{cstEmail},
           #{cstGender}, #{cstBirthday}, #{cstEmailAgreement}, 'T', 'T', sysdate, sysdate, 0, 'N', CST.nextval)
 	</insert>
 	
@@ -41,7 +46,18 @@
 	<select id="loginCst" resultType="Customer">
 		select * from Customer where cstId=#{cstId} and cstPassword=#{cstPassword} and levelCode!='D'	
 	</select>
-
+	
+	<!-- 회원정보조회-세션 -->
+	<select id="loginCstInfo" parameterType="int" resultType="Customer">
+		select * from Customer where cstCode=#{cstCode}
+	</select>
+	
+	<!-- 회원정보수정 -->
+	<update id="modifyCstInfo" parameterType="Customer">
+		update Customer set cstPassword=#{cstPassword}, zipCode=#{zipCode}, 
+		cstDetailAddress=#{cstDetailAddress}, cstCP=#{cstCP}, cstEmailAgreement=#{cstEmailAgreement} 
+		where cstCode=#{cstCode}
+	</update>
 
 	<!-- 회원탈퇴 -->
 	<update id="deleteMemberInfo" parameterType="Customer">

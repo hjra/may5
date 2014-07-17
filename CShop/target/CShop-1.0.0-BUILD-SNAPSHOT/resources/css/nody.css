@@ -1,16 +1,16 @@
 @charset "UTF-8";
 /*
-	default interface style kit
+	sass style kit
 	auther        : hojugn ahn (open9.net)
-	version       : 0.4
+	version       : 0.5
 	concept       : interface set, auto preload image, easy hack, easy animation
 */
 /* table styilus*/
 /*
-	default interface style sheet
+	modernizer & look and feel support
 	auther        : hojugn ahn (open9.net)
 	compatibility : IE7;
-	version       : 1.5.4
+	version       : 1.7
 */
 /***************************** default layout style */
 *, *:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
@@ -317,9 +317,9 @@ ol.no-style { list-style: none !important; text-decoration: none !important; }
 .no-background { background-image: none !important; }
 
 /***************************** 인터페이스 - 스타일러 */
-body#dev-visual *, body.dev-visual *, .auto-transition { -webkit-transition: all 0.30s ease-in-out; transition: all 0.30s ease-in-out; }
+body#dev-visual *, body.dev-visual *, .auto-transition { -webkit-transition: all 0.30s ease-in-out; -moz-transition: all 0.30s ease-in-out; -ms-transition: all 0.30s ease-in-out; -o-transition: all 0.30s ease-in-out; transition: all 0.30s ease-in-out; }
 
-.auto-transition-slow { -webkit-transition: all 1s ease-in-out; transition: all 1s ease-in-out; }
+.auto-transition-slow { -webkit-transition: all 1s ease-in-out; -moz-transition: all 1s ease-in-out; -ms-transition: all 1s ease-in-out; -o-transition: all 1s ease-in-out; transition: all 1s ease-in-out; }
 
 .ellipsis, .ellipsis-all * { white-space: nowrap; text-overflow: ellipsis; -o-text-overflow: ellipsis; -ms-text-overflow: ellipsis; overflow: hidden; word-wrap: normal !important; }
 

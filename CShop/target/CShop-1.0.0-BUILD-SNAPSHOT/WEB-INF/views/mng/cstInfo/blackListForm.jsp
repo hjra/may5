@@ -3,24 +3,10 @@
 <%@ page session="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-관심고객리스트 화면
-<table border="1">
-	<tr>
-		<th>아이디</th>
-		<th>이름</th>
-		<th>회원등급</th>
-		<th>가입일</th>
-		<th>생년월일</th>
-		<th>전화번호</th>
-	</tr>
-	<c:forEach items="${customer}" var="customer">
-		<tr>
-			<td>${customer.cstId}</td>
-			<td>${customer.cstName}</td>
-			<td>${customer.levelName}</td>
-			<td>${customer.cstJoinDate}</td>
-			<td>${customer.cstBirthday}</td>
-			<td>${customer.cstCP}</td>
-		</tr>
-	</c:forEach>
-</table>
+<link rel="stylesheet" type="text/css" href="http://w2ui.com/src/w2ui-1.4.min.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://w2ui.com/src/w2ui-1.4.min.js"></script>
+<script src="resources/script/blackCstInfo.js"></script>
+<script type="text/javascript"></script>
+
+<div id="gridBlackCstInfo" style="width: 100%; height: 780px; overflow: hidden;"></div>
