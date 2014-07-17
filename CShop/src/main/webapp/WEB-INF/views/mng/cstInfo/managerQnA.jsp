@@ -3,20 +3,13 @@
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page session="true" %>
-<h1>관리자 게시판페이지 이동성공</h1>
-
-
-<P><a href="managerEditQnA.do">(게시판제목글)</a>
-
-<center><h1>게시판.jsp로 이동완료</h1></center>	
-	<style type="text/css">
+<style type="text/css">
     body{
         line-height:2em;        
         font-family:"맑은 고딕";
 }
     ul, li{ 
         list-style:none;
-        text-align:center;
         padding:0;
         margin:0;
 }
@@ -93,7 +86,6 @@
 </style>
 	
 	
-	
 	<div id="mainWrapper">
 
         <ul>
@@ -123,7 +115,7 @@
                   
                     <li>
                         <ul>
-                            <li>${board.boardCode}</li>
+                            <li style="text-align: center;">${board.boardCode}</li>
                             
                             <li class="left">
                             <f:form action="boardEdit.do" method="post" commandName="qnA">
@@ -143,8 +135,8 @@
                             
                             </li>
                             
-                            	<li>${board.boardDate}</li>
-                            	<li>${board.cstId}</li>
+                            	<li style="text-align: center;">${board.boardDate}</li>
+                            	<li style="text-align: center;">${board.cstId}</li>
                         </ul>
                   			</li>
 				</c:forEach>
