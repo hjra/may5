@@ -27,31 +27,52 @@
 
 		<h1 align="center">boardContext</h1>
 		<font size="2">
-			<table width="90%" align="center" cellpadding="0" cellspacing="0" bgcolor="white" border="0">
-
+		
+			<%-- <center>
+			<table border="1" width = "600">
+	<tr>
+    	<td>글번호</td>
+        <td>${qnaContent.boardCode}</td>
+    </tr>
+   	<tr>
+    	<td>글 제목</td>
+        <td>${qnaContent.boardTitle} </td>
+    </tr>
+    <tr>
+    	<td>작성자</td>
+        <td>${qnaContent.cstId} </td>
+    </tr>
+   	<tr>
+    	<td>내용</td>
+        <td><textarea cols="60" rows="5" disabled>${qnaContent.postContents}</textarea></td>
+     </tr>
+     </table>
+		</center> --%>
+		
+		
+		<center>
+			<table border="1" width = "600">
+					
 				<tr>
-					<td width="5"></td>
-					<td colspan="3" style="background: repeat-x; text-align: center;"></td>
-					<td width="5"></td>
+					<td>제&nbsp;&nbsp;&nbsp;목</td>
+					<td>${qnaContent.boardTitle}</td>
 				</tr>
 				<tr>
-					<td rowspan="3" style="background: repeat-y; text-align: center;"></td>
-					<td align="center" width="0">제&nbsp;&nbsp;&nbsp;목</td>
-					<td rowspan="3" style="background: repeat-y; text-align: center;"></td>
+					<td>작성자</td>
+					<td>${qnaContent.cstId}</td>
 				</tr>
 				<tr>
-					<td align="center">${qnaContent.boardTitle}</td>					
+					
+					<td align="center">글내용</td>
+					<td>${qnaContent.postContents}</td>
 				</tr>
-				<tr>
-					<td align="center">글내용</td></tr>
-					<tr><td align="center" colspan="2">${qnaContent.postContents}</td>
-				</tr>
+				
 				<tr>
 					<td></td>
-					<td align="right" colspan="3"
-						style="background: repeat-x; text-align: center;">
-	
-	
+					<td>
+				</tr>
+				<tr>
+					<center><td>
 								<form id="GoSelect" method="post">
 									<input type="hidden" name="boardCode" value="${qnaContent.boardCode}" class="redBtn"> 
 									<input type="button" id="update" onclick="updateGo()" value="수정" class="redBtn" />
@@ -59,10 +80,17 @@
 									<input type="button" value="목록" onclick="document.location='board.do'" class="redBtn" />	
 																	
 								</form>
-					</td>
+								
+					</center></td>
+						
 				</tr>
+				
 			</table>
+			</center>
 		</font>
+		
+		
+	
 		
 
 	
@@ -125,6 +153,8 @@
 		</c:forEach>
 	</table>
 			
+
+
 
 
 </form>

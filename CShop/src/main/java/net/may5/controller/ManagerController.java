@@ -74,6 +74,14 @@ public class ManagerController {
 		return "mng/manager/managerInfo";	
 	}
 	
+	@RequestMapping("allMngInfoJson.do")
+	public @ResponseBody Map<?,?> allMngInfoJson(ModelMap model){
+		System.out.println("allMngInfoJsonList 실행 전: "+model);
+		model.put("manager", managerService.allMngInfoList());
+		System.out.println("allMngInfoJsonList 결과: "+model);
+		return model;
+	}
+	
 	/* 직원정보  생성/수정페이지으로 이동 */
 	@RequestMapping(value="managerEdit.do", method=RequestMethod.POST)	
 	public String managerEdit(Model model){
@@ -81,13 +89,5 @@ public class ManagerController {
 		return "mng/manager/managerEdit";	
 	}
 	
-	// 직원정보 JSON 테스트
-		@RequestMapping("allMngInfoJsonList.do")
-		public @ResponseBody Map<?,?> allMngInfoJson(ModelMap model){
-			System.out.println("allMngInfoJsonList 실행");
-			System.out.println("allMngInfoJsonList 실행 전: "+model);
-			model.put("manager", managerService.allMngInfoList());
-			System.out.println("allMngInfoJsonList 결과: "+model);
-			return model;
-		}
+
 }

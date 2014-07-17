@@ -9,7 +9,7 @@ $(function () {
 		success : function(result){
 	    	$.each(result, function(key){
 	    		var j = result[key];
-			alert("데이터 로드 성공"+j);
+		//	alert("데이터 로드 성공"+j);
 			var myRecords = [];
 			for(var i in j){
 				myRecords.push({
@@ -38,6 +38,7 @@ $(function () {
 			}
 			$('#gridOrderInfo').w2grid({
 				name : 'grid',
+				header : '주 문 정 보',
 				columns: [
 				           { field: 'orderCode', caption: '번호', size: '80px', resizable: true, sortable: true, editable: { type: 'text' } },
 				           { field: 'itemId', caption: '상품ID', size: '80px', resizable: true, sortable: true },
@@ -54,6 +55,7 @@ $(function () {
 				 ],
 				records : myRecords,
 				show: {
+						 header : true,
 	                     toolbar : true,
 	                     footer : true,
 	                     lineNumbers : true,
