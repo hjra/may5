@@ -65,7 +65,7 @@
 			해당 글번호의 댓글과 게시글내용을 가지고온다*/
 			System.out.println(boardCode);
 			
-			return "cst/membership/boardEdit";
+			return "mng/cstInfo/boardEdit";
 		}
 		
 		
