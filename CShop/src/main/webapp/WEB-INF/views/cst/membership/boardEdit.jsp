@@ -76,8 +76,9 @@
 								<form id="GoSelect" method="post">
 									<input type="hidden" name="boardCode" value="${qnaContent.boardCode}" class="redBtn"> 
 									<input type="button" id="update" onclick="updateGo()" value="수정" class="redBtn" />
-									<input type="button" id="delete" onclick="deleteGo()" value="삭제" class="redBtn" />										
-									<input type="button" value="목록" onclick="document.location='board.do'" class="redBtn" />	
+									<input type="button" id="delete" onclick="deleteGo()" value="삭제" class="redBtn" />
+									<!-- <input type="button" value="목록" onclick="history.back(-1);"> -->										
+									<input type="button" value="목록" onclick="document.location='board.do'" class="redBtn" />
 																	
 								</form>
 								
