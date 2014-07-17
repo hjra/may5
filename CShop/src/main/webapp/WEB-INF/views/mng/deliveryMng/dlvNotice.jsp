@@ -69,10 +69,8 @@
 
 
 	<!-- /////////////////////////////// -->
-
-
-	<c:forEach var="orders" varStatus="status" items="${alimilist}">
-
+<c:forEach var="orders" varStatus="status" items="${alimilist}">
+<form action="mailProcNotice.do" method="POST">
 		<div id="am">
 			<div id="a1" title="번호">
 				<div id="apa">누구세요?</div>
@@ -90,19 +88,19 @@
 			<div id="a8" title="이미지">이미지</div>
 			<div id="a5" title="메세지">
 				<input type="hidden" name="orderCode" value="${orders.orderCode}">
-				<input type="text" value="${orders.noticeComment}">
+				<input type="text" name="description" value="${orders.noticeComment}">
+				<input type="hidden" name="cstId" value="${orders.cstId }">
 			</div>
-			<div id="a6" title="취소버튼">
-				<input id="a6send" type="button" value="보냄" />
-			</div>
+			<div id="a6" title="보내기버튼">
+			<input id="a6send"  type="submit" value="메일전송" >
+			</div>	
 			<div id="aa"></div>
 		</div>
+</form>
 	</c:forEach>
-
-
 <!-- /////////////////////////////// -->
 
-
+<table>
 	<tr>
 		<td colspan="6" align="center"><c:if test="${page <= 1 }">[이전]&nbsp; </c:if>
 			<c:if test="${page > 1 }">
@@ -116,7 +114,7 @@
 				<a href="menuInfo.do?cstId=${cstId }&page=${page+1}">[다음]</a>
 			</c:if></td>
 	</tr>
-
+</table>
 
 
 
