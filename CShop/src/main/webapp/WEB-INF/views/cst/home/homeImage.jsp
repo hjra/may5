@@ -5,12 +5,27 @@
 <link href="/CShop/resources/css/homeimage.css" rel="stylesheet">
 <header>
 	<nav>
-		<div class="chome content">
+		<div class="chome content"> 
 
 			<div class="home">
+				<div class="mainicon">
 
+					<div class="icona"><img src="/CShop/resources/img/main/bbb.png" width="78px" height="65px"></div>
+					<div class="iconb"><img src="/CShop/resources/img/main/bbs.png" width="78px" height="65px"></div>
+					<div class="iconc"><img src="/CShop/resources/img/main/bgg.png" width="78px" height="65px"></div>
+
+					<div class="icond"><img src="/CShop/resources/img/main/bgs.png" width="78px" height="65px"></div>
+					<div class="icone"><img src="/CShop/resources/img/main/ggb.png" width="78px" height="65px"></div>
+					<div class="iconf"><img src="/CShop/resources/img/main/ggg.png" width="78px" height="65px"></div>
+
+					<div class="icong"><img src="/CShop/resources/img/main/ggs.png" width="78px" height="65px"></div>
+					<div class="iconh"><img src="/CShop/resources/img/main/sgs.png" width="78px" height="65px"></div>
+					<div class="iconi"><img src="/CShop/resources/img/main/sss.png" width="78px" height="65px"></div>
+ 
+				</div>
+  
 				<div class="m">
-					<div>THE FRUIT CAKE STORE</div>
+					<div>THE FRUIT CAKE STORE</div> 
 					<div>CONBINATION OF FRUIT CAKE</div>
 					<div class="ma">MADE IN KOREA - BIT C# PROJECT</div>
 					<div id="aaa"><a href=".menu">

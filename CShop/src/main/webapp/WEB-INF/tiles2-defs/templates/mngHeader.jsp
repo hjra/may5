@@ -19,7 +19,7 @@
 		<div class="header-heading-commands">
             <div class="info">
                 <div class="messege"><a href="/CShop/homeImage.do">홈페이지</a></div>
-                <div class="logout"><a href="javascript:alert('logout');">로그아웃</a></div>
+                <div class="logout"><a href="mngLogoutProcess.do">로그아웃</a></div>
             </div>
 		</div>
 	</div>

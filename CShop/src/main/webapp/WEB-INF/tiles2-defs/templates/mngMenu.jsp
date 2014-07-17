@@ -16,10 +16,10 @@
 			</div>
 			<div class="text">
 				<dl>
-					<dt href="mngLoginForm.do">고객정보</dt>
-					<dd><a href="allMemberInfoForm.do">고객정보</a></dd>
-					<dd><a href="vipListForm.do">VIP LIST</a></dd>
-					<dd><a href="blackListForm.do">관심고객리스트</a></dd>
+					<dt href="allMemberInfoForm.do">고객정보</dt>
+					<dd><a href="allMemberInfoForm.do">전체고객정보</a></dd>
+					<dd><a href="vipListForm.do">VIP고객정보</a></dd>
+					<dd><a href="blackListForm.do">관심고객정보</a></dd>
 					<dd><a href="managerQnA.do">QnA관리</a></dd>
 				</dl>
 			</div>
@@ -30,8 +30,7 @@
 			</div>
 			<div class="text">
 				<dl>
-					<dt>주문정보</dt>
-					<dd><a href="orderListMng.do">주문내역</a></dd>
+					<dt href="orderListMng.do">주문정보</dt>
 				</dl>
 			</div>
 		</li>
@@ -41,7 +40,7 @@
 			</div>
 			<div class="text">
 				<dl>
-					<dt>상품관리</dt>
+					<dt href="menuListMng.do">상품관리</dt>
 					<dd><a href="menuListMng.do">상품정보</a></dd>
 					<dd><a href="menuStockMng.do">상품재고</a></dd>
 				</dl>
@@ -53,7 +52,7 @@
 			</div>
 			<div class="text">
 				<dl>
-					<dt>배송정보</dt>
+					<dt href="dlvNotice.do">배송정보</dt>
 					<dd><a href="dlvNotice.do">알리미</a></dd>
 					<dd><a href="dlvNotice.do">선물옵션</a></dd>
 				</dl>
@@ -91,8 +90,6 @@
 				<dl>
 					<dt>아이콘 참조</dt>
 					<dd><a href="http://getbootstrap.com/components/">아이콘 참조 링크</a></dd>
-					<dd><a href="allMemberInfoJsonForm.do">고객정보-Json용</a></dd>
-					<dd><a href="ajaxView.do">고객정보-Json용2</a></dd>
 				</dl>
 			</div>
 		</li>

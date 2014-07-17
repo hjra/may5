@@ -11,33 +11,7 @@
 <script src="resources/script/orderListInfo.js"></script>
 <script type="text/javascript"></script>
 
-주문관리 화면
-<br>
 <div id="gridOrderInfo" style="width: 100%; height: 780px; overflow: hidden;"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- <link href="/CShop/resources/css/dlvNotice.css" rel="stylesheet"> -->

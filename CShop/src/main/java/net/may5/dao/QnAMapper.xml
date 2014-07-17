@@ -5,7 +5,10 @@
 <mapper namespace="net.may5.dao.QnAMapper">
    
 <select id="qnaGetList" resultType="QnA">
-select * from QnA
+select	Q.boardCode, Q.boardTitle, Q.boardDate, Q.postPassword, Q.postContents, C.cstId, C.cstCode
+from 	QnA Q inner join Customer C
+on Q.cstCode = C.cstCode
+ORDER 	BY Q.boardCode DESC
 </select>
 
 <select id="qnaGetList2" resultType="QnA">

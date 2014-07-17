@@ -1,3 +1,4 @@
+
 package net.may5.dto;
 
 import java.sql.Date;
@@ -855,5 +856,4 @@ public class Orders {
 				+ ", deductionName=" + deductionName + ", wayCode=" + wayCode
 				+ ", wayType=" + wayType + "]";
 	}
-	
 }

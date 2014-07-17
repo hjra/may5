@@ -71,8 +71,4 @@ public interface OrderMapper {
 
 
 
-/*	public OptionPrice getOptionCard();
-*/
-
-
 }

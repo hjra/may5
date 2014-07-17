@@ -117,7 +117,6 @@ public class OrderController {
 		model.addAttribute("cardKind",orderService.getCardKind());
 		
 		
-		
 		model.addAttribute("installment", orderService.getInstallment());
 		model.addAttribute("cashReceiptRequestWay", orderService.getCashReceiptRequestWay());
 		
@@ -294,7 +293,6 @@ public class OrderController {
 		model.addAttribute("presentlist", orders);
 		return "mng/deliveryMng/dlvPresent";
 	}
-	
 	
 
 }

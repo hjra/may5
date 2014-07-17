@@ -9,6 +9,4 @@
 <script src="resources/script/vipCstInfo.js"></script>
 <script type="text/javascript"></script>
 
-VIP LIST 화면<br>
-<br>
 <div id="gridVIPCstInfo" style="width: 100%; height: 780px; overflow: hidden;"></div>
