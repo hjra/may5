@@ -2,38 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ page session="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
-<style>
-#sticker-view {
-	position:absolute;
-	overflow:hidden;
-	margin:0;
-	padding:0;
-	top:0;
-	right:0;
-	width:50px;
-	height:50px;
-	z-index:1;
-}
-
-#sticker-view li{
-	list-style:none;
-	background-color:#753;
-	color:white;
-	z-index:2;
-	position:absolute;
-	margin:0;
-	padding:0;
-	width:50px;
-	height:50px;
-	text-align:center;
-	line-height:50px;
-	font-size: x-small;
-}
-
-</style>
-<!-- <img alt="테스트" src="http://media-cache-ak0.pinimg.com/736x/78/9d/00/789d00ba6fbae78f4382dceb7f3c9230.jpg">
- -->	<c:forEach var="list" items="${collection}" varStatus="status">
-<ul class="menu-list">
+<link href="/CShop/resources/css/menuList.css" rel="stylesheet">
+<div id="menuList">  
+ <c:forEach var="list" items="${collection}" varStatus="status">
+<ul class="menu-list"> 
 	<li class="cake title">
 		<c:choose>
 						<c:when test="${status.index == 0}">
@@ -70,6 +42,6 @@
 			</ul>
 		</c:forEach>
 
-
+</div>
 
 

@@ -1,14 +1,38 @@
 .content { margin: 0; }
 .home { background-color: #FEFCF0; height: 900px;   text-align: center; transition: 0.7s; }
 .home:hover { background-color: #FEFCF0; height: 1000px;   text-align: center;  transition: 0.7s;}
+
+
+.mainicon { display:inline-block; margin-top: 45%;}      
+.icona { float:left; opacity:0.8; transition: 0.3s; margin-left: 8px; margin-top: 15px; } 
+.icona:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px; }      
+.iconb {float:left; opacity:0.8; transition: 0.3s;  margin-left: 8px; margin-top: 15px;} 
+.iconb:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}  
+.iconc {float:left; opacity:0.8; transition: 0.3s;  margin-left: 8px; margin-top: 15px;} 
+.iconc:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}    
+.icond {float:left; opacity:0.8; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}  
+.icond:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px;} 
+.icone {float:left; opacity:0.8; transition: 0.3s;  margin-left: 8px; margin-top: 15px;} 
+.icone:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}  
+.iconf {float:left; opacity:0.8; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}
+.iconf:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}   
+.icong {float:left; opacity:0.8; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}  
+.icong:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}   
+.iconh {float:left; opacity:0.8; transition: 0.3s;  margin-left: 8px; margin-top: 15px;} 
+.iconh:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px;} 
+.iconi {float:left; opacity:0.8; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}
+.iconi:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}  
+  
+
+
 :before, :after {
 	display: block;
 	content: ""; 
 
 }
 
-.m { margin: 0 auto; padding-top: 650px; } 
-.ma {height: 55px;}
+.m { margin: 0 auto; padding-top: 3%; } 
+.ma {height: 55px;} 
 #aaa {margin-left: -40px;}
 .icons {  width: 80px; height: 80px; background-color:#1294AB;
 		display:inline-block; 
@@ -31,12 +55,12 @@
 transform: rotate(90deg); margin: 18px 0px 0px 18px; }  
  
   
-  
+   
 .menu { background-color: #8B4513; height: 300px;  text-align: center; margin: 0 auto; transition: 0.7s; }
 .menu:hover { background-color: #8B4513; height: 400px;  text-align: center; margin: 0 auto; transition: 0.7s; padding-top: 50px;}
 .menua  { display:inline-block; font-size: 50px; font-weight: bold; width: 100%; margin: 0 auto; padding-top: 110px; transition: 0.7s;  }
 .menua:hover  { display:inline-block; font-size: 60px; font-weight: bold; width: 100%; margin: 0 auto; padding-top: 110px; transition: 0.7s;  }
-.menua a{color: #FAF4C0;}
+.menua a{color: #FAF4C0;} 
 
 .order { background-color: #FFDEAD; height: 500px;  text-align: center; transition: 0.7s;}
 .order:hover { background-color: #FFDEAD; height: 600px;  text-align: center; transition: 0.7s; padding-top: 50px;}
@@ -52,20 +76,45 @@ transform: rotate(90deg); margin: 18px 0px 0px 18px; }
 .abouta:hover { font-size: 60px; font-weight: bold; width: 100%; margin: 0 auto; padding-top: 30px; color: #D2B48C;  transition: 0.7s;}
 
 
-
 @media only screen and (max-width: 768px){
 
 .content { margin: 0; }
 
-.home { background-color: #FEFCF0; height: 500px;   text-align: center; transition: 0.7s; }
-.home:hover { background-color: #FEFCF0; height: 650px;   text-align: center;  transition: 0.7s;}
+.home { background-color: #FEFCF0; height: 600px;   text-align: center; transition: 0.7s;  }
+.home:hover { background-color: #FEFCF0; height: 750px;   text-align: center;  transition: 0.7s;}
+ 
+
+
+.mainicon { display:inline-block; margin-top: 38%; margin-left: 45px; }       
+.icona { float:left; opacity:0.8; transition: 0.3s; margin-left: 8px; margin-top: 15px;} 
+.icona:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}      
+.iconb {float:left; opacity:0.8; transition: 0.3s;  margin-left: 8px; margin-top: 15px;} 
+.iconb:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}  
+.iconc {float:left; opacity:0.8; transition: 0.3s;  margin-left: 8px; margin-top: 15px;} 
+.iconc:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}    
+.icond {float:left; opacity:0.8; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}  
+.icond:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px;} 
+.icone {float:left; opacity:0.8; transition: 0.3s;  margin-left: 8px; margin-top: 15px;} 
+.icone:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}  
+.iconf {float:left; opacity:0.8; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}
+.iconf:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}   
+.icong {float:left; opacity:0.8; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}  
+.icong:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}   
+.iconh {float:left; opacity:0.8; transition: 0.3s;  margin-left: 8px; margin-top: 15px;} 
+.iconh:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px;} 
+.iconi {float:left; opacity:0.8; transition: 0.3s;  margin-left: 8px; margin-top: 15px;}
+.iconi:hover { float:left; opacity:10; transition: 0.3s;  margin-left: 8px; margin-top: 15px;} 
+    
+
+
+
 :before, :after {
 	display: block;
 	content: ""; 
 
 }
 
-.m { margin: 0 auto; padding-top: 300px; }  
+.m { margin: 0 auto; padding-top: 9%;  }  
 .ma {height: 55px;}
 #aaa {margin-left: -40px; }
 .icons {  width: 80px; height: 80px; background-color:#1294AB; display:inline-block; border-radius: 100%;
