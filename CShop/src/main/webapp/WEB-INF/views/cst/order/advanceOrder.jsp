@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page session="true" %>
+	pageEncoding="UTF-8"%>
+<%@ page session="true"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -10,10 +10,89 @@
 </f:form>
 <br>
 
-<style>
+<style type="text/css">
+/* Recommended styles */
+.drag,.drag2 {
+	float: left;
+	width: 21%;
+	background-color: Green;
+	color: White;
+	margin: 10px 2%;
+	cursor: move;
+	text-align: center;
+	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+	border-radius: 1em;
+}
+
+.selected {
+	background-color: Yellow;
+	color: Black;
+}
+
+.drop {
+	background-color: Blue;
+	color: White;
+	margin: 3px;
+	padding: 10px;
+	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+	border-radius: 1em;
+}
+
+.active {
+	background-color: orange;
+	cursor: crosshair;
+}
+</style>
+
+<div id="how">
+	<div class="drop" id="drop1">
+		<div style="clear: both;">
+			<p>You can drop items here.</p>
+		</div>
+	</div>
+	<div class="drop" id="drop2">
+		<div style="clear: both;">
+			<p>You can drop items here too.</p>
+		</div>
+	</div>
+	<div class="drag" id="drag1">
+		<p>Drag 1</p>
+	</div>
+	<div class="drag" id="drag2">
+		<p>Drag 2</p>
+	</div>
+	<div class="drag" id="drag3">
+		<p>Drag 3</p>
+	</div>
+	<div class="drag2" id="drag4">
+		<p>Drag 4*</p>
+	</div>
+	<div style="clear: both">&nbsp;</div>
+</div>
+
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script type="text/javascript"
+	src="resources/js/jquery.mobiledragdrop.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".drag").mobiledraganddrop({
+			targets : ".drop",
+			status : "#status"
+		});
+		$(".drag2").mobiledraganddrop({
+			targets : "#drop2",
+			status : "#status"
+		});
+	});
+</script>
+
+
+<!-- <style>
 #afterItemBasket {width:400px;height:400px;;border:1px solid #aaaaaa; float:left; display: inline-block;}
 #beforeItemBasket {width:400px;height:400px;padding:10px;border:1px solid #aaaaaa; display: inline-block;}
-.dragImg {padding:5px;}
+.dragImg {}
 </style>
 <script>
 function allowDrop(ev) {
@@ -35,13 +114,17 @@ function drop(ev) {
 <br>
 
 <div id="beforeItemBasket" ondrop="drop(event)" ondragover="allowDrop(event)">
-	<img id="drag1" class="dragImg" src="/CShop/resources/img/cake/TopB.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
-	<img id="drag2" class="dragImg" src="/CShop/resources/img/cake/TopS.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
-	<img id="drag3" class="dragImg" src="/CShop/resources/img/cake/TopG.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
+	<img id="drag1" class="dragImg" usemap="#TopB.png" src="/CShop/resources/img/cake/TopB.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
+	<img id="drag2" class="dragImg" usemap="#TopS.png" src="/CShop/resources/img/cake/TopS.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
+	<img id="drag3" class="dragImg" usemap="#TopG.png" src="/CShop/resources/img/cake/TopG.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
 </div>
 
 
-
+이미지 맵 설정
+<map name="TopB.png"><area shape="circle" coords="279,279,279" href="" target="" alt="바나나" /></map>
+<map name="TopS.png"><area shape="circle" coords="279,279,279" href="" target="" alt="딸기" /></map>
+<map name="TopG.png"><area shape="circle" coords="279,279,279" href="" target="" alt="포도" /></map>
+ -->
 
 
 <!-- 
