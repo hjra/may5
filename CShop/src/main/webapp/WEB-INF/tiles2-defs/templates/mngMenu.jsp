@@ -20,7 +20,7 @@
 					<dd><a href="allMemberInfoForm.do">고객정보</a></dd>
 					<dd><a href="vipListForm.do">VIP LIST</a></dd>
 					<dd><a href="blackListForm.do">관심고객리스트</a></dd>
-					<dd><a href="board.do">QnA관리</a></dd>
+					<dd><a href="managerQnA.do">QnA관리</a></dd>
 				</dl>
 			</div>
 		</li>
@@ -30,6 +30,13 @@
 			</div>
 			<div class="text">
 				<dl>
+<<<<<<< HEAD
+					<dt>두번째</dt>
+					<dd><a href="orderListMng.do">주문관리</a></dd>
+					<dd><a href="dlvNotice.do">알리미</a></dd>
+					<dd><a href="dlvPresent.do">선물옵션</a></dd>
+					<dd><a href="menuListMng.do">상품관리</a></dd>
+=======
 					<dt href="orderListMng.do">주문정보</dt>
 					<dd><a href="orderListMng.do">주문내역</a></dd>
 				</dl>
@@ -43,6 +50,7 @@
 				<dl>
 					<dt href="menuListMng.do">상품관리</dt>
 					<dd><a href="menuListMng.do">상품정보</a></dd>
+>>>>>>> branch 'master' of https://github.com/hjra/may5.git
 					<dd><a href="menuStockMng.do">상품재고</a></dd>
 				</dl>
 			</div>
