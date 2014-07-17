@@ -5,7 +5,6 @@ import java.util.Map;
 
 import net.may5.dto.Customer;
 import net.may5.dto.Orders;
-import net.may5.dto.Payment;
 
 public interface OrderService {
 
@@ -17,22 +16,25 @@ public interface OrderService {
 	
 	public Customer getCstExistingInfo(String cstId);
 	
-	public List<Payment> getCardKind();
+	public List<Orders> getCardKind();
 	
-	public List<Payment> getPayKind();
+	public List<Orders> getPayKind();
 	
-	public List<Payment> getCardSection();
+	public List<Orders> getCardSection();
 	
-	public List<Payment> getInstallment();
+	public Orders getACardKind(int cardCode);
+	
+	public List<Orders> getInstallment();
 
-	public List<Payment> getCashReceiptRequestInfoSave();
+	public List<Orders> getCashReceiptRequestInfoSave();
 	
-	public List<Payment> getCashReceiptRequestWay();
+	public List<Orders> getCashReceiptRequestWay();
 	
-	public List<Payment> getDeduction();
+	public List<Orders> getDeduction();
 	
 	public List<Orders> getOptionPrice();
 	
+	public List<Orders> getTelecom();
 
 	/*알리미*/
 	public List<Orders> getLevelCodeSearch(String levelCode); // levelCode로 조회하기

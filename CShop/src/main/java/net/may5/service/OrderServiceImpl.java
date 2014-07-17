@@ -6,8 +6,6 @@ import java.util.Map;
 import net.may5.dao.OrderMapper;
 import net.may5.dto.Customer;
 import net.may5.dto.Orders;
-import net.may5.dto.Payment;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,43 +36,49 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public List<Payment> getCardKind() {
+	public List<Orders> getCardKind() {
 		
 		return orderMapper.getCardKind();
 	}
 	
 	@Override
-	public List<Payment> getPayKind() {
+	public Orders getACardKind(int cardCode) {
+		
+		return orderMapper.getACardKind(cardCode);
+	}
+	
+	@Override
+	public List<Orders> getPayKind() {
 		
 		return orderMapper.getPayKind();
 	}
 	
 	@Override
-	public List<Payment> getCardSection() {
+	public List<Orders> getCardSection() {
 		
 		return orderMapper.getCardSection();
 	}
 
 	@Override
-	public List<Payment> getInstallment() {
+	public List<Orders> getInstallment() {
 		
 		return orderMapper.getInstallment();
 	}
 	
 	@Override
-	public List<Payment> getCashReceiptRequestInfoSave() {
+	public List<Orders> getCashReceiptRequestInfoSave() {
 		
 		return orderMapper.getCashReceiptRequestInfoSave();
 	}
 
 	@Override
-	public List<Payment> getCashReceiptRequestWay() {
+	public List<Orders> getCashReceiptRequestWay() {
 		
 		return orderMapper.getCashReceiptRequestWay();
 	}
 	
 	@Override
-	public List<Payment> getDeduction(){
+	public List<Orders> getDeduction(){
 		
 		return orderMapper.getDeduction();
 	}
@@ -84,7 +88,12 @@ public class OrderServiceImpl implements OrderService {
 		
 		return orderMapper.getOptionPrice();
 	}
-
+	
+	@Override
+	public List<Orders> getTelecom() {
+		
+		return orderMapper.getTelecom();
+	}
 	
 
 	/*@Override
@@ -166,6 +175,8 @@ public class OrderServiceImpl implements OrderService {
 	public List<Orders> getPriceList() {
 		return orderMapper.getPriceList();
 	}
+
+	
 	
 
 	

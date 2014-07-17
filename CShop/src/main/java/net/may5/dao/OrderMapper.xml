@@ -12,46 +12,55 @@
 	</select>
 	
 	<!-- 카드종류 -->
-	<select id="getCardKind" resultType="Payment">
+	<select id="getCardKind" resultType="Orders">
 		select * from cardKind
 	</select>
 	
+	<!-- 카드종류 -->
+	<select id="getACardKind" resultType="Orders">
+		select * from cardKind where cardCode = #{cardCode}
+	</select>
+	
 	<!-- 결제구분 -->
-	<select id="getPayKind" resultType="Payment">
+	<select id="getPayKind" resultType="Orders">
 		select * from payKind
 	</select>
 	
 	<!-- 카드구분 -->
-	<select id="getCardSection" resultType="Payment">
+	<select id="getCardSection" resultType="Orders">
 		select * from cardSection
 	</select>
 	
 	<!-- 할부기간 -->
-	<select id="getInstallment" resultType="Payment">
+	<select id="getInstallment" resultType="Orders">
 		select * from installment
 	</select>
 	
 	<!-- 현금영수증신청및저장 -->
-	<select id="getCashReceiptRequestInfoSave" resultType="Payment">
+	<select id="getCashReceiptRequestInfoSave" resultType="Orders">
 		select * from cashReceiptRequestInfoSave
 	</select>
 	
 	<!-- 현금영수증신청수단 -->
-	<select id="getCashReceiptRequestWay" resultType="Payment">
+	<select id="getCashReceiptRequestWay" resultType="Orders">
 		select * from cashReceiptRequestWay
 	</select>
 	
 	<!-- 소득공제용 -->
-	<select id="getDeduction" resultType="Payment">
+	<select id="getDeduction" resultType="Orders">
 		select * from deduction
 	</select>
 	
-	
+	<!-- 통신사 -->
+	<select id="getTelecom" resultType="Orders">
+		select * from telecom
+	</select>
 	
 	<!-- 옵션선택 -->
 	<select id="getOptionPrice" resultType="Orders">
 		select * from optionPrice
 	</select>
+	
 	
 	
 	

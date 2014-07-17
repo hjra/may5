@@ -10,7 +10,7 @@
 
 <p><strong>*</strong>는 필수입력 항목입니다</p>
 
-<f:form action="orderReceiverInfo.do" method="post">
+<f:form action="orderReceiverInfo.do" method="post" commandName="orders">
 	<fieldset>
 		<legend>선물하기 - 옵션</legend>
 			<table border="1"  summary="옵션정보입력">
@@ -32,7 +32,12 @@
 							<c:forEach var="optionChoose" items="${optionPrice }" end="5">
 								<input type="radio" value="${optionChoose.optionCode }" name="optionCode" required="required">
 									${optionChoose.optionType } ${optionChoose.optionPrice }원<br>
+								<%-- <c:if test="${optionChoose.optionCode == 0 }">
+									<input type="hidden" value="${optionChoose.optionType }" name="optionType">
+								</c:if> --%>
+								
 							</c:forEach>
+							
 						</td>
 					</tr>
 					

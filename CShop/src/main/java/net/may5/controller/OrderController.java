@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -50,6 +49,8 @@ public class OrderController {
 	@RequestMapping(value="orderReceiverInfo.do", method=RequestMethod.POST)
 	public String orderReceiverInfo( Model model, Orders orders, String cstId ){
 		model.addAttribute("orders", orders);
+		System.err.println("orders에서 담겨넘어온 내용 : "+orders);
+
 		model.addAttribute("cstExistingInfo",orderService.getCstExistingInfo(cstId));
 		return "cst/order/orderReceiverInfo";
 	}
@@ -78,7 +79,9 @@ public class OrderController {
 	/* 결제수단정보 */
 	@RequestMapping("advanceOrderPayment.do")
 	public String advanceOrderPayment( Model model, Orders orders, String cstId, String dlvwarn ){
-		System.out.println("왔어요??");
+		System.err.println("왔어요??");
+		System.err.println(cstId);
+		System.err.println("orders에서 담겨넘어온 내용 : "+orders);
 		model.addAttribute("payKind", orderService.getPayKind());
 		model.addAttribute("cardSection", orderService.getCardSection());
 		model.addAttribute("cashReceiptRequestInfoSave", orderService.getCashReceiptRequestInfoSave());
@@ -96,9 +99,32 @@ public class OrderController {
 	
 	/*결제*/
 	@RequestMapping("payment.do")
-	public String payment( Model model, @RequestParam Payment payment, BindingResult result){
-		System.err.println("들어왔나 "+payment);
-		model.addAttribute("payment", payment);
+	public String payment( Model model, Orders orders, String cstId, String dlvwarn ){
+		model.addAttribute("orders", orders);
+		System.out.println();
+		System.err.println("들어왔나 "+orders);
+		System.out.println();
+		System.err.println("이거찍나?"+orderService.getCardKind());
+		System.err.println("test!!"+orderService.getACardKind(orders.getCardCode()));
+	
+		model.addAttribute("payKind", orderService.getPayKind());
+		System.out.println("하영이"+orderService.getPayKind());
+	
+		model.addAttribute("cardSection", orderService.getCardSection());
+		model.addAttribute("cashReceiptRequestInfoSave", orderService.getCashReceiptRequestInfoSave());
+		//System.out.println(orderService.getCashReceiptRequestInfoSave());
+		model.addAttribute("deduction", orderService.getDeduction());
+		model.addAttribute("cardKind",orderService.getCardKind());
+		
+		
+		
+		model.addAttribute("installment", orderService.getInstallment());
+		model.addAttribute("cashReceiptRequestWay", orderService.getCashReceiptRequestWay());
+		
+		model.addAttribute("dlvwarn", dlvwarn);
+		
+		model.addAttribute("telecoms", orderService.getTelecom());
+		
 		return "cst/order/payment";
 	}
 	

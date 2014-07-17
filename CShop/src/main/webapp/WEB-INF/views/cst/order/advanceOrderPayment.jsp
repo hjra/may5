@@ -6,7 +6,7 @@
 
 	
 	<h1>결제정보</h1>
-	<f:form method="post" action="payment.do" commandName="payment">
+	<f:form method="post" action="payment.do" commandName="orders">
 	<fieldset>
 	<legend>결제방법선택</legend>
 	
@@ -15,6 +15,7 @@
 	<c:forEach var="payKinds" items="${payKind }" >
 		<input type="radio" name="payCode" value="${payKinds.payCode }" 
 			onclick="div_OnOff(this.value,'${payKinds.payCode }');">${payKinds.payType }
+				<%-- <input type="hidden" name="payType" value="${payKinds.payType }" > --%>
 	</c:forEach>
 	<%-- <c:forEach var="payKinds" items="${payKind }" varStatus="status" end="0">
 		<input type="radio" name="payCode" value="${payKinds.payCode }" 
@@ -70,7 +71,6 @@
  				<c:forEach var="term" items="${installment }">
  					<option value="${term.termCode }">${term.installmentTerm }</option>
  				</c:forEach>
-  								
  			</select>
 
  			<br>주문자동의 : <input id="allAgreement1" type="checkbox" >전체동의<br>
@@ -96,8 +96,6 @@
 		</c:forEach>
  --%>		
 		
-		
-			
 			<div id="T" style="display: block">
 				공제용도 : 
 				<c:forEach var="deductions" items="${deduction }" varStatus="status" begin="1">
@@ -122,7 +120,6 @@
 					</select>
 					<div id="inputSelect"></div>
 				</div>
-				
 				<div id="102" style="display: none" >신청수단 : 
 					<select id="selectBoxValue" name="wayCode" title="cashReceiptRequestWay" >
 						<c:forEach var="requestWay" items="${cashReceiptRequestWay }" varStatus="status" begin="1" end="4">
@@ -132,7 +129,7 @@
 						<c:forEach var="requestWay" name="wayCode" items="${cashReceiptRequestWay }" 
 										varStatus="status" begin="3" end="4"> --%>
 							<c:if test="${status.index!=2 }">		
-							  <option value="${requestWay.wayCode }">213213213${requestWay.wayType }</option>
+							  <option value="${requestWay.wayCode }">${requestWay.wayType }</option>
 							</c:if>
 						</c:forEach>
 					</select>
@@ -173,7 +170,7 @@
 						<c:forEach var="requestWay" name="wayCode" items="${cashReceiptRequestWay }" 
 										varStatus="status" begin="3" end="4"> --%>
 							<c:if test="${status.index!=2 }">		
-							  <option value="${requestWay.wayCode }">213213213${requestWay.wayType }</option>
+							  <option value="${requestWay.wayCode }">${requestWay.wayType }</option>
 							</c:if>
 						</c:forEach>
 					</select>

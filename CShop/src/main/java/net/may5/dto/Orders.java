@@ -57,6 +57,22 @@ public class Orders {
 	private String noticeType;	// 결제처리
 	private String cardMessage;
 	private String dlvwarn;
+	
+	/*payment*/
+	private int cardCode;
+	private String cardName;
+	private int cardSectionCode;
+	private String cardSectionType;
+	private String saveCode;
+	private String saveType;
+	private int telecomCode;
+	private String telecomName;
+	private int termCode;
+	private String installmentTerm;
+	private int deductionCode;
+	private String deductionName;
+	private int wayCode;
+	private String wayType;
 	public String getOrderCode() {
 		return orderCode;
 	}
@@ -345,33 +361,89 @@ public class Orders {
 	public void setDlvwarn(String dlvwarn) {
 		this.dlvwarn = dlvwarn;
 	}
-	@Override
-	public String toString() {
-		return "Orders [orderCode=" + orderCode + ", orderDate=" + orderDate
-				+ ", sameTimeCount=" + sameTimeCount + ", payCode=" + payCode
-				+ ", payType=" + payType + ", optionCode=" + optionCode
-				+ ", optionType=" + optionType + ", optionPrice=" + optionPrice
-				+ ", dlvChargeCode=" + dlvChargeCode + ", dlvCharge="
-				+ dlvCharge + ", noticeCode=" + noticeCode + ", orderAmount="
-				+ orderAmount + ", pointCode=" + pointCode + ", zipCode="
-				+ zipCode + ", zipNumber=" + zipNumber + ", sido=" + sido
-				+ ", sigungu=" + sigungu + ", dongubmyon=" + dongubmyon
-				+ ", doromyong=" + doromyong + ", buildingNum1=" + buildingNum1
-				+ ", buildingNum2=" + buildingNum2 + ", sigunguBuildingName="
-				+ sigunguBuildingName + ", dong=" + dong + ", li=" + li
-				+ ", jibunNum1=" + jibunNum1 + ", jibunNum2=" + jibunNum2
-				+ ", orderDetailAddress=" + orderDetailAddress
-				+ ", receiverName=" + receiverName + ", receiverCP="
-				+ receiverCP + ", stockAmount=" + stockAmount
-				+ ", receiverPhone=" + receiverPhone + ", dlvEndDate="
-				+ dlvEndDate + ", sizeCode=" + sizeCode + ", cstCode="
-				+ cstCode + ", noticeComment=" + noticeComment + ", noticeImg="
-				+ noticeImg + ", itemId=" + itemId + ", cstId=" + cstId
-				+ ", levelCode=" + levelCode + ", itemName=" + itemName
-				+ ", price=" + price + ", itemCnt=" + itemCnt + ", cstName="
-				+ cstName + ", cstCP=" + cstCP + ", cstEmail=" + cstEmail
-				+ ", noticeType=" + noticeType + ", cardMessage=" + cardMessage
-				+ ", dlvwarn=" + dlvwarn + "]";
+	public int getCardCode() {
+		return cardCode;
+	}
+	public void setCardCode(int cardCode) {
+		this.cardCode = cardCode;
+	}
+	public String getCardName() {
+		return cardName;
+	}
+	public void setCardName(String cardName) {
+		this.cardName = cardName;
+	}
+	public int getCardSectionCode() {
+		return cardSectionCode;
+	}
+	public void setCardSectionCode(int cardSectionCode) {
+		this.cardSectionCode = cardSectionCode;
+	}
+	public String getCardSectionType() {
+		return cardSectionType;
+	}
+	public void setCardSectionType(String cardSectionType) {
+		this.cardSectionType = cardSectionType;
+	}
+	public String getSaveCode() {
+		return saveCode;
+	}
+	public void setSaveCode(String saveCode) {
+		this.saveCode = saveCode;
+	}
+	public String getSaveType() {
+		return saveType;
+	}
+	public void setSaveType(String saveType) {
+		this.saveType = saveType;
+	}
+	public int getTelecomCode() {
+		return telecomCode;
+	}
+	public void setTelecomCode(int telecomCode) {
+		this.telecomCode = telecomCode;
+	}
+	public String getTelecomName() {
+		return telecomName;
+	}
+	public void setTelecomName(String telecomName) {
+		this.telecomName = telecomName;
+	}
+	public int getTermCode() {
+		return termCode;
+	}
+	public void setTermCode(int termCode) {
+		this.termCode = termCode;
+	}
+	public String getInstallmentTerm() {
+		return installmentTerm;
+	}
+	public void setInstallmentTerm(String installmentTerm) {
+		this.installmentTerm = installmentTerm;
+	}
+	public int getDeductionCode() {
+		return deductionCode;
+	}
+	public void setDeductionCode(int deductionCode) {
+		this.deductionCode = deductionCode;
+	}
+	public String getDeductionName() {
+		return deductionName;
+	}
+	public void setDeductionName(String deductionName) {
+		this.deductionName = deductionName;
+	}
+	public int getWayCode() {
+		return wayCode;
+	}
+	public void setWayCode(int wayCode) {
+		this.wayCode = wayCode;
+	}
+	public String getWayType() {
+		return wayType;
+	}
+	public void setWayType(String wayType) {
+		this.wayType = wayType;
 	}
 	@Override
 	public int hashCode() {
@@ -381,14 +453,23 @@ public class Orders {
 				+ ((buildingNum1 == null) ? 0 : buildingNum1.hashCode());
 		result = prime * result
 				+ ((buildingNum2 == null) ? 0 : buildingNum2.hashCode());
+		result = prime * result + cardCode;
 		result = prime * result
 				+ ((cardMessage == null) ? 0 : cardMessage.hashCode());
+		result = prime * result
+				+ ((cardName == null) ? 0 : cardName.hashCode());
+		result = prime * result + cardSectionCode;
+		result = prime * result
+				+ ((cardSectionType == null) ? 0 : cardSectionType.hashCode());
 		result = prime * result + ((cstCP == null) ? 0 : cstCP.hashCode());
 		result = prime * result + ((cstCode == null) ? 0 : cstCode.hashCode());
 		result = prime * result
 				+ ((cstEmail == null) ? 0 : cstEmail.hashCode());
 		result = prime * result + ((cstId == null) ? 0 : cstId.hashCode());
 		result = prime * result + ((cstName == null) ? 0 : cstName.hashCode());
+		result = prime * result + deductionCode;
+		result = prime * result
+				+ ((deductionName == null) ? 0 : deductionName.hashCode());
 		result = prime * result + dlvCharge;
 		result = prime * result + dlvChargeCode;
 		result = prime * result
@@ -399,6 +480,8 @@ public class Orders {
 				+ ((dongubmyon == null) ? 0 : dongubmyon.hashCode());
 		result = prime * result
 				+ ((doromyong == null) ? 0 : doromyong.hashCode());
+		result = prime * result
+				+ ((installmentTerm == null) ? 0 : installmentTerm.hashCode());
 		result = prime * result + itemCnt;
 		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
 		result = prime * result
@@ -442,6 +525,10 @@ public class Orders {
 				+ ((receiverPhone == null) ? 0 : receiverPhone.hashCode());
 		result = prime * result
 				+ ((sameTimeCount == null) ? 0 : sameTimeCount.hashCode());
+		result = prime * result
+				+ ((saveCode == null) ? 0 : saveCode.hashCode());
+		result = prime * result
+				+ ((saveType == null) ? 0 : saveType.hashCode());
 		result = prime * result + ((sido == null) ? 0 : sido.hashCode());
 		result = prime * result + ((sigungu == null) ? 0 : sigungu.hashCode());
 		result = prime
@@ -451,6 +538,12 @@ public class Orders {
 		result = prime * result
 				+ ((sizeCode == null) ? 0 : sizeCode.hashCode());
 		result = prime * result + stockAmount;
+		result = prime * result + telecomCode;
+		result = prime * result
+				+ ((telecomName == null) ? 0 : telecomName.hashCode());
+		result = prime * result + termCode;
+		result = prime * result + wayCode;
+		result = prime * result + ((wayType == null) ? 0 : wayType.hashCode());
 		result = prime * result + ((zipCode == null) ? 0 : zipCode.hashCode());
 		result = prime * result
 				+ ((zipNumber == null) ? 0 : zipNumber.hashCode());
@@ -475,10 +568,24 @@ public class Orders {
 				return false;
 		} else if (!buildingNum2.equals(other.buildingNum2))
 			return false;
+		if (cardCode != other.cardCode)
+			return false;
 		if (cardMessage == null) {
 			if (other.cardMessage != null)
 				return false;
 		} else if (!cardMessage.equals(other.cardMessage))
+			return false;
+		if (cardName == null) {
+			if (other.cardName != null)
+				return false;
+		} else if (!cardName.equals(other.cardName))
+			return false;
+		if (cardSectionCode != other.cardSectionCode)
+			return false;
+		if (cardSectionType == null) {
+			if (other.cardSectionType != null)
+				return false;
+		} else if (!cardSectionType.equals(other.cardSectionType))
 			return false;
 		if (cstCP == null) {
 			if (other.cstCP != null)
@@ -504,6 +611,13 @@ public class Orders {
 			if (other.cstName != null)
 				return false;
 		} else if (!cstName.equals(other.cstName))
+			return false;
+		if (deductionCode != other.deductionCode)
+			return false;
+		if (deductionName == null) {
+			if (other.deductionName != null)
+				return false;
+		} else if (!deductionName.equals(other.deductionName))
 			return false;
 		if (dlvCharge != other.dlvCharge)
 			return false;
@@ -533,6 +647,11 @@ public class Orders {
 			if (other.doromyong != null)
 				return false;
 		} else if (!doromyong.equals(other.doromyong))
+			return false;
+		if (installmentTerm == null) {
+			if (other.installmentTerm != null)
+				return false;
+		} else if (!installmentTerm.equals(other.installmentTerm))
 			return false;
 		if (itemCnt != other.itemCnt)
 			return false;
@@ -640,6 +759,16 @@ public class Orders {
 				return false;
 		} else if (!sameTimeCount.equals(other.sameTimeCount))
 			return false;
+		if (saveCode == null) {
+			if (other.saveCode != null)
+				return false;
+		} else if (!saveCode.equals(other.saveCode))
+			return false;
+		if (saveType == null) {
+			if (other.saveType != null)
+				return false;
+		} else if (!saveType.equals(other.saveType))
+			return false;
 		if (sido == null) {
 			if (other.sido != null)
 				return false;
@@ -662,6 +791,22 @@ public class Orders {
 			return false;
 		if (stockAmount != other.stockAmount)
 			return false;
+		if (telecomCode != other.telecomCode)
+			return false;
+		if (telecomName == null) {
+			if (other.telecomName != null)
+				return false;
+		} else if (!telecomName.equals(other.telecomName))
+			return false;
+		if (termCode != other.termCode)
+			return false;
+		if (wayCode != other.wayCode)
+			return false;
+		if (wayType == null) {
+			if (other.wayType != null)
+				return false;
+		} else if (!wayType.equals(other.wayType))
+			return false;
 		if (zipCode == null) {
 			if (other.zipCode != null)
 				return false;
@@ -674,10 +819,41 @@ public class Orders {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-	
+	@Override
+	public String toString() {
+		return "Orders [orderCode=" + orderCode + ", orderDate=" + orderDate
+				+ ", sameTimeCount=" + sameTimeCount + ", payCode=" + payCode
+				+ ", payType=" + payType + ", optionCode=" + optionCode
+				+ ", optionType=" + optionType + ", optionPrice=" + optionPrice
+				+ ", dlvChargeCode=" + dlvChargeCode + ", dlvCharge="
+				+ dlvCharge + ", noticeCode=" + noticeCode + ", orderAmount="
+				+ orderAmount + ", pointCode=" + pointCode + ", zipCode="
+				+ zipCode + ", zipNumber=" + zipNumber + ", sido=" + sido
+				+ ", sigungu=" + sigungu + ", dongubmyon=" + dongubmyon
+				+ ", doromyong=" + doromyong + ", buildingNum1=" + buildingNum1
+				+ ", buildingNum2=" + buildingNum2 + ", sigunguBuildingName="
+				+ sigunguBuildingName + ", dong=" + dong + ", li=" + li
+				+ ", jibunNum1=" + jibunNum1 + ", jibunNum2=" + jibunNum2
+				+ ", orderDetailAddress=" + orderDetailAddress
+				+ ", receiverName=" + receiverName + ", receiverCP="
+				+ receiverCP + ", stockAmount=" + stockAmount
+				+ ", receiverPhone=" + receiverPhone + ", dlvEndDate="
+				+ dlvEndDate + ", sizeCode=" + sizeCode + ", cstCode="
+				+ cstCode + ", noticeComment=" + noticeComment + ", noticeImg="
+				+ noticeImg + ", itemId=" + itemId + ", cstId=" + cstId
+				+ ", levelCode=" + levelCode + ", itemName=" + itemName
+				+ ", price=" + price + ", itemCnt=" + itemCnt + ", cstName="
+				+ cstName + ", cstCP=" + cstCP + ", cstEmail=" + cstEmail
+				+ ", noticeType=" + noticeType + ", cardMessage=" + cardMessage
+				+ ", dlvwarn=" + dlvwarn + ", cardCode=" + cardCode
+				+ ", cardName=" + cardName + ", cardSectionCode="
+				+ cardSectionCode + ", cardSectionType=" + cardSectionType
+				+ ", saveCode=" + saveCode + ", saveType=" + saveType
+				+ ", telecomCode=" + telecomCode + ", telecomName="
+				+ telecomName + ", termCode=" + termCode + ", installmentTerm="
+				+ installmentTerm + ", deductionCode=" + deductionCode
+				+ ", deductionName=" + deductionName + ", wayCode=" + wayCode
+				+ ", wayType=" + wayType + "]";
+	}
 	
 }

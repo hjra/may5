@@ -13,8 +13,8 @@
 		<div class="odDlvInfoYn">
 			<span><label for="dlvinfoyn"><strong>*</strong>배송 여부</label></span>
 			<span>
-				<input type="radio" value="dn" name="receive1" required="required" onclick="div_OnOff5(this.value,'dn');" checked="checked"/>직접수령
-				<input type="radio" value="dy" name="receive1" required="required" onclick="div_OnOff5(this.value,'dy');"/>배송(2500원)
+				<input type="radio" value="dn" name="receive1" onclick="div_OnOff5(this.value,'dn');" checked="checked"/>직접수령
+				<input type="radio" value="dy" name="receive1" onclick="div_OnOff5(this.value,'dy');"/>배송(2500원)
 			</span>
 		</div>
 	</div>
@@ -24,21 +24,21 @@
 			<c:when test="${sessionScope.cstLogin.cstId == null }">
 				<div class="odName">
 					<span class="name"><label for="receiverName"><strong>*</strong>이름</label></span>
-					<span><input type="text" name="receiverName" placeholder="ex)홍명보" required="required" /></span>
+					<span><input type="text" name="receiverName" placeholder="ex)홍명보" /></span>
 				</div>
 			</c:when>
 			<c:otherwise>
 				<div class="orinfoyn">
 					<span><label for="orinfoyn"><strong>*</strong>기존정보 사용여부</label></span>
 					<span>
-						<input type="radio" value="uy" name="receive" required="required"  checked="checked" 
+						<input type="radio" value="uy" name="receive"   checked="checked" 
 								onclick="location.href='cstExistingInfo.do?cstId=${sessionScope.cstLogin.cstId}'"/>기존정보사용
-						<input type="radio" value="un" name="receive" required="required" />새로입력
+						<input type="radio" value="un" name="receive"  />새로입력
 					</span>
 				</div>
 				<div class="odName">
 					<span><label for="name"><strong>*</strong>이름</label></span>
-					<span><input type="text" id="receiverName" placeholder="ex)홍명보" required="required" value="${cstExistingInfo.cstName}"/></span>
+					<span><input type="text" id="receiverName" placeholder="ex)홍명보"  value="${cstExistingInfo.cstName}"/></span>
 				</div>
 			</c:otherwise>
 		</c:choose>
@@ -46,7 +46,7 @@
 	<div class="od">
 		<div class="odCp">
 			<span><label for="receiverCP"><strong>*</strong>휴대전화번호</label></span>
-			<span><input type="tel" id="receiverCP" placeholder="ex)01098765432" required="required" value="${cstExistingInfo.cstCP}"/></span>
+			<span><input type="tel" id="receiverCP" placeholder="ex)01098765432" value="${cstExistingInfo.cstCP}"/></span>
 		</div>
 	</div>
 	<div class="od">
@@ -79,7 +79,7 @@
 			<c:otherwise>
 				<span><label for="address"><strong>*</strong>주소</label></span>
 				<span>
-					<input type="text" style="width: 500px" id="address" required="required" 
+					<input type="text" style="width: 500px" id="address"  
 								value="${cstExistingInfo.sido } ${cstExistingInfo.sigungu } ${cstExistingInfo.dongubmyon } 
 									${cstExistingInfo.dong } ${cstExistingInfo.li } ${cstExistingInfo.doromyong } 
 									${cstExistingInfo.buildingNum1 }-${cstExistingInfo.buildingNum2 } ${cstExistingInfo.sigunguBuildingName } 
@@ -110,21 +110,21 @@
 			<c:when test="${sessionScope.cstLogin.cstId == null }">
 				<div class="odName">
 					<span class="name"><label for="receiverName"><strong>*</strong>이름</label></span>
-					<span><input type="text" name="receiverName" placeholder="ex)홍명보" required="required" /></span>
+					<span><input type="text" name="receiverName" placeholder="ex)홍명보" /></span>
 				</div>
 			</c:when>
 			<c:otherwise>
 				<div class="orinfoyn">
 					<span><label for="orinfoyn"><strong>*</strong>기존정보 사용여부</label></span>
 					<span>
-						<input type="radio" value="uy" name="receive" required="required"  checked="checked" 
+						<input type="radio" value="uy" name="receive"  checked="checked" 
 								onclick="location.href='cstExistingInfo.do?cstId=${sessionScope.cstLogin.cstId}'"/>기존정보사용
-						<input type="radio" value="un" name="receive" required="required" />새로입력
+						<input type="radio" value="un" name="receive"  />새로입력
 					</span>
 				</div>
 				<div class="odName">
 					<span><label for="name"><strong>*</strong>이름</label></span>
-					<span><input type="text" id="receiverName" placeholder="ex)홍명보" required="required" value="${cstExistingInfo.cstName}"/></span>
+					<span><input type="text" id="receiverName" placeholder="ex)홍명보"  value="${cstExistingInfo.cstName}"/></span>
 				</div>
 			</c:otherwise>
 		</c:choose>
@@ -132,7 +132,7 @@
 	<div class="od">
 		<div class="odCp">
 			<span><label for="receiverCP"><strong>*</strong>휴대전화번호</label></span>
-			<span><input type="tel" id="receiverCP" placeholder="ex)01098765432" required="required" value="${cstExistingInfo.cstCP}"/></span>
+			<span><input type="tel" id="receiverCP" placeholder="ex)01098765432"  value="${cstExistingInfo.cstCP}"/></span>
 		</div>
 	</div>
 	<div class="od">
