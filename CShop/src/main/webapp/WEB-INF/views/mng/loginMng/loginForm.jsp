@@ -2,19 +2,23 @@
 	pageEncoding="UTF-8"%>
 <%@ page session="true" %>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
-	관리자 페이지 첫 화면
+<!-- style -->
+	<link href="/CShop/resources/css/login-layout.css" rel="stylesheet">
+<div class="context-login" align="center">
+	<div class="main"><h3>C# ADMIN</h3></div>
 	<br>
 	<f:form action="mngLoginProcess.do" method="Post" commandName="manager">
 		<div>
-			<f:input path="mngId" placeholder="USER ID" />
+			<f:input class="login-input" path="mngId" placeholder="USER ID" />
 		</div>
 		<div>
-			<f:password path="mngPassword" placeholder="PASSWORD" />
+			<f:password class="login-input" path="mngPassword" placeholder="PASSWORD" />
 		</div>
 		<div>${errMsg}</div>
-		<input type="submit" value="SIGN UP">
+		<input class="button-login" type="submit" value="SIGN UP">
 		<div>
-			<input name="stayLogin" type="checkbox" value="T">Stay Signed in
+			<input class="login-checkbox" name="stayLogin" type="checkbox" value="T">Stay Signed in
 		</div>
 	</f:form>
 <a href="/CShop/homeImage.do">고객페이지</a>
+</div>
