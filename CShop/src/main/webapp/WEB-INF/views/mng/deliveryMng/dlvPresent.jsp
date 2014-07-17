@@ -16,12 +16,14 @@
 	<div id="forma">
 		<f:form action="levelCodePresent.do" method="post">
 			<select name="dcategory">
-				<option value="levelCode">고객등급</option>
+				<option value="levelCode">모두</option>
 				<option value="orderNumber">주문번호</option>
-				<option value="cstId">고객아이디</option>
+				<option value="cstId">아이디</option>
+				<option value="cstId">고객등급</option>
+				<option value="cstId">선물종류</option>
 			</select>
 			<input id="alimisearch" type="text" name="searchText">
-			<input id="alimibutton" type="submit" value="Search"/>
+			<input id="alimibutton" type="submit" value="검색"/>
 		</f:form>
 	</div>
  	<div id="listname"><div id="l1">번호</div>

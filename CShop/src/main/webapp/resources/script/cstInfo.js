@@ -1,4 +1,4 @@
-$(function () {
+$(function allCstInfoAjax() {
 	$.ajax({
 		type	: "POST",
 		url		: "allMemberInfoJsonForm2.do",
@@ -36,8 +36,9 @@ $(function () {
 						= (typeof j.customer[i].CSTQNAPERMISSION == "undefined") ? '': j.customer[i].CSTQNAPERMISSION
 				});
 			}
-			$('#grid').w2grid({
+			$('#gridAllCstInfo').w2grid({
 				name : 'grid',
+				header : '고객정보',
 				columns: [
 				           { field: 'cstId', caption: '아이디', size: '80px', resizable: true, sortable: true, editable: { type: 'text' } },
 				           { field: 'cstName', caption: '이름', size: '80px', resizable: true, sortable: true },
@@ -55,6 +56,7 @@ $(function () {
 				 ],
 				records : myRecords,
 				show: {
+						 header : true,
 	                     toolbar : true,
 	                     footer : true,
 	                     lineNumbers : true,

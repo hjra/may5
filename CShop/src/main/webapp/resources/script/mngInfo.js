@@ -1,7 +1,7 @@
 $(function () {
 	$.ajax({
 		type	: "POST",
-		url		: "allMngInfoJsonList.do",
+		url		: "allMngInfoJson.do",
 		data	: "",
 		dataType: "json",
 		error: function(){
@@ -34,15 +34,16 @@ $(function () {
 									
 	    			});
 	    		}
-	    		$('#grid').w2grid({
+	    		$('#gridAllMngInfo').w2grid({
 	    			name : 'grid',
+	    			header : '직 원 정 보',
 	    			columns: [
-	    			 { field: 'mngId', caption: '아이디', size: '80px', resizable: true, sortable: true, editable: { type: 'text' } },
-				     { field: 'mngName', caption: '이름', size: '80px', resizable: true, sortable: true },
-				     { field: 'mngRank', caption: '등급', size: '80px', resizable: true, sortable: true },
+	    			 { field: 'mngId', caption: '아이디', size: '70px', resizable: true, sortable: true, editable: { type: 'text' } },
+				     { field: 'mngName', caption: '이름', size: '50px', resizable: true, sortable: true },
+				     { field: 'mngRank', caption: '등급', size: '30px', resizable: true, sortable: true },
 				     { field: 'mngCP', caption: '휴대폰', size: '100px', resizable: true, sortable: true },
 				     { field: 'mngPhone', caption: '전화번호', size: '100px', resizable: true, sortable: true },
-				     { field: 'mngEmail', caption: 'E-mail', size: '100px', resizable: true, sortable: true },
+				     { field: 'mngEmail', caption: 'E-mail', size: '120px', resizable: true, sortable: true },
 				     { field: 'mngAddress', caption: '주소', size: '180px', resizable: true, sortable: true },
 				     { field: 'mngEditPermission', caption: '직원<br>설정', size: '50px', resizable: true, sortable: true },
 				     { field: 'sttPermission', caption: '통계<br>열람', size: '50px', resizable: true, sortable: true },
@@ -56,6 +57,7 @@ $(function () {
 				    ],
 				    records : myRecords,
 				    show: {
+				     header : true,
 	                 toolbar : true,
 	                 footer : true,
 	                 lineNumbers : true,
@@ -70,8 +72,8 @@ $(function () {
 	                onExpand: function (event) {
 	                 $('#'+event.box_id).html('<div style="padding: 10px"> 아이디: '
 	                		 +j[event.recid].mngId+'<br> 이름: '
-	                		 +j[event.recid].mngRank+'<br> 등급: '
-	                   		 +j[event.recid].mngName
+	                		 +j[event.recid].mngName+'<br> 등급: '
+	                   		 +j[event.recid].mngRank
 	                   		 +'</div>').animate({ 'height': 160 }, 50);
 	                }
 	    		});

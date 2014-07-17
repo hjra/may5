@@ -12,12 +12,22 @@
 			border:1px solid #ddd;
 			height:300px;
 		}
-		#big-picture{
+		#big-picture-frame {
 			position:absolute;
 			width:100%;
-			height:300px;
-			left:0;
-			top:0;
+			height:300px;		
+			line-height:260px;
+			text-align:center;
+			padding:20px;
+		}
+		#big-picture{
+			max-width:100%;
+			max-height:100%;
+		}
+		#comments-table td{
+			border-top:1px solid #ddd;
+			padding-top:10px;
+			padding-bottom:10px;
 		}
 		.img-thumbnail{
 			height:60px;
@@ -133,6 +143,20 @@ $(function(){
 	activeStikcer.call( $("#sticker-view li").eq(initItem) );
 });
 
+$(document).on("submit","#comment-form",function(){
+	if(!$("#comments").val().trim().length){
+		$("#comments-placeholder").text("의견을 입력해 주세요.").addClass("badge-danger");
+		return false;
+	}
+	
+	var gradeInput  = $("#grade");
+	var gradeValue = parseInt(gradeInput.val());
+	if( !(gradeValue > 0) ){
+		$("#grade-placeholder").text("별점을 꼭 입력해주세요.").addClass("badge-danger");
+		return false;
+	}
+});
+
 $(document).ready(function(){
     // simple jRating call
    $(".basic").jRating({
@@ -178,7 +202,9 @@ $(document).ready(function(){
 					</ul>
 					<input id="sticker-view-value" name="STICKER" type="hidden" value="${sticker}" />
 				</div>
-				<img id="big-picture" src=""/>
+				<div id="big-picture-frame">
+					<img id="big-picture" src=""/>
+				</div>
 			</div>
 			<br/>
 			<div id="thumbnail-items" class="row">
@@ -368,126 +394,125 @@ $(document).ready(function(){
 		<br/>
 		<br/>
 		<div class="row-fluid">
-			<form action="commentProc.do" method="post">
-				<input type="hidden" name="cstCode" value="${sessionScope.cstLogin.cstCode}">
-					<%
-						int i = 0;
-					%>
-					<table class="table table-bordered">
-						<tr>
-							<td colspan="6">평점 및 댓글</td>
-						</tr>
-						<tr>
-							<td width="66px">번호
-														<input type="hidden" name="itemId" value="${itemId }">
-							</td>
-							<!-- <td width="100px"><label>평점</label> 
-								<select name="grade" id="grade">
-									<option value="5">★★★★★</option>
-									<option value="4">★★★★☆</option>
-									<option value="3">★★★☆☆</option>
-									<option value="2">★★☆☆☆</option>
-									<option value="1">★☆☆☆☆</option>
-								</select></td> -->
-										<td>
-   <!-- in this exemple, 12 is the average and 1 is the id of the line to update in DB -->
-   <div class="basic" data-average="5" data-id="1"  >
-   <input id="grade" type="hidden" name="grade"/></div>
-      </td>
-							<c:choose>
-								<c:when test="${sessionScope.cstLogin.cstId == null }">
-								<td><input type="text" maxlength="300" style="width: 300px"
-								placeholder="의견을 등록하시려면 먼저 로그인을 해주세요" readonly></td>
-								</c:when>
-								<c:otherwise>
-							<td>
-							<input type="text" id="evaluationContents" name="evaluationContents" maxlength="300" style="width: 300px"
-								placeholder="의견을 140자 이내로 적어주세요"></td>
-								</c:otherwise>
-								</c:choose>
-							<td>${sessionScope.cstLogin.cstId}</td>
-							
-							<td align="center">
-							<input type="IMAGE" name="Submit" value="Submit"  ${sessionScope.cstLogin.cstId == null?" disabled":"" }
-							src="/CShop/resources/img/button/comment.png">
-							</td>
-							<c:choose>
-								<c:when test="${sessionScope.cstLogin.cstId == null }">
-									<!-- <td width="100px" align="center">
+			<form id="comment-form" action="commentProc.do" method="post">
+				<input type="hidden" name="cstCode"
+					value="${sessionScope.cstLogin.cstCode}">
+				<%
+					int i = 0;
+				%>
+				<h4>평점 및 댓글</h4>
+				<table id="comments-table" class="grid">
+					<colgroup>
+						<col width="60px">
+						<col width="135px">
+						<col>
+						<col width="100px">
+						<col width="100px">
+						<col width="100px">
+					</colgroup>
+					<tr>
+						<td>번호 <input type="hidden" class="text-center" name="itemId"
+							value="${itemId }">
+						</td>
+						<td>
+							<!-- in this exemple, 12 is the average and 1 is the id of the line to update in DB -->
+							<div class="basic" data-average="5" data-id="1">
+								<input id="grade" type="hidden" name="grade"/>
+							</div>
+							<small id="grade-placeholder"></small>
+						</td>
+						<c:choose>
+							<c:when test="${sessionScope.cstLogin.cstId == null }">
+								<td><input id="" type="text" class="full-width" maxlength="300" placeholder="의견을 등록하시려면 먼저 로그인을 해주세요" readonly></td>
+							</c:when>
+							<c:otherwise>
+								<td>
+									<input type="text" id="comments" class="full-width" id="evaluationContents" name="evaluationContents" maxlength="300" placeholder="의견을 140자 이내로 적어주세요">
+									<small id="comments-placeholder"></small>
+								</td>
+							</c:otherwise>
+						</c:choose>
+						<td>${sessionScope.cstLogin.cstId}</td>
+
+						<td align="center">
+							<input type="IMAGE" name="Submit" value="Submit" src="/CShop/resources/img/button/comment-sm.png" ${sessionScope.cstLogin.cstId == null?" disabled":"" }></td>
+						<c:choose>
+							<c:when test="${sessionScope.cstLogin.cstId == null }">
+								<!-- <td width="100px" align="center">
 									<a href="loginProc.do" class="classname">로긴</a></td> -->
-								</c:when>
-								<c:otherwise>
-									<td width="40px">삭제
-								</td>
-								</c:otherwise>
-							</c:choose>
+							</c:when>
+							<c:otherwise>
+								<td width="40px">삭제</td>
+							</c:otherwise>
+						</c:choose>
+					</tr>
+
+					<c:forEach var="board" items="${evaluationList}">
+						<%
+							i++;
+						%>
+						<tr height="35px">
+							<td align="center">${board.evaluationIndex}</td>
+							<td align="center"><c:choose>
+									<c:when test="${board.grade ==5}">
+										<img src="/CShop/resources/img/stars/5.png"
+											style="width: 100px">
+									</c:when>
+									<c:when test="${board.grade ==4}">
+										<img src="/CShop/resources/img/stars/4.png"
+											style="width: 100px">
+									</c:when>
+									<c:when test="${board.grade ==3}">
+										<img src="/CShop/resources/img/stars/3.png"
+											style="width: 100px">
+									</c:when>
+									<c:when test="${board.grade ==2}">
+										<img src="/CShop/resources/img/stars/2.png"
+											style="width: 100px">
+									</c:when>
+									<c:when test="${board.grade ==1}">
+										<img src="/CShop/resources/img/stars/1.png"
+											style="width: 100px">
+									</c:when>
+								</c:choose></td>
+							<td>${board.evaluationContents }</td>
+							<td>${board.cstId}</td>
+
+							<td align="center"><fmt:formatDate
+									value="${board.evaluationDate }" pattern="yyyy-MM-dd" /> <c:choose>
+									<c:when test="${sessionScope.cstLogin.cstId == null }">
+
+									</c:when>
+									<c:when
+										test="${sessionScope.cstLogin.cstCode == board.cstCode }">
+										<td align="center"><img
+											src="/CShop/resources/img/button/delete-sm.png"
+											onclick="location.href='evaluationDelete.do?evaluationIndex=${board.evaluationIndex}&itemId=${itemId}'">
+										</td>
+									</c:when>
+									<c:otherwise>
+										<td></td>
+									</c:otherwise>
+								</c:choose>
 						</tr>
-				
-						<c:forEach var="board" items="${evaluationList}">
-							<%
-								i++;
-							%>
-							<tr height="35px" >
-								<td align="center">${board.evaluationIndex}</td>
-								<td align="center">
-								<c:choose>
-										<c:when test="${board.grade ==5}">
-										<img src="/CShop/resources/img/stars/5.png" style="width: 100px">
-							</c:when>
-										<c:when test="${board.grade ==4}">
-										<img src="/CShop/resources/img/stars/4.png" style="width: 100px">
-							</c:when>
-										<c:when test="${board.grade ==3}">
-										<img src="/CShop/resources/img/stars/3.png" style="width: 100px">
-							</c:when>
-										<c:when test="${board.grade ==2}">
-										<img src="/CShop/resources/img/stars/2.png" style="width: 100px">
-							</c:when>
-										<c:when test="${board.grade ==1}">
-										<img src="/CShop/resources/img/stars/1.png" style="width: 100px">
-							</c:when>
-									</c:choose></td>
-								<td>${board.evaluationContents }</td>
-								<td>${board.cstId}</td>
-								
-								<td align="center">
-								<fmt:formatDate value="${board.evaluationDate }" pattern="yyyy-MM-dd" />
-								
-							
-							 <c:choose>
-								<c:when test="${sessionScope.cstLogin.cstId == null }">
-				
-								</c:when>
-								<c:when test="${sessionScope.cstLogin.cstCode == board.cstCode }">
-								<td align="center">
-									<img src="/CShop/resources/img/button/delete.png" onclick="location.href='evaluationDelete.do?evaluationIndex=${board.evaluationIndex}&itemId=${itemId}'">
-								</td>
-								</c:when>
-								<c:otherwise>
-								<td></td>
-								</c:otherwise>
-							</c:choose>
-							</tr>
-				
-						</c:forEach>
-				
-						<tr>
-							<td colspan="6" align="center"><c:if test="${page <= 1 }">[이전]&nbsp; </c:if>
-								<c:if test="${page > 1 }">
-									<a href="menuInfo.do?itemId=${itemId }&page=${page-1}">이전</a>&nbsp;</c:if>
-									 <c:forEach begin="${startpage }" end="${endpage }" var="a">
-									<c:if test="${a==page }">[${a}]</c:if>
-									<c:if test="${a!=page }">
-										<a href="menuInfo.do?itemId=${itemId }&page=${a}">[${a}]</a>&nbsp;</c:if>
-								</c:forEach> <c:if test="${page>=maxpage }">[다음]</c:if> <c:if
-									test="${page<maxpage }">
-									<a href="menuInfo.do?itemId=${itemId }&page=${page+1}">[다음]</a>
-								</c:if></td>
-						</tr>
-				
-				
-					</table>
-				</form>
+
+					</c:forEach>
+
+					<tr>
+						<td colspan="6" align="center"><c:if test="${page <= 1 }">[이전]&nbsp; </c:if>
+							<c:if test="${page > 1 }">
+								<a href="menuInfo.do?itemId=${itemId }&page=${page-1}">이전</a>&nbsp;</c:if>
+							<c:forEach begin="${startpage }" end="${endpage }" var="a">
+								<c:if test="${a==page }">[${a}]</c:if>
+								<c:if test="${a!=page }">
+									<a href="menuInfo.do?itemId=${itemId }&page=${a}">[${a}]</a>&nbsp;</c:if>
+							</c:forEach> <c:if test="${page>=maxpage }">[다음]</c:if> <c:if
+								test="${page<maxpage }">
+								<a href="menuInfo.do?itemId=${itemId }&page=${page+1}">[다음]</a>
+							</c:if></td>
+					</tr>
+				</table>
+			</form>
 		</div><!-- row-fluid -->
 	</c:when>
 </c:choose>

@@ -20,15 +20,15 @@
 			type : 'big', // can be set to 'small' or 'big'
 
 			/** Boolean vars **/
-			step:false, // if true,  mouseover binded star by star,
+			step:true, // if true,  mouseover binded star by star,
 			isDisabled:false, // if true, user could not rate
-			showRateInfo: true, // show rates informations when cursor moves onto the plugin
+			showRateInfo: false, // show rates informations when cursor moves onto the plugin
 			canRateAgain : true, // if true, the user could rates {nbRates} times with jRating.. Default, 1 time
 			sendRequest: true, // send values to server
 
 			/** Integer vars **/
 			length:5, // number of star to display 
-			decimalLength : 0, // number of decimals.
+			decimalLength : 1, // number of decimals.
 			rateMax : 5, // maximal rate - integer from 0 to 9999 (or more)
 			rateInfosX : -45, // relative position in X axis of the info box when mouseover
 			rateInfosY : 5, // relative position in Y axis of the info box when mouseover
