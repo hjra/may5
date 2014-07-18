@@ -7,6 +7,7 @@
 <br><br><br><br>
 <h1>결제완료</h1>
 
-<f:form action="" method="post">
-${orders.installmentTerm }
+<f:form action="homeImage.do" method="post">
+	주문 완료 되쓰요!!
+	<input type="submit" value="HOME">
 </f:form>

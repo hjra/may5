@@ -3,7 +3,15 @@
 <%@ page session="true"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<link href="/CShop/resources/css/advanceOrderPayment.css" rel="stylesheet">
+<div class="useroption">
+<div class="useroptiona">
+<div class="useroptionb">
+<div class="optiona">ADVANCE ORDER</div>
+			<div class="abn"></div>
+			<div class="aba"></div>  
+			<div class="abs">결제정보</div>
+			<div class="abc">결제방법선택</div>
 	
 	<h1>결제정보</h1>
 	<f:form method="post" action="payment.do" commandName="orders">
