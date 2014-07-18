@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import net.may5.dto.Orders;
-import net.may5.dto.Payment;
 import net.may5.service.OrderService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +70,7 @@ public class OrderController {
 	
 	/* 기존정보사용*/
 	@RequestMapping("cstExistingInfo.do")
-	public String cstExistingInfo( Model model){
+	public String cstExistingInfo( Model model ){
 		
 		return "cst/order/orderReceiverInfo";
 	}
@@ -79,20 +78,24 @@ public class OrderController {
 	/* 결제수단정보 */
 	@RequestMapping("advanceOrderPayment.do")
 	public String advanceOrderPayment( Model model, Orders orders, String cstId, String dlvwarn ){
-		System.err.println("왔어요??");
+		System.err.println("advanceOrderPayment.do");
 		System.err.println(cstId);
+		
+		model.addAttribute("orders", orders);
+		
 		System.err.println("orders에서 담겨넘어온 내용 : "+orders);
+		
 		model.addAttribute("payKind", orderService.getPayKind());
 		model.addAttribute("cardSection", orderService.getCardSection());
 		model.addAttribute("cashReceiptRequestInfoSave", orderService.getCashReceiptRequestInfoSave());
-		//System.out.println(orderService.getCashReceiptRequestInfoSave());
+		
 		model.addAttribute("deduction", orderService.getDeduction());
 		model.addAttribute("cardKind",orderService.getCardKind());
 		model.addAttribute("installment", orderService.getInstallment());
 		model.addAttribute("cashReceiptRequestWay", orderService.getCashReceiptRequestWay());
-		model.addAttribute("orders", orders);
+		
 		model.addAttribute("dlvwarn", dlvwarn);
-		//System.out.println("주의사항 : "+dlvwarn);
+		
 		
 		return "cst/order/advanceOrderPayment";
 	}
@@ -100,24 +103,25 @@ public class OrderController {
 	/*결제*/
 	@RequestMapping("payment.do")
 	public String payment( Model model, Orders orders, String cstId, String dlvwarn ){
+		System.err.println("payment.do");
 		model.addAttribute("orders", orders);
 		System.out.println();
-		System.err.println("들어왔나 "+orders);
+		System.err.println("orders에서 담겨넘어온 내용 : "+orders);
 		System.out.println();
-		System.err.println("이거찍나?"+orderService.getCardKind());
-		System.err.println("test!!"+orderService.getACardKind(orders.getCardCode()));
 	
+		
 		model.addAttribute("payKind", orderService.getPayKind());
-		System.out.println("하영이"+orderService.getPayKind());
-	
+		
 		model.addAttribute("cardSection", orderService.getCardSection());
+		
 		model.addAttribute("cashReceiptRequestInfoSave", orderService.getCashReceiptRequestInfoSave());
-		//System.out.println(orderService.getCashReceiptRequestInfoSave());
+		
 		model.addAttribute("deduction", orderService.getDeduction());
+		
 		model.addAttribute("cardKind",orderService.getCardKind());
 		
-		
 		model.addAttribute("installment", orderService.getInstallment());
+		
 		model.addAttribute("cashReceiptRequestWay", orderService.getCashReceiptRequestWay());
 		
 		model.addAttribute("dlvwarn", dlvwarn);
@@ -125,6 +129,37 @@ public class OrderController {
 		model.addAttribute("telecoms", orderService.getTelecom());
 		
 		return "cst/order/payment";
+	}
+	
+	/*결제완료*/
+	@RequestMapping("paymentOk.do")
+	public String paymentOk( Model model, Orders orders, String cstId, String dlvwarn ){
+		System.err.println("paymentOk.do");
+		model.addAttribute("orders", orders);
+		System.out.println();
+		System.err.println("orders에서 담겨넘어온 내용 : "+orders);
+		System.out.println();
+	
+		
+		model.addAttribute("payKind", orderService.getPayKind());
+		
+		model.addAttribute("cardSection", orderService.getCardSection());
+		
+		model.addAttribute("cashReceiptRequestInfoSave", orderService.getCashReceiptRequestInfoSave());
+		
+		model.addAttribute("deduction", orderService.getDeduction());
+		
+		model.addAttribute("cardKind",orderService.getCardKind());
+		
+		model.addAttribute("installment", orderService.getInstallment());
+		
+		model.addAttribute("cashReceiptRequestWay", orderService.getCashReceiptRequestWay());
+		
+		model.addAttribute("dlvwarn", dlvwarn);
+		
+		model.addAttribute("telecoms", orderService.getTelecom());
+		
+		return "cst/order/paymentOk";
 	}
 	
 	/* 카드(QR)옵션
@@ -170,9 +205,6 @@ public class OrderController {
 		model.addAttribute("orderlist", orders);
 		return "cst/order/orderList";
 	}
-	
-	
-
 	
 	/*주문검색*/
 	@RequestMapping("orderSearch.do")

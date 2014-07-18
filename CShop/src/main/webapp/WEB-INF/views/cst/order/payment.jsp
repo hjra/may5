@@ -8,39 +8,67 @@
 
 <h1>결제결제결제</h1>
 
-<f:form action="" method="post">
-<%-- <c:if test="${orders.cardCode == cardKind.cardCode }">${cardKind.cardName }</c:if> --%>
-<c:forEach items="${cardKind }" var="cardKinds">
-	${cardKinds.cardCode }
-</c:forEach>
-<br>
-${cardKind}
+<f:form action="paymentOk.do" method="post" commandName="orders">
+
 <c:choose>
-	<c:when test="${orders.payCode == 1}">
+	<c:when test="${orders.payType == '신용카드'}">
 	신용카드..
+		<div class="">
+			<span class=""><label for="">주문상품</label></span>
+			<span><input type="text" name="" value=""></span>
+		</div>
+		<div class="">
+			<span class=""><label for="">상품금액</label></span>
+			<span><input type="text" name="" value=""></span>
+		</div>
+		<div class="">
+			<span class=""><label for="">할부기간</label></span>
+			<span>
+				<select id="selectBox" name="installmentTerm" title="installment" >
+ 					<c:forEach var="term" items="${installment }">
+ 						<option value="${term.installmentTerm }">${term.installmentTerm }</option>
+ 					</c:forEach>
+ 				</select>
+ 			</span>
+		</div>
+		<div class="">
+			<span class=""><label for="">ISP저장매체 선택</label></span>
+			<span>
+				<input type="radio" value="">PC
+				<input type="radio" value="">휴대폰
+				<input type="radio" value="">이동식 디스크
+				<input type="radio" value="">IC카드
+			</span>
+		</div>
 		<div class="">
 			<span class=""><label for="">ISP</label></span>
 			<span><input type="text" name="" ></span>
 		</div>
-		
 	</c:when>
-	<c:when test="${orders.payCode == 2}">
+	<c:when test="${orders.payType == '계좌이체'}">
 	계좌이체..
+		<div class="">
+			<span class=""><label for="">주문상품</label></span>
+			<span><input type="text" name="" value=""></span>
+		</div>
+		<div class="">
+			<span class=""><label for="">상품금액</label></span>
+			<span><input type="text" name="" value=""></span>
+		</div>
 		<div class="">
 			<span class=""><label for="">계좌번호</label></span>
 			<span><input type="text" name=""> ('-'없이)</span>
 		</div>
 		<div class="">
 			<span class=""><label for="">계좌비밀번호</label></span>
-			<span><input type="text" name=""> 4자리</span>
+			<span><input type="password" name=""> 4자리</span>
 		</div>
 		<div class="">
 			<span class=""><label for="">주민번호</label></span>
 			<span><input type="text" name=""> - <input type="text" name=""></span>
 		</div>
-	
 	</c:when>
-	<c:when test="${orders.payCode == 3}">
+	<c:when test="${orders.payType == '휴대폰 소액결제'}">
 	휴대폰 소액결제
 		<div class="">
 			<span class=""><label for="">상품명</label></span>
@@ -68,7 +96,7 @@ ${cardKind}
 		</div>
 		<div class="">
 			<span class=""><label for="">주민번호</label></span>
-			<span><input type="text" name=""></span>
+			<span><input type="text" name=""> - <input type="text" name=""></span>
 		</div>
 		<div class="">
 			<span class=""><label for="">결제알림이메일</label></span>
@@ -76,7 +104,11 @@ ${cardKind}
 		</div>
 	</c:when>
 </c:choose>
-
+	<p>
+		<input type="reset" value="재입력"/>
+		<input type="button" onclick="javascript:history.back(-1)" value="이전"/>
+		<input type="submit" value="다음"/>
+	</p>
 </f:form>
 
 
