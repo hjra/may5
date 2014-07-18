@@ -16,5 +16,5 @@
 	<f:form action="board.do" method="Post">
 	<input type="submit" value="삭제">
 	</f:form>	
-	
+	 
 </form>
