@@ -302,7 +302,7 @@ function callNumber(num){
 	  <div class="clear"></div>
 		<ol id="calendar">
 		<li id="_20140530" class="inactive">30</li><li id="_20140601"><span>1</span><div class="events">
-		</div></li><li id="_20140602"><span>2</span><div class="events">
+		</div></li><li id="_20140602"><span>2</span><div class="events"><img onclick="location.href='menuInfo.do?itemId=S2SSS'" src="/CShop/resources/img/cake/S2SSS1.png" alt="대표이미지" style="width: 60px; ">
 		</div></li><li id="_20140603"><span>3</span><div class="events">
 		</div></li><li id="_20140604"><span>4</span><div class="events">
 		</div></li><li id="_20140605"><span>5</span><div class="events">

@@ -28,26 +28,7 @@
 		<h1 align="center">boardContext</h1>
 		<font size="2">
 		
-			<%-- <center>
-			<table border="1" width = "600">
-	<tr>
-    	<td>글번호</td>
-        <td>${qnaContent.boardCode}</td>
-    </tr>
-   	<tr>
-    	<td>글 제목</td>
-        <td>${qnaContent.boardTitle} </td>
-    </tr>
-    <tr>
-    	<td>작성자</td>
-        <td>${qnaContent.cstId} </td>
-    </tr>
-   	<tr>
-    	<td>내용</td>
-        <td><textarea cols="60" rows="5" disabled>${qnaContent.postContents}</textarea></td>
-     </tr>
-     </table>
-		</center> --%>
+			
 		
 		
 		<center>
@@ -77,7 +58,6 @@
 									<input type="hidden" name="boardCode" value="${qnaContent.boardCode}" class="redBtn"> 
 									<input type="button" id="update" onclick="updateGo()" value="수정" class="redBtn" />
 									<input type="button" id="delete" onclick="deleteGo()" value="삭제" class="redBtn" />
-									<!-- <input type="button" value="목록" onclick="history.back(-1);"> -->										
 									<input type="button" value="목록" onclick="document.location='board.do'" class="redBtn" />
 																	
 								</form>
