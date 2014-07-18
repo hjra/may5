@@ -84,7 +84,7 @@
 		</div>
 	</div>
 	
-	<div id="itemBasket" style="position: absolute;">
+	<div id="itemBasket" >
 		<div class="drag1" id="cC"><img id="creamC" class="dragImg" usemap="#mapC.png" src="/CShop/resources/img/cake/CreamC.png"></div>
 		<div class="drag1" id="cF"><img id="creamF" class="dragImg" usemap="#mapF.png" src="/CShop/resources/img/cake/CreamF.png"></div>
 	
@@ -103,8 +103,8 @@
 	
 	
 	<div style="clear: both">&nbsp;</div>
-	
 </div>
+<input type="button" value="test" id="test">
 
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
 <script type="text/javascript" src="resources/js/jquery.mobiledragdrop.js"></script>
@@ -118,6 +118,15 @@
 			targets : "#drop2, #itemBasket",
 			status : "#status"
 		});
+		$("#test").click(function(){
+			var creamId = $('#drop1 > .drag1 > .dragImg').attr('id');
+			alert("선택된 크림: "+creamId);
+			var toppingId = $('#drop2 > .drag2 > .dragImg').attr('id').length;
+			alert("선택된 토핑"+toppingId);
+			
+			
+		      $.show($("#how").text("테스트입니다."));
+		});	
 	});
 </script>
 
