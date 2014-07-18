@@ -35,14 +35,20 @@
 			<span class=""><label for="">ISP저장매체 선택</label></span>
 			<span>
 				<input type="radio" value="">PC
+			</span>
+			<span>
 				<input type="radio" value="">휴대폰
+			</span>
+			<span>
 				<input type="radio" value="">이동식 디스크
+			</span>
+			<span>
 				<input type="radio" value="">IC카드
 			</span>
 		</div>
 		<div class="">
-			<span class=""><label for="">ISP</label></span>
-			<span><input type="text" name="" ></span>
+			<span class=""><label for="">ISP비밀번호</label></span>
+			<span><input type="password" name="" ></span>
 		</div>
 	</c:when>
 	<c:when test="${orders.payType == '계좌이체'}">

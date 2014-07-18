@@ -74,55 +74,55 @@ $(document).ready(function(){
 
 // 일반결제
 function div_OnOff(v, id) {
-	if (v == "1") { // 신용카드
-		document.getElementById("2").style.display = "none"; // 숨김
-		document.getElementById("3").style.display = "none"; // 숨김
-		document.getElementById("1").style.display = ""; // 보여줌
-	} else if (v == "2") { // 계좌이체
-		document.getElementById("1").style.display = "none"; // 숨김
-		document.getElementById("3").style.display = "none"; // 숨김
-		document.getElementById("2").style.display = ""; // 보여줌
+	if (v == "신용카드") { // 신용카드
+		document.getElementById("계좌이체").style.display = "none"; // 숨김
+		document.getElementById("휴대폰 소액결제").style.display = "none"; // 숨김
+		document.getElementById("신용카드").style.display = ""; // 보여줌
+	} else if (v == "계좌이체") { // 계좌이체
+		document.getElementById("신용카드").style.display = "none"; // 숨김
+		document.getElementById("휴대폰 소액결제").style.display = "none"; // 숨김
+		document.getElementById("계좌이체").style.display = ""; // 보여줌
 	} else { // 휴대폰 소액결제
-		document.getElementById("1").style.display = "none"; // 숨김
-		document.getElementById("2").style.display = "none"; // 숨김
-		document.getElementById("3").style.display = ""; // 보여줌
+		document.getElementById("신용카드").style.display = "none"; // 숨김
+		document.getElementById("계좌이체").style.display = "none"; // 숨김
+		document.getElementById("휴대폰 소액결제").style.display = ""; // 보여줌
 	}
 }
 
 // 카드구분
 function div_OnOff2(v2, id) {
-	if (v2 == "1") { // 개인카드
-		document.getElementById("12").style.display = "none"; // 숨김
-		document.getElementById("11").style.display = ""; // 보여줌
+	if (v2 == "개인카드") { // 개인카드
+		document.getElementById("법인카드").style.display = "none"; // 숨김
+		document.getElementById("개인카드").style.display = ""; // 보여줌
 	} else { // 법인카드
-		document.getElementById("11").style.display = "none"; // 숨김
-		document.getElementById("12").style.display = ""; // 보여줌
+		document.getElementById("개인카드").style.display = "none"; // 숨김
+		document.getElementById("법인카드").style.display = ""; // 보여줌
 	}
 }
 
 function div_OnOff3(v3, id) {
-	if (v3 == "T") { // 현금영수증 신청 및 저장
-		document.getElementById("F").style.display = "none"; // 숨김
-		document.getElementById("N").style.display = "none"; // 숨김
-		document.getElementById("T").style.display = ""; // 보여줌
-	} else if(v3 == "F"){ // 현금영수증 신청
-		document.getElementById("T").style.display = "none"; // 숨김
-		document.getElementById("N").style.display = "none"; // 숨김
-		document.getElementById("F").style.display = ""; // 보여줌
+	if (v3 == "신청 및 저장") { // 현금영수증 신청 및 저장
+		document.getElementById("신청").style.display = "none"; // 숨김
+		document.getElementById("해당사항 없음").style.display = "none"; // 숨김
+		document.getElementById("신청 및 저장").style.display = ""; // 보여줌
+	} else if(v3 == "신청"){ // 현금영수증 신청
+		document.getElementById("신청 및 저장").style.display = "none"; // 숨김
+		document.getElementById("해당사항 없음").style.display = "none"; // 숨김
+		document.getElementById("신청").style.display = ""; // 보여줌
 	} else { // 해당사항 없음
-		document.getElementById("T").style.display = "none"; // 숨김
-		document.getElementById("F").style.display = "none"; // 숨김
-		document.getElementById("N").style.display = ""; // 보여줌
+		document.getElementById("신청 및 저장").style.display = "none"; // 숨김
+		document.getElementById("신청").style.display = "none"; // 숨김
+		document.getElementById("해당사항 없음").style.display = ""; // 보여줌
 	}
 }
 
 function div_OnOff4(v4, id) {
-	if (v4 == "1") { // 개인소득공제용
-		document.getElementById("102").style.display = "none"; // 숨김
-		document.getElementById("101").style.display = ""; // 보여줌
+	if (v4 == "개인소득공제용") { // 개인소득공제용
+		document.getElementById("사업자증빙용").style.display = "none"; // 숨김
+		document.getElementById("개인소득공제용").style.display = ""; // 보여줌
 	} else { // 사업자증빙용
-		document.getElementById("101").style.display = "none"; // 숨김
-		document.getElementById("102").style.display = ""; // 보여줌
+		document.getElementById("개인소득공제용").style.display = "none"; // 숨김
+		document.getElementById("사업자증빙용").style.display = ""; // 보여줌
 	}
 }
 /*결제방법선택끝*/
