@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
+<style>
+.test{
+margin-top: 70px
+}
+</style>
 로그인 입력폼
 <div>
 	<f:form action="cstLoginProcess.do" method="Post"
 		commandName="customer">
-		<div>
+		<div class="test">
 			<f:input path="cstId" placeholder="USER ID OR ORDER NUMBER" />
 		</div>
 		<div>
