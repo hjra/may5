@@ -6,6 +6,7 @@
 
 <h1>예약주문페이지</h1>
 <f:form action="orderDetail.do" method="post">
+	<div id="choiceItem"></div>
 	<input type="submit" value="다음">
 </f:form>
 <br>
@@ -70,6 +71,8 @@
 	background-color: #efd59b;
 	cursor: crosshair;
 }
+
+.testDiv {color:black;}
 </style>
 
 <div id="how">
@@ -104,7 +107,10 @@
 	
 	<div style="clear: both">&nbsp;</div>
 </div>
-<input type="button" value="test" id="test">
+<input type="button" value="선택완료" id="btnChoice">
+
+
+
 
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
 <script type="text/javascript" src="resources/js/jquery.mobiledragdrop.js"></script>
@@ -118,27 +124,38 @@
 			targets : "#drop2, #itemBasket",
 			status : "#status"
 		});
-		$("#test").click(function(){
+		
+		$("#btnChoice").click(function(){
+			$('#choiceDiv').html("").hide();
 			var creamId = $('#drop1 > .drag1 > .dragImg').attr('id');
 			alert("선택된 크림: "+creamId);
-			var toppingId = $('#drop2 > .drag2 > .dragImg').attr('id').length;
-			alert("선택된 토핑"+toppingId);
+			
+			var topId = $('#drop2 > .drag2 > .dragImg').attr('id');
+			var topLen = $('#drop2 > .drag2 > .dragImg').length;
+			alert("선택된 토핑 수: "+topLen);
 			
 			
-		      $.show($("#how").text("테스트입니다."));
+			$('#drop2 > .drag2 > .dragImg').each(function(index){
+				
+				var objName = $(this).attr('id');
+				alert("선택한 토핑: "+objName);
+				$("<input type='text' name='itemId' value='"+ objName +"'>").insertAfter('#choiceItem');
+				$('#choiceDiv').show();
+			});
+			
 		});	
 	});
 </script>
-
-
-
-
 
 <map name="mapB.png"><area shape="circle" coords="280,280,280" href="" target="" alt="바나나" /></map>
 <map name="mapS.png"><area shape="circle" coords="280,280,280" href="" target="" alt="딸기" /></map>
 <map name="mapG.png"><area shape="circle" coords="280,280,280" href="" target="" alt="포도" /></map>
 <map name="mapC.png"><area shape="circle" coords="280,280,280" href="" target="" alt="초코크림" /></map>
 <map name="mapF.png"><area shape="circle" coords="280,280,280" href="" target="" alt="생크림" /></map>
+
+
+
+
 
 
 <!-- <style>
@@ -170,9 +187,9 @@ function drop(ev) {
 	<img id="drag2" class="dragImg" usemap="#TopS.png" src="/CShop/resources/img/cake/TopS.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
 	<img id="drag3" class="dragImg" usemap="#TopG.png" src="/CShop/resources/img/cake/TopG.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
 </div>
- -->
-<!-- 
--------------------------------------- 테스트 중 ----------------------------------------<br><br>
+
+
+- 테스트 중 -<br><br>
   <script type="text/javascript">
  
     function onDragStart(event){
@@ -255,4 +272,4 @@ function drop(ev) {
    
     <br><br><div id="msg"></div>
    
--------------------------------------- 테스트 중 ----------------------------------------<br><br> -->
+ -->
