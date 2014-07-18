@@ -6,7 +6,7 @@
 
 <br><br><br><br>
 <h1>결제완료</h1>
-<br><br><br><br><br><br><br><br>
+
 <f:form action="" method="post">
 ${orders.installmentTerm }
 </f:form>
