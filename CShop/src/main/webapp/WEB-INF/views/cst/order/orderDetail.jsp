@@ -43,12 +43,6 @@
 							<input type="text" name="cardMessage" placeholder="ex)생일축하합니다" />
 						</td>
 					</tr>
-					<!-- <tr>
-						<th scope="row"><label for="fu">동영상 추가</label></th>
-						<td>
-							<input type="file" />
-						</td>
-					</tr> -->
 				</tbody>
 			</table>
 			<p>

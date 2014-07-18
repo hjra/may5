@@ -96,13 +96,6 @@
 			<span><input type="text" id="dlvwarn" name="dlvwarn"/></span>
 		</div>
 	</div>
-	<!-- <div class="od">
-		<div class="odAskYn">
-			<span><label for="askyn"><strong>*</strong>조르기 여부</label></span>
-			<span><input type="radio" value="dy" name="receive2" required="required"/>조르기<br>
-							<input type="radio" value="dn" name="receive2" required="required"/>직접구매</span>
-		</div>
-	</div> -->
 	</div>
 	<div id="dn" style="display: block;">
 	<div class="od">
