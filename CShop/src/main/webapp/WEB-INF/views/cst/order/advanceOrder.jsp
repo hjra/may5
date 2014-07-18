@@ -115,7 +115,6 @@
 <input type="button" value="선택완료" id="btnChoice">
 
 
-
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
 <script type="text/javascript" src="resources/js/jquery.mobiledragdrop.js"></script>
 <script type="text/javascript">
@@ -153,7 +152,10 @@
 
 			$('#choiceItem').append("<input type='text' name='itemId' value='"
 				+ sizeId + creamId + toppingId + "'>");
+			$('#choiceItem2').append("<img id='itemImage' src='/CShop/resources/img/cake/"
+					+ sizeId + creamId + toppingId + "1.png'>");
 		});
+		
 		
 	});
 </script>

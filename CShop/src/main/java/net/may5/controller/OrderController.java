@@ -37,10 +37,13 @@ public class OrderController {
 	
 	/* 주문상세 */
 	@RequestMapping("orderDetail.do")
-	public String orderDetail(HttpServletRequest request, Model model, String cstLogin, String cstId) {
+	public String orderDetail(HttpServletRequest request, Model model,
+			String cstLogin, String cstId, @RequestParam String itemId) {
 		HttpSession session = request.getSession();
 		session.getAttribute(cstLogin);
 		model.addAttribute("optionPrice", orderService.getOptionPrice());
+		System.out.println("itemId: "+itemId);
+		model.addAttribute("itemId", itemId);
 		return "cst/order/orderDetail";
 	}
 	
