@@ -35,6 +35,7 @@ public class Orders {
 	private String orderDetailAddress;	// 상세주소
 	private String receiverName;	// 수령자
 	private String receiverCP;	// 수령자 휴대폰번호
+	private String receiverEmail;
 	private int stockAmount;	// 입고수량
 	private String receiverPhone;	// 수령자 전화번호
 	private Date dlvEndDate;	// 배송완료일
@@ -247,6 +248,12 @@ public class Orders {
 	}
 	public void setReceiverCP(String receiverCP) {
 		this.receiverCP = receiverCP;
+	}
+	public String getReceiverEmail() {
+		return receiverEmail;
+	}
+	public void setReceiverEmail(String receiverEmail) {
+		this.receiverEmail = receiverEmail;
 	}
 	public int getStockAmount() {
 		return stockAmount;
@@ -521,6 +528,8 @@ public class Orders {
 		result = prime * result
 				+ ((receiverCP == null) ? 0 : receiverCP.hashCode());
 		result = prime * result
+				+ ((receiverEmail == null) ? 0 : receiverEmail.hashCode());
+		result = prime * result
 				+ ((receiverName == null) ? 0 : receiverName.hashCode());
 		result = prime * result
 				+ ((receiverPhone == null) ? 0 : receiverPhone.hashCode());
@@ -745,6 +754,11 @@ public class Orders {
 				return false;
 		} else if (!receiverCP.equals(other.receiverCP))
 			return false;
+		if (receiverEmail == null) {
+			if (other.receiverEmail != null)
+				return false;
+		} else if (!receiverEmail.equals(other.receiverEmail))
+			return false;
 		if (receiverName == null) {
 			if (other.receiverName != null)
 				return false;
@@ -837,23 +851,25 @@ public class Orders {
 				+ ", jibunNum1=" + jibunNum1 + ", jibunNum2=" + jibunNum2
 				+ ", orderDetailAddress=" + orderDetailAddress
 				+ ", receiverName=" + receiverName + ", receiverCP="
-				+ receiverCP + ", stockAmount=" + stockAmount
-				+ ", receiverPhone=" + receiverPhone + ", dlvEndDate="
-				+ dlvEndDate + ", sizeCode=" + sizeCode + ", cstCode="
-				+ cstCode + ", noticeComment=" + noticeComment + ", noticeImg="
-				+ noticeImg + ", itemId=" + itemId + ", cstId=" + cstId
-				+ ", levelCode=" + levelCode + ", itemName=" + itemName
-				+ ", price=" + price + ", itemCnt=" + itemCnt + ", cstName="
-				+ cstName + ", cstCP=" + cstCP + ", cstEmail=" + cstEmail
-				+ ", noticeType=" + noticeType + ", cardMessage=" + cardMessage
-				+ ", dlvwarn=" + dlvwarn + ", cardCode=" + cardCode
-				+ ", cardName=" + cardName + ", cardSectionCode="
-				+ cardSectionCode + ", cardSectionType=" + cardSectionType
-				+ ", saveCode=" + saveCode + ", saveType=" + saveType
-				+ ", telecomCode=" + telecomCode + ", telecomName="
+				+ receiverCP + ", receiverEmail=" + receiverEmail
+				+ ", stockAmount=" + stockAmount + ", receiverPhone="
+				+ receiverPhone + ", dlvEndDate=" + dlvEndDate + ", sizeCode="
+				+ sizeCode + ", cstCode=" + cstCode + ", noticeComment="
+				+ noticeComment + ", noticeImg=" + noticeImg + ", itemId="
+				+ itemId + ", cstId=" + cstId + ", levelCode=" + levelCode
+				+ ", itemName=" + itemName + ", price=" + price + ", itemCnt="
+				+ itemCnt + ", cstName=" + cstName + ", cstCP=" + cstCP
+				+ ", cstEmail=" + cstEmail + ", noticeType=" + noticeType
+				+ ", cardMessage=" + cardMessage + ", dlvwarn=" + dlvwarn
+				+ ", cardCode=" + cardCode + ", cardName=" + cardName
+				+ ", cardSectionCode=" + cardSectionCode + ", cardSectionType="
+				+ cardSectionType + ", saveCode=" + saveCode + ", saveType="
+				+ saveType + ", telecomCode=" + telecomCode + ", telecomName="
 				+ telecomName + ", termCode=" + termCode + ", installmentTerm="
 				+ installmentTerm + ", deductionCode=" + deductionCode
 				+ ", deductionName=" + deductionName + ", wayCode=" + wayCode
 				+ ", wayType=" + wayType + "]";
 	}
+	
+	
 }
