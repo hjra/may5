@@ -6,7 +6,7 @@
 
 <link href="/CShop/resources/css/orderDetail.css" rel="stylesheet">
 
-
+<br><br><br><br><br><br>
 <p><strong>*</strong>는 필수입력 항목입니다</p>
 <f:form action="advanceOrderPayment.do" method="post" commandName="orders" onkeypress="return event.keyCode!=13">
 	<div class="od">
@@ -38,7 +38,7 @@
 				</div>
 				<div class="odName">
 					<span><label for="name"><strong>*</strong>이름</label></span>
-					<span><input type="text" id="receiverName" placeholder="ex)홍명보"  value="${cstExistingInfo.cstName}"/></span>
+					<span><input type="text" name="receiverName" placeholder="ex)홍명보"  value="${cstExistingInfo.cstName}"/></span>
 				</div>
 			</c:otherwise>
 		</c:choose>
@@ -46,13 +46,13 @@
 	<div class="od">
 		<div class="odCp">
 			<span><label for="receiverCP"><strong>*</strong>휴대전화번호</label></span>
-			<span><input type="tel" id="receiverCP" placeholder="ex)01098765432" value="${cstExistingInfo.cstCP}"/></span>
+			<span><input type="tel" name="receiverCP" placeholder="ex)01098765432" value="${cstExistingInfo.cstCP}"/></span>
 		</div>
 	</div>
 	<div class="od">
 		<div class="odEmail">
-			<span><label for="email">이메일</label></span>
-			<span><input type="email" id="email" placeholder="ex)id@domain.com" value="${cstExistingInfo.cstEmail}"/></span>
+			<span><label for="receiverEmail">이메일</label></span>
+			<span><input type="email" name="receiverEmail" placeholder="ex)id@domain.com" value="${cstExistingInfo.cstEmail}"/></span>
 		</div>
 	</div>
 	
@@ -137,11 +137,14 @@
 	</div>
 	<div class="od">
 		<div class="odEmail">
-			<span><label for="email">이메일</label></span>
-			<span><input type="email" id="email" placeholder="ex)id@domain.com" value="${cstExistingInfo.cstEmail}"/></span>
+			<span><label for="receiverEmail">이메일</label></span>
+			<span><input type="email" name="receiverEmail" placeholder="ex)id@domain.com" value="${cstExistingInfo.cstEmail}"/></span>
 		</div>
 	</div>
 	</div>
+		<input type="hidden" value="${orders.orderAmount }" name="orderAmount">
+		<input type="hidden" value="${orders.optionType }" name="optionType">
+		<input type="hidden" value="${orders.cardMessage }" name="cardMessage">
 	<div>
 			<input type="reset" value="재입력"/>
 			<input type="button" onclick="javascript:history.back(-1)" value="이전"/>

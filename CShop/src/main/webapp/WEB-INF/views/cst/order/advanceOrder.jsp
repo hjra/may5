@@ -15,15 +15,6 @@
 
 <style type="text/css">
 /* Recommended styles */
-/* 	.drag,.dragTop {
-	float: left;
-	width: 21%;
-	background-color: Green;
-	color: White;
-	margin: 10px 2%;
-	cursor: move;
-	border-radius: 2em;
-}  */
 
 .dragCream,.dragTop {
 	float: left;
@@ -34,58 +25,42 @@
 } 
 
 .dragImg{float:left; width:80px; height:80px; margin: 10px 2%;}
+	text-align: center;
+	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+	border-radius: 1em;
+}
 
 .selected {
-	/* background-color: white; */
-	/* ie를 제외한 최신 웹브라우저*/
-	background: none rgba(0, 0, 0, 0.1);
-	/* ie전용 백그라운드 필터 */
-	filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#80000000', endColorstr='#80000000');
+	background-color: Yellow;
 	color: Black;
-	width: 90px;
-	height: 90px;
-	-webkit-border-radius:45px;
-	-moz-border-radius:45px;
-	border-radius:45px;
 }
 
 .drop {
-	background-color: #e1b992;
+	background-color: Blue;
 	color: White;
-	width: 50%;
-	height: 200px;
 	margin: 3px;
 	padding: 10px;
-	border-radius: 2em;
-}
-
-#itemBasket {
-	background-color: skyblue;
-	color: White;
-	width: 50%;
-	height: 200px;
-	margin: 3px;
-	padding: 10px;
-	border-radius: 2em;
+	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+	border-radius: 1em;
 }
 
 .active {
-	background-color: #efd59b;
+	background-color: orange;
 	cursor: crosshair;
 }
-
-.testDiv {color:black;}
 </style>
 
 <div id="how">
-	<div class="drop" id="dropCream" style="position:relative;">
+	<div class="drop" id="dropCream" >
 		<div style="clear: both;">
-			<p>크림을 선택해 주세요♥</p>
+			<p>You can drop items here.</p>
 		</div>
 	</div>
-	<div class="drop" id="dropTop" style="position:relative;">
+	<div class="drop" id="dropTop" >
 		<div style="clear: both;">
-			<p>토핑을 선택해 주세요♥</p>
+			<p>You can drop items here too.</p>
 		</div>
 	</div>
 	
@@ -104,18 +79,14 @@
 		<div class="dragTop" id="tG1"><img id="G" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
 		<div class="dragTop" id="tG2"><img id="G" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
 		<div class="dragTop" id="tG3"><img id="G" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
+
 	</div>
-	
-	
 	<div style="clear: both">&nbsp;</div>
 </div>
-<input type="button" value="선택완료" id="btnChoice">
-
-
-
 
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
-<script type="text/javascript" src="resources/js/jquery.mobiledragdrop.js"></script>
+<script type="text/javascript"
+	src="resources/js/jquery.mobiledragdrop.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(".dragCream").mobiledraganddrop({
@@ -166,7 +137,6 @@
 
 
 
-
 <!-- <style>
 #afterItemBasket {width:400px;height:400px;;border:1px solid #aaaaaa; float:left; display: inline-block;}
 #beforeItemBasket {width:400px;height:400px;padding:10px;border:1px solid #aaaaaa; display: inline-block;}
@@ -198,7 +168,15 @@ function drop(ev) {
 </div>
 
 
-- 테스트 중 -<br><br>
+이미지 맵 설정
+<map name="TopB.png"><area shape="circle" coords="279,279,279" href="" target="" alt="바나나" /></map>
+<map name="TopS.png"><area shape="circle" coords="279,279,279" href="" target="" alt="딸기" /></map>
+<map name="TopG.png"><area shape="circle" coords="279,279,279" href="" target="" alt="포도" /></map>
+ -->
+
+
+<!-- 
+-------------------------------------- 테스트 중 ----------------------------------------<br><br>
   <script type="text/javascript">
  
     function onDragStart(event){
@@ -281,4 +259,4 @@ function drop(ev) {
    
     <br><br><div id="msg"></div>
    
- -->
+-------------------------------------- 테스트 중 ----------------------------------------<br><br> -->

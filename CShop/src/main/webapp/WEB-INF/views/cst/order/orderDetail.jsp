@@ -30,12 +30,8 @@
 						<th scope="row"><label for=""><strong>*</strong>옵션선택</label></th>
 						<td>
 							<c:forEach var="optionChoose" items="${optionPrice }" end="5">
-								<input type="radio" value="${optionChoose.optionCode }" name="optionCode" required="required">
-									${optionChoose.optionType } ${optionChoose.optionPrice }원<br>
-								<%-- <c:if test="${optionChoose.optionCode == 0 }">
-									<input type="hidden" value="${optionChoose.optionType }" name="optionType">
-								</c:if> --%>
-								
+								<input type="radio" value="${optionChoose.optionType }" 
+										name="optionType" required="required"> ${optionChoose.optionType } ${optionChoose.optionPrice }원<br>
 							</c:forEach>
 							
 						</td>
