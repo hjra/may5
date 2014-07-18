@@ -4,16 +4,18 @@
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<br><br><br><br><br><br>
 <h1>예약주문페이지</h1>
 <f:form action="orderDetail.do" method="post">
 	<div id="choiceItem"></div>
+	<div id="choiceItem2"></div>
 	<input type="submit" value="다음">
 </f:form>
 <br>
 
 <style type="text/css">
 /* Recommended styles */
-/* 	.drag,.drag2 {
+/* 	.drag,.dragTop {
 	float: left;
 	width: 21%;
 	background-color: Green;
@@ -23,7 +25,7 @@
 	border-radius: 2em;
 }  */
 
-.drag1,.drag2 {
+.dragCream,.dragTop {
 	float: left;
 	width: 70px;
 	height: 70px;
@@ -76,32 +78,32 @@
 </style>
 
 <div id="how">
-	<div class="drop" id="drop1" style="position:relative;">
+	<div class="drop" id="dropCream" style="position:relative;">
 		<div style="clear: both;">
 			<p>크림을 선택해 주세요♥</p>
 		</div>
 	</div>
-	<div class="drop" id="drop2" style="position:relative;">
+	<div class="drop" id="dropTop" style="position:relative;">
 		<div style="clear: both;">
 			<p>토핑을 선택해 주세요♥</p>
 		</div>
 	</div>
 	
 	<div id="itemBasket" >
-		<div class="drag1" id="cC"><img id="creamC" class="dragImg" usemap="#mapC.png" src="/CShop/resources/img/cake/CreamC.png"></div>
-		<div class="drag1" id="cF"><img id="creamF" class="dragImg" usemap="#mapF.png" src="/CShop/resources/img/cake/CreamF.png"></div>
+		<div class="dragCream" id="cC"><img id="creamC" class="dragImg" usemap="#mapC.png" src="/CShop/resources/img/cake/CreamC.png"></div>
+		<div class="dragCream" id="cF"><img id="creamF" class="dragImg" usemap="#mapF.png" src="/CShop/resources/img/cake/CreamF.png"></div>
 	
-		<div class="drag2" id="tB1"><img id="topB" class="dragImg" usemap="#mapB.png" src="/CShop/resources/img/cake/TopB.png"></div>
-		<div class="drag2" id="tB2"><img id="topB" class="dragImg" usemap="#mapB.png" src="/CShop/resources/img/cake/TopB.png"></div>
-		<div class="drag2" id="tB3"><img id="topB" class="dragImg" usemap="#mapB.png" src="/CShop/resources/img/cake/TopB.png"></div>
-		
-		<div class="drag2" id="tS1"><img id="topS" class="dragImg" usemap="#mapS.png" src="/CShop/resources/img/cake/TopS.png"></div>
-		<div class="drag2" id="tS2"><img id="topS" class="dragImg" usemap="#mapS.png" src="/CShop/resources/img/cake/TopS.png"></div>
-		<div class="drag2" id="tS3"><img id="topS" class="dragImg" usemap="#mapS.png" src="/CShop/resources/img/cake/TopS.png"></div>
-		
-		<div class="drag2" id="tG1"><img id="topG" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
-		<div class="drag2" id="tG2"><img id="topG" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
-		<div class="drag2" id="tG3"><img id="topG" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
+		<div class="dragTop" id="tS1"><img id="S" class="dragImg" usemap="#mapS.png" src="/CShop/resources/img/cake/TopS.png"></div>
+		<div class="dragTop" id="tS2"><img id="S" class="dragImg" usemap="#mapS.png" src="/CShop/resources/img/cake/TopS.png"></div>
+		<div class="dragTop" id="tS3"><img id="S" class="dragImg" usemap="#mapS.png" src="/CShop/resources/img/cake/TopS.png"></div>
+	
+		<div class="dragTop" id="tB1"><img id="B" class="dragImg" usemap="#mapB.png" src="/CShop/resources/img/cake/TopB.png"></div>
+		<div class="dragTop" id="tB2"><img id="B" class="dragImg" usemap="#mapB.png" src="/CShop/resources/img/cake/TopB.png"></div>
+		<div class="dragTop" id="tB3"><img id="B" class="dragImg" usemap="#mapB.png" src="/CShop/resources/img/cake/TopB.png"></div>
+			
+		<div class="dragTop" id="tG1"><img id="G" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
+		<div class="dragTop" id="tG2"><img id="G" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
+		<div class="dragTop" id="tG3"><img id="G" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
 	</div>
 	
 	
@@ -116,39 +118,46 @@
 <script type="text/javascript" src="resources/js/jquery.mobiledragdrop.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$(".drag1").mobiledraganddrop({
-			targets : "#drop1, #itemBasket",
+		$(".dragCream").mobiledraganddrop({
+			targets : "#dropCream, #itemBasket",
 			status : "#status"
 		});
-		$(".drag2").mobiledraganddrop({
-			targets : "#drop2, #itemBasket",
+		$(".dragTop").mobiledraganddrop({
+			targets : "#dropTop, #itemBasket",
 			status : "#status"
 		});
 		
 		$("#btnChoice").click(function(){
-			$('#choiceDiv').html("").hide();
-			var creamId = $('#drop1 > .drag1 > .dragImg').attr('id');
+			$('#choiceItem >').html('');
+			$('#choiceItem2 >').html('');
+			var creamId = $('#dropCream > .dragCream > .dragImg').attr('id');
 			alert("선택된 크림: "+creamId);
 			
-			var topId = $('#drop2 > .drag2 > .dragImg').attr('id');
-			var topLen = $('#drop2 > .drag2 > .dragImg').length;
+			var topLen = $('#dropTop > .dragTop > .dragImg').length;
 			alert("선택된 토핑 수: "+topLen);
-			
-			
-			$('#drop2 > .drag2 > .dragImg').each(function(index){
+
+		
+			 var arrayOfIds = $.map($('#dropTop > .dragTop > .dragImg'), function(n, i){
+				  return n.id;
+				});
+				alert("arrayOfIds: "+arrayOfIds);
+				var strJoin = arrayOfIds.join('');
+				alert("배열 join 결과: "+strJoin);
 				
-				var objName = $(this).attr('id');
-				alert("선택한 토핑: "+objName);
-				$("<input type='text' name='itemId' value='"+ objName +"'>").insertAfter('#choiceItem');
-				$('#choiceDiv').show();
-			});
-			
+				
+				/* var strId = arrayOfIds.replace(",","");
+				 alert(", 삭제 결과: "+strId); */
+				/* $("<input type='text' name='itemId' value='"
+						+ arrayOfIds.sort() +"'>").insertAfter('#choiceItem'); */
+				$('#choiceItem').append("<input type='text' name='itemId' value='"
+						+ arrayOfIds.sort() +"'>");
+				
 		});	
 	});
 </script>
 
-<map name="mapB.png"><area shape="circle" coords="280,280,280" href="" target="" alt="바나나" /></map>
 <map name="mapS.png"><area shape="circle" coords="280,280,280" href="" target="" alt="딸기" /></map>
+<map name="mapB.png"><area shape="circle" coords="280,280,280" href="" target="" alt="바나나" /></map>
 <map name="mapG.png"><area shape="circle" coords="280,280,280" href="" target="" alt="포도" /></map>
 <map name="mapC.png"><area shape="circle" coords="280,280,280" href="" target="" alt="초코크림" /></map>
 <map name="mapF.png"><area shape="circle" coords="280,280,280" href="" target="" alt="생크림" /></map>
