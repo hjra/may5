@@ -75,6 +75,9 @@
         margin-top: 30px; 
         width:auto; 
         height:100px; 
+        position: fixed;
+        left: 50%;
+        margin-left: -40;   
 
 }
 
@@ -168,7 +171,6 @@
                     <input type='button' value='검색'/>
                 </div>
                 </li>
-
         </ul>
     </div>
 	 

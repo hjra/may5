@@ -3,7 +3,6 @@
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page session="true" %>
-<center><h1>게시판.jsp로 이동완료</h1></center>	
 	<style type="text/css">
     body{
         line-height:2em;        
@@ -84,6 +83,7 @@
         text-align : left;
 }
 
+    .redBtn2{margin-left: 360px;}     
 
 </style>
 	
@@ -93,11 +93,10 @@
 
         <ul>
             <!-- 게시판 제목 -->
-            <li>게시판 Title </li>
+            <li><h2>C# QnA 게시판 </h2></li><br></br>
 
             <!-- 게시판 목록  -->
             <li>
-                Table
                 <ul id ="ulTable">
                     <li>
                         <ul>
@@ -150,13 +149,15 @@
             <tr>
 				<td></td>
 				<td><input type="hidden" name="cstId" value="${board.cstId}">
-				<input type="button" onclick="document.location='boardWriteForm.do'" value="글쓰기" class="redBtn"></td>
+				
+				
 				<td></td>
 				<td align="left">
 				<td></td>
 					
 			</tr>
             
+         
             
             
             
@@ -167,8 +168,10 @@
                     <div>◀</div>
                        <div><b>1</b></div>
                    	   <div>▶</div>
+                   	            <input type="button" onclick="document.location='boardWriteForm.do'" value="글쓰기" class="redBtn2">
                 </div>
             </li>
+      
 
             <!-- 검색 폼 영역 -->
             
