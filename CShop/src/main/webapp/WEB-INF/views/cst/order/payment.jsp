@@ -3,10 +3,15 @@
 <%@ page session="true"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
-
-<h1>결제결제결제</h1>
+<link href="/CShop/resources/css/payment.css" rel="stylesheet">
+<div class="useroption">
+<div class="useroptiona">
+<div class="useroptionb">
+<div class="optiona">ADVANCE ORDER</div>
+			<div class="abn"></div>
+			<div class="aba">결제</div> 
+			<div class="abs"></div>
+			<div class="abc"></div>
 
 <f:form action="paymentOk.do" method="post" commandName="orders">
 
@@ -110,13 +115,16 @@
 		</div>
 	</c:when>
 </c:choose>
-	<p>
-		<input type="reset" value="재입력"/>
-		<input type="button" onclick="javascript:history.back(-1)" value="이전"/>
-		<input type="submit" value="다음"/>
-	</p>
+	
+		<input type="reset" value="재입력" class="ased" style="font-weight:bold" />
+		<input type="button" onclick="javascript:history.back(-1)" value="이전" class="aseda" style="font-weight:bold"/>
+		<input type="submit" value="다음" class="aseda" style="font-weight:bold"/>
+	
 </f:form>
 
 
 <script type="text/javascript"></script>
 <script src="resources/script/advanceOrder.js"></script>
+</div>
+</div>
+</div>
