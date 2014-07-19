@@ -126,7 +126,6 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
-	
 	<div class="od">
 		<div class="odCp"> 
 			<span class="nameaa"><label for="receiverCP">*휴대전화번호</label></span>
