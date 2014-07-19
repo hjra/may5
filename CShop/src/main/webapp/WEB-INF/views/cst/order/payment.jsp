@@ -25,7 +25,7 @@
 	신용카드..
 		<div class="">
 			<span class=""><label for="">주문상품</label></span>
-			<span><input type="text" name="" value=""></span>
+			<span><input type="text" name="" value="${orders.itemId }"></span>
 		</div>
 		<div class="">
 			<span class=""><label for="">상품금액</label></span>
@@ -65,7 +65,7 @@
 	계좌이체..
 		<div class="">
 			<span class=""><label for="">주문상품</label></span>
-			<span><input type="text" name="" value=""></span>
+			<span><input type="text" name="" value="${orders.itemId }"></span>
 		</div>
 		<div class="">
 			<span class=""><label for="">상품금액</label></span>
@@ -88,7 +88,7 @@
 	휴대폰 소액결제
 		<div class="">
 			<span class=""><label for="">상품명</label></span>
-			<span><input type="text" name=""></span>
+			<span><input type="text" name="" value="${orders.itemId }"></span>
 		</div>
 		<div class="">
 			<span class=""><label for="">결제금액</label></span>
@@ -120,11 +120,31 @@
 		</div>
 	</c:when>
 </c:choose>
+		<input type="hidden" value="${orders.itemId }" name="itemId">
+		<input type="hidden" value="${orders.orderAmount }" name="orderAmount">
+		<input type="hidden" value="${orders.optionType }" name="optionType">
+		<input type="hidden" value="${orders.cardMessage }" name="cardMessage">
+		<input type="hidden" value="${orders.receiverName }" name="receiverName">
+		<input type="hidden" value="${orders.receiverCP }" name="receiverCP">
+		<input type="hidden" value="${orders.receiverEmail }" name="receiverEmail">
+		<input type="hidden" value="${orders.orderDetailAddress }" name="orderDetailAddress">
+		<input type="hidden" value="${orders.dlvwarn }" name="dlvwarn">
 	<p>
 		<input type="reset" value="재입력"/>
 		<input type="button" onclick="javascript:history.back(-1)" value="이전"/>
 		<input type="submit" value="다음"/>
 	</p>
+	테스트 
+		${orders.itemId }
+		${orders.orderAmount }
+		${orders.optionType }
+		${orders.cardMessage }
+		${orders.receiverName }
+		${orders.receiverCP }
+		${orders.receiverEmail }
+		${orders.orderDetailAddress }
+		${orders.dlvwarn } 
+		테스트
 </f:form>
 </div>
 </div>

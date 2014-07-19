@@ -145,7 +145,10 @@
 			<input type="button" onclick="javascript:history.back(-1)" value="이전" class="aseda" style="font-weight:bold"/>
 			<input type="submit" value="다음" class="aseda" style="font-weight:bold"/>
 	</div>
-	
+		<input type="hidden" value="${orders.orderAmount }" name="orderAmount">
+		<input type="hidden" value="${orders.optionType }" name="optionType">
+		<input type="hidden" value="${orders.cardMessage }" name="cardMessage">
+		<input type="hidden" value="${orders.itemId }" name="itemId">
 </f:form>
 
 </div>

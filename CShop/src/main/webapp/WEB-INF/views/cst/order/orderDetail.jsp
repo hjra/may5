@@ -31,12 +31,8 @@
 						<th scope="row"><label for=""><strong>*</strong>옵션선택</label></th>
 						<td>
 							<c:forEach var="optionChoose" items="${optionPrice }" end="5">
-								<input type="radio" value="${optionChoose.optionCode }" name="optionCode" required="required">
+								<input type="radio" value="${optionChoose.optionType }" name="optionType" required="required">
 									${optionChoose.optionType } ${optionChoose.optionPrice }원<br>
-								<%-- <c:if test="${optionChoose.optionCode == 0 }">
-									<input type="hidden" value="${optionChoose.optionType }" name="optionType">
-								</c:if> --%>
-								
 							</c:forEach>
 							
 						</td>
@@ -67,8 +63,8 @@
 							<input type="hidden" value="${sessionScope.cstLogin.cstId}" name="cstId">
 						</c:otherwise>
 					</c:choose>
+				<input type="hidden" value="${itemId }" name="itemId">
 				<input type="submit" value="다음"  class="aseda" style="font-weight:bold">
-					
 			</div>
 	</fieldset>
 </f:form>
