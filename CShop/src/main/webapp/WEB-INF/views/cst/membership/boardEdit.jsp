@@ -5,8 +5,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="true"%>
-<h1>게시글 수정 페이지으로 이동하셨습니다!!!</h1>
-현재 접속한 cstCode: ${sessionScope.cstLogin.cstCode}<p>
 
 <script type="text/javascript">
 	function updateGo() {
@@ -25,9 +23,9 @@
 
  										
 
-		<h1 align="center">boardContext</h1>
+		<h1 align="center">게시글 확인</h1>
 		<font size="2">
-		
+		<br></br>
 			
 		
 		
@@ -36,7 +34,8 @@
 					
 				<tr>
 					<td>제&nbsp;&nbsp;&nbsp;목</td>
-					<td>${qnaContent.boardTitle}</td>
+					<td> ${qnaContent.boardTitle}</td>
+					
 				</tr>
 				<tr>
 					<td>작성자</td>
@@ -45,7 +44,7 @@
 				<tr>
 					
 					<td align="center">글내용</td>
-					<td>${qnaContent.postContents}</td>
+					 <td> <textarea name="content" id="content" rows="13" cols="40" style="width:500px;">${qnaContent.postContents}</textarea> </td>
 				</tr>
 				
 				<tr>
@@ -53,7 +52,11 @@
 					<td>
 				</tr>
 				<tr>
-					<center><td>
+					<center>
+					<td></td>
+					
+					<td>
+					<center>
 								<form id="GoSelect" method="post">
 									<input type="hidden" name="boardCode" value="${qnaContent.boardCode}" class="redBtn"> 
 									<input type="button" id="update" onclick="updateGo()" value="수정" class="redBtn" />
@@ -61,8 +64,9 @@
 									<input type="button" value="목록" onclick="document.location='board.do'" class="redBtn" />
 																	
 								</form>
-								
-					</center></td>
+					</center>	
+						</td>		
+					</center>
 						
 				</tr>
 				
@@ -112,7 +116,7 @@
 			<tr height="35px">
 				<td align="center">${status.count}</td>
 				<td>${boardReplys.qnaReply}</td>		
-				<td>${boardReplys.cstId}</td>
+				<td>${boardReplys.cstId== "noMember" ? "관리자" : boardReplys.cstId}</td>
 					
 				<td align="center">
 				<fmt:formatDate value="${boardReplys.replyDate }" pattern="yyyy-MM-dd" />

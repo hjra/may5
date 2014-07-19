@@ -40,7 +40,7 @@
   <td colspan="2" bgcolor="#1F4F8F" height="1"></td>  
  </tr>                                        
  <tr>                                        
-  <td colspan="2" bgcolor="#DFEDFF" height="20" class="notice">&nbsp;&nbsp;<font size="2">새글 쓰기</font></td> 
+  <td colspan="2" bgcolor="#DFEDFF" height="20" class="notice">&nbsp;&nbsp;<font size="2"><center>게시판 새글 쓰기</center></font></td> 
  </tr>                                       
  <tr>                                       
   <td colspan="2" bgcolor="#1F4F8F" height="1"></td>   
@@ -77,11 +77,13 @@
     <tr>                     
      <td width="28%">&nbsp;</td>               
      <td width="51%">&nbsp;</td>               
-     
+   
+  
   <td>
      <input type="submit"  value="등록하기" class="redBtn"></td>    
      <td width="12%"><input type="button" onClick="document.location='board.do'" value = 취소></td>    
     </tr>
+    
    </table>
   </td>
  </tr>
@@ -89,5 +91,6 @@
 </CENTER>                                            
 </FORM> 
 </BODY>
-
+<br></br>
+<br></br>
 </html>

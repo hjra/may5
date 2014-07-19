@@ -33,13 +33,13 @@
 		
 			
 		
-		
 		<center>
 			<table border="1" width = "600">
 					
 				<tr>
 					<td>제&nbsp;&nbsp;&nbsp;목</td>
-					<td>${qnaContent.boardTitle}</td>
+					<td> ${qnaContent.boardTitle}</td>
+					
 				</tr>
 				<tr>
 					<td>작성자</td>
@@ -48,7 +48,7 @@
 				<tr>
 					
 					<td align="center">글내용</td>
-					<td>${qnaContent.postContents}</td>
+					 <td> <textarea name="content" id="content" rows="13" cols="40" style="width:500px;">${qnaContent.postContents}</textarea> </td>
 				</tr>
 				
 				<tr>
@@ -57,14 +57,18 @@
 				</tr>
 				<tr>
 					<center>
-						<td>
+					<td></td>
+					
+					<td>
+					<center>
 								<form id="GoSelect" method="post">
-									<input type="hidden" name="boardCode" value="${qnaContent.boardCode}" class="redBtn"/> 
+									<input type="hidden" name="boardCode" value="${qnaContent.boardCode}" class="redBtn"> 
 									<input type="button" id="update" onclick="updateGo()" value="수정" class="redBtn" />
 									<input type="button" id="delete" onclick="deleteGo()" value="삭제" class="redBtn" />
-									<!-- <input type="button" value="목록" onclick="document.location='board.do'" class="redBtn" /> -->
-									<input type="button" value="뒤로" onclick="history.back()"/>								
+									<input type="button" value="뒤로" onclick="history.back()"/>
+																	
 								</form>
+					</center>	
 						</td>		
 					</center>
 						
@@ -73,7 +77,6 @@
 			</table>
 			</center>
 		</font>
-		
 		
 	
 		
