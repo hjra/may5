@@ -34,10 +34,8 @@
 								<input type="radio" value="${optionChoose.optionType }" name="optionType" required="required">
 									${optionChoose.optionType } ${optionChoose.optionPrice }원<br>
 							</c:forEach>
-							
 						</td>
 					</tr>
-					
 					<tr>
 						<th scope="row"><label for="cardMessage">카드문구</label></th>
 						<td>

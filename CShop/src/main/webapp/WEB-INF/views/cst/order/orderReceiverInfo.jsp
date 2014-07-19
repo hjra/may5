@@ -101,7 +101,6 @@
 			<span><input type="text" id="dlvwarn" name="dlvwarn"/></span>
 		</div>
 	</div>
-	
 	<div id="dn" style="display: block;">
 	<div class="od">
 		<c:choose>
