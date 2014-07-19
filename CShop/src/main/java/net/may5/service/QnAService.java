@@ -17,6 +17,7 @@ public interface QnAService {
 	void updateBoard(QnA qna);//게시글 업데이트
 	QnA getBoard(int boardCode);//수정할 게시글 가지고 와서 수정폼으로 넣어주기
 	public void setReply(QnA qna);//댓글의 삽입해주는 단계
+	public void mngReply(QnA qna);//관리자 댓글을 삽입해 주는 단계
 	public QnA getQnAContent(int boardCode);
 	public List<QnA> getQnAContentReplies(int boardCode);
 	
