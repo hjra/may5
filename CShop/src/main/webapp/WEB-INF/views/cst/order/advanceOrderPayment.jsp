@@ -3,21 +3,27 @@
 <%@ page session="true"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<link href="/CShop/resources/css/advanceOrderPayment.css" rel="stylesheet">
+<div class="useroption">
+<div class="useroptiona">
+<div class="useroptionb">
+<div class="optiona">ADVANCE ORDER</div>
+			<div class="abn"></div>
+			<div class="aba"></div>  
+			<div class="abs">결제정보</div>
+			<div class="abc">결제방법선택</div>
 
-	
-	<h1>결제정보</h1>
+	<h1></h1>
 	<f:form method="post" action="payment.do" commandName="orders">
 	<fieldset>
-	<legend>결제방법선택</legend>
 	
 	<!-- html 시작 -->
 	일반결제 :
 	<c:forEach var="payKinds" items="${payKind }" >
 		<input type="radio" name="payType" value="${payKinds.payType }" 
 			onclick="div_OnOff(this.value,'${payKinds.payType }');">${payKinds.payType }
+				
 	</c:forEach>
-	
-
 	<div id="신용카드" style="display: block">
 		카드구분 : 
 		<c:forEach var="cardSections" items="${cardSection }" >
@@ -25,17 +31,17 @@
 				onclick="div_OnOff2(this.value,'${cardSections.cardSectionType }');">${cardSections.cardSectionType }
 		</c:forEach>
 		
-		
 		<div id="개인카드" style="display: block">카드종류 : 
 			<select name="cardName" id="selectBox"  title="cardKind">
 				<c:forEach var="cardKinds" items="${cardKind }">
 					<option value="${cardKinds.cardName}">${cardKinds.cardName}</option>
 				</c:forEach>
  			</select>
+ 			
  			<br>할부기간 : 
  			<select id="selectBox" name="installmentTerm" title="installment" >
  				<c:forEach var="term" items="${installment }">
- 					<option value="${term.termCode }">${term.installmentTerm }</option>
+ 					<option value="${term.installmentTerm }">${term.installmentTerm }</option>
  				</c:forEach>
  			</select>
  			<br>주문자동의 : <input id="allAgreement" type="checkbox" >전체동의<br>
@@ -70,7 +76,6 @@
 			<input type="radio" name="saveType" value="${cashReceiptRequestInfoSaves.saveType }" 
 				onclick="div_OnOff3(this.value,'${cashReceiptRequestInfoSaves.saveType }');">${cashReceiptRequestInfoSaves.saveType }
 		</c:forEach>
-	
 		
 			<div id="신청 및 저장" style="display: block">
 				공제용도 : 
@@ -78,7 +83,6 @@
 					<input type="radio" name="deductionName" value="${deductions.deductionName }" 
 						onclick="div_OnOff4(this.value,'${deductions.deductionName }');">${deductions.deductionName }
 				</c:forEach>
-				
 				
 				<div id="개인소득공제용" style="display: block">신청수단 : 
 					<select id="selectBoxValue" name="wayType" title="cashReceiptRequestWay" >
@@ -107,7 +111,6 @@
 						onclick="div_OnOff4(this.value,'${deductions.deductionName }');">${deductions.deductionName }
 				</c:forEach>
 				
-				
 				<div id="개인소득공제용" style="display: block">신청수단 : 
 					<select id="selectBoxValue" name="wayType" title="cashReceiptRequestWay" >
 						<c:forEach var="requestWay" items="${cashReceiptRequestWay }" varStatus="status" begin="1" end="3">
@@ -119,6 +122,7 @@
 				<div id="사업자증빙용" style="display: none" >신청수단 : 
 					<select id="selectBoxValue" name="wayType" title="cashReceiptRequestWay" >
 						<c:forEach var="requestWay" items="${cashReceiptRequestWay }" varStatus="status" begin="1" end="4">
+						
 							<c:if test="${status.index!=2 }">		
 							  <option value="${requestWay.wayType }">${requestWay.wayType }</option>
 							</c:if>
@@ -155,12 +159,16 @@
 		<input type="hidden" value="${orders.orderDetailAddress }" name="orderDetailAddress">
 		<input type="hidden" value="${orders.dlvwarn }" name="dlvwarn">
 		<p>
-				<input type="reset" value="재입력"/>
-				<input type="button" onclick="javascript:history.back(-1)" value="이전"/>
-				<input type="submit" value="다음"/>
+			<input type="reset" value="재입력" class="ased" style="font-weight:bold"/>
+			<input type="button" onclick="javascript:history.back(-1)" value="이전" class="aseda" style="font-weight:bold"/>
+			<input type="submit" value="다음" class="aseda" style="font-weight:bold"/>
 		</p>
 	</fieldset>
 	</f:form>
 
+
+</div> 
+</div>
+</div>
 <script type="text/javascript"></script>
 <script src="resources/script/advanceOrder.js"></script>
