@@ -6,44 +6,41 @@
 
 <h1>예약주문페이지</h1>
 <f:form action="orderDetail.do" method="post">
+	<div id="choiceItem"></div>
+	<div id="choiceItem2"></div>
 	<input type="submit" value="다음">
 </f:form>
 <br>
 
 <style type="text/css">
-/* Recommended styles */
-/* 	.drag,.drag2 {
-	float: left;
-	width: 21%;
-	background-color: Green;
-	color: White;
-	margin: 10px 2%;
-	cursor: move;
-	border-radius: 2em;
-}  */
-
-.drag1,.drag2 {
+.dragCream,.dragTop {
 	float: left;
 	width: 70px;
 	height: 70px;
 	margin: 10px 2%;
 	cursor: move;
-} 
+}
 
-.dragImg{float:left; width:80px; height:80px; margin: 10px 2%;}
+.dragImg {
+	float: left;
+	width: 80px;
+	height: 80px;
+	margin: 10px 2%;
+}
 
 .selected {
 	/* background-color: white; */
 	/* ie를 제외한 최신 웹브라우저*/
 	background: none rgba(0, 0, 0, 0.1);
 	/* ie전용 백그라운드 필터 */
-	filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#80000000', endColorstr='#80000000');
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#80000000',
+		endColorstr='#80000000');
 	color: Black;
 	width: 90px;
 	height: 90px;
-	-webkit-border-radius:45px;
-	-moz-border-radius:45px;
-	border-radius:45px;
+	-webkit-border-radius: 45px;
+	-moz-border-radius: 45px;
+	border-radius: 45px;
 }
 
 .drop {
@@ -70,75 +67,107 @@
 	background-color: #efd59b;
 	cursor: crosshair;
 }
+
+.testDiv {
+	color: black;
+}
 </style>
 
 <div id="how">
-	<div class="drop" id="drop1" style="position:relative;">
+	<div class="sizeRadio">
+		<span>1호<input type="radio" name="size" value="S"></span>
+		<span>2호<input type="radio" name="size" value="M"></span>
+		<span>3호<input type="radio" name="size" value="L"></span>
+		
+	</div>
+	<div class="drop" id="dropCream" style="position: relative;">
 		<div style="clear: both;">
 			<p>크림을 선택해 주세요♥</p>
 		</div>
 	</div>
-	<div class="drop" id="drop2" style="position:relative;">
+	<div class="drop" id="dropTop" style="position: relative;">
 		<div style="clear: both;">
 			<p>토핑을 선택해 주세요♥</p>
 		</div>
 	</div>
+
+	<div id="itemBasket">
 	
-	<div id="itemBasket" >
-		<div class="drag1" id="cC"><img id="creamC" class="dragImg" usemap="#mapC.png" src="/CShop/resources/img/cake/CreamC.png"></div>
-		<div class="drag1" id="cF"><img id="creamF" class="dragImg" usemap="#mapF.png" src="/CShop/resources/img/cake/CreamF.png"></div>
-	
-		<div class="drag2" id="tB1"><img id="topB" class="dragImg" usemap="#mapB.png" src="/CShop/resources/img/cake/TopB.png"></div>
-		<div class="drag2" id="tB2"><img id="topB" class="dragImg" usemap="#mapB.png" src="/CShop/resources/img/cake/TopB.png"></div>
-		<div class="drag2" id="tB3"><img id="topB" class="dragImg" usemap="#mapB.png" src="/CShop/resources/img/cake/TopB.png"></div>
+		<div class="dragCream" id="f"><img id="1" class="dragImg" usemap="#mapF.png" src="/CShop/resources/img/cake/CreamF.png"></div>
+		<div class="dragCream" id="c"><img id="2" class="dragImg" usemap="#mapC.png" src="/CShop/resources/img/cake/CreamC.png"></div>
+
+		<div class="dragTop" id="s1"><img id="S" class="dragImg" usemap="#mapS.png" src="/CShop/resources/img/cake/TopS.png"></div>
+		<div class="dragTop" id="s2"><img id="S" class="dragImg" usemap="#mapS.png" src="/CShop/resources/img/cake/TopS.png"></div>
+		<div class="dragTop" id="s3"><img id="S" class="dragImg" usemap="#mapS.png" src="/CShop/resources/img/cake/TopS.png"></div>
+
+		<div class="dragTop" id="b1"><img id="B" class="dragImg" usemap="#mapB.png" src="/CShop/resources/img/cake/TopB.png"></div>
+		<div class="dragTop" id="b2"><img id="B" class="dragImg" usemap="#mapB.png" src="/CShop/resources/img/cake/TopB.png"></div>
+		<div class="dragTop" id="b3"><img id="B" class="dragImg" usemap="#mapB.png" src="/CShop/resources/img/cake/TopB.png"></div>
+		<div class="dragTop" id="g1"><img id="G" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
+		<div class="dragTop" id="g2"><img id="G" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
+		<div class="dragTop" id="g3"><img id="G" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
 		
-		<div class="drag2" id="tS1"><img id="topS" class="dragImg" usemap="#mapS.png" src="/CShop/resources/img/cake/TopS.png"></div>
-		<div class="drag2" id="tS2"><img id="topS" class="dragImg" usemap="#mapS.png" src="/CShop/resources/img/cake/TopS.png"></div>
-		<div class="drag2" id="tS3"><img id="topS" class="dragImg" usemap="#mapS.png" src="/CShop/resources/img/cake/TopS.png"></div>
-		
-		<div class="drag2" id="tG1"><img id="topG" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
-		<div class="drag2" id="tG2"><img id="topG" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
-		<div class="drag2" id="tG3"><img id="topG" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
 	</div>
-	
-	
+
+
 	<div style="clear: both">&nbsp;</div>
 </div>
-<input type="button" value="test" id="test">
+<input type="button" value="선택완료" id="btnChoice">
+
 
 <script type="text/javascript" src="resources/js/jquery.min.js"></script>
 <script type="text/javascript" src="resources/js/jquery.mobiledragdrop.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$(".drag1").mobiledraganddrop({
-			targets : "#drop1, #itemBasket",
+		$(".dragCream").mobiledraganddrop({
+			targets : "#dropCream, #itemBasket",
 			status : "#status"
 		});
-		$(".drag2").mobiledraganddrop({
-			targets : "#drop2, #itemBasket",
+		$(".dragTop").mobiledraganddrop({
+			targets : "#dropTop, #itemBasket",
 			status : "#status"
 		});
-		$("#test").click(function(){
-			var creamId = $('#drop1 > .drag1 > .dragImg').attr('id');
-			alert("선택된 크림: "+creamId);
-			var toppingId = $('#drop2 > .drag2 > .dragImg').attr('id').length;
-			alert("선택된 토핑"+toppingId);
-			
-			
-		      $.show($("#how").text("테스트입니다."));
-		});	
+
+		$("#btnChoice").click(function() {
+			$('#choiceItem').html('');
+			$('#choiceItem2').html('');
+			var sizeId = $('input:radio[name=size]:checked').attr('value');
+			var creamId = $('#dropCream > .dragCream > .dragImg').attr('id');
+			alert("선택된 크기: " + sizeId+"\n선택된 크림: " + creamId);
+
+			var topLen = $('#dropTop > .dragTop > .dragImg').length;
+			alert("선택된 토핑 수: " + topLen);
+
+			var toppingList = $.map($('#dropTop > .dragTop > .dragImg'),function(n, i) {
+				return n.id;
+			});
+			alert("toppingList: " + toppingList);
+			var toppingId = toppingList.sort().join('');
+			alert("배열 join 결과: " + toppingId);
+
+			/* var strId = toppingList.replace(",","");
+			 alert(", 삭제 결과: "+strId); */
+			/* $("<input type='text' name='itemId' value='"
+				+ toppingList.sort() +"'>").insertAfter('#choiceItem'); */
+
+			$('#choiceItem').append("<input type='text' name='itemId' value='"
+				+ sizeId + creamId + toppingId + "'>");
+			$('#choiceItem2').append("<img id='itemImage' src='/CShop/resources/img/cake/"
+					+ sizeId + creamId + toppingId + "1.png'>");
+		});
+		
+		
 	});
 </script>
 
-
-
-
-
-<map name="mapB.png"><area shape="circle" coords="280,280,280" href="" target="" alt="바나나" /></map>
 <map name="mapS.png"><area shape="circle" coords="280,280,280" href="" target="" alt="딸기" /></map>
+<map name="mapB.png"><area shape="circle" coords="280,280,280" href="" target="" alt="바나나" /></map>
 <map name="mapG.png"><area shape="circle" coords="280,280,280" href="" target="" alt="포도" /></map>
 <map name="mapC.png"><area shape="circle" coords="280,280,280" href="" target="" alt="초코크림" /></map>
 <map name="mapF.png"><area shape="circle" coords="280,280,280" href="" target="" alt="생크림" /></map>
+
+
+
 
 
 <!-- <style>
@@ -170,7 +199,15 @@ function drop(ev) {
 	<img id="drag2" class="dragImg" usemap="#TopS.png" src="/CShop/resources/img/cake/TopS.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
 	<img id="drag3" class="dragImg" usemap="#TopG.png" src="/CShop/resources/img/cake/TopG.png" draggable="true" ondragstart="drag(event)" width="100" height="100">
 </div>
+
+
+이미지 맵 설정
+<map name="TopB.png"><area shape="circle" coords="279,279,279" href="" target="" alt="바나나" /></map>
+<map name="TopS.png"><area shape="circle" coords="279,279,279" href="" target="" alt="딸기" /></map>
+<map name="TopG.png"><area shape="circle" coords="279,279,279" href="" target="" alt="포도" /></map>
  -->
+
+
 <!-- 
 -------------------------------------- 테스트 중 ----------------------------------------<br><br>
   <script type="text/javascript">

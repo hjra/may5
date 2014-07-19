@@ -3,12 +3,19 @@
 <%@ page session="true"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<link href="/CShop/resources/css/advanceOrderPayment.css" rel="stylesheet">
+<div class="useroption">
+<div class="useroptiona">
+<div class="useroptionb">
+<div class="optiona">ADVANCE ORDER</div>
+			<div class="abn"></div>
+			<div class="aba"></div>  
+			<div class="abs">결제정보</div>
+			<div class="abc">결제방법선택</div>
 
-	
-	<h1>결제정보</h1>
+	<h1></h1>
 	<f:form method="post" action="payment.do" commandName="orders">
 	<fieldset>
-	<legend>결제방법선택</legend>
 	
 	<!-- html 시작 -->
 	일반결제 :
@@ -17,29 +24,12 @@
 			onclick="div_OnOff(this.value,'${payKinds.payCode }');">${payKinds.payType }
 				<%-- <input type="hidden" name="payType" value="${payKinds.payType }" > --%>
 	</c:forEach>
-	<%-- <c:forEach var="payKinds" items="${payKind }" varStatus="status" end="0">
-		<input type="radio" name="payCode" value="${payKinds.payCode }" 
-			checked="checked" onclick="div_OnOff(this.value,'${payKinds.payCode }');">${payKinds.payType }
-	</c:forEach>
-	<c:forEach var="payKinds" items="${payKind }" varStatus="status" begin="1">
-		<input type="radio" name="payCode" value="${payKinds.payCode }" 
-			onclick="div_OnOff(this.value,'${payKinds.payCode }');">${payKinds.payType }
-	</c:forEach> --%>
-
 	<div id="1" style="display: block">
 		카드구분 : 
 		<c:forEach var="cardSections" items="${cardSection }" >
 			<input type="radio" name="cardSectionCode" value="${cardSections.cardSectionCode }" 
 				onclick="div_OnOff2(this.value,'${cardSections.cardSectionCode }+10');">${cardSections.cardSectionType }
 		</c:forEach>
-		<%-- <c:forEach var="cardSections" items="${cardSection }" varStatus="status" end="0">
-			<input type="radio" name="cardsection" value="${cardSections.cardSectionCode }" 
-				checked="checked" onclick="div_OnOff2(this.value,'${cardSections.cardSectionCode }+10');">${cardSections.cardSectionType }
-		</c:forEach>
-		<c:forEach var="cardSections" items="${cardSection }" varStatus="status" begin="1">
-			<input type="radio" name="cardsection" value="${cardSections.cardSectionCode }" 
-				onclick="div_OnOff2(this.value,'${cardSections.cardSectionCode }+10');">${cardSections.cardSectionType }
-		</c:forEach> --%>
 		
 		<div id="11" style="display: block">카드종류 : 
 			<select name="cardCode" id="selectBox"  title="cardKind">
@@ -86,15 +76,6 @@
 			<input type="radio" name="saveCode" value="${cashReceiptRequestInfoSaves.saveCode }" 
 				onclick="div_OnOff3(this.value,'${cashReceiptRequestInfoSaves.saveCode }');">${cashReceiptRequestInfoSaves.saveType }
 		</c:forEach>
-	<%-- 	<c:forEach var="cashReceiptRequestInfoSaves" items="${cashReceiptRequestInfoSave }" varStatus="status" end="0">
-			<input type="radio" name="saveCode" value="${cashReceiptRequestInfoSaves.saveCode }" 
-				checked="checked" onclick="div_OnOff3(this.value,'${cashReceiptRequestInfoSaves.saveCode }');">${cashReceiptRequestInfoSaves.saveType }
-		</c:forEach>
-		<c:forEach var="cashReceiptRequestInfoSaves" items="${cashReceiptRequestInfoSave }" varStatus="status" begin="1">
-			<input type="radio" name="saveCode" value="${cashReceiptRequestInfoSaves.saveCode }" 
-				onclick="div_OnOff3(this.value,'${cashReceiptRequestInfoSaves.saveCode }');">${cashReceiptRequestInfoSaves.saveType }
-		</c:forEach>
- --%>		
 		
 			<div id="T" style="display: block">
 				공제용도 : 
@@ -102,14 +83,6 @@
 					<input type="radio" name="deductionCode" value="${deductions.deductionCode }" 
 						onclick="div_OnOff4(this.value,'${deductions.deductionCode }+100');">${deductions.deductionName }
 				</c:forEach>
-				<%-- <c:forEach var="deductions" items="${deduction }" varStatus="status" begin="1" end="1">
-					<input type="radio" name="deduction" value="${deductions.deductionCode }" 
-						checked="checked" onclick="div_OnOff4(this.value,'${deductions.deductionCode }+100');">${deductions.deductionName }
-				</c:forEach>
-				<c:forEach var="deductions" items="${deduction }" varStatus="status" begin="2" >
-					<input type="radio" name="deduction" value="${deductions.deductionCode }" 
-						onclick="div_OnOff4(this.value,'${deductions.deductionCode }+100');">${deductions.deductionName }
-				</c:forEach> --%>
 				
 				<div id="101" style="display: block">신청수단 : 
 					<select id="selectBoxValue" name="wayCode" title="cashReceiptRequestWay" >
@@ -124,10 +97,6 @@
 					<select id="selectBoxValue" name="wayCode" title="cashReceiptRequestWay" >
 						<c:forEach var="requestWay" items="${cashReceiptRequestWay }" varStatus="status" begin="1" end="4">
 						
-						<%--	<option value="${requestWay.wayCode }">${requestWay.wayType }</option>
-						 </c:forEach>
-						<c:forEach var="requestWay" name="wayCode" items="${cashReceiptRequestWay }" 
-										varStatus="status" begin="3" end="4"> --%>
 							<c:if test="${status.index!=2 }">		
 							  <option value="${requestWay.wayCode }">${requestWay.wayType }</option>
 							</c:if>
@@ -143,14 +112,6 @@
 					<input type="radio" name="deductionCode" value="${deductions.deductionCode }" 
 						onclick="div_OnOff4(this.value,'${deductions.deductionCode }+100');">${deductions.deductionName }
 				</c:forEach>
-				<%-- <c:forEach var="deductions" items="${deduction }" varStatus="status" begin="1" end="1">
-					<input type="radio" name="deduction" value="${deductions.deductionCode }" 
-						checked="checked" onclick="div_OnOff4(this.value,'${deductions.deductionCode }+100');">${deductions.deductionName }
-				</c:forEach>
-				<c:forEach var="deductions" items="${deduction }" varStatus="status" begin="2" >
-					<input type="radio" name="deduction" value="${deductions.deductionCode }" 
-						onclick="div_OnOff4(this.value,'${deductions.deductionCode }+100');">${deductions.deductionName }
-				</c:forEach> --%>
 				
 				<div id="101" style="display: block">신청수단 : 
 					<select id="selectBoxValue" name="wayCode" title="cashReceiptRequestWay" >
@@ -165,10 +126,6 @@
 					<select id="selectBoxValue" name="wayCode" title="cashReceiptRequestWay" >
 						<c:forEach var="requestWay" items="${cashReceiptRequestWay }" varStatus="status" begin="1" end="4">
 						
-						<%--	<option value="${requestWay.wayCode }">${requestWay.wayType }</option>
-						 </c:forEach>
-						<c:forEach var="requestWay" name="wayCode" items="${cashReceiptRequestWay }" 
-										varStatus="status" begin="3" end="4"> --%>
 							<c:if test="${status.index!=2 }">		
 							  <option value="${requestWay.wayCode }">${requestWay.wayType }</option>
 							</c:if>
@@ -197,12 +154,15 @@
 							<input name="payAgreement3" type="checkbox" id="agreement3">위 상품의 판매정보를 명확히 확인하였으며 구매진행에 동의합니다
 	</div>
 		<p>
-				<input type="reset" value="재입력"/>
-				<input type="button" onclick="javascript:history.back(-1)" value="이전"/>
-				<input type="submit" value="다음"/>
+				<input type="reset" value="재입력" class="ased" style="font-weight:bold"/>
+				<input type="button" onclick="javascript:history.back(-1)" value="이전" class="aseda" style="font-weight:bold"/>
+				<input type="submit" value="다음" class="aseda" style="font-weight:bold"/>
 				</p>
 	</fieldset>
 	</f:form>
 
 <script type="text/javascript"></script>
 <script src="resources/script/advanceOrder.js"></script>
+</div> 
+</div>
+</div>
