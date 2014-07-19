@@ -4,13 +4,12 @@
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<h1>예약주문페이지</h1>
+예약주문페이지
 <f:form action="orderDetail.do" method="post">
 	<div id="choiceItem"></div>
 	<div id="choiceItem2"></div>
 	<input type="submit" value="다음">
 </f:form>
-<br>
 
 <style type="text/css">
 .dragCream,.dragTop {
@@ -52,18 +51,19 @@
 	background-color: #e1b992;
 	color: White;
 	width: 50%;
-	height: 200px;
+	height: 50%,100px;
 	margin: 3px;
 	padding: 10px;
 	border-radius: 2em;
 }
 
 #itemBasket {
+	float: right;
 	background-color: skyblue;
 	color: White;
 	width: 50%;
-	height: 200px;
-	margin: 300px;
+	height: 100%;
+	margin: 3px;
 	padding: 10px;
 	border-radius: 2em;
 }
@@ -76,23 +76,39 @@
 .testDiv {
 	color: black;
 }
+
+#sizeL{
+	width: 60px;
+	height: 60px;
+	right: 20%;
+}
+#sizeM{
+	width: 50px;
+	height: 50px;
+	right: 53%;
+}
+#sizeS{
+	width: 40px;
+	height: 40px;
+	right: 80%;
+}
+
+.sizeRadio{
+	position: relative;
+	width: 200px;
+	height: 50px;
+}
+.sizeImgRadio{
+	position: absolute;
+	bottom: 0;
+}
+
+
 </style>
 
 <div id="how">
-	<div class="sizeRadio">
-		<span>1호<input type="radio" name="size" value="S"></span>
-		<span>2호<input type="radio" name="size" value="M"></span>
-		<span>3호<input type="radio" name="size" value="L"></span>
 		
-	</div>
-	<div class="drop" id="dropCream" style="position: relative;">
-		<div style="clear: both;">
-			<p>크림을 선택해 주세요♥</p>
-		</div>
-	</div>
-	
 	<div id="itemBasket">
-	
 		<div class="dragCream" id="f"><img id="1" class="dragImg" usemap="#mapF.png" src="/CShop/resources/img/cake/CreamF.png"></div>
 		<div class="dragCream" id="c"><img id="2" class="dragImg" usemap="#mapC.png" src="/CShop/resources/img/cake/CreamC.png"></div>
 
@@ -106,7 +122,25 @@
 		<div class="dragTop" id="g1"><img id="G" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
 		<div class="dragTop" id="g2"><img id="G" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
 		<div class="dragTop" id="g3"><img id="G" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
-		
+	</div>
+	
+	<div class="sizeRadio">
+		<input type="radio" name="size" style="display:none" value="S">
+		<input type="radio" name="size" style="display:none" value="M">
+		<input type="radio" name="size" style="display:none" value="L">
+
+		<img src="/CShop/resources/img/cake/L1.png" id="sizeL" class="sizeImgRadio"
+		onClick="document.getElementsByName('size')[0].checked=true; setImageRadio();" alt="큰 케익">
+		<img src="/CShop/resources/img/cake/M1.png" id="sizeM" class="sizeImgRadio"
+		onClick="document.getElementsByName('size')[1].checked=true; setImageRadio();" alt="중간 케익">
+		<img src="/CShop/resources/img/cake/S1.png" id="sizeS" class="sizeImgRadio"
+		onClick="document.getElementsByName('size')[2].checked=true; setImageRadio();" alt="작은 케익">
+	</div>
+
+	<div class="drop" id="dropCream" style="position: relative;">
+		<div style="clear: both;">
+			<p>크림을 선택해 주세요♥</p>
+		</div>
 	</div>
 	
 	<div class="drop" id="dropTop" style="position: relative;">
@@ -165,8 +199,23 @@
 		});
 		
 		
+
+		
+		
 	});
 </script>
+<script>
+		function setImageRadio(){
+		document.getElementById('sizeL').src=
+		(document.getElementsByName('size')[0].checked==true)?"/CShop/resources/img/cake/L2.png":"/CShop/resources/img/cake/L1.png";
+
+		document.getElementById('sizeM').src=
+		(document.getElementsByName('size')[1].checked==true)?"/CShop/resources/img/cake/M2.png":"/CShop/resources/img/cake/M1.png";
+
+		document.getElementById('sizeS').src=
+		(document.getElementsByName('size')[2].checked==true)?"/CShop/resources/img/cake/S2.png":"/CShop/resources/img/cake/S1.png";
+		}
+</script> 
 
 <map name="mapS.png"><area shape="circle" coords="280,280,280" href="" target="" alt="딸기" /></map>
 <map name="mapB.png"><area shape="circle" coords="280,280,280" href="" target="" alt="바나나" /></map>
