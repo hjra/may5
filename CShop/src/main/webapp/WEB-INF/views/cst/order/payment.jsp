@@ -56,62 +56,70 @@
 			<span><input type="password" name="" ></span>
 		</div>
 	</c:when>
+	
 	<c:when test="${orders.payType == '계좌이체'}">
-	계좌이체..
-		<div class="">
-			<span class=""><label for="">주문상품</label></span>
+	<div class="payTypea">
+	<div class="abcc">계좌이체..</div>
+		<div class="pTa">
+			<span class="name"><label>주문상품</label></span>
+			<span><input type="text"></span>
+		</div>
+		<div class="pTa">
+			<span class="name"><label>상품금액</label></span>
 			<span><input type="text" name="" value=""></span>
 		</div>
-		<div class="">
-			<span class=""><label for="">상품금액</label></span>
-			<span><input type="text" name="" value=""></span>
+		<div class="pTa">
+			<span class="name"><label>계좌번호</label></span>
+			<span><input type="text" name="('-'없이)"> </span>
 		</div>
-		<div class="">
-			<span class=""><label for="">계좌번호</label></span>
-			<span><input type="text" name=""> ('-'없이)</span>
+		<div class="pTd">
+			<span class="nameac"><label>계좌비밀번호</label></span>
+			<span><input type="password" name="4자리"> </span>
 		</div>
-		<div class="">
-			<span class=""><label for="">계좌비밀번호</label></span>
-			<span><input type="password" name=""> 4자리</span>
+		<div class="pTee">
+			<span class="nameas"><label>주민번호</label></span>
+			<span><input type="text" > - <input type="text" ></span>
 		</div>
-		<div class="">
-			<span class=""><label for="">주민번호</label></span>
-			<span><input type="text" name=""> - <input type="text" name=""></span>
 		</div>
 	</c:when>
+	
 	<c:when test="${orders.payType == '휴대폰 소액결제'}">
-	휴대폰 소액결제
-		<div class="">
-			<span class=""><label for="">상품명</label></span>
+	<div class="useroptionba">
+	<div class="payTypeb">
+	<div class="abcq">휴대폰 소액결제</div>
+		<div class="paa">
+			<span class="nvme"><label for="">상품명</label></span>
 			<span><input type="text" name=""></span>
 		</div>
-		<div class="">
-			<span class=""><label for="">결제금액</label></span>
+		<div class="paa">
+			<span class="nvme"><label for="">결제금액</label></span>
 			<span><input type="text" name=""></span>
 		</div>
-		<div class="">
-			<span class=""><label for="">결제일시</label></span>
+		<div class="paa">
+			<span class="nvme"><label for="">결제일시</label></span>
 			<span><input type="text" name=""></span>
 		</div>
-		<div class="">
-			<span class=""><label for="">이동통신사</label></span>
-			<span>
+		<div class="pad">
+			<span class="nameac"><label for="">이동통신사</label></span>
+			<span class="nameaca">
 				<c:forEach var="telecoms" items="${telecoms }">
 					<input type="radio" value="${telecoms.telecomCode }">${telecoms.telecomName }
 				</c:forEach>
 			</span>
 		</div>
-		<div class="">
-			<span class=""><label for="">휴대폰번호</label></span>
+		<div class="paee">
+			<span class="nameac"><label for="">휴대폰번호</label></span>
 			<span><input type="tel" name=""></span>
 		</div>
-		<div class="">
-			<span class=""><label for="">주민번호</label></span>
+		<div class="paae">
+			<span class="nvmee"><label for="">주민번호</label></span>
 			<span><input type="text" name=""> - <input type="text" name=""></span>
 		</div>
-		<div class="">
-			<span class=""><label for="">결제알림이메일</label></span>
+		<div class="paeee">
+			<span class="nameas"><label for="">결제알림이메일</label></span>
 			<span><input type="email" name=""></span>
+		</div>
+		</div>
 		</div>
 	</c:when>
 </c:choose>
