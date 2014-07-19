@@ -90,11 +90,11 @@
 
         <ul>
             <!-- 게시판 제목 -->
-            <li>게시판 Title </li>
+            <li>관리자 게시판 Title </li>
 
             <!-- 게시판 목록  -->
             <li>
-                Table
+                
                 <ul id ="ulTable">
                     <li>
                         <ul>
@@ -118,7 +118,7 @@
                             <li style="text-align: center;">${board.boardCode}</li>
                             
                             <li class="left">
-                            <f:form action="boardEdit.do" method="post" commandName="qnA">
+                            <f:form action="managerEditQnA.do" method="post" commandName="qnA">
 							<input type="submit" name="boardTitle" value="${board.boardTitle}">
 								<input type="hidden" name="boardCode" value="${board.boardCode}">
 								<input type="hidden" name="postPassword" value="${board.postPassword}">
@@ -143,18 +143,7 @@
                                                            
                 </ul>
             </li>
-            <%-- <li>
-            	<tr>
-				<td></td>
-				<td><input type="hidden" name="cstId" value="${board.cstId}">
-				<input type="button" onclick="document.location='boardWriteForm.do'" value="글쓰기" class="redBtn"></td>
-				<td></td>
-				<td align="left">
-				<td></td>
-					
-				</tr>
-            </li> --%>
-            
+          
             
             
 <!--게시판 페이징 영역 -->

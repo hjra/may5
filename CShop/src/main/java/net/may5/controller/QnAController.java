@@ -157,7 +157,7 @@
 			return "cst/membership/boardEdit";
 	
 		}
-	
+		
 		
 		
 		/*관리자페이지경로설정*/
@@ -169,18 +169,46 @@
 			return "mng/cstInfo/managerQnA";
 		}
 		
-		/*//로그인후 MYC#에서 QnA게시판으로 이동하는 컨트롤러
-			@RequestMapping(value= "board.do", method=RequestMethod.GET)
-			public String qnaGetList(Model model){
-				model.addAttribute("qnaList2", qnaService.qnaGetList2());
-				return "cst/membership/board";
-				
-			}*/
 		
-		
-		@RequestMapping(value="managerEditQnA.do")
-		public String managerEditQnA(Model model){
+		@RequestMapping(value="managerEditQnA.do", method=RequestMethod.POST)
+		public String managerEditQnA(Model model, @RequestParam int boardCode){
+			
+			model.addAttribute("qnaContent", qnaService.getQnAContent(boardCode));
+			model.addAttribute("boardReply", qnaService.getQnAContentReplies(boardCode));
+			model.addAttribute("boardCode",boardCode);
+			
 			return "mng/cstInfo/managerEditQnA";
 		}
-		
+		/*관리자 댓글을 입력해주는 컨트롤러*/
+		@RequestMapping(value = "mngreplyProc.do", method=RequestMethod.POST)
+		public String mngreplyProc(QnA qna, @RequestParam int boardCode,
+				BindingResult result, Model model) 
+		{
+			//DB에 저장시켜주는 변수들
+			qnaService.mngReply(qna);
+			System.out.println("관리자 댓글입력 나가신다~ ");
+			model.addAttribute("qnaContent", qnaService.getQnAContent(boardCode));
+			model.addAttribute("boardReply", qnaService.getQnAContentReplies(boardCode));
+			return "mng/cstInfo/managerEditQnA";
+		}
+			//관리자가 해당게시글 수정폼으로 이동
+				@RequestMapping(value = "mngUpdateForm.do", method = RequestMethod.POST)
+						public String mngUpdateForm(Model model, int boardCode) {
+								
+								QnA qna = qnaService.getBoard(boardCode);
+								model.addAttribute("QnA", qna);
+								return "mng/cstInfo/managerUpdateForm";
+						}
+				//게시글 수정
+				@RequestMapping(value = "mngboardUpdate.do", method = RequestMethod.POST)
+				public String mngboardUpdate(HttpServletRequest request, Model model) {
+					
+					QnA qna = new QnA();
+					qna.setBoardCode(Integer.parseInt(request.getParameter("boardCode")));
+					qna.setBoardTitle(request.getParameter("boardTitle"));
+					qna.setPostContents(request.getParameter("postContents"));
+					qnaService.updateBoard(qna);
+					model.addAttribute("qnaList2", qnaService.qnaGetList2());
+					return "mng/cstInfo/managerQnA";
+				}
 	}

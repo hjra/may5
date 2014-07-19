@@ -19,6 +19,7 @@ public interface QnAMapper {
 	void updateBoard(QnA qna); 
 	QnA getBoard(int boardCode);
 	public void setReply(QnA qna);
+	public void mngReply(QnA qna);
 	public QnA getQnAContent(int boardCode);
 	public List<QnA> getQnAContentReplies(int boardCode);
 }

@@ -82,9 +82,7 @@ public class OrderController {
 		System.err.println("advanceOrderPayment.do");
 		System.err.println(cstId);
 		model.addAttribute("orders", orders);
-		
 		System.err.println("orders에서 담겨넘어온 내용 : "+orders);
-		
 		model.addAttribute("payKind", orderService.getPayKind());
 		model.addAttribute("cardSection", orderService.getCardSection());
 		model.addAttribute("cashReceiptRequestInfoSave", orderService.getCashReceiptRequestInfoSave());
