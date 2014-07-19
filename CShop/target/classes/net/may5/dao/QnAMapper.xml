@@ -51,6 +51,10 @@ ORDER 	BY Q.boardCode DESC
 	</insert>
 <!-- 사용자가 입력하는 qnaReply만을 컨트롤러에서 set을 해준다 -->
 
+<insert id="mngReply" parameterType="net.may5.dto.QnA">
+		insert into QnAcomment(boardCode, replyCode, qnaReply, replyDate, cstCode)
+		values(#{boardCode}, RLY.nextval, #{qnaReply}, sysDate, 0)
+	</insert>
 
 
 <select id="qnaGetContents" resultType="QnA"> <!-- resultType는 DTO이름  -->

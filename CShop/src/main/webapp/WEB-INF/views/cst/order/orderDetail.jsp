@@ -3,35 +3,40 @@
 <%@ page session="true" %>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+ 
 <link href="/CShop/resources/css/orderDetail.css" rel="stylesheet">
-
-<h1>회원수취정보</h1>
-
-<p><strong>*</strong>는 필수입력 항목입니다</p>
-
+<div class="useroption">
+<div class="useroptiona">
+<div class="useroptionb">
+<div class="optiona">ADVANCE ORDER</div>
+			<div class="abn"></div>
+			<div class="aba">회원수취정보</div> 
+			<div class="abs">*는 필수입력 항목입니다</div>
+			<div class="abc">선물하기 - 옵션</div>
 <f:form action="orderReceiverInfo.do" method="post" commandName="orders">
-	<fieldset>
-		<legend>선물하기 - 옵션</legend>
-			<table border="1"  summary="옵션정보입력">
-				<caption>옵션 선택</caption>
+	<fieldset>  
+			<table border="1" style="" summary="옵션정보입력">
 				<colgroup>
-					<col style="width: 200px"/>
-					<col style="width: 500px"/>
+					<col style="width: 150px"/> 
+					<col style="width: 370px"/> 
 				</colgroup>
-				<tbody>
+				<tbody> 
 					<tr>
-						<th scope="row"><label for="orderAmount"><strong>*</strong>케이크 수량</label></th>
+						<th scope="row"><label for="orderAmount">*케이크 수량</label></th>
 						<td>
-							<input type="number" min="1" max="10" step="1"  name="orderAmount" required="required">
+							<input type="number" min="1" max="10" step="1"  name="orderAmount" required="required"  class="dfds">
 						</td>
 					</tr>
 					<tr>
 						<th scope="row"><label for=""><strong>*</strong>옵션선택</label></th>
 						<td>
 							<c:forEach var="optionChoose" items="${optionPrice }" end="5">
-								<input type="radio" value="${optionChoose.optionType }" 
-										name="optionType" required="required"> ${optionChoose.optionType } ${optionChoose.optionPrice }원<br>
+								<input type="radio" value="${optionChoose.optionCode }" name="optionCode" required="required">
+									${optionChoose.optionType } ${optionChoose.optionPrice }원<br>
+								<%-- <c:if test="${optionChoose.optionCode == 0 }">
+									<input type="hidden" value="${optionChoose.optionType }" name="optionType">
+								</c:if> --%>
+								
 							</c:forEach>
 							
 						</td>
@@ -40,26 +45,33 @@
 					<tr>
 						<th scope="row"><label for="cardMessage">카드문구</label></th>
 						<td>
-							<input type="text" name="cardMessage" placeholder="ex)생일축하합니다" />
+							<input type="text" name="cardMessage" placeholder="ex)생일축하합니다" class="dfds"/>
 						</td>
 					</tr>
+					<!-- <tr>
+						<th scope="row"><label for="fu">동영상 추가</label></th>
+						<td>
+							<input type="file" />
+						</td>
+					</tr> -->
 				</tbody>
 			</table>
-			<p>
-				<input type="reset" value="재입력"/>
-				<input type="button" onclick="javascript:history.back(-1)" value="이전"/>
+			<div class="asdfd">
+				<input type="reset" value="재 입 력" class="ased" style="font-weight:bold" />
+				<input type="button" onclick="javascript:history.back(-1)" value="이전" class="aseda" style="font-weight:bold"/> 
 					<c:choose>
-						<c:when test="${sessionScope.cstLogin.cstId == null}">
+						<c:when test="${sessionScope.cstLogin.cstId == null}">  
 							<input type="hidden" value="${sessionScope.cstLogin.cstId}" name="cstId">
 						</c:when>
 						<c:otherwise>
 							<input type="hidden" value="${sessionScope.cstLogin.cstId}" name="cstId">
 						</c:otherwise>
 					</c:choose>
-				<input type="submit" value="다음">
+				<input type="submit" value="다음"  class="aseda" style="font-weight:bold">
 					
-			</p>
+			</div>
 	</fieldset>
 </f:form>
-
-
+</div>
+</div>
+</div>
