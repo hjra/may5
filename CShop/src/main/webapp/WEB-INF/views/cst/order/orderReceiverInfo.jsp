@@ -4,12 +4,17 @@
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<link href="/CShop/resources/css/orderDetail.css" rel="stylesheet">
-
-<br><br><br><br><br><br>
-<p><strong>*</strong>는 필수입력 항목입니다</p>
+<link href="/CShop/resources/css/orderReceiver.css" rel="stylesheet">
+<div class="useroption">
+<div class="useroptiona">
+<div class="useroptionb">
+<div class="optiona">ADVANCE ORDER</div>
+			<div class="abn"></div>
+			<div class="aba"></div>  
+			<div class="abs">*는 필수입력 항목입니다</div>
+			<div class="abc">여기는 모지?</div>
 <f:form action="advanceOrderPayment.do" method="post" commandName="orders" onkeypress="return event.keyCode!=13">
-	<div class="od">
+	<div class="od"> 
 		<div class="odDlvInfoYn">
 			<span><label for="dlvinfoyn"><strong>*</strong>배송 여부</label></span>
 			<span>
@@ -23,22 +28,21 @@
 		<c:choose>
 			<c:when test="${sessionScope.cstLogin.cstId == null }">
 				<div class="odName">
-					<span class="name"><label for="receiverName"><strong>*</strong>이름</label></span>
-					<span><input type="text" name="receiverName" placeholder="ex)홍명보" /></span>
+					<div class="name"><label for="receiverName">*이름</label></div>
+					<div class="namee"><input type="text" name="receiverName" placeholder="ex)홍명보" /></div>
 				</div>
-			</c:when>
+			</c:when> 
 			<c:otherwise>
 				<div class="orinfoyn">
-					<span><label for="orinfoyn"><strong>*</strong>기존정보 사용여부</label></span>
-					<span>
-						<input type="radio" value="uy" name="receive"   checked="checked" 
+					<label for="orinfoyn"><strong>*</strong>기존정보 사용여부</label></div>
+					<input type="radio" value="uy" name="receive"   checked="checked" 
 								onclick="location.href='cstExistingInfo.do?cstId=${sessionScope.cstLogin.cstId}'"/>기존정보사용
 						<input type="radio" value="un" name="receive"  />새로입력
-					</span>
+					 </div>
 				</div>
 				<div class="odName">
 					<span><label for="name"><strong>*</strong>이름</label></span>
-					<span><input type="text" name="receiverName" placeholder="ex)홍명보"  value="${cstExistingInfo.cstName}"/></span>
+					<span><input type="text" id="receiverName" placeholder="ex)홍명보"  value="${cstExistingInfo.cstName}"/></span>
 				</div>
 			</c:otherwise>
 		</c:choose>
@@ -46,13 +50,13 @@
 	<div class="od">
 		<div class="odCp">
 			<span><label for="receiverCP"><strong>*</strong>휴대전화번호</label></span>
-			<span><input type="tel" name="receiverCP" placeholder="ex)01098765432" value="${cstExistingInfo.cstCP}"/></span>
+			<span><input type="tel" id="receiverCP" placeholder="ex)01098765432" value="${cstExistingInfo.cstCP}"/></span>
 		</div>
 	</div>
 	<div class="od">
 		<div class="odEmail">
-			<span><label for="receiverEmail">이메일</label></span>
-			<span><input type="email" name="receiverEmail" placeholder="ex)id@domain.com" value="${cstExistingInfo.cstEmail}"/></span>
+			<span><label for="email">이메일</label></span>
+			<span><input type="email" id="email" placeholder="ex)id@domain.com" value="${cstExistingInfo.cstEmail}"/></span>
 		</div>
 	</div>
 	
@@ -123,28 +127,29 @@
 		</c:choose>
 	</div>
 	<div class="od">
-		<div class="odCp">
-			<span><label for="receiverCP"><strong>*</strong>휴대전화번호</label></span>
+		<div class="odCp"> 
+			<span class="nameaa"><label for="receiverCP">*휴대전화번호</label></span>
 			<span><input type="tel" id="receiverCP" placeholder="ex)01098765432"  value="${cstExistingInfo.cstCP}"/></span>
 		</div>
 	</div>
 	<div class="od">
 		<div class="odEmail">
-			<span><label for="receiverEmail">이메일</label></span>
-			<span><input type="email" name="receiverEmail" placeholder="ex)id@domain.com" value="${cstExistingInfo.cstEmail}"/></span>
+			<span class="nameab"><label for="email">이메일</label></span>
+			<span><input type="email" id="email" placeholder="ex)id@domain.com" value="${cstExistingInfo.cstEmail}"/></span>
 		</div>
+	</div>  
 	</div>
-	</div>
-		<input type="hidden" value="${orders.orderAmount }" name="orderAmount">
-		<input type="hidden" value="${orders.optionType }" name="optionType">
-		<input type="hidden" value="${orders.cardMessage }" name="cardMessage">
-	<div>
-			<input type="reset" value="재입력"/>
-			<input type="button" onclick="javascript:history.back(-1)" value="이전"/>
-			<input type="submit" value="다음"/>
-	</div>
+<div class="adf">
+			<input type="reset" value="재입력" class="ased" style="font-weight:bold" />
+			<input type="button" onclick="javascript:history.back(-1)" value="이전" class="aseda" style="font-weight:bold"/>
+			<input type="submit" value="다음" class="aseda" style="font-weight:bold"/>
+</div>
 	
 </f:form>
 
 <script src="resources/script/advanceOrder.js"></script>
 <script type="text/javascript"></script>
+
+</div> 
+</div>
+</div>
