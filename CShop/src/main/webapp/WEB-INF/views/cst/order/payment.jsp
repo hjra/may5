@@ -8,6 +8,16 @@
 
 <h1>결제결제결제</h1>
 
+<div class="useroption">
+<div class="useroptiona">
+<div class="useroptionb">
+<div class="optiona">ADVANCE ORDER</div>
+			<div class="abn"></div>
+			<div class="aba"></div>  
+			<div class="abs">*는 필수입력 항목입니다</div>
+			<div class="abc">결제정보</div>
+
+
 <f:form action="paymentOk.do" method="post" commandName="orders">
 
 <c:choose>
@@ -116,6 +126,9 @@
 		<input type="submit" value="다음"/>
 	</p>
 </f:form>
+</div>
+</div>
+</div>
 
 
 <script type="text/javascript"></script>
