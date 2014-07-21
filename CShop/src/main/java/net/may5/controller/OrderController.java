@@ -52,7 +52,6 @@ public class OrderController {
 	public String orderReceiverInfo( Model model, Orders orders, String cstId ){
 		model.addAttribute("orders", orders);
 		System.err.println("orders에서 담겨넘어온 내용 : "+orders);
-
 		model.addAttribute("cstExistingInfo",orderService.getCstExistingInfo(cstId));
 		return "cst/order/orderReceiverInfo";
 	}
@@ -74,7 +73,6 @@ public class OrderController {
 	/* 기존정보사용*/
 	@RequestMapping("cstExistingInfo.do")
 	public String cstExistingInfo( Model model ){
-		
 		return "cst/order/orderReceiverInfo";
 	}
 	
@@ -83,11 +81,8 @@ public class OrderController {
 	public String advanceOrderPayment( Model model, Orders orders, String cstId, String dlvwarn ){
 		System.err.println("advanceOrderPayment.do");
 		System.err.println(cstId);
-		
 		model.addAttribute("orders", orders);
-		
 		System.err.println("orders에서 담겨넘어온 내용 : "+orders);
-		
 		model.addAttribute("payKind", orderService.getPayKind());
 		model.addAttribute("cardSection", orderService.getCardSection());
 		model.addAttribute("cashReceiptRequestInfoSave", orderService.getCashReceiptRequestInfoSave());
@@ -96,7 +91,6 @@ public class OrderController {
 		model.addAttribute("cardKind",orderService.getCardKind());
 		model.addAttribute("installment", orderService.getInstallment());
 		model.addAttribute("cashReceiptRequestWay", orderService.getCashReceiptRequestWay());
-		
 		model.addAttribute("dlvwarn", dlvwarn);
 		
 		

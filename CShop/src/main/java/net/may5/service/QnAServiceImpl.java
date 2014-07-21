@@ -95,6 +95,12 @@ public class QnAServiceImpl implements QnAService {
 		qnamapper.setReply(qna);
 	}
 
+	@Override
+	public void mngReply(QnA qna) {
+		qnamapper.mngReply(qna);
+		
+	}
+
 
 	
 

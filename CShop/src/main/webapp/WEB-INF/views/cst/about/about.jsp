@@ -316,7 +316,7 @@ function callNumber(num){
 		</div></li><li id="_20140612"><span>12</span><div class="events">
 		</div></li><li id="_20140613"><span>13</span><div class="events">
 		</div></li><li id="_20140614"><span style="color: #00F">14</span>
-		<div class="events"><img onclick="location.href='menuInfo.do?itemId=L2GGB'" src="/CShop/resources/img/cake/L2GGB1.png" alt="대표이미지" style="width: 60px; ">
+		<div class="events"><img onclick="location.href='menuInfo.do?itemId=S2GGG'" src="/CShop/resources/img/cake/S2GGG1.png" alt="대표이미지" style="width: 60px; ">
 		</div></li><li id="_20140615"><span>15</span>
 		<div class="events"></div></li><li id="_20140616"><span>16</span>
 		<div class="events"></div></li><li id="_20140617"><span>17</span>
@@ -336,7 +336,7 @@ function callNumber(num){
 		<div class="events"></div></li><li id="_20140629"><span>29</span>
 		<div class="events"></div></li><li id="_20140630"><span>30</span>
 		<div class="events"></div></li><li id="_20140631"><span>31</span>
-		<div class="events"><img onclick="location.href='menuInfo.do?itemId=S2SBG'" src="/CShop/resources/img/cake/S2SBG1.png" alt="대표이미지" style="width: 60px; ">
+		<div class="events"><img onclick="location.href='menuInfo.do?itemId=S1BGS'" src="/CShop/resources/img/cake/S1BGS1.png" alt="대표이미지" style="width: 60px; ">
 		</div></li><li id="_20140701" class="inactive">1</li>
 		<li id="_20140702" class="inactive">2</li>
 		<li id="_20140703" class="inactive">3</li>
