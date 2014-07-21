@@ -32,5 +32,5 @@ body, html { margin: 0; padding: 0; }
   #master-header menu#gnb > li div.submenu menu li:first-child { border: none; }
   #master-header menu#gnb > li div.submenu menu li:hover { background: #f7b8a8; }
   #master-header menu#gnb > li#desktop-logo { display: none; }
-  #master-header menu#gnb.active { height: 540px; padding: 20px 40px 20px 40px; } }
+  #master-header menu#gnb.active { height: 660px; padding: 20px 40px 20px 40px; } }
 
