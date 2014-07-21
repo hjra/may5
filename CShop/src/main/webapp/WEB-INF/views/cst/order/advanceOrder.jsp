@@ -68,9 +68,6 @@
 	<div style="clear: both">&nbsp;</div>
 </div>
 
-
-
-
 <map name="mapS.png"><area shape="circle" coords="280,280,280" href="" target="" alt="딸기" /></map>
 <map name="mapB.png"><area shape="circle" coords="280,280,280" href="" target="" alt="바나나" /></map>
 <map name="mapG.png"><area shape="circle" coords="280,280,280" href="" target="" alt="포도" /></map>
