@@ -16,7 +16,6 @@
 	<h1></h1>
 	<f:form method="post" action="payment.do" commandName="orders">
 	<fieldset>
-	
 	<!-- html 시작 -->
 	일반결제 :
 	<c:forEach var="payKinds" items="${payKind }" >
@@ -150,7 +149,10 @@
 							<input name="privacyAgreement3" type="checkbox" id="agreement3">개인정보 제3자 제공 동의하기<br>
 							<input name="payAgreement3" type="checkbox" id="agreement3">위 상품의 판매정보를 명확히 확인하였으며 구매진행에 동의합니다
 	</div>
+<<<<<<< HEAD
+=======
 		<input type="hidden" value="${orders.itemId }" name="itemId">
+>>>>>>> branch 'master' of https://github.com/hjra/may5.git
 		<input type="hidden" value="${orders.orderAmount }" name="orderAmount">
 		<input type="hidden" value="${orders.optionType }" name="optionType">
 		<input type="hidden" value="${orders.cardMessage }" name="cardMessage">
@@ -166,8 +168,11 @@
 		</p>
 	</fieldset>
 	</f:form>
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> branch 'master' of https://github.com/hjra/may5.git
 </div> 
 </div>
 </div>

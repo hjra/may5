@@ -12,7 +12,7 @@
 	<menu>
 		<li>
 			<div class="icon">
-				<span class="glyphicon glyphicon-home"></span>
+				<span class="glyphicon glyphicon-user"></span>
 			</div>
 			<div class="text">
 				<dl>
@@ -26,7 +26,7 @@
 		</li>
 		<li>
 			<div class="icon">
-				<span class="glyphicon glyphicon-heart-empty"></span>
+				<span class="glyphicon glyphicon-tags"></span>
 			</div>
 			<div class="text">
 				<dl>
@@ -36,7 +36,7 @@
 		</li>
 		<li>
 			<div class="icon">
-				<span class="glyphicon glyphicon-heart-empty"></span>
+				<span class="glyphicon glyphicon-gift"></span>
 			</div>
 			<div class="text">
 				<dl>
@@ -48,7 +48,7 @@
 		</li>
 		<li>
 			<div class="icon">
-				<span class="glyphicon glyphicon-heart-empty"></span>
+				<span class="glyphicon glyphicon-shopping-cart"></span>
 			</div>
 			<div class="text">
 				<dl>
@@ -60,7 +60,7 @@
 		</li>
 		<li>
 			<div class="icon">
-				<span class="glyphicon glyphicon-user"></span>
+				<span class="glyphicon glyphicon-stats"></span>
 			</div>
 			<div class="text">
 				<dl>
@@ -74,7 +74,7 @@
 		</li>
 		<li>
 			<div class="icon">
-				<span class="glyphicon glyphicon-user"></span>
+				<span class="glyphicon glyphicon-cog"></span>
 			</div>
 			<div class="text">
 				<dl>
@@ -84,7 +84,7 @@
 		</li>
 		<li>
 			<div class="icon">
-				<span class="glyphicon glyphicon-user"></span>
+				<span class="glyphicon glyphicon-info-sign"></span>
 			</div>
 			<div class="text">
 				<dl>

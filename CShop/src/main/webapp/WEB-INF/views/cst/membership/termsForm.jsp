@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
+<link href="/CShop/resources/css/member/temsForm.css" rel="stylesheet">
 <script type="text/javascript">
 /* checkbox 전체선택, 전체해제 */
 $(document).ready(function(){
@@ -54,7 +55,14 @@ $(document).ready(function(){
     }); 
 });
 </script>
-회원가입 동의폼
+<div class="useroption">
+<div class="useroptiona">
+<div class="useroptionb">
+<div class="optiona">회원가입 동의</div>
+			<div class="abn"></div>
+			<div class="aba"></div> 
+			<div class="abs"></div>
+			<div class="abc"></div>
 	<div>
 	<f:form action="joinForm.do" method="post" commandName="cstEmailAgreement">
 		<div id="checkboxDiv">
@@ -74,7 +82,10 @@ $(document).ready(function(){
 				<input name="cstEmailAgreement" type="hidden" value="F">
 			</div>
 		</div>
-		<input type="submit" value="AGREE">
+		<input type="submit" value="AGREE" class="ased" style="font-weight:bold" >
 	</f:form>
-	<a href="homeImage.do">취소</a>
+	<div class="asdd"><a href="homeImage.do" class="aseda" style="font-weight:bold">CANCEL</a></div>
 	</div>
+</div>
+</div>
+</div>
