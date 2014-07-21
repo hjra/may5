@@ -101,7 +101,6 @@
 			<span><input type="text" id="dlvwarn" name="dlvwarn"/></span>
 		</div>
 	</div>
-	
 	<div id="dn" style="display: block;">
 	<div class="od">
 		<c:choose>
@@ -127,6 +126,7 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
+	
 	<div class="od">
 		<div class="odCp"> 
 			<span class="nameaa"><label for="receiverCP">*휴대전화번호</label></span>
@@ -145,7 +145,10 @@
 			<input type="button" onclick="javascript:history.back(-1)" value="이전" class="aseda" style="font-weight:bold"/>
 			<input type="submit" value="다음" class="aseda" style="font-weight:bold"/>
 	</div>
-	
+		<input type="hidden" value="${orders.orderAmount }" name="orderAmount">
+		<input type="hidden" value="${orders.optionType }" name="optionType">
+		<input type="hidden" value="${orders.cardMessage }" name="cardMessage">
+		<input type="hidden" value="${orders.itemId }" name="itemId">
 </f:form>
 
 </div>

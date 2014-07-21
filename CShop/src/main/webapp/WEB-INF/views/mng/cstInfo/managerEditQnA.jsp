@@ -1,3 +1,25 @@
+<<<<<<< HEAD
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
+<%@ page session="true" %>
+
+<form action = "board.do" method = "post">
+	제목 : <input type = "text" name = "title" size = "20" /><br>
+	작성자 : <input type = "text" name = "writerName" /><br>
+	글 암호 : <input type = "password" name = "password" /><br>
+	글 내용 : <br>
+      <textarea name = "content" cols = "40" rows = "5"></textarea>
+	  <br>
+	<f:form action="board.do" method="Post">
+	<input type="submit" value="게시글올리기">
+	</f:form>
+	<f:form action="board.do" method="Post">
+	<input type="submit" value="삭제">
+	</f:form>	
+	 
+</form>
+=======
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form"%>
@@ -33,13 +55,13 @@
 		
 			
 		
-		
 		<center>
 			<table border="1" width = "600">
 					
 				<tr>
 					<td>제&nbsp;&nbsp;&nbsp;목</td>
-					<td>${qnaContent.boardTitle}</td>
+					<td> ${qnaContent.boardTitle}</td>
+					
 				</tr>
 				<tr>
 					<td>작성자</td>
@@ -48,7 +70,7 @@
 				<tr>
 					
 					<td align="center">글내용</td>
-					<td>${qnaContent.postContents}</td>
+					 <td> <textarea name="content" id="content" rows="13" cols="40" style="width:500px;">${qnaContent.postContents}</textarea> </td>
 				</tr>
 				
 				<tr>
@@ -57,14 +79,18 @@
 				</tr>
 				<tr>
 					<center>
-						<td>
+					<td></td>
+					
+					<td>
+					<center>
 								<form id="GoSelect" method="post">
-									<input type="hidden" name="boardCode" value="${qnaContent.boardCode}" class="redBtn"/> 
+									<input type="hidden" name="boardCode" value="${qnaContent.boardCode}" class="redBtn"> 
 									<input type="button" id="update" onclick="updateGo()" value="수정" class="redBtn" />
 									<input type="button" id="delete" onclick="deleteGo()" value="삭제" class="redBtn" />
-									<!-- <input type="button" value="목록" onclick="document.location='board.do'" class="redBtn" /> -->
-									<input type="button" value="뒤로" onclick="history.back()"/>								
+									<input type="button" value="뒤로" onclick="history.back()"/>
+																	
 								</form>
+					</center>	
 						</td>		
 					</center>
 						
@@ -73,7 +99,6 @@
 			</table>
 			</center>
 		</font>
-		
 		
 	
 		
@@ -147,3 +172,4 @@
 	
 	
 	
+>>>>>>> branch 'master' of https://github.com/hjra/may5.git
