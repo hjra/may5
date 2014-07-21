@@ -28,6 +28,11 @@
 	margin: 10px 2%;
 }
 
+#itemImage{
+	width: 350px;
+	height: 350px;
+}
+
 .selected {
 	/* background-color: white; */
 	/* ie를 제외한 최신 웹브라우저*/
@@ -58,7 +63,7 @@
 	color: White;
 	width: 50%;
 	height: 200px;
-	margin: 3px;
+	margin: 300px;
 	padding: 10px;
 	border-radius: 2em;
 }
@@ -85,12 +90,7 @@
 			<p>크림을 선택해 주세요♥</p>
 		</div>
 	</div>
-	<div class="drop" id="dropTop" style="position: relative;">
-		<div style="clear: both;">
-			<p>토핑을 선택해 주세요♥</p>
-		</div>
-	</div>
-
+	
 	<div id="itemBasket">
 	
 		<div class="dragCream" id="f"><img id="1" class="dragImg" usemap="#mapF.png" src="/CShop/resources/img/cake/CreamF.png"></div>
@@ -108,6 +108,14 @@
 		<div class="dragTop" id="g3"><img id="G" class="dragImg" usemap="#mapG.png" src="/CShop/resources/img/cake/TopG.png"></div>
 		
 	</div>
+	
+	<div class="drop" id="dropTop" style="position: relative;">
+		<div style="clear: both;">
+			<p>토핑을 선택해 주세요♥</p>
+		</div>
+	</div>
+
+	
 
 
 	<div style="clear: both">&nbsp;</div>
@@ -133,17 +141,17 @@
 			$('#choiceItem2').html('');
 			var sizeId = $('input:radio[name=size]:checked').attr('value');
 			var creamId = $('#dropCream > .dragCream > .dragImg').attr('id');
-			alert("선택된 크기: " + sizeId+"\n선택된 크림: " + creamId);
+			/* alert("선택된 크기: " + sizeId+"\n선택된 크림: " + creamId); */
 
 			var topLen = $('#dropTop > .dragTop > .dragImg').length;
-			alert("선택된 토핑 수: " + topLen);
+			/* alert("선택된 토핑 수: " + topLen); */
 
 			var toppingList = $.map($('#dropTop > .dragTop > .dragImg'),function(n, i) {
 				return n.id;
 			});
-			alert("toppingList: " + toppingList);
+			/* alert("toppingList: " + toppingList); */
 			var toppingId = toppingList.sort().join('');
-			alert("배열 join 결과: " + toppingId);
+			/* alert("배열 join 결과: " + toppingId); */
 
 			/* var strId = toppingList.replace(",","");
 			 alert(", 삭제 결과: "+strId); */
