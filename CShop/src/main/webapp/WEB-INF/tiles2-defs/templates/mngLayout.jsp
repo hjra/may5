@@ -9,6 +9,7 @@
 	<meta charset="utf-8">
 	<!-- ie는 기본적으로 Compatible을 정의하지 않으면 낮은 버전으로 에뮬레이션 되어 구동됩니다.  -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=2">
+	<meta name="viewport" content="width=480" />
 	
 	<!-- style -->
 	<link href="/CShop/resources/css/admin-layout.css" rel="stylesheet">
