@@ -75,10 +75,11 @@
 .drop {
 	position:relative;
 	background-image:url("/CShop/resources/img/cake/basket.png");
-	background-size: 400px;
+	background-size: 80%;
+	background-repeat:no-repeat;
 	color: White;
 	width:400px;
-	height: 190px;
+	height: 180px;
 	padding: 10px;
 	border-radius: 2em;
 	margin-top: 20px;
@@ -93,7 +94,12 @@
 }
 
 .active {
-	background-color: #efd59b;
+	/* background-color: #efd59b; */
+	cursor: crosshair;
+}
+.active#dropTop {
+	background-image:url("/CShop/resources/img/cake/basket.png");
+	background-size: 340px;
 	cursor: crosshair;
 }
 
@@ -117,8 +123,8 @@
 
 #creamImg{
 	position:absolute;
-	width: 70px;
-	height: 70px;
+	width: 90px;
+	height: 90px;
 	bottom: 0;
 	left: 250px;
 }

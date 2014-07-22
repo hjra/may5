@@ -40,7 +40,7 @@ $(function () {
 				name : 'grid',
 				header : '주 문 정 보',
 				columns: [
-				           { field: 'orderCode', caption: '번호', size: '80px', resizable: true, sortable: true, editable: { type: 'text' } },
+				         /*  { field: 'orderCode', caption: '번호', size: '80px', resizable: true, sortable: true, editable: { type: 'text' } },*/
 				           { field: 'itemId', caption: '상품ID', size: '80px', resizable: true, sortable: true },
 				           { field: 'itemName', caption: '상품명', size: '50px', resizable: true, sortable: true },
 				           { field: 'optionType', caption: '옵션<br>항목', size: '100px', resizable: true, sortable: true },

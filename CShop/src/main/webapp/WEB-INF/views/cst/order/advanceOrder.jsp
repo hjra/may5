@@ -55,16 +55,9 @@
 			</div>
 		</div>
 	</div>
-
-	
-			
 	<div class="row-fluid">
 		<div class="col-sm-6">
-			<div class="drop" id="dropTop">
-				<div style="clear: both;">
-					<p>토핑을 선택해 주세요♥</p>
-				</div>
-			</div>
+			<div class="drop" id="dropTop"></div>
 		</div>
 		<div class="col-sm-6">
 			<br>
@@ -73,23 +66,7 @@
 					<img id="S" class="dragImg" usemap="#mapS.png"
 						src="/CShop/resources/img/cake/TopS.png">
 				</div>
-				<div class="dragTop" id="s2">
-					<img id="S" class="dragImg" usemap="#mapS.png"
-						src="/CShop/resources/img/cake/TopS.png">
-				</div>
-				<div class="dragTop" id="s3">
-					<img id="S" class="dragImg" usemap="#mapS.png"
-						src="/CShop/resources/img/cake/TopS.png">
-				</div>
 				<div class="dragTop" id="b1">
-					<img id="B" class="dragImg" usemap="#mapB.png"
-						src="/CShop/resources/img/cake/TopB.png">
-				</div>
-				<div class="dragTop" id="b2">
-					<img id="B" class="dragImg" usemap="#mapB.png"
-						src="/CShop/resources/img/cake/TopB.png">
-				</div>
-				<div class="dragTop" id="b3">
 					<img id="B" class="dragImg" usemap="#mapB.png"
 						src="/CShop/resources/img/cake/TopB.png">
 				</div>
@@ -97,9 +74,25 @@
 					<img id="G" class="dragImg" usemap="#mapG.png"
 						src="/CShop/resources/img/cake/TopG.png">
 				</div>
+				<div class="dragTop" id="s2">
+					<img id="S" class="dragImg" usemap="#mapS.png"
+						src="/CShop/resources/img/cake/TopS.png">
+				</div>
+				<div class="dragTop" id="b2">
+					<img id="B" class="dragImg" usemap="#mapB.png"
+						src="/CShop/resources/img/cake/TopB.png">
+				</div>
 				<div class="dragTop" id="g2">
 					<img id="G" class="dragImg" usemap="#mapG.png"
 						src="/CShop/resources/img/cake/TopG.png">
+				</div>
+				<div class="dragTop" id="s3">
+					<img id="S" class="dragImg" usemap="#mapS.png"
+						src="/CShop/resources/img/cake/TopS.png">
+				</div>
+				<div class="dragTop" id="b3">
+					<img id="B" class="dragImg" usemap="#mapB.png"
+						src="/CShop/resources/img/cake/TopB.png">
 				</div>
 				<div class="dragTop" id="g3">
 					<img id="G" class="dragImg" usemap="#mapG.png"
